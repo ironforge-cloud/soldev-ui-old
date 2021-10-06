@@ -3,7 +3,7 @@ const { withSentryConfig } = require("@sentry/nextjs");
 const moduleExports = {
   reactStrictMode: true,
   images: {
-    domains: ["i.ytimg.com", "images.unsplash.com", "solana.com"],
+    domains: ["i.ytimg.com", "images.unsplash.com", "solana.com", "static-cdn.jtvnw.net", "clips-media-assets2.twitch.tv"],
   },
   async redirects() {
     return [

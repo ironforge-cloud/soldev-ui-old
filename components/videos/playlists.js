@@ -53,7 +53,7 @@ export default function Playlists({ playlists }) {
                   <span className="lg:pl-2">Playlist</span>
                 </th>
 
-                <th className="hidden md:table-cell px-3 py-3 border-b border-gray-200 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="hidden md:table-cell px-3 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Platform
                 </th>
                 <th className="hidden md:table-cell px-3 py-3 border-b border-gray-200 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -80,14 +80,21 @@ export default function Playlists({ playlists }) {
                       </Link>
                     </div>
                   </td>
-                  <td className="hidden md:table-cell px-3 py-3 whitespace-nowrap text-sm text-gray-500 text-right">
-                    <div className="flex justify-end items-center space-x-2">
+                  <td className="hidden md:table-cell px-3 py-3 whitespace-nowrap text-sm text-gray-500">
+                    <div className="flex items-center space-x-2">
                       {playlist.Provider === "Youtube" && (
                         <FontAwesomeIcon
                           icon={["fab", "youtube"]}
                           size="2x"
                           color="red"
                         />
+                      )}
+                      {playlist.Provider === "Twitch" && (
+                          <FontAwesomeIcon
+                              icon={["fab", "twitch"]}
+                              size="2x"
+                              color="purple"
+                          />
                       )}
                       <span></span>
                       {playlist.Provider}
