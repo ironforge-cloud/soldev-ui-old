@@ -15,7 +15,7 @@ export default function Promoted() {
                 <PlaceholderSwipper/>
             ) : (
                 <Swiper
-                    spaceBetween={25}
+                    spaceBetween={20}
                     slidesPerView="auto"
                     navigation
                     keyboard
@@ -28,7 +28,7 @@ export default function Promoted() {
                         return (
                             <SwiperSlide
                                 key={content.ID}
-                                style={{width: "360px"}}
+                                style={{width: "320px"}}
                                 virtualIndex={content.ID}
                             >
                                 <MiniCard content={content}/>

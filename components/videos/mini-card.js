@@ -9,8 +9,8 @@ export default function MiniCard({content}) {
                     className="rounded-lg object-cover hover:opacity-85"
                     src={content.Img}
                     alt={content.Title}
-                    width="360"
-                    height="202"
+                    width="321"
+                    height="180"
                     quality="100"
                     placeholder="blur"
                     blurDataURL={content.Img}
