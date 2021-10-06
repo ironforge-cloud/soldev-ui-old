@@ -89,11 +89,11 @@ export default function Playlists({ playlists }) {
                         />
                       )}
                       {playlist.Provider === "Twitch" && (
-                          <FontAwesomeIcon
-                              icon={["fab", "twitch"]}
-                              size="2x"
-                              color="purple"
-                          />
+                        <FontAwesomeIcon
+                          icon={["fab", "twitch"]}
+                          size="2x"
+                          color="purple"
+                        />
                       )}
                       <span></span>
                       {playlist.Provider}
@@ -103,7 +103,7 @@ export default function Playlists({ playlists }) {
                     <span className="lg:pr-3">
                       {/* TODO: Fix LastUpdated */}
                       {/* {playlist.LastUpdated} */}
-                      Oct 3, 2021
+                      Today
                     </span>
                   </td>
                 </tr>
