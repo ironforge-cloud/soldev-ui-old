@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Image from "next/image";
 
 export default function Playlists({ playlists }) {
   return (
