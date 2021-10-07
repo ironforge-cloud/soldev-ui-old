@@ -5,6 +5,7 @@ import { SearchIcon } from "@heroicons/react/solid";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import MobileMenu from "./mobile-menu";
+import LiveBadge from "../videos/live-badge";
 
 const navigation = [
   {
@@ -44,7 +45,7 @@ function Navbar({
             <div className="flex justify-between h-16">
               {/* Logo and Navigation */}
               <div className="flex px-2 lg:px-0">
-                <div className="flex-shrink-0 flex items-center pt-1">
+                <div className="relative flex-shrink-0 flex items-center pt-1">
                   <Image
                     src="/logo.svg"
                     alt="Logo"

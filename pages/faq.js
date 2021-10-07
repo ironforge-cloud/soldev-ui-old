@@ -5,28 +5,23 @@ import MiniSocial from "../components/mini-social";
 const faqs = [
   {
     question: "What is SolDev?",
-    answer: `A place where builders can find and consume knowledge , be up-to-date with the Solana ecosystem, and find new opportunities. And allow content creators to monetize their work.`,
+    answer: `A place where developers building in using Solana can learn and stay up-to-date with everything happening ecosystem.`,
   },
-  {
-    question: "Why you're building this?",
-    answer: `My original idea will take more time, and this seemed a good first step.`,
-  },
-  {
-    question:
-      "Currently, all content is hosted on other platforms? Is that changing in the future?",
-    answer: `Not in the plan right now, but I would like to build a decentralized platform for content where creators can monetize directly from consumers.`,
-  },
-  {
-    question: "How do you plan to monetize for Content Creators?",
-    answer: `I don't plan to monetize for them; I want to allow them to monetize directly from the consumers.`,
-  },
-  // {
-  //   question: "Donations?",
-  //   answer: `Sol address: 6atTixQHkH2k1AJrHitjd457EyEJkkH92XpXSjVh4fv8`,
-  // },
   {
     question: "Roadmap?",
-    answer: `Check in the Sidebar`,
+    answer: `II want to make something public soon; I intend to build this in public and with everyone's feedback taken into consideration.`,
+  },
+  {
+    question: "Who are you?",
+    answer: `I am not trying to hide my identity, but for the following weeks, I will keep it private to focus on building some core functionalities. If you want to say anything or help, https://twitter.com/therealchaseeb is an option.`,
+  },
+  {
+    question: "What do you need?",
+    answer: `Feedback.`,
+  },
+  {
+    question: "I want to help!",
+    answer: `For the following weeks, the best option will be to talk to https://twitter.com/therealchaseeb. He is helping make this project possible.`,
   },
 ];
 
@@ -48,13 +43,13 @@ export default function FAQ() {
               className="min-w-0 flex-1 h-full flex flex-coloverflow-hidden xl:order-last bg-white rounded-lg shadow-lg border"
             >
               <div className="bg-white">
-                <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
+                <div className="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
                   <div className="lg:grid lg:grid-cols-3 lg:gap-8">
                     <div>
                       <h2 className="text-3xl font-extrabold text-gray-900">
                         Frequently asked questions
                       </h2>
-                      <p className="mt-4 text-lg text-gray-500">
+                      {/* <p className="mt-4 text-lg text-gray-500">
                         Can’t find the answer you’re looking for?{" "}
                         <a
                           href="mailto:support@icsolutions.dev"
@@ -71,7 +66,7 @@ export default function FAQ() {
                         >
                           DM me
                         </a>
-                      </p>
+                      </p>*/}
                     </div>
                     <div className="mt-12 lg:mt-0 lg:col-span-2">
                       <dl className="space-y-12">

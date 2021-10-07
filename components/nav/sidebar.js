@@ -6,7 +6,7 @@ const others = [
   { name: "Submit", href: "/#", disabled: true },
   { name: "Newsletter", href: "#", disabled: true },
   { name: "Roadmap", href: "/#", disabled: true },
-  { name: "FAQ", href: "/#", disabled: true },
+  { name: "FAQ", href: "/faq", disabled: false },
 ];
 
 function classNames(...classes) {
@@ -79,6 +79,11 @@ function Sidebar({
                 )}
               >
                 <span className="truncate">{other.name}</span>
+                {other.name === "FAQ" && (
+                  <span className="inline-flex items-center ml-2 px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-600">
+                    New
+                  </span>
+                )}
               </a>
             ))}
           </div>
