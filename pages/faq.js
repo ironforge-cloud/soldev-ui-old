@@ -5,7 +5,7 @@ import MiniSocial from "../components/mini-social";
 const faqs = [
   {
     question: "What is SolDev?",
-    answer: `A place where developers building in using Solana can learn and stay up-to-date with everything happening ecosystem.`,
+    answer: `A place where developers in the Solana ecosystem can learn and stay up-to-date with everything happening.`,
   },
   {
     question: "Roadmap?",
@@ -29,7 +29,7 @@ export default function FAQ() {
   return (
     <div>
       <Head>
-        <title>SolDev</title>
+        <title>SolDev - FAQ</title>
         <meta name="description" content="SolDev" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
