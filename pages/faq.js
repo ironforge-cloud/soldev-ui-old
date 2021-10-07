@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     question: "Who are you?",
-    answer: `I am not trying to hide my identity, but for the following weeks, I will keep it private to focus on building some core functionalities. If you want to say anything or help, https://twitter.com/therealchaseeb is an option.`,
+    answer: `I am not trying to hide my identity, but I will keep it private to focus on building some core functionalities for the following weeks. If you want to say anything or help, https://twitter.com/therealchaseeb is an option.`,
   },
   {
     question: "What do you need?",
