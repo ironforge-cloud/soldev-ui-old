@@ -3,10 +3,10 @@ import React from "react";
 import Link from "next/link";
 
 const others = [
-  { name: "Submit", href: "/submit", disabled: true },
+  { name: "Submit", href: "/#", disabled: true },
   { name: "Newsletter", href: "#", disabled: true },
-  { name: "Roadmap", href: "/roadmap", disabled: true },
-  { name: "FAQ", href: "/faq", disabled: true },
+  { name: "Roadmap", href: "/#", disabled: true },
+  { name: "FAQ", href: "/#", disabled: true },
 ];
 
 function classNames(...classes) {
