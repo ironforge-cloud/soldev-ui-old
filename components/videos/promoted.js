@@ -2,10 +2,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import usePromoted from "../../hooks/usePromoted";
 import MiniCard from "./mini-card";
 import PlaceholderSwipper from "./placeholder-swipper";
-import Image from "next/image";
 
 export default function Promoted() {
-  const { promoted, isLoading, isError } = usePromoted();
+  const { promoted, isLoading } = usePromoted();
 
   return (
     <div className="px-4 mt-6 sm:px-6 lg:px-8">
