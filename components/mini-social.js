@@ -4,7 +4,10 @@ function MiniSocial() {
   useEffect(() => {
     const anchor = document.createElement("a");
     anchor.setAttribute("class", "twitter-timeline");
-    anchor.setAttribute("data-chrome", "noheader nofooter noborders");
+    anchor.setAttribute(
+      "data-chrome",
+      "noheader nofooter noborders transparent"
+    );
     anchor.setAttribute("data-dnt", "true");
     anchor.setAttribute(
       "href",
@@ -18,7 +21,7 @@ function MiniSocial() {
   }, []);
 
   return (
-    <aside className="hidden w-96 bg-white rounded-lg shadow-lg border overflow-y-auto 2xl:block">
+    <aside className="hidden w-96 bg-white rounded-lg shadow-lg border overflow-hidden 2xl:block">
       <div className="mt-6 px-4">
         <h2 className="text-gray-500 text-xs font-medium uppercase tracking-wide mb-3">
           Social Timeline

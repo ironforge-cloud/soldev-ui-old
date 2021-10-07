@@ -43,7 +43,7 @@ export default function Playlists({ playlists }) {
       </div>
 
       {/* Tablet & Desktop */}
-      <div className="hidden mt-1 sm:block">
+      <div className="hidden mt-1 sm:block overflow-hidden">
         <div className="align-middle inline-block min-w-full border-b border-gray-200">
           <table className="min-w-full">
             <thead className="px-14">
