@@ -5,6 +5,7 @@ function MiniSocial() {
     const anchor = document.createElement("a");
     anchor.setAttribute("class", "twitter-timeline");
     anchor.setAttribute("data-chrome", "noheader nofooter noborders");
+    anchor.setAttribute("data-dnt", "true");
     anchor.setAttribute(
       "href",
       "https://twitter.com/soldevapp/lists/1444990678371651585?ref_src=twsrc%5Etfw"
