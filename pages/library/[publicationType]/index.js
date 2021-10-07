@@ -7,7 +7,7 @@ import MiniSocial from "../../../components/mini-social";
 export async function getStaticPaths() {
   const publicationTypes = [
     "walkthroughs",
-    "curses",
+    "courses",
     "sdk",
     "implementations",
     "resources",
@@ -53,7 +53,7 @@ export default function Publications({ publications, type }) {
           </main>
 
           {/* Secondary column (hidden on smaller screens) */}
-           <MiniSocial />
+          <MiniSocial />
         </div>
       </Nav>
     </div>

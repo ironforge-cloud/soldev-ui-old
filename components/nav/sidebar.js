@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 
 const others = [
-  { name: "Submit", href: "#", disabled: true },
+  { name: "Submit", href: "/submit", disabled: false },
   { name: "Newsletter", href: "#", disabled: true },
   { name: "Roadmap", href: "/roadmap", disabled: false },
   { name: "FAQ", href: "/faq", disabled: false },

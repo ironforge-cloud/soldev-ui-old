@@ -40,8 +40,8 @@ const secondaryNavigationData = {
       disabled: false,
     },
     {
-      name: "Curses",
-      href: "/library/curses",
+      name: "Courses",
+      href: "/library/courses",
       icon: PencilAltIcon,
       disabled: false,
     },
