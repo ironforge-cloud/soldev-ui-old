@@ -46,7 +46,7 @@ export default function Publications({ publications, type }) {
             {/* Primary column */}
             <section
               aria-labelledby="primary-heading"
-              className="min-w-0 flex-1 h-full flex flex-coloverflow-hidden xl:order-last bg-white rounded-lg shadow-lg border"
+              className="min-w-0 flex-1 h-full flex flex-col overflow-hidden xl:order-last bg-white rounded-lg shadow-lg border"
             >
               <PublicationsComponent publications={publications} />
             </section>
