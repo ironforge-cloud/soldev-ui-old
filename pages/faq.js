@@ -49,24 +49,17 @@ export default function FAQ() {
                       <h2 className="text-3xl font-extrabold text-gray-900">
                         Frequently asked questions
                       </h2>
-                      {/* <p className="mt-4 text-lg text-gray-500">
+                      <p className="mt-4 text-lg text-gray-500">
                         Can’t find the answer you’re looking for?{" "}
                         <a
-                          href="mailto:support@icsolutions.dev"
-                          className="font-medium text-indigo-600 hover:text-indigo-500"
-                        >
-                          Write me
-                        </a>{" "}
-                        or{" "}
-                        <a
-                          href="https://twitter.com/italoacasas"
+                          href="https://twitter.com/soldevapp"
                           target="_blank"
                           rel="noreferrer"
                           className="font-medium text-indigo-600 hover:text-indigo-500"
                         >
                           DM me
                         </a>
-                      </p>*/}
+                      </p>
                     </div>
                     <div className="mt-12 lg:mt-0 lg:col-span-2">
                       <dl className="space-y-12">
