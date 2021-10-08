@@ -4,8 +4,8 @@ import React from "react";
 function MiniSocial() {
   return (
     <aside className="hidden w-96 bg-white rounded-lg shadow-lg border overflow-hidden xl:block">
-      <div className="mt-6 px-4">
-        <h2 className="text-gray-500 text-xs font-medium uppercase tracking-wide mb-3">
+      <div className="mt-6 px-3">
+        <h2 className="text-gray-500 pl-3 text-xs font-medium uppercase tracking-wide mb-3">
           Social Timeline
         </h2>
 

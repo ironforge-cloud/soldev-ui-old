@@ -41,12 +41,12 @@ function Playlist({ playlistDetails, playlistContent }) {
       </Head>
 
       <Nav>
-        <div className="flex-1 flex items-stretch overflow-hidden gap-6">
+        <div className="flex-1 flex items-stretch overflow-hidden gap-1">
           <main className="flex-1 overflow-y-auto">
             {/* Primary column */}
             <section
               aria-labelledby="primary-heading"
-              className="min-w-0 flex-1 h-full flex flex-coloverflow-hidden xl:order-last bg-white rounded-lg shadow-lg border"
+              className="min-w-0 flex-1 h-full flex flex-col overflow-hidden xl:order-last bg-white rounded-lg shadow-lg border"
             >
               <PlaylistContent
                 playlistDetails={playlistDetails}

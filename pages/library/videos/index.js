@@ -14,7 +14,7 @@ export default function Video({ playlists }) {
       </Head>
 
       <Nav>
-        <div className="flex-1 flex items-stretch overflow-hidden gap-6">
+        <div className="flex-1 flex items-stretch overflow-hidden gap-5 2xl:gap-7">
           <main className="flex-1 overflow-y-auto">
             {/* Primary column */}
             <section
