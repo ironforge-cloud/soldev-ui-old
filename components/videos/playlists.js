@@ -19,24 +19,20 @@ export default function Playlists({ playlists }) {
         >
           {playlists.map((playlist) => (
             <li key={playlist.ID}>
-              <a
-                href="#"
-                className="group flex items-center justify-between px-4 py-4 hover:bg-gray-50 sm:px-6"
-              >
-                <span className="flex items-center truncate space-x-3">
-                  <FontAwesomeIcon icon={["fas", "folder"]} size="1x" />
-                  <span className="font-medium truncate text-sm leading-6">
+              <Link href={`/library/videos/playlist/${playlist.ID}`} passHref>
+                <div className="flex items-center space-x-2 pl-2 h-12">
+                  <ChevronRightIcon
+                    className="h-5 w-5 text-gray-400 group-hover:text-gray-500"
+                    aria-hidden="true"
+                  />
+                  <span className="truncate hover:text-gray-600 cursor-pointer text-sm">
                     {playlist.Title}{" "}
-                    <span className="truncate font-normal text-gray-500">
+                    <span className="text-gray-500 font-normal">
                       by {playlist.Creator}
                     </span>
                   </span>
-                </span>
-                <ChevronRightIcon
-                  className="ml-4 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-                  aria-hidden="true"
-                />
-              </a>
+                </div>
+              </Link>
             </li>
           ))}
         </ul>
