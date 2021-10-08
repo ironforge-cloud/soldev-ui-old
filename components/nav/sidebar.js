@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 
 const others = [
-  { name: "Submit", href: "/#", disabled: true },
+  { name: "Submit", href: "/submit", disabled: false },
   { name: "Newsletter", href: "#", disabled: true },
   { name: "Roadmap", href: "/#", disabled: true },
   { name: "FAQ", href: "/faq", disabled: false },
@@ -80,6 +80,11 @@ function Sidebar({
               >
                 <span className="truncate">{other.name}</span>
                 {other.name === "FAQ" && (
+                  <span className="inline-flex items-center ml-2 px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-600">
+                    New
+                  </span>
+                )}
+                {other.name === "Submit" && (
                   <span className="inline-flex items-center ml-2 px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-600">
                     New
                   </span>
