@@ -9,19 +9,11 @@ const faqs = [
   },
   {
     question: "Roadmap?",
-    answer: `II want to make something public soon; I intend to build this in public and with everyone's feedback taken into consideration.`,
-  },
-  {
-    question: "Who are you?",
-    answer: `I am not trying to hide my identity, but I will keep it private to focus on building some core functionalities for the following weeks. If you want to say anything or help, https://twitter.com/soldevapp is the option.`,
+    answer: `I want to make something public soon; I intend to build this in public and with everyone's feedback taken into consideration.`,
   },
   {
     question: "What do you need?",
     answer: `Feedback.`,
-  },
-  {
-    question: "I want to help!",
-    answer: `The best option will be to talk to https://twitter.com/therealchaseeb. He is helping make this project possible.`,
   },
 ];
 
