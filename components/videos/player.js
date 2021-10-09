@@ -4,26 +4,38 @@ import PropTypes from "prop-types";
 export default function Player({ content }) {
   return (
     <div className="grid grid-cols-6 h-screen pt-16 justify-items-center">
-      <div
-        className="flex col-span-6 w-video-xs h-video-xs sm:w-video-sm sm:h-video-sm 
+      <div className="flex flex-col col-span-6 items-center w-video-xs sm:w-video-sm md:w-video-md lg:w-video-lg xl:w-video-xl 2xl:w-video-2xl 3xl:w-video-3xl xs:text-xs text-base">
+        <div className="self-end mb-1">
+          <a
+            href={content.Url}
+            className="text-purple-600 hover:text-purple-700"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {" "}
+            Watch in {content.Provider} &rarr;{" "}
+          </a>
+        </div>
+        <div
+          className="w-video-xs h-video-xs sm:w-video-sm sm:h-video-sm 
       md:w-video-md md:h-video-md lg:w-video-lg lg:h-video-lg xl:w-video-xl xl:h-video-xl 2xl:w-video-2xl 2xl:h-video-2xl 3xl:w-video-3xl 3xl:h-video-3xl"
-      >
-        <ReactPlayer
-          width="100%"
-          height="100%"
-          url={content.Url}
-          controls
-          pip
-          stopOnUnmount={false}
-        />
+        >
+          <ReactPlayer
+            width="100%"
+            height="100%"
+            url={content.Url}
+            controls
+            pip
+            stopOnUnmount={false}
+          />
+        </div>
+        <div className="self-start md:text-lg xl:text-xl">
+          <h1 className="mt-6 font-semibold text-gray-900 sm:mt-8 3xl:text-2xl">
+            {content.Channel}: {content.Title}
+          </h1>
+          <p className="mt-2 text-gray-600 sm:mt-4">{content.Description}</p>
+        </div>
       </div>
-      <div className="col-span-2">
-        <p>
-          {content.Channel}: {content.Title}
-        </p>
-        <p>{content.Description}</p>
-      </div>
-      <div className="col-span-2"></div>
     </div>
   );
 }
