@@ -48,7 +48,7 @@ function Video({ content }) {
     <div>
       <Head>
         <title>SolDev</title>
-        <meta name="description" content="SolDev" />
+        <meta name="description" content="SolDev: Video" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

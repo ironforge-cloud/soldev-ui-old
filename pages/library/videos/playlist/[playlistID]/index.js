@@ -36,7 +36,7 @@ function Playlist({ playlistDetails, playlistContent }) {
     <div>
       <Head>
         <title>SolDev</title>
-        <meta name="description" content="SolDev" />
+        <meta name="description" content="SolDev: Playlist" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
