@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 
   // contentList was an array of arrays
   contentList = contentList.flat();
-  console.log(contentList);
+
   const paths = contentList.map((content) => {
     return {
       params: { playlistID: content.PlaylistID, videoID: content.ID },
