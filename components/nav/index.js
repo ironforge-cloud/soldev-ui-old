@@ -9,6 +9,7 @@ import {
   FolderIcon,
   PencilAltIcon,
   TerminalIcon,
+  ChipIcon,
 } from "@heroicons/react/outline";
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
@@ -20,12 +21,6 @@ const secondaryNavigationData = {
       href: "/",
       icon: VideoCameraIcon,
       disabled: false,
-    },
-    {
-      name: "Podcasts",
-      href: "#",
-      icon: MicrophoneIcon,
-      disabled: true,
     },
     {
       name: "SDKs & Frameworks",
@@ -56,6 +51,12 @@ const secondaryNavigationData = {
       name: "Implementations",
       href: "/library/implementations",
       icon: BeakerIcon,
+      disabled: false,
+    },
+    {
+      name: "Tools",
+      href: "/library/tools",
+      icon: ChipIcon,
       disabled: false,
     },
   ],

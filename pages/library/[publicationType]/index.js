@@ -11,6 +11,7 @@ export async function getStaticPaths() {
     "sdk",
     "implementations",
     "resources",
+    "tools",
   ];
 
   const paths = publicationTypes.map((type) => {
