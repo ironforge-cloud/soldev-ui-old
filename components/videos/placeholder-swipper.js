@@ -20,7 +20,7 @@ function PlaceholderSwipper() {
     );
   }
 
-  return <div className="flex">{cards}</div>;
+  return <div className="flex space-x-4">{cards}</div>;
 }
 
 export default PlaceholderSwipper;

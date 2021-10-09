@@ -27,6 +27,7 @@
     "isomorphic-unfetch": "^3.1.0",
     "postcss": "^8.3.9",
     "prop-types": "^15.7.2",
+    "react-player": "^2.9.0",
     "react-twitter-widgets": "^1.10.0",
     "swiper": "^7.0.8",
     "swr": "^1.0.1",

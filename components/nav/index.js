@@ -17,7 +17,7 @@ const secondaryNavigationData = {
   Library: [
     {
       name: "Videos",
-      href: "/library/videos",
+      href: "/",
       icon: VideoCameraIcon,
       disabled: false,
     },

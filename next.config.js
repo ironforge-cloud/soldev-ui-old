@@ -15,12 +15,12 @@ const moduleExports = {
     return [
       {
         source: "/library",
-        destination: "/library/videos",
+        destination: "/",
         permanent: true,
       },
       {
-        source: "/",
-        destination: "/library/videos",
+        source: "/library/videos",
+        destination: "/",
         permanent: false,
       },
     ];

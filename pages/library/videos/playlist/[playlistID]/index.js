@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 
   // Get list of all playlists
   const paths = playlists.map((playlist) => {
-    return { params: { playlistID: playlist.ID, playlist } };
+    return { params: { playlistID: playlist.ID } };
   });
 
   return { paths, fallback: false };
@@ -27,7 +27,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { playlistDetails, playlistContent }, // will be passed to the page component as props
-    revalidate: 300,
+    revalidate: 60,
   };
 }
 

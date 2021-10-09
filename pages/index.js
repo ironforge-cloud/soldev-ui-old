@@ -1,8 +1,8 @@
 import Head from "next/head";
-import Nav from "../../../components/nav";
-import Videos from "../../../components/videos";
-import fetcher from "../../../utils/fetcher";
-import MiniSocial from "../../../components/mini-social";
+import Nav from "../components/nav";
+import Videos from "../components/videos";
+import fetcher from "../utils/fetcher";
+import MiniSocial from "../components/mini-social";
 
 export default function Video({ playlists }) {
   return (
@@ -42,6 +42,6 @@ export async function getStaticProps() {
     props: {
       playlists,
     },
-    revalidate: 300, // In seconds
+    revalidate: 60, // In seconds
   };
 }
