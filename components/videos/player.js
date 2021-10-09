@@ -14,6 +14,7 @@ export default function Player({ content }) {
           url={content.Url}
           controls
           pip
+          stopOnUnmount={false}
         />
       </div>
       <div className="col-span-2">

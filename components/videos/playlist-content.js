@@ -7,18 +7,13 @@ export default function PlaylistContent({ playlistDetails, playlistContent }) {
   return (
     <div className="flex flex-wrap justify-around place-content-start sm:space-x-2 md:space-x-3 2xl:p-6">
       {playlistContent.map((content) => (
-        <Link
-          href={`/library/videos/playlist/${content.PlaylistID}/${content.ID}`}
-          passHref
+        <div
           key={content.ID}
+          className="flex flex-col my-5 lg:my-8"
+          style={{ width: "320px" }}
         >
-          <div
-            className="cursor-pointer flex flex-col my-5 lg:my-8"
-            style={{ width: "320px" }}
-          >
-            <MiniCard content={content} />
-          </div>
-        </Link>
+          <MiniCard content={content} />
+        </div>
       ))}
     </div>
   );
