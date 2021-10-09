@@ -29,7 +29,7 @@ export default function FAQ() {
   return (
     <div>
       <Head>
-        <title>SolDev - FAQ</title>
+        <title>SolDev: FAQ</title>
         <meta name="description" content="SolDev: FAQ" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
