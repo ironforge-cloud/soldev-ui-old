@@ -35,11 +35,14 @@ function MyApp({ Component, pageProps }) {
       <Script
         id="2"
         dangerouslySetInnerHTML={{
-          __html: `window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+          __html: `
+          if (window.location.hostname === "localhost") window['ga-disable-G-HT8DFYDG03'] = true;
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
-  gtag('config', 'G-HT8DFYDG03'); `,
+          gtag('config', 'G-HT8DFYDG03');
+          `,
         }}
       />
       <Component {...pageProps} />
