@@ -45,6 +45,17 @@ function MyApp({ Component, pageProps }) {
           `,
         }}
       />
+      <Script
+        id="3"
+        src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3"
+        onLoad={() => {
+          new Crate({
+            server: "897198578106269766",
+            channel: "897198578106269773",
+          });
+        }}
+        strategy="lazyOnload"
+      />
       <Component {...pageProps} />
     </>
   );
