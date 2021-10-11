@@ -2,8 +2,16 @@ import Head from "next/head";
 import Nav from "../../components/nav";
 import MiniSocial from "../../components/mini-social";
 import Discord from "../../components/discord";
+import dynamic from "next/dynamic";
 
-export default function Video() {
+const DynamicComponentWithNoSSR = dynamic(
+  () => import("../../components/discord"),
+  {
+    ssr: false,
+  }
+);
+
+export default function Community() {
   return (
     <div>
       <Head>
@@ -20,7 +28,7 @@ export default function Video() {
               aria-labelledby="primary-heading"
               className="min-w-0 flex-1 h-1/5 flex flex-col overflow-hidden xl:order-last bg-white rounded-lg shadow-lg border"
             >
-              <Discord />
+              <DynamicComponentWithNoSSR />
             </section>
           </main>
 
