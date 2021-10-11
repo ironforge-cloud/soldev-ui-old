@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import {
-  MicrophoneIcon,
-  AnnotationIcon,
   VideoCameraIcon,
-  LinkIcon,
   ArchiveIcon,
   BeakerIcon,
   FolderIcon,
   PencilAltIcon,
   TerminalIcon,
   ChipIcon,
+  ChatAlt2Icon,
 } from "@heroicons/react/outline";
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
@@ -60,9 +58,10 @@ const secondaryNavigationData = {
       disabled: false,
     },
   ],
-  Social: [
-    { name: "Timeline", href: "/social", icon: AnnotationIcon },
-    { name: "Directory", href: "/directory", icon: LinkIcon },
+  Community: [
+    { name: "SolDev", href: "/community", icon: ChatAlt2Icon },
+    { name: "Solana", href: "/community", icon: ChatAlt2Icon },
+    { name: "Anchor", href: "/community", icon: ChatAlt2Icon },
   ],
 };
 

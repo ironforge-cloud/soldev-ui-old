@@ -14,9 +14,9 @@ const navigation = [
     url: "/library",
   },
   {
-    name: "Directory",
-    disabled: true,
-    url: "#",
+    name: "Community",
+    disabled: false,
+    url: "/community",
   },
   {
     name: "Calendar",
