@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Nav from "../../components/nav";
 import MiniSocial from "../../components/mini-social";
-import Discord from "../../components/discord";
 import dynamic from "next/dynamic";
 
 const DynamicComponentWithNoSSR = dynamic(
@@ -20,7 +19,7 @@ export default function Community() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Nav>
+      <Nav page="Community">
         <div className="flex-1 flex items-stretch overflow-hidden gap-5 2xl:gap-7">
           <main className="flex-1 overflow-y-auto">
             {/* Primary column */}

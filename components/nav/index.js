@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import {
   VideoCameraIcon,
   ArchiveIcon,
@@ -61,12 +62,14 @@ const secondaryNavigationData = {
   Community: [
     { name: "SolDev", href: "/community", icon: ChatAlt2Icon },
     { name: "Solana", href: "/community", icon: ChatAlt2Icon },
+    { name: "SOLHACK", href: "/community", icon: ChatAlt2Icon },
+    { name: "Metaplex", href: "/community", icon: ChatAlt2Icon },
     { name: "Anchor", href: "/community", icon: ChatAlt2Icon },
   ],
 };
 
-function Nav({ children }) {
-  const [section, setSection] = useState("Library");
+function Nav({ children, page }) {
+  const [section, setSection] = useState(page);
   const [secondaryNavigation, setSecondaryNavigation] = useState("Videos");
 
   return (
@@ -90,5 +93,13 @@ function Nav({ children }) {
     </div>
   );
 }
+
+Nav.defaultProps = {
+  page: "Library",
+};
+
+Nav.propTypes = {
+  page: PropTypes.string,
+};
 
 export default React.memo(Nav);
