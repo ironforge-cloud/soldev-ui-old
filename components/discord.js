@@ -1,7 +1,10 @@
-import * as React from "react";
-import WidgetBot from "@widgetbot/react-embed";
+import dynamic from "next/dynamic";
 
-export default function Discord() {
+const WidgetBot = dynamic(() => import("@widgetbot/react-embed"), {
+  ssr: false,
+});
+
+function Discord() {
   return (
     <WidgetBot
       server="897198578106269766"
