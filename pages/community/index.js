@@ -18,7 +18,7 @@ export default function Community() {
             {/* Primary column */}
             <section
               aria-labelledby="primary-heading"
-              className="min-w-0 flex-1 h-1/5 flex flex-col overflow-hidden xl:order-last bg-white rounded-lg shadow-lg border"
+              className="min-w-0 flex-1 h-auto flex flex-col overflow-hidden xl:order-last bg-white rounded-lg shadow-lg border"
             >
               <Discord />
             </section>

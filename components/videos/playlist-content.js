@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import MiniCard from "./mini-card";
-import Link from "next/link";
 
 // TODO: Playlist title
 export default function PlaylistContent({ playlistDetails, playlistContent }) {
