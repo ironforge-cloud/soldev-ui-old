@@ -15,11 +15,11 @@ const navigation = [
   },
   {
     name: "Community",
-    disabled: false,
+    disabled: true,
     url: "/community",
   },
   {
-    name: "Calendar",
+    name: "Events",
     disabled: true,
     url: "#",
   },

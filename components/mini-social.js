@@ -1,6 +1,7 @@
 import { Timeline } from "react-twitter-widgets";
 import React from "react";
 import PropTypes from "prop-types";
+import TweetGm from "./gm";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -15,11 +16,13 @@ function MiniSocial({ size }) {
         size === "2xl" && "2xl:block"
       )}
     >
-      <div className="mt-6 px-3">
-        <h2 className="text-gray-500 pl-3 text-xs font-medium uppercase tracking-wide mb-3">
-          Social Timeline
-        </h2>
-
+      <div className="mt-5 px-3">
+        <div className="flex justify-between items-center pb-3">
+          <h2 className="text-gray-500 pl-3 text-xs font-medium uppercase tracking-wide mb-3">
+            Social Timeline
+          </h2>
+          <TweetGm />
+        </div>
         <Timeline
           dataSource={{
             sourceType: "list",

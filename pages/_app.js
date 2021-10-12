@@ -10,8 +10,14 @@ import "@fortawesome/fontawesome-svg-core/styles.css"; // Import the CSS
 config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
 library.add(fab, fas);
 
-// TODO: Optimize by importing just what is being used
-import "swiper/css/bundle";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/virtual";
+import "swiper/css/navigation";
+import "swiper/css/keyboard";
+import "swiper/css/mousewheel";
+import "swiper/css/autoplay";
+import "swiper/css/a11y";
 
 import SwiperCore, {
   Virtual,
