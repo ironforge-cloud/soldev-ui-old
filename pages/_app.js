@@ -1,5 +1,4 @@
 import Script from "next/script";
-import * as snippet from "@segment/snippet";
 import "tailwindcss/tailwind.css";
 
 // FontAwesome
@@ -44,17 +43,6 @@ function MyApp({ Component, pageProps }) {
           gtag('config', 'G-HT8DFYDG03');
           `,
         }}
-      />
-      <Script
-        id="3"
-        src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3"
-        onLoad={() => {
-          new Crate({
-            server: "897198578106269766",
-            channel: "897198578106269773",
-          });
-        }}
-        strategy="lazyOnload"
       />
       <Component {...pageProps} />
     </>
