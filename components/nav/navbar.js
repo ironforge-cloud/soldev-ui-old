@@ -155,7 +155,7 @@ function Navbar({
                     {/* Disable for now */}
                     <Menu.Button
                       disabled
-                      className="bg-white cursor-not-allowed disabled:opacity-50 rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 border-2"
+                      className="bg-white cursor-not-allowed disabled:opacity-50 rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
                       <span className="sr-only">Open user menu</span>
                       <Image
