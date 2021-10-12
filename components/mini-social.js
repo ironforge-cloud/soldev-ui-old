@@ -17,7 +17,7 @@ function MiniSocial({ size }) {
       )}
     >
       <div className="mt-5 px-3">
-        <div className="flex justify-between items-center pb-3">
+        <div className="flex items-center justify-between pb-3">
           <h2 className="text-gray-500 pl-3 text-xs font-medium uppercase tracking-wide mb-3">
             Social Timeline
           </h2>
