@@ -19,7 +19,7 @@ const navigation = [
     url: "/community",
   },
   {
-    name: "Events",
+    name: "Calendar",
     disabled: true,
     url: "#",
   },
