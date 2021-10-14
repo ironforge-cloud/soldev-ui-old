@@ -38,17 +38,17 @@ export default function Publications({ publications }) {
                     <p className="text-xl font-semibold text-gray-900">
                       {content.Title}
                     </p>
-                    <p className="mt-3 text-base text-gray-500">
+                    <p className="mt-3 text-base text-gray-700">
                       {content.Description}
                     </p>
                   </div>
-                  <div className="mt-6 flex items-center">
+                  <div className="mt-3 flex items-center">
                     <div className="flex-shrink-0">
                       <span className="sr-only">{content.Author}</span>
                     </div>
                     {content.Author && (
-                      <div className="ml-3">
-                        <p className="text-sm font-medium text-gray-900">
+                      <div className="">
+                        <p className="text-sm font-medium text-gray-500">
                           Author: {content.Author}
                         </p>
                       </div>
