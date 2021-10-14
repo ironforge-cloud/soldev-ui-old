@@ -18,12 +18,14 @@ export default function Card({ content }) {
       </div>
       <div className="flex-1 bg-white p-6 flex flex-col justify-between">
         <div className="flex-1">
-          {content.Tags && (
-            <p className="text-sm font-medium text-indigo-600">
-              {content.Tags[0]}
-            </p>
-          )}
-
+          <p className="text-sm font-medium text-indigo-600">
+            {content.Tags.map((tag, index) => (
+              <span key={index}>
+                {tag}
+                {index < content.Tags.length - 1 && <>{", "}</>}
+              </span>
+            ))}
+          </p>
           <p className="text-xl font-semibold text-gray-900">{content.Title}</p>
           <p className="mt-3 text-base text-gray-700">{content.Description}</p>
         </div>
