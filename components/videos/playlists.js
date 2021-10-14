@@ -55,9 +55,6 @@ export default function Playlists({ playlists }) {
                 <th className="hidden md:table-cell px-3 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Platform
                 </th>
-                <th className="hidden md:table-cell px-3 py-3 border-b border-gray-200 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  <span className="lg:pr-3">Last Updated</span>
-                </th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-100">
@@ -103,13 +100,6 @@ export default function Playlists({ playlists }) {
                       <span></span>
                       {playlist.Provider}
                     </div>
-                  </td>
-                  <td className="hidden md:table-cell px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-right">
-                    <span className="lg:pr-3">
-                      {/* TODO: Fix LastUpdated */}
-                      {/* {playlist.LastUpdated} */}
-                      Today
-                    </span>
                   </td>
                 </tr>
               ))}
