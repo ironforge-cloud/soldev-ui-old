@@ -12,7 +12,6 @@ module.exports = {
       },
       screens: {
         "3xl": "1700px",
-        "4xl": "1700px",
       },
       width: {
         "video-3xl": "1030px",
