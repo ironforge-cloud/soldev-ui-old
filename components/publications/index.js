@@ -10,7 +10,7 @@ export default function Publications({ publications }) {
           {publications.map((content) => (
             <a
               href={content.URL}
-              className="block mt-2 hover:opacity-85 transition duration-200 ease-in-out transform hover:-translate-y-2"
+              className="block mt-2 hover:opacity-85 transition duration-200 ease-in-out transform hover:-translate-y-2 pb-7"
               rel="noreferrer"
               target="_blank"
               key={content.ID}
