@@ -60,8 +60,8 @@ const secondaryNavigationData = {
     },
   ],
   Community: [
-    { name: "SolDev", href: "/community", icon: ChatAlt2Icon },
-    { name: "Solana", href: "/community", icon: ChatAlt2Icon },
+    { name: "Developer Community", href: "/community", icon: ChatAlt2Icon },
+    { name: "Solana Support", href: "/community", icon: ChatAlt2Icon },
     { name: "SOLHACK", href: "/community", icon: ChatAlt2Icon },
     { name: "Metaplex", href: "/community", icon: ChatAlt2Icon },
     { name: "Anchor", href: "/community", icon: ChatAlt2Icon },
