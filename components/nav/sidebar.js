@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const others = [
   { name: "Submit", href: "/submit", disabled: false },
-  { name: "Newsletter", href: "#", disabled: true },
+  { name: "Newsletter", href: "/newsletter", disabled: false },
   { name: "Roadmap", href: "/#", disabled: true },
   { name: "FAQ", href: "/faq", disabled: false },
 ];

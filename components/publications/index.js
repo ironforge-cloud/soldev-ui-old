@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import Image from "next/image";
 import Card from "../card";
 
 export default function Publications({ publications }) {
