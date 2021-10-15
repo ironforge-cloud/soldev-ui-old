@@ -45,18 +45,23 @@ function Navbar({
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
         <>
-          <div className="mx-auto px-2 sm:px-5 lg:px-5">
+          <div className="mx-auto px-2">
             <div className="flex justify-between h-16">
               {/* Logo and Navigation */}
-              <div className="flex px-2 lg:px-0">
-                <div className="relative flex-shrink-0 flex items-center pt-1">
-                  <Image
-                    src="/logo.svg"
-                    alt="Logo"
-                    width="170px"
-                    height="150px"
-                  />
+              <div className="flex">
+                <div className="relative flex-shrink-0 flex items-center cursor-pointer lg:mr-4">
+                  <Link href="/" passHref>
+                    <a>
+                      <Image
+                        src="/logowip-er2.svg"
+                        alt="Logo"
+                        width="175px"
+                        height="150px"
+                      />
+                    </a>
+                  </Link>
                 </div>
+
                 <div className="hidden lg:ml-10 lg:flex lg:space-x-8">
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                   {navigation.map((item) =>
