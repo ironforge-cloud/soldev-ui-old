@@ -13,12 +13,12 @@ export default function FAQ() {
       </Head>
 
       <Nav>
-        <div className="flex-1 flex items-stretch overflow-hidden gap-6">
+        <div className="flex-1 flex items-stretch overflow-hidden gap-5 2xl:gap-7">
           <main className="flex-1 overflow-y-auto">
             {/* Primary column */}
             <section
               aria-labelledby="primary-heading"
-              className="min-w-0 flex-1 h-full flex justify-center flex-coloverflow-hidden xl:order-last bg-white rounded-lg shadow-lg border"
+              className="min-w-0 flex-1 h-full flex flex-col overflow-hidden xl:order-last"
             >
               <Newsletter />
             </section>

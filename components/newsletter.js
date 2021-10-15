@@ -1,9 +1,9 @@
 export default function Newsletter() {
   return (
-    <div className="bg-white py-16 sm:py-24 ">
+    <div className="md:py-16 sm:py-24">
       <div className="relative sm:py-16">
         <div aria-hidden="true" className="hidden sm:block">
-          <div className="absolute inset-y-0 left-0 w-1/2 bg-gray-50 rounded-r-3xl" />
+          <div className="absolute inset-y-0 left-0 w-1/2  rounded-r-3xl" />
           <svg
             className="absolute top-8 left-1/2 -ml-3"
             width={404}
@@ -25,7 +25,7 @@ export default function Newsletter() {
                   y={0}
                   width={4}
                   height={4}
-                  className="text-gray-200"
+                  className="text-indigo-200"
                   fill="currentColor"
                 />
               </pattern>
