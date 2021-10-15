@@ -1,4 +1,4 @@
-import Script from "next/script";
+import PlausibleProvider from "next-plausible";
 import "tailwindcss/tailwind.css";
 
 // FontAwesome
@@ -33,13 +33,9 @@ SwiperCore.use([Virtual, Navigation, Keyboard, Mousewheel, Autoplay, A11y]);
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <script
-        defer
-        data-domain="soldev.app"
-        src="https://plausible.io/js/plausible.js"
-      />
-
-      <Component {...pageProps} />
+      <PlausibleProvider domain="soldev.app" trackOutboundLinks={true}>
+        <Component {...pageProps} />
+      </PlausibleProvider>
     </>
   );
 }

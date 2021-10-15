@@ -1,6 +1,7 @@
 const { withSentryConfig } = require("@sentry/nextjs");
+const { withPlausibleProxy } = require("next-plausible");
 
-const moduleExports = {
+const moduleExports = withPlausibleProxy()({
   reactStrictMode: true,
   images: {
     domains: [
@@ -25,7 +26,7 @@ const moduleExports = {
       },
     ];
   },
-};
+});
 
 const SentryWebpackPluginOptions = {
   // Additional config options for the Sentry Webpack plugin. Keep in mind that
