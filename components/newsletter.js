@@ -69,7 +69,7 @@ export default function Newsletter() {
                 </h2>
                 <p className="mt-6 mx-auto max-w-2xl text-lg text-indigo-200">
                   A free and developer-focused weekly newsletter with SolDev
-                  content library updates, ecosystem news, or other vital
+                  content library updates, ecosystem news, and other vital
                   information for developers.
                 </p>
               </div>
