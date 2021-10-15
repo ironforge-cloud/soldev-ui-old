@@ -33,25 +33,8 @@ SwiperCore.use([Virtual, Navigation, Keyboard, Mousewheel, Autoplay, A11y]);
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Script
-        id="1"
-        src="https://www.googletagmanager.com/gtag/js?id=G-HT8DFYDG03"
-      />
-      <Script
-        id="2"
-        dangerouslySetInnerHTML={{
-          __html: `
-          if (window.location.hostname === "localhost") window['ga-disable-G-HT8DFYDG03'] = true;
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-HT8DFYDG03');
-          `,
-        }}
-      />
-      <Script
-        id="3"
+      <script
+        defer
         data-domain="soldev.app"
         src="https://plausible.io/js/plausible.js"
       />
