@@ -50,6 +50,12 @@ function MyApp({ Component, pageProps }) {
           `,
         }}
       />
+      <Script
+        id="3"
+        data-domain="soldev.app"
+        src="https://plausible.io/js/plausible.js"
+      />
+
       <Component {...pageProps} />
     </>
   );
