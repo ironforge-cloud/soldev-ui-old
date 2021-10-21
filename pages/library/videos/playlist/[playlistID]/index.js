@@ -6,7 +6,7 @@ import MiniSocial from "../../../../../components/mini-social";
 
 export async function getStaticPaths() {
   const playlists = await fetcher(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists`
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists/Solana`
   );
 
   // Get list of all playlists
@@ -19,10 +19,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const playlistContent = await fetcher(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/${params.playlistID}`
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/${params.playlistID}`
   );
   const playlistDetails = await fetcher(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists/${params.playlistID}`
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists/Solana/${params.playlistID}`
   );
 
   return {

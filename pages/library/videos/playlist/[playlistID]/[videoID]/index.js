@@ -7,13 +7,13 @@ import fetcher from "../../../../../../utils/fetcher";
 export async function getStaticPaths() {
   // Fetch all playlists
   const playlists = await fetcher(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists`
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists/Solana`
   );
   // Fetch playlists content
   let contentList = [];
   for await (let playlist of playlists) {
     const content = await fetcher(
-      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/${playlist.ID}`
+      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/${playlist.ID}`
     );
 
     contentList.push(content);

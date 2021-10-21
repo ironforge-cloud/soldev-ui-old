@@ -35,7 +35,7 @@ export default function Video({ playlists }) {
 
 export async function getStaticProps() {
   const playlists = await fetcher(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists`
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists/Solana`
   );
 
   return {

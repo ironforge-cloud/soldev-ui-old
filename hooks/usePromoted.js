@@ -1,10 +1,9 @@
 import useSWR from "swr";
 import fetcher from "../utils/fetcher";
 
-//
 export default function usePromoted() {
   const { data, error } = useSWR(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/promoted`,
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/promoted`,
     fetcher
   );
 

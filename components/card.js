@@ -7,13 +7,13 @@ export default function Card({ content }) {
       <div className="flex-shrink-0">
         <Image
           className=" object-cover"
-          src={content.ImageURL}
+          src={content.Img}
           alt=""
           height="186"
           width="413"
           quality="100"
           placeholder="blur"
-          blurDataURL={content.ImageURL}
+          blurDataURL={content.Img}
         />
       </div>
       <div className="flex-1 p-6 flex flex-col justify-between">

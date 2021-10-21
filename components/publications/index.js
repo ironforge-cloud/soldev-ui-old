@@ -8,11 +8,11 @@ export default function Publications({ publications }) {
         <div className="mt-3 justify-items-center mx-auto grid gap-5 md:grid-cols-2 3xl:grid-cols-3 lg:max-w-none">
           {publications.map((content) => (
             <a
-              href={content.URL}
+              href={content.Url}
               className="block mt-2 hover:opacity-85 transition duration-200 ease-in-out transform hover:-translate-y-2 pb-7"
               rel="noreferrer"
               target="_blank"
-              key={content.ID}
+              key={content.SK}
             >
               <Card content={content} />
             </a>

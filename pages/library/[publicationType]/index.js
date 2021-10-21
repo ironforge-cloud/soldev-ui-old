@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const publications = await fetcher(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/publications/${params.publicationType}`
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/${params.publicationType}`
   );
 
   return {
