@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import MiniCard from "./mini-card";
 
 // TODO: Playlist title
-export default function PlaylistContent({ playlistDetails, playlistContent }) {
+export default function PlaylistContent({ playlistContent }) {
   return (
     <div className="flex flex-wrap justify-around place-content-start sm:space-x-2 md:space-x-3 2xl:p-6">
       {playlistContent.map((content) => (
@@ -20,5 +20,4 @@ export default function PlaylistContent({ playlistDetails, playlistContent }) {
 
 PlaylistContent.propTypes = {
   playlistContent: PropTypes.array.isRequired,
-  playlistDetails: PropTypes.object.isRequired,
 };

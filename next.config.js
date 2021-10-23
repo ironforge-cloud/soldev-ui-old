@@ -12,17 +12,11 @@ const moduleExports = withPlausibleProxy()({
       "clips-media-assets2.twitch.tv",
     ],
   },
-  async redirects() {
+  async rewrites() {
     return [
       {
-        source: "/library",
-        destination: "/",
-        permanent: true,
-      },
-      {
-        source: "/library/videos",
-        destination: "/",
-        permanent: false,
+        source: "/",
+        destination: "/library/Solana",
       },
     ];
   },

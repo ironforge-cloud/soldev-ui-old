@@ -31,7 +31,7 @@ export default function Player({ content }) {
         </div>
         <div className="self-start md:text-lg">
           <h1 className="mt-6 font-semibold text-gray-900 sm:mt-8 xl:text-xl 3xl:text-2xl">
-            {content.Channel}: {content.Title}
+            {content.Author}: {content.Title}
           </h1>
           <p className="mt-2 text-gray-600 sm:mt-4">{content.Description}</p>
         </div>

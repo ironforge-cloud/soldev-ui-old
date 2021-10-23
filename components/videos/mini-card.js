@@ -2,18 +2,19 @@ import PropTypes from "prop-types";
 import Image from "next/image";
 import LiveBadge from "./live-badge";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function MiniCard({ content }) {
+  const router = useRouter();
+  const { vertical } = router.query;
   return (
     <Link
-      href={`/library/videos/playlist/${content.PlaylistID}/${content.ID}`}
+      href={`/library/${vertical}/playlist/${content.PlaylistID}/${content.ID}`}
       passHref
     >
       <div>
         <div className="cursor-pointer relative transition duration-200 ease-in-out transform hover:-translate-y-2">
-          {content.PlaylistID == "twitch-livestreams" && (
-            <LiveBadge live={content.Live} />
-          )}
+          {content.SK == "livestream" && <LiveBadge live={content.Live} />}
 
           <Image
             className="rounded-lg object-cover hover:opacity-85"

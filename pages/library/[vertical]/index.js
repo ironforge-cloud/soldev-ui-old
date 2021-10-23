@@ -1,8 +1,30 @@
 import Head from "next/head";
-import Nav from "../components/nav";
-import Videos from "../components/videos";
-import fetcher from "../utils/fetcher";
-import MiniSocial from "../components/mini-social";
+import Nav from "../../../components/nav";
+import Videos from "../../../components/videos";
+import fetcher from "../../../utils/fetcher";
+import MiniSocial from "../../../components/mini-social";
+import verticals from "../../../utils/verticals";
+
+export async function getStaticPaths() {
+  const paths = verticals.map((type) => {
+    return { params: { vertical: type } };
+  });
+
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  const playlists = await fetcher(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists/${params.vertical}`
+  );
+
+  return {
+    props: {
+      playlists,
+    },
+    revalidate: 60, // In seconds
+  };
+}
 
 export default function Video({ playlists }) {
   return (
@@ -31,17 +53,4 @@ export default function Video({ playlists }) {
       </Nav>
     </div>
   );
-}
-
-export async function getStaticProps() {
-  const playlists = await fetcher(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists/Solana`
-  );
-
-  return {
-    props: {
-      playlists,
-    },
-    revalidate: 60, // In seconds
-  };
 }

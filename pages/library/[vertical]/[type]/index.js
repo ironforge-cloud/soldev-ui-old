@@ -1,8 +1,9 @@
 import Head from "next/head";
-import Nav from "../../../components/nav";
-import fetcher from "../../../utils/fetcher";
-import PublicationsComponent from "../../../components/publications";
-import MiniSocial from "../../../components/mini-social";
+import Nav from "../../../../components/nav";
+import fetch from "isomorphic-unfetch";
+import PublicationsComponent from "../../../../components/publications";
+import MiniSocial from "../../../../components/mini-social";
+import verticals from "../../../../utils/verticals";
 
 export async function getStaticPaths() {
   const publicationTypes = [
@@ -14,20 +15,30 @@ export async function getStaticPaths() {
     "tools",
   ];
 
-  const paths = publicationTypes.map((type) => {
-    return { params: { publicationType: type } };
+  const paths = [];
+  verticals.forEach((vertical) => {
+    publicationTypes.forEach((type) => {
+      paths.push({ params: { vertical, type } });
+    });
   });
-
   return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
-  const publications = await fetcher(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/${params.publicationType}`
+  // Get all content by vertical and type
+  const publications = await fetch(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/${params.vertical}/${params.type}`
   );
 
+  let data;
+  try {
+    data = await publications.json();
+  } catch (error) {
+    data = [];
+  }
+
   return {
-    props: { publications, type: params.publicationType }, // will be passed to the page component as props
+    props: { publications: data, type: params.type }, // will be passed to the page component as props
     revalidate: 300,
   };
 }

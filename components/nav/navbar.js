@@ -6,6 +6,7 @@ import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import MobileMenu from "./mobile-menu";
 import Link from "next/link";
+import CategorySelector from "./category-selector";
 
 const navigation = [
   {
@@ -64,8 +65,39 @@ function Navbar({
 
                 <div className="hidden lg:ml-10 lg:flex lg:space-x-8">
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
-                  {navigation.map((item) =>
-                    item.name !== "Jobs" ? (
+                  {navigation.map((item) => {
+                    if (item.name === "Library") {
+                      return (
+                        <CategorySelector
+                          item={item}
+                          setSection={setSection}
+                          section={section}
+                          key={item.name}
+                        />
+                      );
+                    } else if (item.name === "Jobs") {
+                      return (
+                        <a
+                          href={item.url}
+                          rel="noreferrer"
+                          key={item.name}
+                          className={classNames(
+                            item.name === section
+                              ? "border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                              : "border-transparent text-gray-500  hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium",
+                            "block py-2 text-sm text-gray-700",
+                            item.disabled
+                              ? "disabled:opacity-50 cursor-not-allowed"
+                              : "hover:border-gray-300"
+                          )}
+                          target="_blank"
+                        >
+                          {item.name}
+                        </a>
+                      );
+                    }
+
+                    return (
                       <Link href={item.url} passHref key={item.name}>
                         <button
                           disabled={item.disabled}
@@ -73,7 +105,7 @@ function Navbar({
                             item.name === section
                               ? "border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
                               : "border-transparent text-gray-500  hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium",
-                            "block px- py-2 text-sm text-gray-700",
+                            "block py-2 text-sm text-gray-700",
                             item.disabled
                               ? "disabled:opacity-50 cursor-not-allowed"
                               : "hover:border-gray-300"
@@ -83,26 +115,8 @@ function Navbar({
                           {item.name}
                         </button>
                       </Link>
-                    ) : (
-                      <a
-                        href={item.url}
-                        rel="noreferrer"
-                        key={item.name}
-                        className={classNames(
-                          item.name === section
-                            ? "border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-                            : "border-transparent text-gray-500  hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium",
-                          "block px- py-2 text-sm text-gray-700",
-                          item.disabled
-                            ? "disabled:opacity-50 cursor-not-allowed"
-                            : "hover:border-gray-300"
-                        )}
-                        target="_blank"
-                      >
-                        {item.name}
-                      </a>
-                    )
-                  )}
+                    );
+                  })}
                 </div>
               </div>
 

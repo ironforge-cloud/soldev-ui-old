@@ -3,15 +3,30 @@ import Nav from "../../../../../components/nav";
 import PlaylistContent from "../../../../../components/videos/playlist-content";
 import Head from "next/head";
 import MiniSocial from "../../../../../components/mini-social";
+import verticals from "../../../../../utils/verticals";
 
 export async function getStaticPaths() {
-  const playlists = await fetcher(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists/Solana`
-  );
+  // Fetch playlist for all verticals
+  let playlists = [];
+  for await (let vertical of verticals) {
+    const data = await fetcher(
+      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists/${vertical}`
+    );
+
+    playlists.push(data);
+  }
+
+  playlists = playlists.flat();
 
   // Get list of all playlists
   const paths = playlists.map((playlist) => {
-    return { params: { playlistID: playlist.ID } };
+    return {
+      params: {
+        vertical: playlist.Vertical,
+        playlistID: playlist.ID,
+        playlist,
+      },
+    };
   });
 
   return { paths, fallback: false };
@@ -19,14 +34,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const playlistContent = await fetcher(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/${params.playlistID}`
-  );
-  const playlistDetails = await fetcher(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists/Solana/${params.playlistID}`
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/${params.vertical}/${params.playlistID}`
   );
 
   return {
-    props: { playlistDetails, playlistContent }, // will be passed to the page component as props
+    props: { playlistContent }, // will be passed to the page component as props
     revalidate: 60,
   };
 }
@@ -48,10 +60,7 @@ function Playlist({ playlistDetails, playlistContent }) {
               aria-labelledby="primary-heading"
               className="min-w-0 flex-1 h-full flex flex-col overflow-hidden xl:order-last bg-white rounded-lg shadow-lg border"
             >
-              <PlaylistContent
-                playlistDetails={playlistDetails}
-                playlistContent={playlistContent}
-              />
+              <PlaylistContent playlistContent={playlistContent} />
             </section>
           </main>
 

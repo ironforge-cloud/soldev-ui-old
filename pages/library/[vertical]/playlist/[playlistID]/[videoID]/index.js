@@ -3,17 +3,26 @@ import Head from "next/head";
 import MiniSocial from "../../../../../../components/mini-social";
 import Player from "../../../../../../components/videos/player";
 import fetcher from "../../../../../../utils/fetcher";
+import verticals from "../../../../../../utils/verticals";
 
 export async function getStaticPaths() {
-  // Fetch all playlists
-  const playlists = await fetcher(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists/Solana`
-  );
-  // Fetch playlists content
+  // Fetch playlist for all verticals
+  let playlists = [];
+  for await (let vertical of verticals) {
+    const data = await fetcher(
+      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists/${vertical}`
+    );
+
+    playlists.push(data);
+  }
+
+  playlists = playlists.flat();
+
+  // Fetch playlist content
   let contentList = [];
   for await (let playlist of playlists) {
     const content = await fetcher(
-      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/${playlist.ID}`
+      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/${playlist.Vertical}/${playlist.ID}`
     );
 
     contentList.push(content);
@@ -24,17 +33,21 @@ export async function getStaticPaths() {
 
   const paths = contentList.map((content) => {
     return {
-      params: { playlistID: content.PlaylistID, videoID: content.ID },
+      params: {
+        vertical: content.Vertical,
+        playlistID: content.PlaylistID,
+        videoID: content.ID,
+      },
     };
   });
 
   // All missing paths are going to be server-side rendered and cached
-  return { paths, fallback: "blocking" };
+  return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
   const content = await fetcher(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/${params.playlistID}/${params.videoID}`
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/${params.vertical}/${params.playlistID}/${params.videoID}`
   );
 
   return {

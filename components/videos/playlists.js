@@ -2,8 +2,12 @@ import PropTypes from "prop-types";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useRouter } from "next/router";
 
 export default function Playlists({ playlists }) {
+  const router = useRouter();
+  const { vertical } = router.query;
+
   return (
     <>
       {/* Mobile */}
@@ -19,7 +23,10 @@ export default function Playlists({ playlists }) {
         >
           {playlists.map((playlist) => (
             <li key={playlist.ID}>
-              <Link href={`/library/videos/playlist/${playlist.ID}`} passHref>
+              <Link
+                href={`/library/${vertical}/playlist/${playlist.ID}`}
+                passHref
+              >
                 <div className="flex items-center space-x-2 pl-2 h-12">
                   <ChevronRightIcon
                     className="h-5 w-5 text-gray-400 group-hover:text-gray-500"
@@ -64,13 +71,13 @@ export default function Playlists({ playlists }) {
                     <div className="flex items-center space-x-3 lg:pl-2">
                       <FontAwesomeIcon icon={["fas", "folder"]} size="2x" />
                       <Link
-                        href={`/library/videos/playlist/${playlist.ID}`}
+                        href={`/library/${vertical}/playlist/${playlist.ID}`}
                         passHref
                       >
                         <span className="truncate hover:text-gray-600 cursor-pointer">
                           {playlist.Title}{" "}
                           <span className="text-gray-500 font-normal xl:hidden">
-                            by {playlist.Creator}
+                            by {playlist.Author}
                           </span>
                         </span>
                       </Link>
@@ -78,7 +85,7 @@ export default function Playlists({ playlists }) {
                   </td>
                   <td className="hidden md:table-cell px-3 py-3 whitespace-nowrap text-sm text-gray-500">
                     <div className="flex items-center space-x-2">
-                      {playlist.Category}
+                      {playlist.Tags && playlist.Tags[0]}
                     </div>
                   </td>
                   <td className="hidden md:table-cell px-3 py-3 whitespace-nowrap text-sm text-gray-500">
