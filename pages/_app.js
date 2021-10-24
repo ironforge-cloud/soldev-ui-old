@@ -1,5 +1,7 @@
 import PlausibleProvider from "next-plausible";
 import "tailwindcss/tailwind.css";
+import Nav from "../components/nav";
+import MiniSocial from "../components/mini-social";
 
 // FontAwesome
 import { config, library } from "@fortawesome/fontawesome-svg-core";
@@ -27,6 +29,7 @@ import SwiperCore, {
   Autoplay,
   A11y,
 } from "swiper";
+import Videos from "../components/videos";
 
 SwiperCore.use([Virtual, Navigation, Keyboard, Mousewheel, Autoplay, A11y]);
 
@@ -34,7 +37,22 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <PlausibleProvider domain="soldev.app" trackOutboundLinks={true}>
-        <Component {...pageProps} />
+        <Nav>
+          <div className="flex-1 flex items-stretch overflow-hidden gap-5 2xl:gap-7">
+            <main className="flex-1 overflow-y-auto">
+              {/* Primary column */}
+              <section
+                aria-labelledby="primary-heading"
+                className="flex-1 h-full flex flex-col overflow-hidden bg-white rounded-lg shadow-lg border"
+              >
+                <Component {...pageProps} />
+              </section>
+            </main>
+
+            {/* Secondary column (hidden on smaller screens) */}
+            <MiniSocial />
+          </div>
+        </Nav>
       </PlausibleProvider>
     </>
   );

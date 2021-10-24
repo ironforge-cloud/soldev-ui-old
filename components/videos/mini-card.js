@@ -27,7 +27,7 @@ export default function MiniCard({ content }) {
             blurDataURL={content.Img}
           />
         </div>
-        <h3 className="text-sm leading-5 text-gray-500 font-medium text-center py-1 h-12 max-w-xs">
+        <h3 className="text-sm leading-5 text-gray-500 font-medium text-center h-12 max-w-xs">
           {content.Title}
         </h3>
       </div>

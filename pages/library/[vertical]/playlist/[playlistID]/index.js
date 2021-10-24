@@ -52,22 +52,7 @@ function Playlist({ playlistDetails, playlistContent }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Nav>
-        <div className="flex-1 flex items-stretch overflow-hidden gap-5 2xl:gap-7">
-          <main className="flex-1 overflow-y-auto">
-            {/* Primary column */}
-            <section
-              aria-labelledby="primary-heading"
-              className="min-w-0 flex-1 h-full flex flex-col overflow-hidden xl:order-last bg-white rounded-lg shadow-lg border"
-            >
-              <PlaylistContent playlistContent={playlistContent} />
-            </section>
-          </main>
-
-          {/* Secondary column (hidden on smaller screens) */}
-          <MiniSocial />
-        </div>
-      </Nav>
+      <PlaylistContent playlistContent={playlistContent} />
     </div>
   );
 }

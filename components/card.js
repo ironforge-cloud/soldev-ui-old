@@ -3,47 +3,30 @@ import Image from "next/image";
 
 export default function Card({ content }) {
   return (
-    <div className="flex flex-col rounded-lg shadow-lg overflow-hidden max-w-sm">
-      <div className="flex-shrink-0">
-        <Image
-          className=" object-cover"
-          src={content.Img}
-          alt=""
-          height="186"
-          width="413"
-          quality="100"
-          placeholder="blur"
-          blurDataURL={content.Img}
-        />
+    <div className="flex flex-col p-6 rounded-t-xl shadow-lg bg-gradient-to-b from-yellow-100 to-yellow-50 bg-opacity-70 hover:bg-opacity-80 overflow-hidden w-[360px] h-[240px]">
+      <div className="flex-1">
+        <p className="text-xl font-semibold text-gray-900">{content.Title}</p>
+        <p className="mt-3 text-base text-gray-700">{content.Description}</p>
       </div>
-      <div
-        className="flex-1 p-6 flex flex-col justify-between"
-        style={{ height: "188px" }}
-      >
-        <div className="flex-1">
-          <p className="text-sm font-medium text-indigo-600">
-            {content.Tags.map((tag, index) => (
-              <span key={index}>
-                {tag}
-                {index < content.Tags.length - 1 && <>{", "}</>}
-              </span>
-            ))}
-          </p>
-          <p className="text-xl font-semibold text-gray-900">{content.Title}</p>
-          <p className="mt-3 text-base text-gray-700">{content.Description}</p>
+      <p className="text-sm font-medium text-indigo-600">
+        {content.Tags.map((tag, index) => (
+          <span key={index}>
+            {tag}
+            {index < content.Tags.length - 1 && <>{", "}</>}
+          </span>
+        ))}
+      </p>
+      <div className="mt-3 flex items-center">
+        <div className="flex-shrink-0">
+          <span className="sr-only">{content.Author}</span>
         </div>
-        <div className="mt-3 flex items-center">
-          <div className="flex-shrink-0">
-            <span className="sr-only">{content.Author}</span>
+        {content.Author && (
+          <div className="">
+            <p className="text-sm font-medium text-gray-500">
+              Author: {content.Author}
+            </p>
           </div>
-          {content.Author && (
-            <div className="">
-              <p className="text-sm font-medium text-gray-500">
-                Author: {content.Author}
-              </p>
-            </div>
-          )}
-        </div>
+        )}
       </div>
     </div>
   );

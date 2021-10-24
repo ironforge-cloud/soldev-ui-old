@@ -3,13 +3,13 @@ import Card from "../card";
 
 export default function Publications({ publications }) {
   return (
-    <div className="relative bg-white pt-2 px-4 sm:px-6  lg:px-8">
+    <div className="relative p-5">
       <div className="relative mx-auto">
-        <div className="mt-3 justify-items-center mx-auto grid gap-5 md:grid-cols-2 3xl:grid-cols-3 lg:max-w-none">
+        <div className="flex flex-wrap justify-around place-content-start sm:space-x-2 md:space-x-3 2xl:p-6">
           {publications.map((content) => (
             <a
               href={content.Url}
-              className="block mt-2 hover:opacity-85 transition duration-200 ease-in-out transform hover:-translate-y-2 pb-7"
+              className="block mt-2 hover:opacity-85 transition duration-300 hover:scale-105 ease-in-out transform pb-7"
               rel="noreferrer"
               target="_blank"
               key={content.SK}

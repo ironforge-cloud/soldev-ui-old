@@ -83,9 +83,9 @@ function Navbar({
                           key={item.name}
                           className={classNames(
                             item.name === section
-                              ? "border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-                              : "border-transparent text-gray-500  hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium",
-                            "block py-2 text-sm text-gray-700",
+                              ? "text-gray-900"
+                              : "text-gray-600  hover:text-gray-900 ",
+                            "block py-2 text-sm font-medium p-1 items-center inline-flex",
                             item.disabled
                               ? "disabled:opacity-50 cursor-not-allowed"
                               : "hover:border-gray-300"
@@ -103,9 +103,9 @@ function Navbar({
                           disabled={item.disabled}
                           className={classNames(
                             item.name === section
-                              ? "border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-                              : "border-transparent text-gray-500  hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium",
-                            "block py-2 text-sm text-gray-700",
+                              ? "text-gray-900"
+                              : "text-gray-600  hover:text-gray-900",
+                            "block py-2 text-sm text-gray-700 inline-flex items-center text-sm font-medium p-1 ",
                             item.disabled
                               ? "disabled:opacity-50 cursor-not-allowed"
                               : "hover:border-gray-300"

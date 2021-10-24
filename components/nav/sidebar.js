@@ -29,7 +29,6 @@ function Sidebar({
           {secondaryNavigationData[section].map((item) => (
             <Link href={item.href} key={item.name} passHref>
               <a
-                href={item.href}
                 className={classNames(
                   item.name === secondaryNavigation
                     ? "bg-gray-200 text-gray-900"
