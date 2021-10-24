@@ -1,7 +1,7 @@
 import Head from "next/head";
-import Player from "../../../../../../components/videos/player";
-import fetcher from "../../../../../../utils/fetcher";
-import verticals from "../../../../../../utils/verticals";
+import Player from "../../../../../components/videos/player";
+import fetcher from "../../../../../utils/fetcher";
+import verticals from "../../../../../utils/verticals";
 
 export async function getStaticPaths() {
   // Fetch playlist for all verticals

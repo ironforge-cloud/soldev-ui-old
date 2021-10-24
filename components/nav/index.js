@@ -1,15 +1,5 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import {
-  ArchiveIcon,
-  BeakerIcon,
-  ChatAlt2Icon,
-  ChipIcon,
-  FolderIcon,
-  PencilAltIcon,
-  TerminalIcon,
-  VideoCameraIcon,
-} from "@heroicons/react/outline";
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
 import { useRouter } from "next/router";

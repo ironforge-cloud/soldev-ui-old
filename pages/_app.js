@@ -30,10 +30,16 @@ import SwiperCore, {
   A11y,
 } from "swiper";
 import Videos from "../components/videos";
+import { useRouter } from "next/router";
 
 SwiperCore.use([Virtual, Navigation, Keyboard, Mousewheel, Autoplay, A11y]);
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  const { videoID } = router.query;
+
+  const size = videoID ? "2xl" : "xl";
+
   return (
     <>
       <PlausibleProvider domain="soldev.app" trackOutboundLinks={true}>
@@ -50,7 +56,7 @@ function MyApp({ Component, pageProps }) {
             </main>
 
             {/* Secondary column (hidden on smaller screens) */}
-            <MiniSocial />
+            <MiniSocial size={size} />
           </div>
         </Nav>
       </PlausibleProvider>

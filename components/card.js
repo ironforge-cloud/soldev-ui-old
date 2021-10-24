@@ -1,9 +1,8 @@
 import PropTypes from "prop-types";
-import Image from "next/image";
 
 export default function Card({ content }) {
   return (
-    <div className="flex flex-col p-6 rounded-t-xl shadow-lg bg-gradient-to-b from-yellow-100 to-yellow-50 bg-opacity-70 hover:bg-opacity-80 overflow-hidden w-[360px] h-[240px]">
+    <div className="flex flex-col p-6 rounded-t-xl shadow-lg bg-gradient-to-b from-yellow-100 to-yellow-50 bg-opacity-70 hover:bg-opacity-80 overflow-hidden w-[260px] h-[340px]">
       <div className="flex-1">
         <p className="text-lg font-semibold text-gray-900">{content.Title}</p>
         <p className="mt-3 text-base text-gray-700">{content.Description}</p>

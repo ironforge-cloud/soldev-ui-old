@@ -1,7 +1,7 @@
 import Head from "next/head";
 import fetch from "isomorphic-unfetch";
-import PublicationsComponent from "../../../../components/publications";
-import verticals from "../../../../utils/verticals";
+import PublicationsComponent from "../../../components/publications";
+import verticals from "../../../utils/verticals";
 
 export async function getStaticPaths() {
   const publicationTypes = [
