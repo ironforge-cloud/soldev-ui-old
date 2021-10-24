@@ -1,8 +1,6 @@
 import fetcher from "../../../../../utils/fetcher";
-import Nav from "../../../../../components/nav";
 import PlaylistContent from "../../../../../components/videos/playlist-content";
 import Head from "next/head";
-import MiniSocial from "../../../../../components/mini-social";
 import verticals from "../../../../../utils/verticals";
 
 export async function getStaticPaths() {
@@ -43,7 +41,7 @@ export async function getStaticProps({ params }) {
   };
 }
 
-function Playlist({ playlistDetails, playlistContent }) {
+export default function Playlist({ playlistContent }) {
   return (
     <div>
       <Head>
@@ -56,5 +54,3 @@ function Playlist({ playlistDetails, playlistContent }) {
     </div>
   );
 }
-
-export default Playlist;

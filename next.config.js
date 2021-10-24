@@ -15,7 +15,7 @@ const moduleExports = withPlausibleProxy()({
   async rewrites() {
     return [
       {
-        source: "/#",
+        source: "/",
         destination: "/library/Solana",
       },
     ];

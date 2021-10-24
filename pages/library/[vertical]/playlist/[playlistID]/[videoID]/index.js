@@ -1,6 +1,4 @@
-import Nav from "../../../../../../components/nav";
 import Head from "next/head";
-import MiniSocial from "../../../../../../components/mini-social";
 import Player from "../../../../../../components/videos/player";
 import fetcher from "../../../../../../utils/fetcher";
 import verticals from "../../../../../../utils/verticals";
