@@ -20,7 +20,7 @@ function Sidebar({
   setSecondaryNavigation,
 }) {
   return (
-    <div className="hidden lg:block w-auto mr-3 2xl:mr-6 h-screen">
+    <div className="hidden lg:block w-auto mr-4 h-screen">
       <nav
         aria-label="Sidebar"
         className="sticky top-4 divide-y divide-gray-300"

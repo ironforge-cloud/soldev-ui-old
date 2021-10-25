@@ -23,7 +23,7 @@ function Nav({ children, page }) {
         secondaryNavigation={secondaryNavigation}
         setSecondaryNavigation={setSecondaryNavigation}
       />
-      <div className="py-5 sm:px-6 lg:pr-0 lg:pl-4 flex">
+      <div className="py-5 sm:px-6 lg:pr-1 lg:pl-4 flex">
         <Sidebar
           secondaryNavigationData={secondaryNavigationData}
           section={section}
