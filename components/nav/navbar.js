@@ -7,6 +7,7 @@ import Image from "next/image";
 import MobileMenu from "./mobile-menu";
 import Link from "next/link";
 import CategorySelector from "./category-selector";
+import { useRouter } from "next/router";
 
 const navigation = [
   {
@@ -42,6 +43,9 @@ function Navbar({
   secondaryNavigation,
   setSecondaryNavigation,
 }) {
+  const router = useRouter();
+  const { vertical = "Solana" } = router.query;
+
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
@@ -52,7 +56,7 @@ function Navbar({
               <div className="flex">
                 <div className="relative flex-shrink-0 flex items-center cursor-pointer lg:mr-4">
                   {/* TODO: fix it */}
-                  <Link href="/" passHref>
+                  <Link href={`/library/${vertical}`} passHref>
                     <a>
                       <Image
                         src="/logowip-er2.svg"
