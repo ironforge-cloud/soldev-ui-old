@@ -13,7 +13,7 @@ export default function MiniCard({ content }) {
       passHref
     >
       <div>
-        <div className="cursor-pointer relative transition duration-200 ease-in-out transform hover:-translate-y-2">
+        <div className="cursor-pointer relative transition duration-200 ease-in-out transform-gpu hover:-translate-y-2">
           {content.SK == "livestream" && <LiveBadge live={content.Live} />}
 
           <Image

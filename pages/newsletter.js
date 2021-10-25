@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Nav from "../components/nav";
-import MiniSocial from "../components/mini-social";
+import MiniSocial from "../components/nav/mini-social";
 import Newsletter from "../components/newsletter";
 
 export default function FAQ() {

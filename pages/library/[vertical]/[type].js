@@ -50,7 +50,7 @@ export default function Publications({ publications, type }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <PublicationsComponent publications={publications} />
+      <PublicationsComponent publications={publications} type={type} />
     </div>
   );
 }

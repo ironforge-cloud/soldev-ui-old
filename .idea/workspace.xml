@@ -29,15 +29,15 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/components/nav" />
       <recent name="$PROJECT_DIR$/components/publications" />
       <recent name="$PROJECT_DIR$/pages/library/[vertical]" />
       <recent name="$PROJECT_DIR$/pages/library/[vertical]/playlist/[playlistID]" />
       <recent name="$PROJECT_DIR$/pages/library/[category]" />
-      <recent name="$PROJECT_DIR$/pages/library/[category]/[type]" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

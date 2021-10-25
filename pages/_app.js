@@ -1,7 +1,7 @@
 import PlausibleProvider from "next-plausible";
 import "tailwindcss/tailwind.css";
 import Nav from "../components/nav";
-import MiniSocial from "../components/mini-social";
+import MiniSocial from "../components/nav/mini-social";
 
 // FontAwesome
 import { config, library } from "@fortawesome/fontawesome-svg-core";

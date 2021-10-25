@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Nav from "../../components/nav";
-import MiniSocial from "../../components/mini-social";
+import MiniSocial from "../../components/nav/mini-social";
 import Discord from "../../components/discord";
 
 export default function Community() {
