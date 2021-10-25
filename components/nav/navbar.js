@@ -46,7 +46,7 @@ function Navbar({
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
         <>
-          <div className="mx-auto px-2">
+          <div className="mx-auto md:px-2">
             <div className="flex justify-between h-16">
               {/* Logo and Navigation */}
               <div className="flex">
@@ -64,7 +64,7 @@ function Navbar({
                   </Link>
                 </div>
 
-                <div className="flex lg:ml-10 lg:space-x-8">
+                <div className="flex lg:ml-10 space-x-4 lg:space-x-8">
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                   {navigation.map((item) => {
                     if (item.name === "Library") {

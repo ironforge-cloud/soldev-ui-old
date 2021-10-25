@@ -71,7 +71,7 @@ export default function CategorySelector({ item, setSection, section }) {
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 translate-y-1"
           >
-            <Popover.Panel className="absolute z-10 transform-gpu translate-y-36 -translate-x-5 mt-5 w-max pt-2">
+            <Popover.Panel className="absolute z-10 transform-gpu translate-y-40 -translate-x-28 sm:translate-y-36 sm:-translate-x-5 mt-5 w-max pt-2">
               {({ close }) => (
                 <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                   <div className=" grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
