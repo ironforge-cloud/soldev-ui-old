@@ -30,6 +30,10 @@ export default function SubmitForm() {
     setContentUrl("");
     setDescription("");
     setCategory("Solana");
+
+    setTimeout(() => {
+      setShowNotification(false);
+    }, 3000);
   };
 
   return (
@@ -149,7 +153,7 @@ export default function SubmitForm() {
                   value={contentUrl}
                   onChange={(e) => setContentUrl(e.target.value)}
                   className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                  placeholder="www.example.com"
+                  placeholder="https://www.example.com"
                 />
               </div>
             </div>
