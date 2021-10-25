@@ -51,6 +51,7 @@ function Navbar({
               {/* Logo and Navigation */}
               <div className="flex">
                 <div className="relative flex-shrink-0 flex items-center cursor-pointer lg:mr-4">
+                  {/* TODO: fix it */}
                   <Link href="/" passHref>
                     <a>
                       <Image
@@ -63,7 +64,7 @@ function Navbar({
                   </Link>
                 </div>
 
-                <div className="hidden lg:ml-10 lg:flex lg:space-x-8">
+                <div className="flex lg:ml-10 lg:space-x-8">
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                   {navigation.map((item) => {
                     if (item.name === "Library") {
@@ -85,7 +86,7 @@ function Navbar({
                             item.name === section
                               ? "text-gray-900"
                               : "text-gray-600  hover:text-gray-900 ",
-                            "block py-2 text-sm font-medium p-1 items-center inline-flex",
+                            "block py-2 text-sm font-medium p-1 items-center sm:inline-flex hidden",
                             item.disabled
                               ? "disabled:opacity-50 cursor-not-allowed"
                               : "hover:border-gray-300"
@@ -105,7 +106,7 @@ function Navbar({
                             item.name === section
                               ? "text-gray-900"
                               : "text-gray-600  hover:text-gray-900",
-                            "block py-2 text-sm text-gray-700 inline-flex items-center text-sm font-medium p-1 ",
+                            "block py-2 text-sm text-gray-700 sm:inline-flex hidden items-center text-sm font-medium p-1 ",
                             item.disabled
                               ? "disabled:opacity-50 cursor-not-allowed"
                               : "hover:border-gray-300"
@@ -121,7 +122,7 @@ function Navbar({
               </div>
 
               {/* Search bar */}
-              <div className="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
+              <div className="flex-1 hidden lg:flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
                 <div className="max-w-lg w-full">
                   <label htmlFor="search" className="sr-only">
                     Search
