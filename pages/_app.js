@@ -29,7 +29,6 @@ import SwiperCore, {
   Autoplay,
   A11y,
 } from "swiper";
-import Videos from "../components/videos";
 import { useRouter } from "next/router";
 
 SwiperCore.use([Virtual, Navigation, Keyboard, Mousewheel, Autoplay, A11y]);

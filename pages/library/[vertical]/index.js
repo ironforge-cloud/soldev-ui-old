@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Videos from "../../../components/videos";
-import fetcher from "../../../utils/fetcher";
+import fetch from "isomorphic-unfetch";
 import verticals from "../../../utils/verticals";
 
 export async function getStaticPaths() {
@@ -12,9 +12,16 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const playlists = await fetcher(
+  const data = await fetch(
     `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists/${params.vertical}`
   );
+
+  let playlists;
+  try {
+    playlists = await data.json();
+  } catch (error) {
+    playlists = [];
+  }
 
   return {
     props: {

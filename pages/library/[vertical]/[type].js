@@ -24,19 +24,19 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   // Get all content by vertical and type
-  const publications = await fetch(
+  const data = await fetch(
     `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/${params.vertical}/${params.type}`
   );
 
-  let data;
+  let publications;
   try {
-    data = await publications.json();
+    publications = await data.json();
   } catch (error) {
-    data = [];
+    publications = [];
   }
 
   return {
-    props: { publications: data, type: params.type }, // will be passed to the page component as props
+    props: { publications, type: params.type }, // will be passed to the page component as props
     revalidate: 300,
   };
 }
