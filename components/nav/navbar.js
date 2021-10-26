@@ -8,6 +8,10 @@ import MobileMenu from "./mobile-menu";
 import Link from "next/link";
 import CategorySelector from "./category-selector";
 import { useRouter } from "next/router";
+import {
+  WalletDisconnectButton,
+  WalletMultiButton,
+} from "@solana/wallet-adapter-react-ui";
 
 const navigation = [
   {
@@ -177,10 +181,7 @@ function Navbar({
                 <Menu as="div" className="ml-4 relative flex-shrink-0">
                   <div>
                     {/* Disable for now */}
-                    <Menu.Button
-                      disabled
-                      className="bg-white cursor-not-allowed disabled:opacity-50 rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
+                    <Menu.Button className="bg-white cursor-not-allowed disabled:opacity-50 rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                       <span className="sr-only">Open user menu</span>
                       <Image
                         className="h-8 w-8 rounded-full"
@@ -189,6 +190,7 @@ function Navbar({
                         width="32px"
                         alt="avatar"
                       />
+                      <WalletMultiButton />
                     </Menu.Button>
                   </div>
                   <Transition

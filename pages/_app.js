@@ -2,6 +2,7 @@ import PlausibleProvider from "next-plausible";
 import "tailwindcss/tailwind.css";
 import Nav from "../components/nav";
 import MiniSocial from "../components/nav/mini-social";
+import dynamic from "next/dynamic";
 
 // FontAwesome
 import { config, library } from "@fortawesome/fontawesome-svg-core";
@@ -33,6 +34,16 @@ import { useRouter } from "next/router";
 
 SwiperCore.use([Virtual, Navigation, Keyboard, Mousewheel, Autoplay, A11y]);
 
+// Wallet Auth
+import "@solana/wallet-adapter-react-ui/styles.css";
+const WalletConnectionProvider = dynamic(
+  () => import("../components/wallet-connection-provider"),
+  {
+    ssr: false,
+  }
+);
+import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
+
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const { videoID } = router.query;
@@ -42,22 +53,26 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <PlausibleProvider domain="soldev.app" trackOutboundLinks={true}>
-        <Nav>
-          <div className="flex-1 flex items-stretch overflow-hidden gap-5">
-            <main className="flex-1 overflow-y-auto">
-              {/* Primary column */}
-              <section
-                aria-labelledby="primary-heading"
-                className="flex-1 h-full flex flex-col overflow-hidden bg-white rounded-lg shadow-lg border"
-              >
-                <Component {...pageProps} />
-              </section>
-            </main>
+        <WalletConnectionProvider>
+          <WalletModalProvider>
+            <Nav>
+              <div className="flex-1 flex items-stretch overflow-hidden gap-5">
+                <main className="flex-1 overflow-y-auto">
+                  {/* Primary column */}
+                  <section
+                    aria-labelledby="primary-heading"
+                    className="flex-1 h-full flex flex-col overflow-hidden bg-white rounded-lg shadow-lg border"
+                  >
+                    <Component {...pageProps} />
+                  </section>
+                </main>
 
-            {/* Secondary column (hidden on smaller screens) */}
-            <MiniSocial size={size} />
-          </div>
-        </Nav>
+                {/* Secondary column (hidden on smaller screens) */}
+                <MiniSocial size={size} />
+              </div>
+            </Nav>
+          </WalletModalProvider>
+        </WalletConnectionProvider>
       </PlausibleProvider>
     </>
   );

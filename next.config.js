@@ -1,26 +1,37 @@
 const { withSentryConfig } = require("@sentry/nextjs");
 const { withPlausibleProxy } = require("next-plausible");
 
-const moduleExports = withPlausibleProxy()({
-  reactStrictMode: true,
-  images: {
-    domains: [
-      "i.ytimg.com",
-      "images.unsplash.com",
-      "solana.com",
-      "static-cdn.jtvnw.net",
-      "clips-media-assets2.twitch.tv",
-    ],
-  },
-  async rewrites() {
-    return [
-      {
-        source: "/",
-        destination: "/library/Solana",
-      },
-    ];
-  },
-});
+const withTM = require("next-transpile-modules")([
+  "@project-serum/sol-wallet-adapter",
+  "@solana/wallet-adapter-base",
+  "@solana/wallet-adapter-react",
+  "@solana/wallet-adapter-wallets",
+  "@solana/wallet-adapter-react-ui",
+  "@solana/wallet-adapter-phantom",
+]);
+
+const moduleExports = withPlausibleProxy()(
+  withTM({
+    reactStrictMode: true,
+    images: {
+      domains: [
+        "i.ytimg.com",
+        "images.unsplash.com",
+        "solana.com",
+        "static-cdn.jtvnw.net",
+        "clips-media-assets2.twitch.tv",
+      ],
+    },
+    async rewrites() {
+      return [
+        {
+          source: "/",
+          destination: "/library/Solana",
+        },
+      ];
+    },
+  })
+);
 
 const SentryWebpackPluginOptions = {
   // Additional config options for the Sentry Webpack plugin. Keep in mind that

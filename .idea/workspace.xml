@@ -14,6 +14,9 @@
       </list>
     </option>
   </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
   <component name="ProjectId" id="1zoQL2Z9SVwXFpJzCa56zEDtCfp" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
