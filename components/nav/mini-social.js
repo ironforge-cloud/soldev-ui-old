@@ -27,7 +27,7 @@ function MiniSocial({ size }) {
           dataSource={{
             sourceType: "list",
             ownerScreenName: "soldevapp",
-            id: "1444990678371651585",
+            id: "1452853465210933252",
           }}
           options={{
             dnt: true,
