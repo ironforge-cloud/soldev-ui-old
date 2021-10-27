@@ -54,7 +54,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <PlausibleProvider domain="soldev.app" trackOutboundLinks={true}>
         <WalletConnectionProvider>
-          <WalletModalProvider>
+          <WalletModalProvider logo="/logo-white.png">
             <Nav>
               <div className="flex-1 flex items-stretch overflow-hidden gap-5">
                 <main className="flex-1 overflow-y-auto">

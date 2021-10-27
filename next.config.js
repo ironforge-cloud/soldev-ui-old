@@ -12,6 +12,7 @@ const withTM = require("next-transpile-modules")([
 
 const moduleExports = withPlausibleProxy()(
   withTM({
+    // swcMinify: true,
     reactStrictMode: true,
     images: {
       domains: [
@@ -21,6 +22,7 @@ const moduleExports = withPlausibleProxy()(
         "static-cdn.jtvnw.net",
         "clips-media-assets2.twitch.tv",
       ],
+      formats: ["image/avif", "image/webp"],
     },
     async rewrites() {
       return [

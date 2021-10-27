@@ -1,6 +1,4 @@
 import Head from "next/head";
-import Nav from "../components/nav";
-import MiniSocial from "../components/nav/mini-social";
 
 const faqs = [
   {

@@ -1,6 +1,4 @@
 import Head from "next/head";
-import Nav from "../components/nav";
-import MiniSocial from "../components/nav/mini-social";
 import SubmitForm from "../components/submit-form";
 
 export default function Video() {
