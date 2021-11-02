@@ -22,27 +22,11 @@ function AppReducer(state, action) {
   }
 }
 
-function initValues() {
-  let editMode = false;
-  let vertical = "Solana";
-
-  if (window) {
-    editMode = window.sessionStorage.getItem("editMode")
-      ? !!window.sessionStorage.getItem("editMode")
-      : editMode;
-    vertical = window.sessionStorage.getItem("vertical")
-      ? window.sessionStorage.getItem("vertical")
-      : vertical;
-  }
-
-  return {
-    editMode,
-    vertical,
-  };
-}
-
 export function AppWrapper({ children }) {
-  const [state, dispatch] = useReducer(AppReducer, initValues());
+  const [state, dispatch] = useReducer(AppReducer, {
+    editMode: false,
+    vertical: "Solana",
+  });
 
   const contextValue = useMemo(() => {
     return { state, dispatch };

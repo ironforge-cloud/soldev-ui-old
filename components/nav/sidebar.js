@@ -67,18 +67,18 @@ function Sidebar({
             aria-labelledby="communities-headline"
           >
             {others.map((other) => (
-              <a
-                key={other.name}
-                href={other.href}
-                className={classNames(
-                  "group flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md ",
-                  other.disabled
-                    ? "disabled:opacity-50 cursor-not-allowed text-gray-300"
-                    : "hover:text-gray-900 hover:bg-gray-50"
-                )}
-              >
-                <span className="truncate">{other.name}</span>
-              </a>
+              <Link href={other.href} key={other.name} passHref>
+                <a
+                  className={classNames(
+                    "group flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md ",
+                    other.disabled
+                      ? "disabled:opacity-50 cursor-not-allowed text-gray-300"
+                      : "hover:text-gray-900 hover:bg-gray-50"
+                  )}
+                >
+                  <span className="truncate">{other.name}</span>
+                </a>
+              </Link>
             ))}
           </div>
         </div>
