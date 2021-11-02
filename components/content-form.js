@@ -1,17 +1,19 @@
 import { useState } from "react";
 import fetch from "isomorphic-unfetch";
-import SubmitSuccess from "./notifications/submit-success";
+import Success from "./notifications/success";
+import PropTypes from "prop-types";
+import TagList from "../utils/tags";
 
-export default function SubmitForm() {
+export default function ContentForm({ type, setOpen }) {
   const [authorName, setAuthorName] = useState("");
   const [title, setTitle] = useState("");
   const [contentUrl, setContentUrl] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("Solana");
-  const [showNotification, setShowNotification] = useState(false);
 
   const submitForm = async (event) => {
     event.preventDefault();
+
     await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/submit/content`, {
       method: "POST",
       body: JSON.stringify({
@@ -22,7 +24,6 @@ export default function SubmitForm() {
         Category: category,
       }),
     });
-    setShowNotification(true);
 
     // Clean states
     setAuthorName("");
@@ -30,38 +31,36 @@ export default function SubmitForm() {
     setContentUrl("");
     setDescription("");
     setCategory("Solana");
-
-    setTimeout(() => {
-      setShowNotification(false);
-    }, 3000);
   };
 
   return (
-    <div className="bg-white py-16 px-4 h-screen overflow-hidden sm:px-6 lg:px-8 lg:py-24">
-      <SubmitSuccess show={showNotification} setShow={setShowNotification} />
-      <div className="relative max-w-xl mx-auto">
+    <div className="bg-white py-16 px-4 h-full overflow-hidden sm:px-6 lg:px-8 lg:py-14">
+      <div className="relative max-w-3xl mx-auto">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            Submit new content
+            {type === "submit" ? "Submit new content" : "Edit Content"}
           </h2>
           <p className="mt-4 text-lg leading-6 text-gray-500">
-            Propose new content to the platform. Submissions will be manually
-            reviewed before deciding to publish them to the site.
+            {type === "submit"
+              ? `Propose new content to the platform. Submissions will be manually
+                            reviewed before deciding to publish them to the site.`
+              : ""}
           </p>
         </div>
         <div className="mt-12">
           <form
             action="#"
             method="POST"
-            className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+            className="grid grid-cols-4 gap-y-6 gap-x-8"
             onSubmit={submitForm}
           >
-            <div className="sm:col-span-2">
+            {/* Title */}
+            <div className="col-span-4">
               <label
                 htmlFor="title"
                 className="block text-sm font-medium text-gray-700"
               >
-                Title <span className="text-red-600">*</span>
+                Title
               </label>
               <div className="mt-1">
                 <input
@@ -75,10 +74,12 @@ export default function SubmitForm() {
                 />
               </div>
             </div>
-            <fieldset className="my-3 col-span-2">
+
+            {/* Category */}
+            <fieldset className="my-3 col-span-1">
               <div>
                 <legend className="text-base font-medium text-gray-900">
-                  Category <span className="text-red-600">*</span>
+                  Category
                 </legend>
               </div>
               <div className="mt-4 space-y-4">
@@ -99,6 +100,7 @@ export default function SubmitForm() {
                     Solana
                   </label>
                 </div>
+
                 <div className="flex items-center">
                   <input
                     id="rust"
@@ -115,35 +117,50 @@ export default function SubmitForm() {
                     Rust
                   </label>
                 </div>
-                <div className="flex items-center">
-                  <input
-                    id="not-sure"
-                    name="category"
-                    type="radio"
-                    value=""
-                    onClick={() => setCategory("")}
-                    className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
-                  />
-                  <label
-                    htmlFor="not-sure"
-                    className="ml-3 block text-sm font-medium text-gray-700"
-                  >
-                    I{`'`}m not sure
-                  </label>
-                </div>
               </div>
             </fieldset>
-            <div className="sm:col-span-2">
+
+            {/* Tags */}
+            {/*<fieldset className="my-3 col-span-3">*/}
+            {/*  <legend className="text-base font-medium text-gray-900">*/}
+            {/*    Tags*/}
+            {/*  </legend>*/}
+            {/*  <div className="mt-4 space-y-4">*/}
+            {/*    {TagList.map((tag) => (*/}
+            {/*      <div className="flex items-start">*/}
+            {/*        <div className="flex items-center h-5">*/}
+            {/*          <input*/}
+            {/*            id="comments"*/}
+            {/*            name="comments"*/}
+            {/*            type="checkbox"*/}
+            {/*            className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"*/}
+            {/*          />*/}
+            {/*        </div>*/}
+            {/*        <div className="ml-3 text-sm">*/}
+            {/*          <label*/}
+            {/*            htmlFor="comments"*/}
+            {/*            className="font-medium text-gray-700 capitalize"*/}
+            {/*          >*/}
+            {/*            {tag.name}*/}
+            {/*          </label>*/}
+            {/*        </div>*/}
+            {/*      </div>*/}
+            {/*    ))}*/}
+            {/*  </div>*/}
+            {/*</fieldset>*/}
+
+            {/* Content Link */}
+            <div className="col-span-4">
               <label
                 htmlFor="url"
                 className="block text-sm font-medium text-gray-700"
               >
-                Content Link <span className="text-red-600">*</span>
+                Content Link
               </label>
 
               <div className="mt-1 flex rounded-md shadow-sm">
                 <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
-                  url
+                  URL
                 </span>
                 <input
                   id="url"
@@ -152,17 +169,19 @@ export default function SubmitForm() {
                   type="url"
                   value={contentUrl}
                   onChange={(e) => setContentUrl(e.target.value)}
-                  className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                  className="py-3 px-4 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
                   placeholder="https://www.example.com"
                 />
               </div>
             </div>
-            <div className="sm:col-span-2">
+
+            {/* Description */}
+            <div className="col-span-4">
               <label
                 htmlFor="description"
                 className="block text-sm font-medium text-gray-700"
               >
-                Description <span className="text-red-600">*</span>
+                Description
               </label>
               <div className="mt-1">
                 <textarea
@@ -179,12 +198,14 @@ export default function SubmitForm() {
                 </p>
               </div>
             </div>
-            <div className="sm:col-span-2">
+
+            {/* Author*/}
+            <div className="col-span-4">
               <label
                 htmlFor="author-name"
                 className="block text-sm font-medium text-gray-700"
               >
-                Author name, or profile url
+                Author
               </label>
               <div className="mt-1">
                 <input
@@ -198,12 +219,18 @@ export default function SubmitForm() {
                 />
               </div>
             </div>
-            <div className="sm:col-span-2">
+            <div className="flex max-w-3xl mx-auto justify-end">
+              <button
+                type="button"
+                className="bg-white py-3 px-6 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Cancel
+              </button>
               <button
                 type="submit"
-                className="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="ml-3 inline-flex justify-center py-3 px-10 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
-                Submit
+                {type === "submit" ? "Submit" : "Save"}
               </button>
             </div>
           </form>
@@ -212,3 +239,8 @@ export default function SubmitForm() {
     </div>
   );
 }
+
+ContentForm.propTypes = {
+  type: PropTypes.oneOf(["submit", "edit"]),
+  setOpen: PropTypes.func.isRequired,
+};

@@ -1,5 +1,7 @@
 import Head from "next/head";
-import SubmitForm from "../components/submit-form";
+import ContentForm from "../components/content-form";
+import Success from "../components/notifications/success";
+import { useState } from "react";
 
 export default function Video() {
   return (
@@ -10,7 +12,7 @@ export default function Video() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <SubmitForm />
+      <ContentForm type="submit" />
     </div>
   );
 }

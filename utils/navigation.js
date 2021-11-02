@@ -70,3 +70,26 @@ export function constructSecondaryNavigationData(vertical) {
     ],
   };
 }
+
+export const navigation = [
+  {
+    name: "Library",
+    disabled: false,
+    url: "/library",
+  },
+  {
+    name: "Community",
+    disabled: true,
+    url: "/community",
+  },
+  {
+    name: "Calendar",
+    disabled: true,
+    url: "#",
+  },
+  {
+    name: "Jobs",
+    disabled: false,
+    url: "https://jobs.solana.com/",
+  },
+];

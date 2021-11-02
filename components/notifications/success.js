@@ -1,10 +1,10 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Transition } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/outline";
 import { XIcon } from "@heroicons/react/solid";
 import PropTypes from "prop-types";
 
-export default function SubmitSuccess({ show, setShow }) {
+export default function Success({ show, setShow, text }) {
   return (
     <>
       {/* Global notification live region, render this permanently at the end of the document */}
@@ -24,7 +24,7 @@ export default function SubmitSuccess({ show, setShow }) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
+            <div className="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden bg-green-50">
               <div className="p-4">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
@@ -34,10 +34,7 @@ export default function SubmitSuccess({ show, setShow }) {
                     />
                   </div>
                   <div className="ml-3 w-0 flex-1 pt-0.5">
-                    <p className="text-sm font-medium text-gray-900">
-                      Successfully submitted
-                    </p>
-                    <p className="mt-1 text-sm text-gray-500">Thanks you!</p>
+                    <p className="text-sm font-medium text-gray-900">{text}</p>
                   </div>
                   <div className="ml-4 flex-shrink-0 flex">
                     <button
@@ -60,7 +57,8 @@ export default function SubmitSuccess({ show, setShow }) {
   );
 }
 
-SubmitSuccess.propTypes = {
+Success.propTypes = {
   show: PropTypes.bool.isRequired,
   setShow: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
 };

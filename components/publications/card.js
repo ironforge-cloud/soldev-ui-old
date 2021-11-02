@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 export default function Card({ content }) {
   return (
-    <div className="flex flex-col p-6 rounded-lg shadow-lg bg-gradient-to-b from-yellow-100 to-yellow-50 bg-opacity-70 hover:bg-opacity-80 overflow-hidden w-[260px] h-[340px]">
+    <div className="flex flex-col p-6 rounded-lg shadow-lg bg-gradient-to-b from-yellow-100 to-yellow-50 bg-opacity-70 hover:bg-opacity-80 overflow-hidden w-[260px] h-[340px] hover:opacity-85 transform-gpu transition duration-300 hover:scale-105 ease-in-out">
       <div className="flex-1">
         <p className="text-lg font-semibold text-gray-900">{content.Title}</p>
         <p className="mt-3 text-base text-gray-700">{content.Description}</p>

@@ -5,9 +5,9 @@ import {
 } from "@solana/wallet-adapter-react";
 import { getPhantomWallet } from "@solana/wallet-adapter-wallets";
 import { clusterApiUrl } from "@solana/web3.js";
-import { useMemo } from "react";
+import { useMemo, memo } from "react";
 
-export default function WalletConnectionProvider({ children }) {
+function WalletConnectionProvider({ children }) {
   // Can be set to 'devnet', 'testnet', or 'mainnet-beta'
   const network = WalletAdapterNetwork.Devnet;
 
@@ -26,3 +26,5 @@ export default function WalletConnectionProvider({ children }) {
     </ConnectionProvider>
   );
 }
+
+export default memo(WalletConnectionProvider);

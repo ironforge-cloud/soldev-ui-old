@@ -8,9 +8,12 @@ import { constructSecondaryNavigationData } from "../../utils/navigation";
 function Nav({ children, page }) {
   const [section, setSection] = useState(page);
   const [secondaryNavigation, setSecondaryNavigation] = useState("Videos");
-  const router = useRouter();
-  const { vertical } = router.query;
 
+  const router = useRouter();
+
+  // Current vertical
+  const { vertical } = router.query;
+  // Setting up sidebar content, vertical is needed for the URLs
   const secondaryNavigationData = constructSecondaryNavigationData(vertical);
 
   return (
@@ -21,6 +24,7 @@ function Nav({ children, page }) {
         secondaryNavigationData={secondaryNavigationData}
         secondaryNavigation={secondaryNavigation}
         setSecondaryNavigation={setSecondaryNavigation}
+        vertical={vertical}
       />
       <div className="py-5 sm:px-6 lg:pr-1 lg:pl-4 flex">
         <Sidebar

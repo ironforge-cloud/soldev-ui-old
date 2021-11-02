@@ -44,6 +44,9 @@ const WalletConnectionProvider = dynamic(
 );
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 
+// App Context
+import { AppWrapper } from "../context/AppContext";
+
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const { videoID } = router.query;
@@ -55,22 +58,24 @@ function MyApp({ Component, pageProps }) {
       <PlausibleProvider domain="soldev.app" trackOutboundLinks={true}>
         <WalletConnectionProvider>
           <WalletModalProvider logo="/logo-white.png">
-            <Nav>
-              <div className="flex-1 flex items-stretch overflow-hidden gap-5">
-                <main className="flex-1 overflow-y-auto">
-                  {/* Primary column */}
-                  <section
-                    aria-labelledby="primary-heading"
-                    className="flex-1 h-full flex flex-col overflow-hidden bg-white rounded-lg shadow-lg border"
-                  >
-                    <Component {...pageProps} />
-                  </section>
-                </main>
+            <AppWrapper>
+              <Nav>
+                <div className="flex-1 flex items-stretch overflow-hidden gap-5">
+                  <main className="flex-1 overflow-y-auto">
+                    {/* Primary column */}
+                    <section
+                      aria-labelledby="primary-heading"
+                      className="flex-1 h-full flex flex-col overflow-hidden bg-white rounded-lg shadow-lg border"
+                    >
+                      <Component {...pageProps} />
+                    </section>
+                  </main>
 
-                {/* Secondary column (hidden on smaller screens) */}
-                <MiniSocial size={size} />
-              </div>
-            </Nav>
+                  {/* Secondary column (hidden on smaller screens) */}
+                  <MiniSocial size={size} />
+                </div>
+              </Nav>
+            </AppWrapper>
           </WalletModalProvider>
         </WalletConnectionProvider>
       </PlausibleProvider>

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "dependencies": {
     "@sentry/nextjs": "^6.13.3",
-    "next": "11.1.2",
+    "next": "12.0.2",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
@@ -23,21 +23,21 @@
     "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/typography": "^0.4.1",
     "@widgetbot/react-embed": "^1.4.0",
-    "autoprefixer": "^10.3.7",
-    "eslint-config-next": "11.1.2",
+    "autoprefixer": "^10.4.0",
+    "eslint-config-next": "12.0.2",
     "eslint-config-prettier": "^8.3.0",
     "fixpack": "^4.0.0",
     "isomorphic-unfetch": "^3.1.0",
-    "next-plausible": "^3.0.0",
-    "next-transpile-modules": "^8.0.0",
+    "next-plausible": "^3.0.1",
+    "next-transpile-modules": "^9.0.0",
     "postcss": "^8.3.11",
     "prettier": "^2.4.1",
     "prop-types": "^15.7.2",
     "react-player": "^2.9.0",
     "react-twitter-widgets": "^1.10.0",
-    "swiper": "^7.1.0",
+    "swiper": "^7.2.0",
     "swr": "^1.0.1",
-    "tailwindcss": "^2.2.17"
+    "tailwindcss": "^2.2.19"
   },
   "private": true,
   "scripts": {

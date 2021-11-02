@@ -12,7 +12,7 @@ const withTM = require("next-transpile-modules")([
 
 const moduleExports = withPlausibleProxy()(
   withTM({
-    // swcMinify: true,
+    swcMinify: true,
     reactStrictMode: true,
     images: {
       domains: [
