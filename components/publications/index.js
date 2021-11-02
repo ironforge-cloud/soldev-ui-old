@@ -26,7 +26,7 @@ export default function Publications({ publications, type }) {
         <SubmitContentCard />
         {publications.map((content) => (
           <div key={content.SK} className="px-1 3xl:p-8 pb-7 mt-2">
-            {appState ? (
+            {appState.editMode ? (
               <div
                 className="cursor-pointer"
                 onClick={() => editContent(content)}

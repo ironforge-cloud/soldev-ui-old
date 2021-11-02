@@ -10,6 +10,7 @@ import {
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
+import { useAppDispatch, useAppState } from "../../context/AppContext";
 
 const solutions = [
   {
@@ -36,7 +37,9 @@ function classNames(...classes) {
 }
 
 export default function CategorySelector({ item, setSection, section }) {
-  const [vertical, setVertical] = useState("Solana");
+  const appState = useAppState();
+  const appDispatch = useAppDispatch();
+
   return (
     <Popover className="relative inline-flex items-center text-sm text-gray-500 pt-4">
       {({ open }) => (
@@ -52,7 +55,7 @@ export default function CategorySelector({ item, setSection, section }) {
             <div className="flex flex-col">
               <h2>Catalog</h2>
               <span className="text-xs text-blue-400 uppercase font-bold">
-                {vertical}
+                {appState.vertical}
               </span>
             </div>
 
@@ -79,7 +82,10 @@ export default function CategorySelector({ item, setSection, section }) {
                       <Link key={item.name} href={item.href} passHref>
                         <button
                           onClick={() => {
-                            setVertical(item.name);
+                            appDispatch({
+                              type: "vertical",
+                              payload: item.name,
+                            });
                             setSection("Library");
                             close();
                           }}

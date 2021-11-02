@@ -380,9 +380,9 @@
     tslib "^1.9.3"
 
 "@sentry/cli@^1.68.0":
-  version "1.70.1"
-  resolved "https://registry.yarnpkg.com/@sentry/cli/-/cli-1.70.1.tgz#908517b699c0714eff88bedb68c6ea72e94945e8"
-  integrity sha512-pab3nU3rNsq1HKKmJP2ITDl5cGi+QbQ5eLX6ELaeAbN2eAzfndHu2rTqlnjJAKcYQg6l9gFBn8vvY2xAeRJb6Q==
+  version "1.71.0"
+  resolved "https://registry.yarnpkg.com/@sentry/cli/-/cli-1.71.0.tgz#1e33e05d7651b68f501764ab24dce3d5932b195d"
+  integrity sha512-Z8TzH7PkiRfjWSzjXOfPWWp6wxjr+n39Jdrt26OcInVQZM1sx/gZULrDiQZ1L2dy9Fe9AR4SF4nt2/7h2GmLQQ==
   dependencies:
     https-proxy-agent "^5.0.0"
     mkdirp "^0.5.5"
@@ -703,18 +703,18 @@
     deepmerge "^4.2.2"
 
 "@toruslabs/openlogin-ed25519@^1.0.0":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@toruslabs/openlogin-ed25519/-/openlogin-ed25519-1.0.1.tgz#86772c0bbc723c2716a9e820f6fe50f10a5ce1e9"
-  integrity sha512-xRS4gyGOHQ7EqDyl3jTxxdUJfIeRmGJ8pUJAcFjExAs7gUuQyzzW4Ao7uJ4gX5ITPSobzQkCDF7DvxRo3GmEmQ==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@toruslabs/openlogin-ed25519/-/openlogin-ed25519-1.0.2.tgz#0f6ed7673f00db0ab29fb0051b11c960e46c147e"
+  integrity sha512-a5TUqoohaz0Lwr9mg5Yo+ELVbk2IvTJMC6tBhpwypKWb5Pep+wvJ9PIuf8M/1VnNIFK6ZqKyepMRnJItqgejWA==
   dependencies:
     "@toruslabs/tweetnacl-js" "^1.0.3"
 
-"@toruslabs/openlogin-jrpc@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@toruslabs/openlogin-jrpc/-/openlogin-jrpc-1.0.1.tgz#85fb8358b0e3876e8b1bccf3def38ff314841cb9"
-  integrity sha512-zsCqcOLS9smlxMuoH1BuCOZAbjKSD6eWm3yJXgmNs6S0LCBl9e9fK9qW90a3HZ0PsPZpb1g/AHzr+jP6Ub929g==
+"@toruslabs/openlogin-jrpc@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@toruslabs/openlogin-jrpc/-/openlogin-jrpc-1.0.2.tgz#ec29f1a45eaf0dcbdb0e1ebd5d0543f987198a8a"
+  integrity sha512-UcnAO3QZ7uUBxvEscBYpQYkZYwuP/CXQTI9zD9dGXyJk6YdZXQCN715kCQVangJFG7koH0re1/qnnMWWok8upQ==
   dependencies:
-    "@toruslabs/openlogin-utils" "^1.0.1"
+    "@toruslabs/openlogin-utils" "^1.0.2"
     end-of-stream "^1.4.4"
     events "^3.3.0"
     fast-safe-stringify "^2.1.1"
@@ -722,24 +722,24 @@
     pump "^3.0.0"
     readable-stream "^3.6.0"
 
-"@toruslabs/openlogin-utils@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@toruslabs/openlogin-utils/-/openlogin-utils-1.0.1.tgz#a52243284fbfdb29cf9e24e63d28e412c8ef4877"
-  integrity sha512-B40dZZ+bt8LRJegq0Omu5vhmLhK0/iD/CIMoHEoMe6HhI3gpIq6V8d+eV0UC8+wQJ86WY6PIx9lto8mTunJS0w==
+"@toruslabs/openlogin-utils@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@toruslabs/openlogin-utils/-/openlogin-utils-1.0.2.tgz#09e10956c55729d4615a98d506d7345f3b4adb9e"
+  integrity sha512-f9NrKBiLvlyttUT8y6VNyc2Byd89cdmpHQKaS3B6dG2JdPID30p0rPHswVonh9r/zImFQqoywukgKnZJXWK/ig==
   dependencies:
     base64url "^3.0.1"
     keccak "^3.0.2"
     randombytes "^2.1.0"
 
 "@toruslabs/openlogin@^1.0.0":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@toruslabs/openlogin/-/openlogin-1.0.1.tgz#325758bcb515491bad7664e62d7bba4303c15e78"
-  integrity sha512-jEE1cSdLBTBH7lC8nqWwgysojmZ1Pri8FRZ5Aw9QezsghKj528D/2UuNFxau3B1fCAVFJKtHxnq30EDOk7QOaw==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@toruslabs/openlogin/-/openlogin-1.0.2.tgz#9065ca261fd40fc30d5e064795991c188341c104"
+  integrity sha512-58bnBisJRq3mLOVW0mhC7nK7XQcby1ifPifz0OLXBkXrddJFRP0ecDiIkJWO7qDW57Nl/o3pIsMIo9UOm0VcnA==
   dependencies:
     "@toruslabs/eccrypto" "^1.1.7"
     "@toruslabs/http-helpers" "^1.4.0"
-    "@toruslabs/openlogin-jrpc" "^1.0.1"
-    "@toruslabs/openlogin-utils" "^1.0.1"
+    "@toruslabs/openlogin-jrpc" "^1.0.2"
+    "@toruslabs/openlogin-utils" "^1.0.2"
     lodash.merge "^4.6.2"
     pump "^3.0.0"
 
@@ -1259,12 +1259,12 @@ browserslist@4.16.6:
     node-releases "^1.1.71"
 
 browserslist@^4.17.5:
-  version "4.17.5"
-  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.17.5.tgz#c827bbe172a4c22b123f5e337533ceebadfdd559"
-  integrity sha512-I3ekeB92mmpctWBoLXe0d5wPS2cBuRvvW0JyyJHMrk9/HmP2ZjrTboNAZ8iuGqaEIlKguljbQY32OkOJIRrgoA==
+  version "4.17.6"
+  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.17.6.tgz#c76be33e7786b497f66cad25a73756c8b938985d"
+  integrity sha512-uPgz3vyRTlEiCv4ee9KlsKgo2V6qPk7Jsn0KAn2OBqbqKo3iNcPEC1Ti6J4dwnz+aIRfEEEuOzC9IBk8tXUomw==
   dependencies:
-    caniuse-lite "^1.0.30001271"
-    electron-to-chromium "^1.3.878"
+    caniuse-lite "^1.0.30001274"
+    electron-to-chromium "^1.3.886"
     escalade "^3.1.1"
     node-releases "^2.0.1"
     picocolors "^1.0.0"
@@ -1340,7 +1340,7 @@ camelcase-css@^2.0.1:
   resolved "https://registry.yarnpkg.com/camelcase-css/-/camelcase-css-2.0.1.tgz#ee978f6947914cc30c6b44741b6ed1df7f043fd5"
   integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
 
-caniuse-lite@^1.0.30001202, caniuse-lite@^1.0.30001219, caniuse-lite@^1.0.30001228, caniuse-lite@^1.0.30001271, caniuse-lite@^1.0.30001272:
+caniuse-lite@^1.0.30001202, caniuse-lite@^1.0.30001219, caniuse-lite@^1.0.30001228, caniuse-lite@^1.0.30001272, caniuse-lite@^1.0.30001274:
   version "1.0.30001274"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001274.tgz#26ca36204d15b17601ba6fc35dbdad950a647cc7"
   integrity sha512-+Nkvv0fHyhISkiMIjnyjmf5YJcQ1IQHZN6U9TLUMroWR38FNwpsC51Gb68yueafX1V6ifOisInSgP9WJFS13ew==
@@ -1789,10 +1789,10 @@ eip1193-provider@^1.0.1:
   dependencies:
     "@json-rpc-tools/provider" "^1.5.5"
 
-electron-to-chromium@^1.3.723, electron-to-chromium@^1.3.878:
-  version "1.3.885"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.885.tgz#c8cec32fbc61364127849ae00f2395a1bae7c454"
-  integrity sha512-JXKFJcVWrdHa09n4CNZYfYaK6EW5aAew7/wr3L1OnsD1L+JHL+RCtd7QgIsxUbFPeTwPlvnpqNNTOLkoefmtXg==
+electron-to-chromium@^1.3.723, electron-to-chromium@^1.3.886:
+  version "1.3.886"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.886.tgz#ac039c4001b665b1dd0f0ed9c2e4da90ff3c9267"
+  integrity sha512-+vYdeBosI63VkCtNWnEVFjgNd/IZwvnsWkKyPtWAvrhA+XfByKoBJcbsMgudVU/bUcGAF9Xp3aXn96voWlc3oQ==
 
 elliptic@^6.5.2, elliptic@^6.5.3, elliptic@^6.5.4:
   version "6.5.4"

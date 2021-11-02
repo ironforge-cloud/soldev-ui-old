@@ -25,9 +25,6 @@ function Navbar({
   secondaryNavigationData,
   secondaryNavigation,
   setSecondaryNavigation,
-  vertical,
-  editMode,
-  setEditMode,
 }) {
   const { user, isAdmin = false, connected, error } = useUser();
   const [editModeNotificationOn, setEditModeNotificationOn] = useState(false);
@@ -39,9 +36,9 @@ function Navbar({
 
   // Change edit mode state send notification
   const onEditMode = () => {
-    appDispatch({ type: "editMode", payload: !appState });
+    appDispatch({ type: "editMode", payload: !appState.editMode });
 
-    if (!appState) {
+    if (!appState.editMode) {
       setEditModeNotificationOn(true);
       setTimeout(() => {
         setEditModeNotificationOn(false);
@@ -63,7 +60,7 @@ function Navbar({
               {/* Logo and Navigation */}
               <div className="flex">
                 <div className="relative flex-shrink-0 flex items-center cursor-pointer lg:mr-4">
-                  <Link href={`/library/${vertical}`} passHref>
+                  <Link href={`/library/${appState.vertical}`} passHref>
                     <a>
                       <Image
                         src="/logowip-er2.svg"
@@ -209,10 +206,10 @@ function Navbar({
                                 <CogIcon
                                   className="block h-7 w-7"
                                   aria-hidden="true"
-                                  color={appState ? "red" : "black"}
+                                  color={appState.editMode ? "red" : "black"}
                                 />
                                 <span className="pl-2">
-                                  {appState
+                                  {appState.editMode
                                     ? "Disable Edit Mode"
                                     : "Activate Edit Mode"}
                                 </span>
@@ -279,7 +276,6 @@ Navbar.prototype = {
   secondaryNavigationData: PropTypes.object.isRequired,
   secondaryNavigation: PropTypes.string.isRequired,
   setSecondaryNavigation: PropTypes.func.isRequired,
-  vertical: PropTypes.string.isRequired,
 };
 
 export default React.memo(Navbar);

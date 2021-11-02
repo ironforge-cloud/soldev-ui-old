@@ -3,13 +3,14 @@ import Image from "next/image";
 import LiveBadge from "./live-badge";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useAppState } from "../../context/AppContext";
 
 export default function MiniCard({ content }) {
-  const router = useRouter();
-  const { vertical } = router.query;
+  const appState = useAppState();
+
   return (
     <Link
-      href={`/library/${vertical}/playlist/${content.PlaylistID}/${content.ID}`}
+      href={`/library/${appState.vertical}/playlist/${content.PlaylistID}/${content.ID}`}
       passHref
     >
       <div>

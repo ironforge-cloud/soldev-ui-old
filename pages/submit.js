@@ -1,7 +1,5 @@
 import Head from "next/head";
 import ContentForm from "../components/content-form";
-import Success from "../components/notifications/success";
-import { useState } from "react";
 
 export default function Video() {
   return (
