@@ -2,20 +2,12 @@ import Head from "next/head";
 import fetch from "isomorphic-unfetch";
 import PublicationsComponent from "../../../components/publications";
 import verticals from "../../../utils/verticals";
+import contentTypes from "../../../utils/content-types";
 
 export async function getStaticPaths() {
-  const publicationTypes = [
-    "walkthroughs",
-    "courses",
-    "sdk",
-    "implementations",
-    "resources",
-    "tools",
-  ];
-
   const paths = [];
   verticals.forEach((vertical) => {
-    publicationTypes.forEach((type) => {
+    contentTypes.forEach((type) => {
       paths.push({ params: { vertical, type } });
     });
   });
@@ -37,7 +29,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { publications, type: params.type }, // will be passed to the page component as props
-    revalidate: 300,
+    revalidate: 60, // In seconds
   };
 }
 

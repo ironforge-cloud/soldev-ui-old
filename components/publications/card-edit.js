@@ -1,9 +1,26 @@
-import { Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import PropTypes from "prop-types";
 import ContentForm from "../content-form";
 
 export default function CardEdit({ open, setOpen, content }) {
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    setData({
+      PK: content.PK,
+      SK: content.SK,
+      Title: content.Title,
+      Author: content.Author,
+      Description: content.Description,
+      Url: content.Url,
+      Vertical: content.Vertical,
+      Tags: content.Tags,
+      ContentType: content.ContentType,
+      ContentStatus: content.ContentStatus,
+    });
+  }, [content]);
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -41,7 +58,12 @@ export default function CardEdit({ open, setOpen, content }) {
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
             <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle max-w-3xl sm:p-6">
-              <ContentForm setOpen={setOpen} />
+              <ContentForm
+                type="edit"
+                setOpen={setOpen}
+                data={data}
+                setData={setData}
+              />
             </div>
           </Transition.Child>
         </div>

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
-import { useRouter } from "next/router";
 import { constructSecondaryNavigationData } from "../../utils/navigation";
 import { useAppState } from "../../context/AppContext";
 

@@ -1,7 +1,19 @@
 import Head from "next/head";
 import ContentForm from "../components/content-form";
+import { useState } from "react";
 
 export default function Video() {
+  const [data, setData] = useState({
+    Title: "",
+    Author: "",
+    Description: "",
+    Url: "",
+    Vertical: "Solana",
+    Tags: [],
+    ContentType: "",
+    ContentStatus: "submitted",
+  });
+
   return (
     <div>
       <Head>
@@ -10,7 +22,7 @@ export default function Video() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <ContentForm type="submit" />
+      <ContentForm type="submit" data={data} setData={setData} />
     </div>
   );
 }
