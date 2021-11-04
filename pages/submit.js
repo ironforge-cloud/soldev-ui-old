@@ -11,7 +11,6 @@ export default function Video() {
     Vertical: "Solana",
     Tags: [],
     ContentType: "",
-    ContentStatus: "submitted",
   });
 
   return (

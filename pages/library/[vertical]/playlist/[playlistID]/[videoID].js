@@ -34,13 +34,13 @@ export async function getStaticPaths() {
       params: {
         vertical: content.Vertical,
         playlistID: content.PlaylistID,
-        videoID: content.ID,
+        videoID: content.SK,
       },
     };
   });
 
   // All missing paths are going to be server-side rendered and cached
-  return { paths, fallback: false };
+  return { paths, fallback: "blocking" };
 }
 
 export async function getStaticProps({ params }) {
