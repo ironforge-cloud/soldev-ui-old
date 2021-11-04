@@ -128,7 +128,7 @@ function ContentForm({ type, setOpen, data, setData }) {
               <div className="mt-1">
                 <textarea
                   id="description"
-                  required
+                  required={type === "submit"}
                   name="description"
                   rows={4}
                   value={data.Description}
@@ -198,6 +198,7 @@ function ContentForm({ type, setOpen, data, setData }) {
                         name="category"
                         type="radio"
                         value={vertical}
+                        required
                         checked={data.Vertical === vertical}
                         onChange={(e) =>
                           setData({ ...data, Vertical: e.target.value })
