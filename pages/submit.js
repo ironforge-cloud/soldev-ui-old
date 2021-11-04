@@ -1,5 +1,5 @@
 import Head from "next/head";
-import ContentForm from "../components/content-form";
+import Index from "../components/publications/content-form";
 import { useState } from "react";
 
 export default function Video() {
@@ -21,7 +21,7 @@ export default function Video() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <ContentForm type="submit" data={data} setData={setData} />
+      <Index type="submit" data={data} setData={setData} />
     </div>
   );
 }

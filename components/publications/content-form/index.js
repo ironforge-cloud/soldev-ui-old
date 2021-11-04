@@ -1,13 +1,12 @@
-import { useEffect, useState } from "react";
 import fetch from "isomorphic-unfetch";
-import Success from "./notifications/success";
 import PropTypes from "prop-types";
-import tagList from "../utils/tags";
-import contentStatus from "../utils/content-status";
-import verticals from "../utils/verticals";
-import contentType from "../utils/content-types";
+import contentStatus from "../../../utils/content-status";
+import verticals from "../../../utils/verticals";
+import contentType from "../../../utils/content-types";
+import ContentTags from "./tags";
+import { memo } from "react";
 
-export default function ContentForm({ type, setOpen, data, setData }) {
+function ContentForm({ type, setOpen, data, setData }) {
   const createContent = async (event) => {
     event.preventDefault();
 
@@ -24,9 +23,7 @@ export default function ContentForm({ type, setOpen, data, setData }) {
 
     await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/content`, {
       method: "PUT",
-      body: JSON.stringify([
-        { ...data, PK: `${data.Vertical}#${data.ContentType}` },
-      ]),
+      body: JSON.stringify([{ ...data }]),
     });
   };
 
@@ -265,135 +262,7 @@ export default function ContentForm({ type, setOpen, data, setData }) {
               <div></div>
             </div>
 
-            {/* Level Tags */}
-            <fieldset className="my-3 col-span-2">
-              <div>
-                <legend className="text-base font-medium text-gray-900">
-                  Level
-                </legend>
-              </div>
-              <div className="mt-4 space-y-4">
-                {tagList.level.map((tag) => {
-                  return (
-                    <div key={tag} className="flex items-center">
-                      <input
-                        id={tag}
-                        name="levelTags"
-                        type="radio"
-                        value={tag}
-                        checked={data.Tags.includes(tag)}
-                        onClick={(e) => {
-                          if (data.Tags.includes(e.target.value)) {
-                            // If I click the selected element we need to deleted
-                            const newTags = data.Tags.filter(
-                              (item) => item !== e.target.value
-                            );
-
-                            setData({ ...data, Tags: newTags });
-                          } else {
-                            // If I click a new element we need to delete the selected
-                            // and add the new element
-
-                            // Delete the prev selected item in the category
-                            let newTags = data.Tags;
-
-                            // If
-                            tagList.level.map((tag, index) => {
-                              if (data.Tags.includes(tag)) {
-                                newTags = data.Tags.splice(
-                                  index,
-                                  index,
-                                  e.target.value
-                                );
-                              }
-                            });
-
-                            // Add new one
-                            newTags.push(e.target.value);
-
-                            setData({ ...data, Tags: newTags });
-                          }
-                        }}
-                        onChange={() => {}}
-                        className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
-                      />
-                      <label
-                        htmlFor={tag}
-                        className="ml-3 block text-sm font-medium text-gray-700"
-                      >
-                        {tag}
-                      </label>
-                    </div>
-                  );
-                })}
-              </div>
-            </fieldset>
-
-            {/* Tech Tags */}
-            <fieldset className="my-3 col-span-2">
-              <div>
-                <legend className="text-base font-medium text-gray-900">
-                  Tech
-                </legend>
-              </div>
-              <div className="mt-4 space-y-4">
-                {tagList.tech.map((tag) => {
-                  return (
-                    <div key={tag} className="flex items-center">
-                      <input
-                        id={tag}
-                        name="techTags"
-                        type="radio"
-                        value={tag}
-                        checked={data.Tags.includes(tag)}
-                        onClick={() => {}}
-                        onChange={() => {}}
-                        className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
-                      />
-                      <label
-                        htmlFor={tag}
-                        className="ml-3 block text-sm font-medium text-gray-700"
-                      >
-                        {tag}
-                      </label>
-                    </div>
-                  );
-                })}
-              </div>
-            </fieldset>
-
-            {/* Language Tags */}
-            <fieldset className="my-3 col-span-2">
-              <div>
-                <legend className="text-base font-medium text-gray-900">
-                  Tech
-                </legend>
-              </div>
-              <div className="mt-4 space-y-4">
-                {tagList.language.map((tag) => {
-                  return (
-                    <div key={tag} className="flex items-center">
-                      <input
-                        id={tag}
-                        name="languageTags"
-                        type="radio"
-                        value={tag}
-                        checked={data.Tags.includes(tag)}
-                        onClick={() => {}}
-                        onChange={() => {}}
-                        className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
-                      />
-                      <label
-                        htmlFor={tag}
-                        className="ml-3 block text-sm font-medium text-gray-700"
-                      >
-                        {tag}
-                      </label>
-                    </div>
-                  );
-                })}
-              </div>
-            </fieldset>
+            <ContentTags data={data} setData={setData} />
 
             {/* Buttons */}
             <div className="flex max-w-3xl mx-auto justify-end">
@@ -421,6 +290,8 @@ export default function ContentForm({ type, setOpen, data, setData }) {
     </div>
   );
 }
+
+export default memo(ContentForm);
 
 ContentForm.propTypes = {
   type: PropTypes.oneOf(["submit", "edit"]),

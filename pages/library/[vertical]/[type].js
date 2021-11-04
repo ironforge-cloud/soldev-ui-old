@@ -29,7 +29,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { publications, type: params.type }, // will be passed to the page component as props
-    revalidate: 60, // In seconds
+    revalidate: 30, // In seconds
   };
 }
 
