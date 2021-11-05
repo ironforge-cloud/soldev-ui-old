@@ -8,7 +8,7 @@ export async function getStaticPaths() {
     return { params: { vertical: type } };
   });
 
-  return { paths, fallback: false };
+  return { paths, fallback: "blocking" };
 }
 
 export async function getStaticProps({ params }) {

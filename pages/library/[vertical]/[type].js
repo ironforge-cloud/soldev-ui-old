@@ -11,7 +11,7 @@ export async function getStaticPaths() {
       paths.push({ params: { vertical, type } });
     });
   });
-  return { paths, fallback: false };
+  return { paths, fallback: "blocking" };
 }
 
 export async function getStaticProps({ params }) {
@@ -29,7 +29,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { publications, type: params.type }, // will be passed to the page component as props
-    revalidate: 30, // In seconds
+    revalidate: 5, // In seconds
   };
 }
 
