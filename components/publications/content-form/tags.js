@@ -109,7 +109,9 @@ function ContentTags({ data, setData }) {
       {/* Language Tags */}
       <fieldset className="my-3 col-span-2">
         <div>
-          <legend className="text-base font-medium text-gray-900">Tech</legend>
+          <legend className="text-base font-medium text-gray-900">
+            Language
+          </legend>
         </div>
         <div className="mt-4 space-y-4">
           {tagList.language.map((tag) => {

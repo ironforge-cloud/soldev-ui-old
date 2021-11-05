@@ -11,6 +11,7 @@ export default function useContent() {
   );
 
   return {
+    isLoading: !data,
     data,
     type: query.type,
   };

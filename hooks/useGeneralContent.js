@@ -10,6 +10,7 @@ export default function useGeneralContent() {
   );
 
   return {
+    isLoading: !data,
     data,
     type: query.type,
   };

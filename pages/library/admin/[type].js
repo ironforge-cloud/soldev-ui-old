@@ -3,7 +3,7 @@ import PublicationsComponent from "../../../components/publications";
 import useGeneralContent from "../../../hooks/useGeneralContent";
 
 export default function ContentAdmin({}) {
-  const { data = [], type = "" } = useGeneralContent();
+  const { data = [], type = "", isLoading } = useGeneralContent();
 
   return (
     <div>
@@ -13,7 +13,7 @@ export default function ContentAdmin({}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <PublicationsComponent publications={data} type={type} />
+      <PublicationsComponent data={data} type={type} isLoading={isLoading} />
     </div>
   );
 }

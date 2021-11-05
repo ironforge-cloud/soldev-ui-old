@@ -2,7 +2,7 @@ import Head from "next/head";
 import Videos from "../../../components/videos";
 import useVerticalPlaylists from "../../../hooks/useVerticalPlaylists";
 
-export default function Video({}) {
+export default function Video() {
   const { data = [] } = useVerticalPlaylists();
 
   return (

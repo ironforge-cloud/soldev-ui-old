@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import Image from "next/image";
 import LiveBadge from "./live-badge";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { useAppState } from "../../context/AppContext";
 
 export default function MiniCard({ content }) {
@@ -15,7 +14,7 @@ export default function MiniCard({ content }) {
     >
       <div>
         <div className="cursor-pointer relative transition duration-200 ease-in-out transform-gpu hover:-translate-y-2">
-          {content.SK == "livestream" && <LiveBadge live={content.Live} />}
+          {content.SK === "livestream" && <LiveBadge live={content.Live} />}
 
           <Image
             className="rounded-lg object-cover hover:opacity-85"

@@ -1,9 +1,10 @@
 import Head from "next/head";
-import useContent from "../../../hooks/useContent";
+
 import PublicationsComponent from "../../../components/publications";
+import useContent from "../../../hooks/useContent";
 
 export default function Publications({}) {
-  const { data = [], type = "" } = useContent();
+  const { data = [], type = "", isLoading } = useContent();
 
   return (
     <div>
@@ -13,7 +14,7 @@ export default function Publications({}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <PublicationsComponent publications={data} type={type} />
+      <PublicationsComponent data={data} type={type} isLoading={isLoading} />
     </div>
   );
 }
