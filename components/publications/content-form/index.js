@@ -40,11 +40,11 @@ function ContentForm({ type, setOpen, data, setData, setNotifySuccess }) {
       body: JSON.stringify([{ ...data }]),
     });
 
-    // Send success notification
-    setNotifySuccess(true);
-
     // Edit happens inside a modal, we need to close it after
     setOpen(false);
+
+    // Send success notification
+    setNotifySuccess(true);
   };
 
   return (
