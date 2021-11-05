@@ -99,6 +99,7 @@ function CategorySelector({ item, setSection, section }) {
                                 src="/solana.svg"
                                 width="38px"
                                 height="38px"
+                                alt=""
                               />
                             )
                           ) : (

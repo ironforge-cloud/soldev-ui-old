@@ -13,7 +13,7 @@ function Success({ show, setShow, text, subText }) {
         clearTimeout(timer1);
       };
     }
-  }, [show]);
+  }, [show, setShow]);
 
   return (
     <>
