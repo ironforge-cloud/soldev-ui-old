@@ -12,6 +12,10 @@ const withTM = require("next-transpile-modules")([
 
 const moduleExports = withPlausibleProxy()(
   withTM({
+    experimental: {
+      concurrentFeatures: true,
+      serverComponents: true,
+    },
     swcMinify: true,
     reactStrictMode: true,
     images: {
