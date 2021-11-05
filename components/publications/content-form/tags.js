@@ -34,6 +34,16 @@ function ContentTags({ data, setData }) {
 
   return (
     <>
+      <div className="divide-y divide-gray-200 sm:space-y-2 col-span-6">
+        <div>
+          <h3 className="text-xl leading-6 font-medium text-gray-900">Tags</h3>
+          <p className="mt-1 max-w-2xl text-sm text-gray-500">
+            Tags improve content discovery
+          </p>
+        </div>
+        <div></div>
+      </div>
+
       {/* Level Tags */}
       <fieldset className="my-3 col-span-2">
         <div>

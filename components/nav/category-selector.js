@@ -1,12 +1,7 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
-import {
-  ChartBarIcon,
-  CursorClickIcon,
-  SupportIcon,
-  FolderAddIcon,
-} from "@heroicons/react/outline";
+import { SupportIcon, FolderAddIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";

@@ -1,10 +1,20 @@
-import { Fragment } from "react";
+import { Fragment, useEffect, memo } from "react";
 import { Transition } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/outline";
 import { XIcon } from "@heroicons/react/solid";
 import PropTypes from "prop-types";
 
-export default function Success({ show, setShow, text }) {
+function Success({ show, setShow, text, subText }) {
+  useEffect(() => {
+    if (show) {
+      let timer1 = setTimeout(() => setShow(false), 5000);
+
+      return () => {
+        clearTimeout(timer1);
+      };
+    }
+  }, [show]);
+
   return (
     <>
       {/* Global notification live region, render this permanently at the end of the document */}
@@ -24,7 +34,7 @@ export default function Success({ show, setShow, text }) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden bg-green-50">
+            <div className="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden bg-yellow-100">
               <div className="p-4">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
@@ -35,10 +45,11 @@ export default function Success({ show, setShow, text }) {
                   </div>
                   <div className="ml-3 w-0 flex-1 pt-0.5">
                     <p className="text-sm font-medium text-gray-900">{text}</p>
+                    <p className="mt-1 text-sm text-gray-500">{subText}</p>
                   </div>
                   <div className="ml-4 flex-shrink-0 flex">
                     <button
-                      className="bg-white rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      className="bg-yellow-100 rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                       onClick={() => {
                         setShow(false);
                       }}
@@ -57,8 +68,15 @@ export default function Success({ show, setShow, text }) {
   );
 }
 
+export default memo(Success);
+
 Success.propTypes = {
   show: PropTypes.bool.isRequired,
   setShow: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
+  subText: PropTypes.string,
+};
+
+Success.defaultProps = {
+  subText: "",
 };

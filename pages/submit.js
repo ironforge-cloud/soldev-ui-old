@@ -1,6 +1,7 @@
 import Head from "next/head";
-import Index from "../components/publications/content-form";
+import ContentForm from "../components/publications/content-form";
 import { useState } from "react";
+import NotificationSuccess from "../components/notifications/success";
 
 export default function Video() {
   const [data, setData] = useState({
@@ -12,6 +13,7 @@ export default function Video() {
     Tags: [],
     ContentType: "",
   });
+  const [notifySuccess, setNotifySuccess] = useState(false);
 
   return (
     <div>
@@ -21,7 +23,18 @@ export default function Video() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Index type="submit" data={data} setData={setData} />
+      <ContentForm
+        type="submit"
+        data={data}
+        setData={setData}
+        setNotifySuccess={setNotifySuccess}
+      />
+      <NotificationSuccess
+        show={notifySuccess}
+        setShow={setNotifySuccess}
+        text="Successfully submitted!"
+        subText="Thank you"
+      />
     </div>
   );
 }

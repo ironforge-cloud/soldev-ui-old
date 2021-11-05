@@ -1,14 +1,16 @@
 import PropTypes from "prop-types";
 import Card from "./card";
 import SubmitContentCard from "./submit-content-card";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useAppState } from "../../context/AppContext";
 import CardEdit from "./card-edit";
+import NotificationSuccess from "../notifications/success";
 
 export default function Publications({ publications, type }) {
   const [open, setOpen] = useState(false);
   const appState = useAppState();
   const [content, setContent] = useState({});
+  const [notifySuccess, setNotifySuccess] = useState(false);
 
   const editContent = (data) => {
     setContent(data);
@@ -31,7 +33,7 @@ export default function Publications({ publications, type }) {
                 className="cursor-pointer"
                 onClick={() => editContent(content)}
               >
-                <Card content={content} />
+                <Card content={content} editMode />
               </div>
             ) : (
               <a
@@ -46,7 +48,18 @@ export default function Publications({ publications, type }) {
           </div>
         ))}
       </div>
-      <CardEdit open={open} setOpen={setOpen} content={content} />
+      <CardEdit
+        open={open}
+        setOpen={setOpen}
+        content={content}
+        setNotifySuccess={setNotifySuccess}
+      />
+      <NotificationSuccess
+        show={notifySuccess}
+        setShow={setNotifySuccess}
+        text="Successfully updated!"
+        subText="Changes will take ~1 minute to be visible"
+      />
     </div>
   );
 }
