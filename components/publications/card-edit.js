@@ -1,7 +1,6 @@
 import { Fragment, useState, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import PropTypes from "prop-types";
-import NotificationSuccess from "../notifications/success";
 import ContentForm from "./content-form";
 
 export default function CardEdit({ open, setOpen, content, setNotifySuccess }) {

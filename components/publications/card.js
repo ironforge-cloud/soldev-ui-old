@@ -1,10 +1,6 @@
 import PropTypes from "prop-types";
 import { memo } from "react";
-import {
-  CogIcon,
-  AdjustmentsIcon,
-  LockOpenIcon,
-} from "@heroicons/react/outline";
+import { PencilIcon } from "@heroicons/react/outline";
 
 function Card({ content, editMode }) {
   return (
@@ -35,8 +31,7 @@ function Card({ content, editMode }) {
       </div>
       {editMode && (
         <div className="absolute top-3 right-2">
-          {/*<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-200 opacity-75"></span>*/}
-          <LockOpenIcon className="animate-bounce h-6 w-6" />
+          <PencilIcon className="animate-bounce h-6 w-6" />
         </div>
       )}
     </div>
