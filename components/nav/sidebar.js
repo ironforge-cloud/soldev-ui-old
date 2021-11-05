@@ -30,7 +30,11 @@ function Sidebar({
       >
         <div className="pb-8 space-y-1">
           {secondaryNavigationData[section].map((item) => {
-            if (!isAdmin && item.name === "Submitted") return;
+            if (
+              !isAdmin &&
+              (item.name === "Submitted" || item.name === "Inactive")
+            )
+              return;
             return (
               <Link href={item.href} key={item.name} passHref>
                 <a
