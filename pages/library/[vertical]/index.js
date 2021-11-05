@@ -1,37 +1,10 @@
 import Head from "next/head";
 import Videos from "../../../components/videos";
-import fetch from "isomorphic-unfetch";
-import verticals from "../../../utils/verticals";
+import useVerticalPlaylists from "../../../hooks/useVerticalPlaylists";
 
-export async function getStaticPaths() {
-  const paths = verticals.map((type) => {
-    return { params: { vertical: type } };
-  });
+export default function Video({}) {
+  const { data = [] } = useVerticalPlaylists();
 
-  return { paths, fallback: "blocking" };
-}
-
-export async function getStaticProps({ params }) {
-  const data = await fetch(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists/${params.vertical}`
-  );
-
-  let playlists;
-  try {
-    playlists = await data.json();
-  } catch (error) {
-    playlists = [];
-  }
-
-  return {
-    props: {
-      playlists,
-    },
-    revalidate: 30, // In seconds
-  };
-}
-
-export default function Video({ playlists }) {
   return (
     <div>
       <Head>
@@ -40,7 +13,7 @@ export default function Video({ playlists }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Videos playlists={playlists} />
+      <Videos playlists={data} />
     </div>
   );
 }

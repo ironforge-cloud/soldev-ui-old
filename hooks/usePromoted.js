@@ -7,11 +7,8 @@ export default function usePromoted() {
     fetcher
   );
 
-  if (error) data = [];
-
   return {
-    promoted: data,
+    data,
     isLoading: !error && !data,
-    isError: error,
   };
 }
