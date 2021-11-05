@@ -4,9 +4,10 @@ import Link from "next/link";
 
 const others = [
   { name: "Submit", href: "/submit", disabled: false },
-  { name: "Blog", href: "/#", disabled: true },
   { name: "Newsletter", href: "/newsletter", disabled: false },
-  { name: "FAQ", href: "/faq", disabled: false },
+  { name: "Blog", href: "/#", disabled: true },
+
+  { name: "FAQ", href: "/#", disabled: true },
 ];
 
 function classNames(...classes) {

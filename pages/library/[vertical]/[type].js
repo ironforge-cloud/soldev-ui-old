@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   // Get all content by vertical and type
   const data = await fetch(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/${params.vertical}/${params.type}`
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/${params.vertical}/${params.type}?status=active`
   );
 
   let publications;
