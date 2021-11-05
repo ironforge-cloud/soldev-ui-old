@@ -27,7 +27,7 @@ export async function getStaticProps({ params }) {
     props: {
       playlists,
     },
-    revalidate: 5, // In seconds
+    revalidate: 30, // In seconds
   };
 }
 

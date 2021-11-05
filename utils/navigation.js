@@ -64,13 +64,13 @@ export function constructSecondaryNavigationData(vertical) {
       },
       {
         name: "Submitted",
-        href: `/library/submitted`,
+        href: `/library/admin/submitted`,
         icon: InboxIcon,
         disabled: false,
       },
       {
         name: "Inactive",
-        href: `/library/inactive`,
+        href: `/library/admin/inactive`,
         icon: TrashIcon,
         disabled: false,
       },
