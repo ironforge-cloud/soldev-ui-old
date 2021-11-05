@@ -28,9 +28,9 @@ export default function Promoted() {
             {promoted.map((content) => {
               return (
                 <SwiperSlide
-                  key={content.ID}
+                  key={content.SK}
                   style={{ width: "320px" }}
-                  virtualIndex={content.ID}
+                  virtualIndex={content.SK}
                 >
                   <MiniCard content={content} />
                 </SwiperSlide>

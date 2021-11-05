@@ -10,7 +10,7 @@ export default function MiniCard({ content }) {
 
   return (
     <Link
-      href={`/library/${appState.vertical}/playlist/${content.PlaylistID}/${content.ID}`}
+      href={`/library/${appState.vertical}/playlist/${content.PlaylistID}/${content.SK}`}
       passHref
     >
       <div>
