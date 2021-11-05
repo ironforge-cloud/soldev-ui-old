@@ -47,7 +47,7 @@ import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 // App Context
 import { AppWrapper } from "../context/AppContext";
 
-function MyApp({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
   const router = useRouter();
   const { videoID } = router.query;
 
@@ -82,5 +82,3 @@ function MyApp({ Component, pageProps }) {
     </>
   );
 }
-
-export default MyApp;
