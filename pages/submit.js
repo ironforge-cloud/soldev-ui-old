@@ -3,7 +3,7 @@ import ContentForm from "../components/publications/content-form";
 import { useState } from "react";
 import NotificationSuccess from "../components/notifications/success";
 
-export default function Video() {
+export default function Submit() {
   const [data, setData] = useState({
     Title: "",
     Author: "",

@@ -26,7 +26,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="code.cleanup.on.save" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/components/notifications" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pages/library" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -38,14 +38,17 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pages/library" />
+      <recent name="$PROJECT_DIR$/hooks" />
+      <recent name="$PROJECT_DIR$/pages" />
       <recent name="$PROJECT_DIR$/components/notifications" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pages/library" />
+      <recent name="$PROJECT_DIR$/pages" />
       <recent name="$PROJECT_DIR$/components/publications/content-form" />
       <recent name="$PROJECT_DIR$/components/nav" />
       <recent name="$PROJECT_DIR$/components/publications" />
-      <recent name="$PROJECT_DIR$/pages/library/[vertical]" />
-      <recent name="$PROJECT_DIR$/pages/library/[vertical]/playlist/[playlistID]" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

@@ -58,7 +58,7 @@ export default function Publications({ publications, type }) {
         show={notifySuccess}
         setShow={setNotifySuccess}
         text="Successfully updated!"
-        subText="Changes will take ~1 minute to be visible"
+        subText="Changes can take up to 1 minute to be reflected in the UI"
       />
     </div>
   );

@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, memo } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { SupportIcon, FolderAddIcon } from "@heroicons/react/outline";
@@ -31,7 +31,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function CategorySelector({ item, setSection, section }) {
+function CategorySelector({ item, setSection, section }) {
   const appState = useAppState();
   const appDispatch = useAppDispatch();
 
@@ -149,3 +149,5 @@ export default function CategorySelector({ item, setSection, section }) {
     </Popover>
   );
 }
+
+export default memo(CategorySelector);

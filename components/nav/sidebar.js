@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 import React from "react";
 import Link from "next/link";
+import useUser from "../../hooks/useUser";
 
 const others = [
   { name: "Submit", href: "/submit", disabled: false },
   { name: "Newsletter", href: "/newsletter", disabled: false },
   { name: "Blog", href: "/#", disabled: true },
-
   { name: "FAQ", href: "/#", disabled: true },
 ];
 
@@ -20,6 +20,8 @@ function Sidebar({
   secondaryNavigation,
   setSecondaryNavigation,
 }) {
+  const { user, isAdmin = false, connected, error } = useUser();
+
   return (
     <div className="hidden lg:block w-auto mr-4 h-screen">
       <nav
@@ -27,34 +29,37 @@ function Sidebar({
         className="sticky top-4 divide-y divide-gray-300"
       >
         <div className="pb-8 space-y-1">
-          {secondaryNavigationData[section].map((item) => (
-            <Link href={item.href} key={item.name} passHref>
-              <a
-                className={classNames(
-                  item.name === secondaryNavigation
-                    ? "bg-gray-200 text-gray-900"
-                    : "text-gray-600",
-                  "group flex items-center px-3 py-2 text-sm font-medium rounded-md",
-                  item.disabled
-                    ? "disabled:opacity-50 cursor-not-allowed text-gray-300"
-                    : "hover:bg-gray-50"
-                )}
-                onClick={() => setSecondaryNavigation(item.name)}
-              >
-                <item.icon
+          {secondaryNavigationData[section].map((item) => {
+            if (!isAdmin && item.name === "Submitted") return;
+            return (
+              <Link href={item.href} key={item.name} passHref>
+                <a
                   className={classNames(
-                    item.current ? "text-gray-500" : "text-gray-400",
-                    "flex-shrink-0 -ml-1 mr-3 h-6 w-6",
+                    item.name === secondaryNavigation
+                      ? "bg-gray-200 text-gray-900"
+                      : "text-gray-600",
+                    "group flex items-center px-3 py-2 text-sm font-medium rounded-md",
                     item.disabled
                       ? "disabled:opacity-50 cursor-not-allowed text-gray-300"
-                      : ""
+                      : "hover:bg-gray-50"
                   )}
-                  aria-hidden="true"
-                />
-                <span className="truncate">{item.name}</span>
-              </a>
-            </Link>
-          ))}
+                  onClick={() => setSecondaryNavigation(item.name)}
+                >
+                  <item.icon
+                    className={classNames(
+                      item.current ? "text-gray-500" : "text-gray-400",
+                      "flex-shrink-0 -ml-1 mr-3 h-6 w-6",
+                      item.disabled
+                        ? "disabled:opacity-50 cursor-not-allowed text-gray-300"
+                        : ""
+                    )}
+                    aria-hidden="true"
+                  />
+                  <span className="truncate">{item.name}</span>
+                </a>
+              </Link>
+            );
+          })}
         </div>
         <div className="pt-10">
           <p

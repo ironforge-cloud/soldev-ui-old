@@ -7,6 +7,8 @@ import {
   PencilAltIcon,
   TerminalIcon,
   VideoCameraIcon,
+  InboxIcon,
+  TrashIcon,
 } from "@heroicons/react/outline";
 
 export function constructSecondaryNavigationData(vertical) {
@@ -58,6 +60,18 @@ export function constructSecondaryNavigationData(vertical) {
         name: "Tools",
         href: `/library/${vertical}/tools`,
         icon: ChipIcon,
+        disabled: false,
+      },
+      {
+        name: "Submitted",
+        href: `/library/submitted`,
+        icon: InboxIcon,
+        disabled: false,
+      },
+      {
+        name: "Inactive",
+        href: `/library/inactive`,
+        icon: TrashIcon,
         disabled: false,
       },
     ],
