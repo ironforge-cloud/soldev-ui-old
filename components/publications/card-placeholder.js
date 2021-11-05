@@ -1,6 +1,6 @@
 function CardPlaceholder() {
   const cards = [];
-  for (let i = 0; i <= 10; i++) {
+  for (let i = 0; i <= 6; i++) {
     cards.push(
       <div
         className="px-4 block mb-6 mt-2 2xl:mr-5 3xl:m-10 flex-col p-6 border border-dashed border-2 border-blue-300 shadow rounded-md w-[260px] h-[340px]"
