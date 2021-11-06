@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { memo } from "react";
 import { PencilIcon } from "@heroicons/react/outline";
+import SuperTags from "../badges/super-tags";
 
 function Card({ content, editMode }) {
   return (
