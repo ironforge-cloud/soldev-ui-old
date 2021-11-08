@@ -8,7 +8,7 @@ export default function useGeneralContent() {
     isReady && `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/${query.type}`,
     fetcher
   );
-
+  console.log(data);
   return {
     isLoading: !data,
     data,
