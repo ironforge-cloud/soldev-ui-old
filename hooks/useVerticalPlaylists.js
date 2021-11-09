@@ -12,5 +12,7 @@ export default function useVerticalPlaylists() {
 
   return {
     data,
+    isLoading: !data,
+    vertical: query.vertical,
   };
 }

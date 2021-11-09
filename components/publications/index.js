@@ -4,8 +4,8 @@ import { useState } from "react";
 import { useAppState } from "../../context/AppContext";
 import CardEdit from "./card-edit";
 import NotificationSuccess from "../notifications/success";
-import CardPlaceholder from "./card-placeholder";
 import PropTypes from "prop-types";
+import Spinner from "../spinner";
 
 export default function Publications({ data, type, isLoading }) {
   const [open, setOpen] = useState(false);
@@ -26,29 +26,34 @@ export default function Publications({ data, type, isLoading }) {
         </h2>
       </div>
       <div className="flex flex-wrap justify-around 3xl:justify-center place-content-start p-2">
-        <SubmitContentCard />
-        {isLoading && <CardPlaceholder />}
-        {data.map((content) => (
-          <div key={content.SK} className="px-1 3xl:p-8 pb-7 mt-2">
-            {appState.editMode ? (
-              <div
-                className="cursor-pointer"
-                onClick={() => editContent(content)}
-              >
-                <Card content={content} editMode />
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <>
+            <SubmitContentCard />
+            {data.map((content) => (
+              <div key={content.SK} className="px-1 3xl:p-8 pb-7 mt-2">
+                {appState.editMode ? (
+                  <div
+                    className="cursor-pointer"
+                    onClick={() => editContent(content)}
+                  >
+                    <Card content={content} editMode />
+                  </div>
+                ) : (
+                  <a
+                    href={content.Url}
+                    className=""
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    <Card content={content} />
+                  </a>
+                )}
               </div>
-            ) : (
-              <a
-                href={content.Url}
-                className=""
-                rel="noreferrer"
-                target="_blank"
-              >
-                <Card content={content} />
-              </a>
-            )}
-          </div>
-        ))}
+            ))}
+          </>
+        )}
       </div>
       <CardEdit
         open={open}

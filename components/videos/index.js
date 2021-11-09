@@ -2,18 +2,14 @@ import PropTypes from "prop-types";
 import Promoted from "./promoted";
 import Playlists from "./playlists";
 
-export default function Videos({ playlists }) {
+export default function Videos() {
   return (
     <main className="flex-1 relative z-0 overflow-hidden focus:outline-none">
       {/* Promoted videos */}
       <Promoted />
 
       {/* Playlists */}
-      <Playlists playlists={playlists} />
+      <Playlists />
     </main>
   );
 }
-
-Videos.propTypes = {
-  playlists: PropTypes.array.isRequired,
-};

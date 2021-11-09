@@ -1,12 +1,11 @@
-import PropTypes from "prop-types";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useRouter } from "next/router";
+import useVerticalPlaylists from "../../hooks/useVerticalPlaylists";
+import Spinner from "../spinner";
 
-export default function Playlists({ playlists }) {
-  const router = useRouter();
-  const { vertical } = router.query;
+export default function Playlists() {
+  const { data = [], isLoading, vertical } = useVerticalPlaylists();
 
   return (
     <>
@@ -21,27 +20,33 @@ export default function Playlists({ playlists }) {
           role="list"
           className="mt-3 border-t border-gray-200 divide-y divide-gray-100"
         >
-          {playlists.map((playlist) => (
-            <li key={playlist.ID}>
-              <Link
-                href={`/library/${vertical}/playlist/${playlist.ID}`}
-                passHref
-              >
-                <div className="flex items-center space-x-2 pl-2 h-12">
-                  <ChevronRightIcon
-                    className="h-5 w-5 text-gray-400 group-hover:text-gray-500"
-                    aria-hidden="true"
-                  />
-                  <span className="truncate hover:text-gray-600 cursor-pointer text-sm">
-                    {playlist.Title}{" "}
-                    <span className="text-gray-500 font-normal">
-                      by {playlist.Creator}
-                    </span>
-                  </span>
-                </div>
-              </Link>
-            </li>
-          ))}
+          {isLoading ? (
+            <Spinner />
+          ) : (
+            <>
+              {data.map((playlist) => (
+                <li key={playlist.ID}>
+                  <Link
+                    href={`/library/${vertical}/playlist/${playlist.ID}`}
+                    passHref
+                  >
+                    <div className="flex items-center space-x-2 pl-2 h-12">
+                      <ChevronRightIcon
+                        className="h-5 w-5 text-gray-400 group-hover:text-gray-500"
+                        aria-hidden="true"
+                      />
+                      <span className="truncate hover:text-gray-600 cursor-pointer text-sm">
+                        {playlist.Title}{" "}
+                        <span className="text-gray-500 font-normal">
+                          by {playlist.Creator}
+                        </span>
+                      </span>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </>
+          )}
         </ul>
       </div>
 
@@ -61,7 +66,7 @@ export default function Playlists({ playlists }) {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-100">
-              {playlists.map((playlist) => (
+              {data.map((playlist) => (
                 <tr key={playlist.ID}>
                   <td className="px-6 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
                     <div className="flex items-center space-x-3 lg:pl-2">
@@ -109,7 +114,3 @@ export default function Playlists({ playlists }) {
     </>
   );
 }
-
-Playlists.propTypes = {
-  playlists: PropTypes.array.isRequired,
-};

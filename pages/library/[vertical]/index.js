@@ -1,10 +1,7 @@
 import Head from "next/head";
 import Videos from "../../../components/videos";
-import useVerticalPlaylists from "../../../hooks/useVerticalPlaylists";
 
 export default function Video() {
-  const { data = [] } = useVerticalPlaylists();
-
   return (
     <div>
       <Head>
@@ -13,7 +10,7 @@ export default function Video() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Videos playlists={data} />
+      <Videos />
     </div>
   );
 }

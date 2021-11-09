@@ -65,7 +65,7 @@ export default function App({ Component, pageProps }) {
                     {/* Primary column */}
                     <section
                       aria-labelledby="primary-heading"
-                      className="flex-1 h-full flex flex-col overflow-hidden bg-white rounded-lg shadow-lg border"
+                      className="flex-1 min-h-screen flex flex-col overflow-hidden bg-white rounded-lg shadow-lg border"
                     >
                       <Component {...pageProps} />
                     </section>
