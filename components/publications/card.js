@@ -81,7 +81,7 @@ function Card({ content, editMode, editContent }) {
             type="button"
             className="inline-flex items-center border border-yellow-50 px-3 py-2  shadow-md text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
           >
-            Share∑
+            Share
           </button>
         </div>
       </div>
