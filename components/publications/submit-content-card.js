@@ -5,7 +5,7 @@ export default function SubmitContentCard() {
     <Link href="/submit" passHref>
       <button
         type="button"
-        className="relative px-1 block mb-6 mt-2  2xl:mr-5 3xl:m-10 w-[260px] h-[340px] border-2 border-gray-300 border-dashed rounded-lg text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        className="relative block w-[320px] h-[340px] border-2 border-gray-300 border-dashed rounded-lg text-center hover:border-gray-400 hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
       >
         <svg
           className="mx-auto h-12 w-12 text-gray-400"

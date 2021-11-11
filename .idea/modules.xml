@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/solana-centre-web.iml" filepath="$PROJECT_DIR$/.idea/solana-centre-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/soldev-ui.iml" filepath="$PROJECT_DIR$/.idea/soldev-ui.iml" />
     </modules>
   </component>
 </project>

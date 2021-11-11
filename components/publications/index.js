@@ -25,31 +25,23 @@ export default function Publications({ data, type, isLoading }) {
           {type === "sdk" ? "SDK & Frameworks" : type}
         </h2>
       </div>
-      <div className="flex flex-wrap justify-around 3xl:justify-center place-content-start p-2">
+
+      <div className="flex flex-wrap  p-2 justify-around 3xl:justify-center place-content-start space-x-6 3xl:space-x-8 space-y-10">
         {isLoading ? (
           <Spinner />
         ) : (
           <>
-            <SubmitContentCard />
+            <div className="mt-10 ml-8">
+              <SubmitContentCard />
+            </div>
+
             {data.map((content) => (
-              <div key={content.SK} className="px-1 3xl:p-8 pb-7 mt-2">
-                {appState.editMode ? (
-                  <div
-                    className="cursor-pointer"
-                    onClick={() => editContent(content)}
-                  >
-                    <Card content={content} editMode />
-                  </div>
-                ) : (
-                  <a
-                    href={content.Url}
-                    className=""
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    <Card content={content} />
-                  </a>
-                )}
+              <div key={content.SK}>
+                <Card
+                  content={content}
+                  editMode={appState.editMode}
+                  editContent={editContent}
+                />
               </div>
             ))}
           </>

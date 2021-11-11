@@ -1,12 +1,12 @@
 import Head from "next/head";
-import useContent from "../../../hooks/useContent";
+import useContent from "../../../../../hooks/useContent";
 import dynamic from "next/dynamic";
 
 const PublicationsComponent = dynamic(() =>
-  import("../../../components/publications")
+  import("../../../../../components/publications")
 );
 
-export default function Publications({}) {
+export default function Badge({}) {
   const { data = [], type = "", isLoading } = useContent();
 
   return (
