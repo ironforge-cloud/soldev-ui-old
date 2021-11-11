@@ -1,6 +1,10 @@
-import PlaylistContent from "../../../../../components/videos/playlist-content";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import usePlaylist from "../../../../../hooks/usePlaylist";
+
+const PlaylistContent = dynamic(() =>
+  import("../../../../../components/videos/playlist-content")
+);
 
 export default function Playlist({}) {
   const { data = [] } = usePlaylist();

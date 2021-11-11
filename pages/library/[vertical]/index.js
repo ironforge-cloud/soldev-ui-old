@@ -1,5 +1,7 @@
 import Head from "next/head";
-import Videos from "../../../components/videos";
+import dynamic from "next/dynamic";
+
+const Videos = dynamic(() => import("../../../components/videos"));
 
 export default function Video() {
   return (

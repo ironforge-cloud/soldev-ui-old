@@ -3,11 +3,12 @@ export default {
   tech: ["Anchor", "Arweave", "Metaplex", "Web3.js", "Serum"],
   language: [
     "Rust",
-    "JavaScript/TypeScript",
+    "JS/TypeScript",
     "C#/.NET",
     "Golang",
     "Python",
     "Java",
     "Swift",
   ],
+  badge: ["New", "Hot", "Best", "Old"],
 };

@@ -5,7 +5,7 @@ function Inputs({ data, setData, type }) {
   return (
     <>
       {/* Title */}
-      <div className="col-span-3">
+      <div className="col-span-4">
         <label
           htmlFor="title"
           className="block text-sm font-medium text-gray-700"
@@ -26,7 +26,7 @@ function Inputs({ data, setData, type }) {
       </div>
 
       {/* Author*/}
-      <div className="col-span-3">
+      <div className="col-span-4">
         <label
           htmlFor="author-name"
           className="block text-sm font-medium text-gray-700"
@@ -77,7 +77,7 @@ function Inputs({ data, setData, type }) {
       </div>
 
       {/* Description */}
-      <div className="col-span-6">
+      <div className="col-span-8">
         <label
           htmlFor="description"
           className="block text-sm font-medium text-gray-700"

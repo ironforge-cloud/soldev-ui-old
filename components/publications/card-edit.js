@@ -18,6 +18,7 @@ export default function CardEdit({ open, setOpen, content, setNotifySuccess }) {
       Tags: content.Tags,
       ContentType: content.ContentType,
       ContentStatus: content.ContentStatus,
+      SpecialTag: content.SpecialTag,
     });
   }, [content]);
 

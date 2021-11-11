@@ -9,7 +9,7 @@ function Radios({ data, setData, type }) {
     <>
       {/* Content Status */}
       {type === "edit" && (
-        <fieldset className="my-3 col-span-2">
+        <fieldset className="my-3 col-span-3">
           <div>
             <legend className="text-base font-medium text-gray-900">
               Content Status
@@ -82,7 +82,7 @@ function Radios({ data, setData, type }) {
       </fieldset>
 
       {/* Content Type */}
-      <fieldset className="my-3 col-span-2">
+      <fieldset className="my-3 col-span-3">
         <div>
           <legend className="text-base font-medium text-gray-900">
             Content Type

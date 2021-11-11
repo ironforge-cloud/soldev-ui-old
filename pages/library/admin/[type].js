@@ -1,6 +1,10 @@
 import Head from "next/head";
-import PublicationsComponent from "../../../components/publications";
 import useGeneralContent from "../../../hooks/useGeneralContent";
+import dynamic from "next/dynamic";
+
+const PublicationsComponent = dynamic(() =>
+  import("../../../components/publications")
+);
 
 export default function ContentAdmin({}) {
   const { data = [], type = "", isLoading } = useGeneralContent();

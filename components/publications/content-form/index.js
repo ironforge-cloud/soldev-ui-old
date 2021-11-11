@@ -26,6 +26,7 @@ function ContentForm({ type, setOpen, data, setData, setNotifySuccess }) {
       Vertical: "Solana",
       Tags: [],
       ContentType: "",
+      SpecialTag: "",
     });
 
     // Send success notification
@@ -65,7 +66,7 @@ function ContentForm({ type, setOpen, data, setData, setNotifySuccess }) {
           <form
             action="#"
             method="POST"
-            className="grid grid-cols-6 gap-y-6 gap-x-8"
+            className="grid grid-cols-8 gap-y-6 gap-x-8"
             onSubmit={type === "edit" ? updateContent : createContent}
           >
             {/*Inputs*/}
@@ -75,7 +76,7 @@ function ContentForm({ type, setOpen, data, setData, setNotifySuccess }) {
             <Radios data={data} setData={setData} type={type} />
 
             {/* Tags */}
-            <ContentTags data={data} setData={setData} />
+            <ContentTags data={data} setData={setData} type={type} />
 
             {/* Buttons */}
             <div className="flex max-w-3xl mx-auto justify-end">

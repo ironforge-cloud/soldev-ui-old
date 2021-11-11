@@ -1,8 +1,4 @@
-import PlausibleProvider from "next-plausible";
 import "tailwindcss/tailwind.css";
-import Nav from "../components/nav";
-import MiniSocial from "../components/nav/mini-social";
-import dynamic from "next/dynamic";
 
 // FontAwesome
 import { config, library } from "@fortawesome/fontawesome-svg-core";
@@ -12,6 +8,10 @@ import "@fortawesome/fontawesome-svg-core/styles.css"; // Import the CSS
 
 config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
 library.add(fab, fas);
+
+import PlausibleProvider from "next-plausible";
+import Nav from "../components/nav";
+import dynamic from "next/dynamic";
 
 // Import Swiper styles
 import "swiper/css";
@@ -33,6 +33,8 @@ import SwiperCore, {
 import { useRouter } from "next/router";
 
 SwiperCore.use([Virtual, Navigation, Keyboard, Mousewheel, Autoplay, A11y]);
+
+const MiniSocial = dynamic(() => import("../components/nav/mini-social"));
 
 // Wallet Auth
 import "@solana/wallet-adapter-react-ui/styles.css";

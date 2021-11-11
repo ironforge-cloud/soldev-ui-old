@@ -1,7 +1,10 @@
 import Head from "next/head";
-
-import PublicationsComponent from "../../../components/publications";
 import useContent from "../../../hooks/useContent";
+import dynamic from "next/dynamic";
+
+const PublicationsComponent = dynamic(() =>
+  import("../../../components/publications")
+);
 
 export default function Publications({}) {
   const { data = [], type = "", isLoading } = useContent();
