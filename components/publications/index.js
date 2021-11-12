@@ -19,7 +19,7 @@ export default function Publications({ data, type, isLoading }) {
   };
 
   return (
-    <div className="relative flex flex-col mx-auto">
+    <div className="relative flex flex-col mx-auto pb-16">
       <div className="pt-7 pb-2 flex justify-center">
         <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-gray-900 capitalize w-max p-3">
           {type === "sdk" ? "SDK & Frameworks" : type}

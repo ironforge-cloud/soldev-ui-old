@@ -1,10 +1,14 @@
 import PropTypes from "prop-types";
-import { memo } from "react";
+import { memo, useState } from "react";
 import { PencilIcon } from "@heroicons/react/outline";
 import Badge from "../badges/badge.js";
 import Link from "next/link";
+import Share from "../share";
+import { FacebookShareButton } from "react-share";
 
 function Card({ content, editMode, editContent }) {
+  const [openShare, setOpenShare] = useState(false);
+
   return (
     <div className="relative flex flex-col py-6  pl-6 pr-4 rounded-lg shadow-lg bg-yellow-100  hover:bg-opacity-80 hover:opacity-95 w-[320px] h-[340px] overflow-visible">
       <div className="flex justify-between">
@@ -12,7 +16,6 @@ function Card({ content, editMode, editContent }) {
           {/*  Title */}
           <p className="text-lg font-semibold text-gray-900">{content.Title}</p>
         </a>
-
         {/*  Badge */}
         <Link
           href={`/library/${content.Vertical}/${content.ContentType}/badge/${content.SpecialTag}`}
@@ -57,11 +60,11 @@ function Card({ content, editMode, editContent }) {
       </div>
 
       {/*  Actions */}
-      <div className="flex justify-between pr-2">
+      <div className="flex justify-between">
         <div className="space-x-2">
           {editMode ? (
             <button
-              className="inline-flex items-center border border-yellow-50 px-3 py-2  shadow-md text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
+              className="inline-flex items-center border border-yellow-50 px-3 py-2.5 shadow-md text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
               onClick={() => editContent(content)}
             >
               Edit Data
@@ -71,19 +74,44 @@ function Card({ content, editMode, editContent }) {
               href={content.Url}
               rel="noreferrer"
               target="_blank"
-              className="inline-flex items-center border border-yellow-50 px-3 py-2  shadow-md text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
+              className="inline-flex items-center border border-yellow-50 px-3 py-2.5 shadow-md text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
             >
               Details
             </a>
           )}
 
-          <button
-            type="button"
-            className="inline-flex items-center border border-yellow-50 px-3 py-2  shadow-md text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
-          >
-            Share
-          </button>
+          {openShare ? (
+            <button
+              type="button"
+              className="inline-flex rounded-full items-center border border-yellow-50 px-3 py-3 shadow-md text-gray-700 bg-white hover:bg-gray-50"
+              onClick={() => setOpenShare(!openShare)}
+            >
+              <svg
+                className="w-3 h-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={4}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="inline-flex items-center border border-yellow-50 px-3 py-2.5 shadow-md text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
+              onClick={() => setOpenShare(!openShare)}
+            >
+              Share
+            </button>
+          )}
         </div>
+        {openShare && <Share content={content} />}
       </div>
       {editMode && (
         <div className="absolute -top-1 right-0">
