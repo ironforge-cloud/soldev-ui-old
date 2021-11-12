@@ -22,9 +22,24 @@ export default function useContent() {
     fetcher
   );
 
+  // If I have contentId in the path we need to open the
+  // modal for a specific content
+  let selectedContent = false;
+  if (query.contentId && data) {
+    for (let i = 0; i < data.length; i++) {
+      // If ID doesn't match next
+      if (query.contentId !== data[i].SK) continue;
+
+      // Save content and stop loop
+      selectedContent = data[i];
+      break;
+    }
+  }
+
   return {
     isLoading: !data,
     data,
     type: query.type,
+    selectedContent,
   };
 }

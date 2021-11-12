@@ -39,7 +39,7 @@ export default function Publications({ data, type, isLoading }) {
               <div key={content.SK}>
                 <Card
                   content={content}
-                  editMode={appState.editMode}
+                  mode={appState.editMode ? "edit" : ""}
                   editContent={editContent}
                 />
               </div>

@@ -4,13 +4,23 @@ import { PencilIcon } from "@heroicons/react/outline";
 import Badge from "../badges/badge.js";
 import Link from "next/link";
 import Share from "../share";
-import { FacebookShareButton } from "react-share";
 
-function Card({ content, editMode, editContent }) {
-  const [openShare, setOpenShare] = useState(false);
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
+function Card({ content, mode, editContent, defaultOpenShare }) {
+  const [openShare, setOpenShare] = useState(defaultOpenShare);
 
   return (
-    <div className="relative flex flex-col py-6  pl-6 pr-4 rounded-lg shadow-lg bg-yellow-100  hover:bg-opacity-80 hover:opacity-95 w-[320px] h-[340px] overflow-visible">
+    <div
+      className={classNames(
+        "relative flex flex-col py-6 pl-6 pr-4 rounded-lg h-[340px] overflow-visible",
+        mode === "modal"
+          ? "w-[400px]"
+          : "w-[320px] shadow-lg hover:bg-opacity-80 hover:opacity-95 bg-yellow-100 "
+      )}
+    >
       <div className="flex justify-between">
         <a href={content.Url} className="" rel="noreferrer" target="_blank">
           {/*  Title */}
@@ -39,16 +49,16 @@ function Card({ content, editMode, editContent }) {
       </div>
 
       {/*Tags*/}
-      <div className="mb-2 text-sky-500 cursor-pointer">
+      <div className="mb-2 text-indigo-500  cursor-pointer">
         {content.Tags.map((tag, index) => (
           <Link
             key={tag}
             href={`/library/${content.Vertical}/${content.ContentType}/tag/${tag}`}
             passHref
           >
-            <span className="hover:font-semibold">
-              {tag}
-              {index < content.Tags.length - 1 && <>{", "}</>}
+            <span>
+              <span className="hover:font-semibold">{tag}</span>
+              <span>{index < content.Tags.length - 1 && <>{", "}</>}</span>
             </span>
           </Link>
         ))}
@@ -62,7 +72,7 @@ function Card({ content, editMode, editContent }) {
       {/*  Actions */}
       <div className="flex justify-between">
         <div className="space-x-2">
-          {editMode ? (
+          {mode === "edit" ? (
             <button
               className="inline-flex items-center border border-yellow-50 px-3 py-2.5 shadow-md text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
               onClick={() => editContent(content)}
@@ -113,7 +123,7 @@ function Card({ content, editMode, editContent }) {
         </div>
         {openShare && <Share content={content} />}
       </div>
-      {editMode && (
+      {mode === "edit" && (
         <div className="absolute -top-1 right-0">
           <PencilIcon className="animate-bounce h-6 w-6" />
         </div>
@@ -122,10 +132,15 @@ function Card({ content, editMode, editContent }) {
   );
 }
 
+Card.defaultProps = {
+  defaultOpenShare: false,
+};
+
 Card.propTypes = {
   content: PropTypes.object.isRequired,
-  editMode: PropTypes.bool.isRequired,
+  mode: PropTypes.string.isRequired,
   editContent: PropTypes.func.isRequired,
+  defaultOpenShare: PropTypes.bool,
 };
 
 export default memo(Card);
