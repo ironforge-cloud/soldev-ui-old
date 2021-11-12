@@ -18,7 +18,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
         "relative flex flex-col py-6 pl-6 pr-4 rounded-lg h-[340px] overflow-visible",
         mode === "modal"
           ? "w-[400px]"
-          : "w-[320px] shadow-lg hover:bg-opacity-80 hover:opacity-95 bg-yellow-100 "
+          : "w-[335px] shadow-lg hover:bg-opacity-80 hover:opacity-95 bg-yellow-100 "
       )}
     >
       <div className="flex justify-between">
