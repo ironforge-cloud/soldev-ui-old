@@ -1,7 +1,6 @@
 import {
   ArchiveIcon,
   BeakerIcon,
-  ChatAlt2Icon,
   ChipIcon,
   FolderIcon,
   PencilAltIcon,
@@ -75,13 +74,6 @@ export function constructSecondaryNavigationData(vertical) {
         disabled: false,
       },
     ],
-    Community: [
-      { name: "Developer Community", href: "/community", icon: ChatAlt2Icon },
-      { name: "Solana Support", href: "/community", icon: ChatAlt2Icon },
-      { name: "SOLHACK", href: "/community", icon: ChatAlt2Icon },
-      { name: "Metaplex", href: "/community", icon: ChatAlt2Icon },
-      { name: "Anchor", href: "/community", icon: ChatAlt2Icon },
-    ],
   };
 }
 
@@ -94,7 +86,7 @@ export const navigation = [
   {
     name: "Community",
     disabled: true,
-    url: "/community",
+    url: "#",
   },
   {
     name: "Calendar",
@@ -103,7 +95,7 @@ export const navigation = [
   },
   {
     name: "Jobs",
-    disabled: false,
-    url: "https://jobs.solana.com/",
+    disabled: true,
+    url: "#",
   },
 ];

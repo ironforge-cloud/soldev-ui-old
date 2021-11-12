@@ -53,7 +53,7 @@ function Navbar({
 
   return (
     <Disclosure as="nav" className="bg-white shadow">
-      {({ open }) => (
+      {({ open, close }) => (
         <>
           <div className="mx-auto">
             <div className="flex justify-between h-16">
@@ -83,26 +83,6 @@ function Navbar({
                           section={section}
                           key={item.name}
                         />
-                      );
-                    } else if (item.name === "Jobs") {
-                      return (
-                        <a
-                          href={item.url}
-                          rel="noreferrer"
-                          key={item.name}
-                          className={classNames(
-                            item.name === section
-                              ? "text-gray-900"
-                              : "text-gray-600  hover:text-gray-900 ",
-                            "block py-2 text-sm font-medium p-1 items-center sm:inline-flex hidden",
-                            item.disabled
-                              ? "disabled:opacity-50 cursor-not-allowed"
-                              : "hover:border-gray-300"
-                          )}
-                          target="_blank"
-                        >
-                          {item.name}
-                        </a>
                       );
                     }
 
@@ -253,6 +233,7 @@ function Navbar({
             setSection={setSection}
             secondaryNavigation={secondaryNavigation}
             setSecondaryNavigation={setSecondaryNavigation}
+            closeMenu={close}
           />
           <Success
             show={editModeNotificationOn}

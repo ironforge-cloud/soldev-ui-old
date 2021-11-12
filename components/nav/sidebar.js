@@ -20,7 +20,7 @@ function Sidebar({
   secondaryNavigation,
   setSecondaryNavigation,
 }) {
-  const { user, isAdmin = false, connected, error } = useUser();
+  const { isAdmin = false } = useUser();
 
   return (
     <div className="hidden lg:block w-auto mr-4 h-screen">
