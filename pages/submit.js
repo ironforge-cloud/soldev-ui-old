@@ -12,6 +12,7 @@ export default function Submit() {
     Vertical: "Solana",
     Tags: [],
     ContentType: "",
+    SpecialTag: "New",
   });
   const [notifySuccess, setNotifySuccess] = useState(false);
 
