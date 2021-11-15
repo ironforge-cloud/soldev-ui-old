@@ -15,7 +15,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
   return (
     <div
       className={classNames(
-        "relative flex flex-col py-6 pl-6 pr-4 rounded-lg h-[340px] overflow-visible",
+        "relative flex flex-col pt-6 pb-5 pl-6 pr-4 rounded-lg h-[340px] overflow-visible",
         mode === "modal"
           ? "w-[400px]"
           : "w-[335px] shadow-lg hover:bg-opacity-80 hover:opacity-95 bg-yellow-100 "
@@ -65,7 +65,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
       </div>
 
       {/*  Description */}
-      <div className="flex-1">
+      <div className="flex-1 overflow-hidden overflow-ellipsis">
         <p className="text-gray-600">{content.Description}</p>
       </div>
 

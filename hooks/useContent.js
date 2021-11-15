@@ -36,10 +36,23 @@ export default function useContent() {
     }
   }
 
+  const types = [
+    "sdk",
+    "courses",
+    "resources",
+    "walkthroughs",
+    "implementations",
+    "tools",
+  ];
+
+  let type = "";
+  if (!types.includes(query.type)) type = "Video Playlist";
+  if (query.type === "sdk") type = "SDK & Frameworks";
+
   return {
     isLoading: !data,
     data,
-    type: query.type,
+    type,
     selectedContent,
   };
 }
