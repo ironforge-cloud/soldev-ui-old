@@ -21,7 +21,7 @@ export default function Publications({ data, type, isLoading }) {
 
   return (
     <div className="relative flex flex-col mx-auto pb-16">
-      <div className="pt-7 pb-2 flex justify-center">
+      <div className="pt-7  flex justify-center">
         <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-gray-900 capitalize w-max p-3">
           {type}
         </h2>
@@ -33,11 +33,10 @@ export default function Publications({ data, type, isLoading }) {
         ) : (
           <>
             {/*  Don't render the submit content card if Playlist*/}
-            {type !== "Playlist" && (
-              <div className="mt-10 ml-8">
-                <SubmitContentCard />
-              </div>
-            )}
+
+            <div className="mt-10 ml-8">
+              <SubmitContentCard />
+            </div>
 
             {data.map((content) => {
               //  Initial Tags for content type "Playlists" is null

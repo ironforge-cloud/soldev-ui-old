@@ -21,7 +21,7 @@ function Card({ content }) {
             src={content.Img}
             alt=""
             height="200"
-            width="355"
+            width="360"
             quality="100"
             placeholder="blur"
             blurDataURL={content.Img}
