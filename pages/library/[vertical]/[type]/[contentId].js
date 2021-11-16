@@ -15,8 +15,8 @@ export default function Publications({}) {
   return (
     <div>
       <Head>
-        <title>SolDev: Publications</title>
-        <meta name="description" content="SolDev: Publications" />
+        <title>SolDev: Library</title>
+        <meta name="description" content="SolDev: Library" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

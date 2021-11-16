@@ -45,8 +45,8 @@ export default function useContent() {
     "tools",
   ];
 
-  let type = "";
-  if (!types.includes(query.type)) type = "Video Playlist";
+  let type = query.type;
+  if (!types.includes(query.type)) type = "Playlist";
   if (query.type === "sdk") type = "SDK & Frameworks";
 
   return {

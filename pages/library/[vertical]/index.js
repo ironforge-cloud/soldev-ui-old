@@ -7,8 +7,8 @@ export default function Video() {
   return (
     <div>
       <Head>
-        <title>SolDev</title>
-        <meta name="description" content="SolDev" />
+        <title>SolDev: Library</title>
+        <meta name="description" content="SolDev: Library" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

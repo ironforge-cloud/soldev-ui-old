@@ -11,7 +11,13 @@ import {
 import PropTypes from "prop-types";
 
 export default function Share({ content }) {
-  const url = `soldev.app/library/${content.Vertical}/${content.ContentType}/${content.SK}`;
+  let url = "";
+  if (content.ContentType === "Playlist") {
+    url = `soldev.app/library/${content.Vertical}/${content.PlaylistID}/video/${content.SK}`;
+  } else {
+    url = `soldev.app/library/${content.Vertical}/${content.ContentType}/${content.SK}`;
+  }
+
   return (
     <div className="flex space-x-1">
       <TwitterShareButton title={content.Title} url={url}>

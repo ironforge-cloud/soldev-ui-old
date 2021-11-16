@@ -12,8 +12,9 @@ export default function Player({ content }) {
             target="_blank"
             rel="noreferrer"
           >
-            {" "}
-            Watch in {content.Provider} &rarr;{" "}
+            <p className="text-lg pb-1 hover:underline">
+              Watch in {content.Provider} &rarr;{" "}
+            </p>
           </a>
         </div>
         <div
@@ -30,8 +31,8 @@ export default function Player({ content }) {
           />
         </div>
         <div className="self-start md:text-lg">
-          <h1 className="mt-6 font-semibold text-gray-900 sm:mt-8 xl:text-xl 3xl:text-2xl">
-            {content.Author}: {content.Title}
+          <h1 className=" font-medium text-gray-800 sm:mt-4 xl:text-xl 3xl:text-2xl">
+            {content.Title}
           </h1>
           <p className="mt-2 text-gray-600 sm:mt-4">{content.Description}</p>
         </div>

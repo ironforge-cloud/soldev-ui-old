@@ -29,7 +29,6 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
         {/*  Badge */}
         <Link
           href={`/library/${content.Vertical}/${content.ContentType}/badge/${content.SpecialTag}`}
-          passHref
         >
           <div className="cursor-pointer hover:opacity-80">
             <Badge text={content.SpecialTag} />
@@ -49,7 +48,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
       </div>
 
       {/*Tags*/}
-      <div className="mb-2 text-indigo-500  cursor-pointer">
+      <div className="mb-2 text-indigo-500 cursor-pointer">
         {content.Tags.map((tag, index) => (
           <Link
             key={tag}

@@ -6,6 +6,7 @@ import CardEdit from "./card-edit";
 import NotificationSuccess from "../notifications/success";
 import PropTypes from "prop-types";
 import Spinner from "../spinner";
+import VideoCard from "./video-card";
 
 export default function Publications({ data, type, isLoading }) {
   const [open, setOpen] = useState(false);
@@ -26,25 +27,39 @@ export default function Publications({ data, type, isLoading }) {
         </h2>
       </div>
 
-      <div className="flex flex-wrap  p-2 justify-around 3xl:justify-center place-content-start space-x-6 3xl:space-x-8 space-y-10">
+      <div className="flex flex-wrap p-2 justify-around 3xl:justify-center place-content-start space-x-6 3xl:space-x-8 space-y-10">
         {isLoading ? (
           <Spinner />
         ) : (
           <>
-            <div className="mt-10 ml-8">
-              <SubmitContentCard />
-            </div>
+            {/*  Don't render the submit content card if Playlist*/}
+            {type !== "Playlist" && (
+              <div className="mt-10 ml-8">
+                <SubmitContentCard />
+              </div>
+            )}
 
             {data.map((content) => {
               //  Initial Tags for content type "Playlists" is null
               if (!content.Tags) content.Tags = [];
+
+              // Everything else except playlist content
+              if (content.ContentType !== "Playlist") {
+                return (
+                  <div key={content.SK}>
+                    <Card
+                      content={content}
+                      mode={appState.editMode ? "edit" : ""}
+                      editContent={editContent}
+                    />
+                  </div>
+                );
+              }
+
+              // Playlist Content
               return (
                 <div key={content.SK}>
-                  <Card
-                    content={content}
-                    mode={appState.editMode ? "edit" : ""}
-                    editContent={editContent}
-                  />
+                  <VideoCard content={content} />
                 </div>
               );
             })}

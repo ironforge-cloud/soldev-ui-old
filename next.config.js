@@ -22,6 +22,7 @@ const moduleExports = withPlausibleProxy()(
         "solana.com",
         "static-cdn.jtvnw.net",
         "clips-media-assets2.twitch.tv",
+        "www.youtube.com",
       ],
       formats: ["image/avif", "image/webp"],
     },
