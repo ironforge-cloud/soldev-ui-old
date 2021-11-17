@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export default function Player({ content }) {
   return (
-    <div className="grid grid-cols-6 h-screen pt-16 justify-items-center">
+    <div className="grid grid-cols-6 pt-16 pb-10 justify-items-center">
       <div className="flex flex-col col-span-6 items-center w-video-xs sm:w-video-sm md:w-video-md lg:w-video-lg xl:w-video-xl 2xl:w-video-2xl 3xl:w-video-3xl xs:text-xs text-base">
         <div className="self-end mb-1">
           <a
