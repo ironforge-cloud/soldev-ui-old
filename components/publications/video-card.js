@@ -32,7 +32,7 @@ function Card({ content }) {
       <div className="pt-4 pb-4 pl-4 pr-4">
         {/*Title*/}
         <div className="flex justify-between h-[60px]">
-          <p className="font-medium leading-5 text-gray-500 overflow-hidden">
+          <p className="font-medium text-gray-600 overflow-hidden">
             {content.Title}
           </p>
         </div>
