@@ -29,12 +29,10 @@ function Card({ content }) {
         </div>
       </Link>
 
-      <div className="pt-4 pb-4 pl-4 pr-4">
+      <div className="pt-2 pb-4 pl-4 pr-4">
         {/*Title*/}
-        <div className="flex justify-between h-[60px]">
-          <p className="font-medium text-gray-600 overflow-hidden">
-            {content.Title}
-          </p>
+        <div className="flex justify-between h-[70px]">
+          <p className=" text-gray-600 overflow-hidden">{content.Title}</p>
         </div>
 
         {/*  Actions */}
