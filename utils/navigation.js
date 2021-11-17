@@ -95,7 +95,7 @@ export const navigation = [
   },
   {
     name: "Jobs",
-    disabled: true,
-    url: "#",
+    disabled: false,
+    url: "https://jobs.solana.com/",
   },
 ];
