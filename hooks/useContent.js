@@ -45,9 +45,16 @@ export default function useContent() {
     "tools",
   ];
 
-  let type = query.type;
-  if (!types.includes(query.type)) type = "Playlist";
-  if (query.type === "sdk") type = "SDK & Frameworks";
+  let type;
+  if (Array.isArray(data)) {
+    if (data[0].PlaylistTitle !== "") {
+      type = data[0].PlaylistTitle;
+    } else if (query.type === "sdk") {
+      type = "SDK & Frameworks";
+    } else {
+      type = query.type;
+    }
+  }
 
   return {
     isLoading: !data,
