@@ -1,6 +1,5 @@
 import "tailwindcss/tailwind.css";
 
-
 // FontAwesome
 import { config, library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -13,7 +12,7 @@ library.add(fab, fas);
 import PlausibleProvider from "next-plausible";
 import Nav from "../components/nav";
 import dynamic from "next/dynamic";
-import Script from "next/script"
+import Script from "next/script";
 
 // Import Swiper styles
 import "swiper/css";
@@ -60,20 +59,20 @@ export default function App({ Component, pageProps }) {
   return (
     <div>
       <Script
-          id="1"
-          src="https://www.googletagmanager.com/gtag/js?id=G-HT8DFYDG03"
+        id="1"
+        src="https://www.googletagmanager.com/gtag/js?id=G-HT8DFYDG03"
       />
       <Script
-          id="2"
-          dangerouslySetInnerHTML={{
-            __html: `
+        id="2"
+        dangerouslySetInnerHTML={{
+          __html: `
           if (window.location.hostname === "localhost") window['ga-disable-G-HT8DFYDG03'] = true;
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-HT8DFYDG03');
           `,
-          }}
+        }}
       />
       <PlausibleProvider domain="soldev.app" trackOutboundLinks={true}>
         <WalletConnectionProvider>
@@ -99,6 +98,6 @@ export default function App({ Component, pageProps }) {
           </WalletModalProvider>
         </WalletConnectionProvider>
       </PlausibleProvider>
-    </>
+    </div>
   );
 }
