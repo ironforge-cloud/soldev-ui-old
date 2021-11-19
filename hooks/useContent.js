@@ -2,6 +2,8 @@ import useSWR from "swr";
 import fetcher from "../utils/fetcher";
 import { useRouter } from "next/router";
 
+import types from "../utils/content-types";
+
 export default function useContent() {
   const { query, isReady } = useRouter();
 
@@ -35,15 +37,6 @@ export default function useContent() {
       break;
     }
   }
-
-  const types = [
-    "sdk",
-    "courses",
-    "resources",
-    "walkthroughs",
-    "implementations",
-    "tools",
-  ];
 
   let type;
   if (Array.isArray(data)) {

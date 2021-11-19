@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { memo, useState } from "react";
+import { memo } from "react";
 import fetcher from "../../../utils/fetcher";
 
 function classNames(...classes) {

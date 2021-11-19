@@ -17,6 +17,7 @@ export default function Publications({}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      {type === "v"}
       <PublicationsComponent data={data} type={type} isLoading={isLoading} />
     </div>
   );

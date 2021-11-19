@@ -19,8 +19,14 @@ export function constructSecondaryNavigationData(vertical) {
   return {
     Library: [
       {
-        name: "Videos",
-        href: `/library/${vertical}`,
+        name: "Walkthroughs",
+        href: `/library/${vertical}/walkthroughs`,
+        icon: ArchiveIcon,
+        disabled: false,
+      },
+      {
+        name: "Playlists",
+        href: `/library/${vertical}/playlists`,
         icon: VideoCameraIcon,
         disabled: false,
       },
@@ -40,13 +46,6 @@ export function constructSecondaryNavigationData(vertical) {
         name: "Courses",
         href: `/library/${vertical}/courses`,
         icon: PencilAltIcon,
-        disabled: false,
-      },
-
-      {
-        name: "Walkthroughs",
-        href: `/library/${vertical}/walkthroughs`,
-        icon: ArchiveIcon,
         disabled: false,
       },
       {

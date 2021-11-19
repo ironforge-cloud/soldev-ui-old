@@ -7,7 +7,8 @@ import { useAppState } from "../../context/AppContext";
 
 function Nav({ children, page }) {
   const [section, setSection] = useState(page);
-  const [secondaryNavigation, setSecondaryNavigation] = useState("Videos");
+  const [secondaryNavigation, setSecondaryNavigation] =
+    useState("Walkthroughs");
   const appState = useAppState();
 
   // Setting up sidebar content, vertical is needed for the URLs

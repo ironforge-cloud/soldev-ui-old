@@ -30,7 +30,7 @@ const moduleExports = withPlausibleProxy()(
       return [
         {
           source: "/",
-          destination: "/library/Solana",
+          destination: "/library/Solana/walkthroughs",
         },
       ];
     },
