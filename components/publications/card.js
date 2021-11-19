@@ -64,12 +64,12 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
       </div>
 
       {/*  Description */}
-      <div className="flex-1 overflow-hidden overflow-ellipsis">
+      <div className="flex-1 overflow-hidden overflow-ellipsis max-h-[170px]">
         <p className="text-gray-600">{content.Description}</p>
       </div>
 
       {/*  Actions */}
-      <div className="flex justify-between">
+      <div className="flex justify-between pt-3">
         <div className="space-x-2">
           {mode === "edit" ? (
             <button
