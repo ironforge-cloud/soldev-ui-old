@@ -1,11 +1,17 @@
 import fetch from "isomorphic-unfetch";
 import PropTypes from "prop-types";
 import ContentTags from "./tags";
-import { memo } from "react";
+import { memo, useState } from "react";
 import Radios from "./radios";
 import Inputs from "./inputs";
 
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
 function ContentForm({ type, setOpen, data, setData, setNotifySuccess }) {
+  const [contentExist, setContentExist] = useState(false);
+
   const createContent = async (event) => {
     event.preventDefault();
 
@@ -70,7 +76,13 @@ function ContentForm({ type, setOpen, data, setData, setNotifySuccess }) {
             onSubmit={type === "edit" ? updateContent : createContent}
           >
             {/*Inputs*/}
-            <Inputs data={data} setData={setData} type={type} />
+            <Inputs
+              data={data}
+              setData={setData}
+              type={type}
+              contentExist={contentExist}
+              setContentExist={setContentExist}
+            />
 
             {/*Radios components*/}
             <Radios data={data} setData={setData} type={type} />
@@ -94,7 +106,11 @@ function ContentForm({ type, setOpen, data, setData, setNotifySuccess }) {
 
               <button
                 type="submit"
-                className="ml-3 inline-flex justify-center py-3 px-10 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                disabled={contentExist}
+                className={classNames(
+                  "ml-3 inline-flex justify-center py-3 px-16 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+                  contentExist && "disabled:opacity-50"
+                )}
               >
                 {type === "submit" ? "Submit" : "Save"}
               </button>

@@ -1,7 +1,29 @@
 import PropTypes from "prop-types";
-import { memo } from "react";
+import { memo, useState } from "react";
+import fetcher from "../../../utils/fetcher";
 
-function Inputs({ data, setData, type }) {
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
+function Inputs({ data, setData, type, contentExist, setContentExist }) {
+  // Check for duplicated content if valid URL is provided
+  async function checkForDuplicateContent(url) {
+    const regex = new RegExp(
+      "(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?"
+    );
+    if (url.match(regex)) {
+      const data = await fetcher(
+        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/check?url=${url}`,
+        {
+          method: "GET",
+        }
+      );
+
+      data ? setContentExist(true) : setContentExist(false);
+    }
+  }
+
   return (
     <>
       {/* Title */}
@@ -50,30 +72,37 @@ function Inputs({ data, setData, type }) {
       </div>
 
       {/* Content Link */}
-      <div className="col-span-6">
+      <div className="col-span-8">
         <label
           htmlFor="url"
           className="block text-sm font-medium text-gray-700"
         >
-          Content Link
+          Content URL
         </label>
-
-        <div className="mt-1 flex rounded-md shadow-sm">
-          <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
-            URL
-          </span>
-
+        <div className="mt-1">
           <input
-            id="url"
-            name="url"
-            required
             type="url"
+            name="url"
+            id="url"
+            required
             value={data.Url}
-            onChange={(e) => setData({ ...data, Url: e.target.value })}
-            className="py-3 px-4 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
             placeholder="https://www.example.com"
+            onChange={async (e) => {
+              setData({ ...data, Url: e.target.value });
+              await checkForDuplicateContent(e.target.value);
+            }}
+            className={classNames(
+              "py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md",
+              contentExist &&
+                "border-red-300 text-red-900 focus:ring-red-600 focus:border-red-600"
+            )}
           />
         </div>
+        {contentExist && (
+          <p className="mt-2 text-sm text-red-600" id="url">
+            Content already included in the Library.
+          </p>
+        )}
       </div>
 
       {/* Description */}
@@ -107,6 +136,8 @@ Inputs.propTypes = {
   data: PropTypes.object.isRequired,
   setData: PropTypes.func.isRequired,
   type: PropTypes.oneOf(["submit", "edit"]),
+  contentExist: PropTypes.bool.isRequired,
+  setContentExist: PropTypes.func.isRequired,
 };
 
 export default memo(Inputs);
