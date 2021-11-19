@@ -11,13 +11,13 @@ const solutions = [
   {
     name: "Solana",
     description: "Fundamentals, Events, Tools",
-    href: "/library/Solana",
+    href: "/library/Solana/walkthroughs",
     icon: false,
   },
   {
     name: "Rust",
     description: "Rust Programming Language",
-    href: "/library/Rust",
+    href: "/library/Rust/playlists",
     icon: false,
   },
 ];

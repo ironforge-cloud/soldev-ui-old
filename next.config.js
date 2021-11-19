@@ -32,6 +32,14 @@ const moduleExports = withPlausibleProxy()(
           source: "/",
           destination: "/library/Solana/walkthroughs",
         },
+        {
+          source: "/library/Solana",
+          destination: "/library/Solana/walkthroughs",
+        },
+        {
+          source: "/library/Rust",
+          destination: "/library/Rust/playlists",
+        },
       ];
     },
   })
