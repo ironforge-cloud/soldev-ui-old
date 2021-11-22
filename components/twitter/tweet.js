@@ -90,7 +90,9 @@ export default function Tweet({
         </a>
       </div>
       <div className="mt-1 whitespace-pre-wrap text-gray-600 text-sm font-medium">
-        {formattedText}
+        <a href={tweetUrl} target="_blank" rel="noopener noreferrer">
+          {formattedText}
+        </a>
       </div>
       {media && media.length ? (
         <div
