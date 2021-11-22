@@ -14,7 +14,7 @@ function MiniSocial({ size }) {
   return (
     <aside
       className={classNames(
-        "hidden w-96 bg-white rounded-lg shadow-lg border overflow-hidden",
+        "hidden w-96 bg-white rounded-lg shadow-lg border h-screen overflow-y-auto overflow-x-hidden",
         size === "xl" && " xl:block",
         size === "2xl" && "2xl:block"
       )}

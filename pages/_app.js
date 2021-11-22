@@ -79,12 +79,12 @@ export default function App({ Component, pageProps }) {
           <WalletModalProvider logo="/logo-white.png">
             <AppWrapper>
               <Nav>
-                <div className="flex-1 flex items-stretch overflow-hidden gap-5">
-                  <main className="flex-1 overflow-y-auto">
+                <div className="flex-1 flex items-stretch min-h-screen overflow-hidden gap-5">
+                  <main className="flex-1">
                     {/* Primary column */}
                     <section
                       aria-labelledby="primary-heading"
-                      className="flex-1 min-h-screen flex flex-col overflow-hidden bg-white rounded-lg shadow-lg border"
+                      className="flex-1 flex flex-col overflow-hidden bg-white rounded-lg shadow-lg border min-h-screen "
                     >
                       <Component {...pageProps} />
                     </section>
