@@ -115,9 +115,9 @@ export default function Tweet({
                   className="rounded"
                 />
               );
-            } else {
-              return <></>;
             }
+
+            return null;
           })}
         </div>
       ) : null}
