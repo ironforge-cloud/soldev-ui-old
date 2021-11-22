@@ -35,7 +35,7 @@ import { useRouter } from "next/router";
 
 SwiperCore.use([Virtual, Navigation, Keyboard, Mousewheel, Autoplay, A11y]);
 
-const MiniSocial = dynamic(() => import("../components/nav/mini-social"));
+const MiniSocial = dynamic(() => import("../components/twitter/index"));
 
 // Wallet Auth
 import "@solana/wallet-adapter-react-ui/styles.css";

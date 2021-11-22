@@ -23,6 +23,7 @@ const moduleExports = withPlausibleProxy()(
         "static-cdn.jtvnw.net",
         "clips-media-assets2.twitch.tv",
         "www.youtube.com",
+        "pbs.twimg.com",
       ],
       formats: ["image/avif", "image/webp"],
     },
