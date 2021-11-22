@@ -27,7 +27,7 @@ export default function Tweet({
     referenced_tweets && referenced_tweets.find((t) => t.type === "quoted");
 
   return (
-    <div className="tweet rounded-lg hover:bg-blue-50 px-6 py-4 w-full bg-white">
+    <div className="tweet rounded-lg hover:bg-blue-50 px-6 pt-4 pb-5 w-full bg-white">
       <div className="flex items-center">
         <a
           className="flex h-10 w-10"
@@ -89,7 +89,7 @@ export default function Tweet({
           </svg>
         </a>
       </div>
-      <div className="mt-4 mb-1 whitespace-pre-wrap text-gray-700 tracking-tight">
+      <div className="mt-1 whitespace-pre-wrap text-gray-700 tracking-tight">
         {formattedText}
       </div>
       {media && media.length ? (
