@@ -5,7 +5,7 @@ import useVerticalPlaylists from "../../hooks/useVerticalPlaylists";
 import Spinner from "../spinner";
 
 export default function Playlists() {
-  const { data = [], isLoading, vertical } = useVerticalPlaylists();
+  const { data = [], isLoading } = useVerticalPlaylists();
 
   return (
     <>
@@ -26,7 +26,7 @@ export default function Playlists() {
             <>
               {data.map((playlist) => (
                 <li key={playlist.ID}>
-                  <Link href={`/library/${vertical}/${playlist.ID}`} passHref>
+                  <Link href={`/library/${playlist.ID}`} passHref>
                     <div className="flex items-center space-x-2 pl-2 h-12">
                       <ChevronRightIcon
                         className="h-5 w-5 text-gray-400 group-hover:text-gray-500"
@@ -68,10 +68,7 @@ export default function Playlists() {
                   <td className="px-6 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
                     <div className="flex items-center space-x-3 lg:pl-2">
                       <FontAwesomeIcon icon={["fas", "folder"]} size="2x" />
-                      <Link
-                        href={`/library/${vertical}/${playlist.ID}`}
-                        passHref
-                      >
+                      <Link href={`/library/${playlist.ID}`} passHref>
                         <span className="truncate hover:text-gray-600 cursor-pointer">
                           {playlist.Title}{" "}
                           <span className="text-gray-500 font-normal xl:hidden">

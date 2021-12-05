@@ -46,41 +46,6 @@ function Radios({ data, setData, type }) {
         </fieldset>
       )}
 
-      {/* Category */}
-      <fieldset className="my-3 col-span-2">
-        <div>
-          <legend className="text-base font-medium text-gray-900">
-            Category
-          </legend>
-        </div>
-        <div className="mt-4 space-y-4">
-          {verticals.map((vertical) => {
-            return (
-              <div key={vertical} className="flex items-center">
-                <input
-                  id={vertical}
-                  name="category"
-                  type="radio"
-                  value={vertical}
-                  required
-                  checked={data.Vertical === vertical}
-                  onChange={(e) =>
-                    setData({ ...data, Vertical: e.target.value })
-                  }
-                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
-                />
-                <label
-                  htmlFor={vertical}
-                  className="ml-3 block text-sm font-medium text-gray-700"
-                >
-                  {vertical}
-                </label>
-              </div>
-            );
-          })}
-        </div>
-      </fieldset>
-
       {/* Content Type */}
       <fieldset className="my-3 col-span-3">
         <div>

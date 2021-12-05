@@ -6,18 +6,17 @@ const PublicationsComponent = dynamic(() =>
   import("../../../../components/publications")
 );
 
-export default function Publications({}) {
+export default function Badge({}) {
   const { data = [], type = "", isLoading } = useContent();
 
   return (
     <div>
       <Head>
-        <title>SolDev: Library</title>
-        <meta name="description" content="SolDev: Publications" />
+        <title>SolDev: Publications</title>
+        <meta name="description" content="SolDev: Library" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {type === "v"}
       <PublicationsComponent data={data} type={type} isLoading={isLoading} />
     </div>
   );

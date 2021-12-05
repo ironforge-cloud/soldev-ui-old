@@ -6,7 +6,7 @@ export default function usePlaylist() {
   const { query, isReady } = useRouter();
   let { data } = useSWR(
     isReady &&
-      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/${query.vertical}/${query.playlistID}`,
+      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/${query.playlistID}`,
     fetcher
   );
 

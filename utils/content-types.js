@@ -1,8 +1,1 @@
-export default [
-  "walkthroughs",
-  "courses",
-  "sdk",
-  "implementations",
-  "resources",
-  "tools",
-];
+export default ["tutorials", "courses", "resources", "books"];

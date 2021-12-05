@@ -7,7 +7,7 @@ export default function Promoted() {
   const { data = [], isLoading } = usePromoted();
 
   return (
-    <div className="px-4 mt-6 sm:px-6 lg:px-8">
+    <div className="pl-4 sm:pl-0">
       <h2 className="text-gray-500 text-xs font-medium uppercase tracking-wide mb-3">
         Promoted Videos
       </h2>

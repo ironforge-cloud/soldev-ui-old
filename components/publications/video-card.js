@@ -3,16 +3,15 @@ import { memo, useState } from "react";
 import Link from "next/link";
 import Share from "../share";
 import Image from "next/image";
-import { useAppState } from "../../context/AppContext";
+import { FilmIcon, ShareIcon } from "@heroicons/react/solid";
 
 function Card({ content }) {
-  const appState = useAppState();
   const [openShare, setOpenShare] = useState(false);
 
   return (
-    <div className="relative flex flex-col rounded-lg h-[340px] hover:bg-opacity-80 overflow-visible w-[335px] shadow-lg bg-yellow-100">
+    <div className="relative flex flex-col rounded-lg h-[340px] hover:bg-opacity-80 overflow-visible w-[400px] shadow bg-white">
       <Link
-        href={`/library/${appState.vertical}/${content.PlaylistID}/video/${content.SK}`}
+        href={`/library/${content.PlaylistID}/video/${content.SK}`}
         passHref
       >
         <div>
@@ -21,7 +20,7 @@ function Card({ content }) {
             src={content.Img}
             alt=""
             height="200"
-            width="360"
+            width="400"
             quality="100"
             placeholder="blur"
             blurDataURL={content.Img}
@@ -29,55 +28,44 @@ function Card({ content }) {
         </div>
       </Link>
 
-      <div className="pt-2 pb-4 pl-4 pr-4">
+      <div className="flex flex-col p-4">
         {/*Title*/}
-        <div className="flex justify-between h-[70px]">
-          <p className=" text-gray-600 overflow-hidden">{content.Title}</p>
+        <div>
+          <p className="text-gray-600 overflow-hidden h-[80px]">
+            {content.Title}
+          </p>
         </div>
 
         {/*  Actions */}
-        <div className="flex justify-between pt-4">
-          <div className="space-x-2">
+
+        {/* Principal Btn*/}
+        <div className="flex justify-between">
+          <div>
             <Link
-              href={`/library/${appState.vertical}/${content.PlaylistID}/video/${content.SK}`}
+              href={`/library/${content.PlaylistID}/video/${content.SK}`}
               passHref
             >
-              <a className="inline-flex items-center border border-yellow-50 px-3 py-2.5 shadow-md text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
-                Watch
-              </a>
+              <button className="inline-flex space-x-2 text-gray-400 hover:text-gray-500 items-center">
+                <FilmIcon className="h-5 w-5" aria-hidden="true" />
+                <span className="font-medium text-gray-900">Watch</span>
+              </button>
             </Link>
-            {openShare ? (
-              <button
-                type="button"
-                className="inline-flex rounded-full items-center border border-yellow-50 px-3 py-3 shadow-md text-gray-700 bg-white hover:bg-gray-50"
-                onClick={() => setOpenShare(!openShare)}
-              >
-                <svg
-                  className="w-3 h-3"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={4}
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-              </button>
-            ) : (
-              <button
-                type="button"
-                className="inline-flex items-center border border-yellow-50 px-3 py-2.5 shadow-md text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
-                onClick={() => setOpenShare(!openShare)}
-              >
-                Share
-              </button>
-            )}
           </div>
-          {openShare && <Share content={content} />}
+
+          {/* Share Btn */}
+          <div>
+            <div className="flex flex-row gap-4 items-end">
+              {openShare && <Share content={content} />}
+              <button
+                type="button"
+                className="inline-flex items-center space-x-2 text-gray-400 hover:text-gray-500"
+                onClick={() => setOpenShare(!openShare)}
+              >
+                <ShareIcon className="h-5 w-5" aria-hidden="true" />
+                <span className="font-medium text-gray-900">Share</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

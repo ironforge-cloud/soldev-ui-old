@@ -11,6 +11,7 @@ library.add(fab, fas);
 
 import PlausibleProvider from "next-plausible";
 import Nav from "../components/nav";
+import Nav2 from "../components/nav2";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 
@@ -74,30 +75,31 @@ export default function App({ Component, pageProps }) {
           `,
         }}
       />
-      <PlausibleProvider domain="soldev.app" trackOutboundLinks={true}>
-        <WalletConnectionProvider>
-          <WalletModalProvider logo="/logo-white.png">
-            <AppWrapper>
-              <Nav>
-                <div className="flex-1 flex items-stretch overflow-hidden gap-5">
-                  <main className="flex-1 overflow-y-auto">
-                    {/* Primary column */}
-                    <section
-                      aria-labelledby="primary-heading"
-                      className="flex-1 min-h-screen flex flex-col overflow-hidden bg-white rounded-lg shadow-lg border"
-                    >
-                      <Component {...pageProps} />
-                    </section>
-                  </main>
+      <div className="min-h-screen bg-gray-100">
+        <PlausibleProvider domain="soldev.app" trackOutboundLinks={true}>
+          <WalletConnectionProvider>
+            <WalletModalProvider logo="/logo-white.png">
+              <AppWrapper>
+                <Nav2>
+                  {/*<div className="flex-1 flex items-stretch overflow-hidden gap-5">*/}
+                  {/*  <main className="flex-1 overflow-y-auto">*/}
+                  {/*    /!* Primary column *!/*/}
+                  {/*    <section*/}
+                  {/*      aria-labelledby="primary-heading"*/}
+                  {/*      className="flex-1 min-h-screen flex flex-col overflow-hidden rounded-lg shadow-lg border"*/}
+                  {/*    ></section>*/}
+                  {/*  </main>*/}
 
-                  {/* Secondary column (hidden on smaller screens) */}
-                  <MiniSocial size={size} />
-                </div>
-              </Nav>
-            </AppWrapper>
-          </WalletModalProvider>
-        </WalletConnectionProvider>
-      </PlausibleProvider>
+                  {/*  /!* Secondary column (hidden on smaller screens) *!/*/}
+                  {/*  /!*<MiniSocial size={size} />*!/*/}
+                  {/*</div>*/}
+                  <Component {...pageProps} />
+                </Nav2>
+              </AppWrapper>
+            </WalletModalProvider>
+          </WalletConnectionProvider>
+        </PlausibleProvider>
+      </div>
     </div>
   );
 }

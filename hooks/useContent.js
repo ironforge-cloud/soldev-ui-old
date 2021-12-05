@@ -18,10 +18,11 @@ export default function useContent() {
 
   let { data } = useSWR(
     isReady &&
-      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/${query.vertical}/${query.type}?status=active&tags=${query.tag}&specialTags=${query.badge}`,
+      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/${query.type}?status=active&tags=${query.tag}&specialTags=${query.badge}`,
     fetcher
   );
 
+  console.log(data);
   // If I have contentId in the path we need to open the
   // modal for a specific content
   let selectedContent = false;
@@ -40,8 +41,6 @@ export default function useContent() {
   if (Array.isArray(data) && data.length > 0) {
     if (data[0].PlaylistTitle !== "") {
       type = data[0].PlaylistTitle;
-    } else if (query.type === "sdk") {
-      type = "SDK & Frameworks";
     } else {
       type = query.type;
     }

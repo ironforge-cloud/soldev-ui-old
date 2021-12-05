@@ -1,8 +1,8 @@
 import Head from "next/head";
-import useVideo from "../../../../../hooks/useVideo";
+import useVideo from "../../../../hooks/useVideo";
 import dynamic from "next/dynamic";
 
-const Player = dynamic(() => import("../../../../../components/videos/player"));
+const Player = dynamic(() => import("../../../../components/videos/player"));
 
 function VideoID() {
   const { data = {} } = useVideo();

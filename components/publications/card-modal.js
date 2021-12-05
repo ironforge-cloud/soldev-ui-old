@@ -41,7 +41,7 @@ export default function CardModal({ content, open, setOpen }) {
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="inline-block align-bottom bg-yellow-100 rounded-lg px-4 py-2 text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-lg sm:pt-7 sm:pr-7">
+            <div className="inline-block align-bottom bg-white rounded-lg px-4 py-2 text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-lg sm:pt-7 sm:pr-7">
               <div className="hidden sm:block absolute -top-2 -right-2 pt-4 pr-4">
                 <button
                   type="button"
@@ -49,19 +49,11 @@ export default function CardModal({ content, open, setOpen }) {
                   onClick={() => setOpen(false)}
                 >
                   <span className="sr-only">Close</span>
-                  <XIcon
-                    className="h-6 w-6 bg-yellow-100 text-gray-900"
-                    aria-hidden="true"
-                  />
+                  <XIcon className="h-6 w-6 text-gray-900" aria-hidden="true" />
                 </button>
               </div>
               <div className="sm:flex sm:items-start">
-                <Card
-                  content={content}
-                  mode="modal"
-                  editContent={() => {}}
-                  defaultOpenShare
-                />
+                <Card content={content} mode="modal" editContent={() => {}} />
               </div>
             </div>
           </Transition.Child>

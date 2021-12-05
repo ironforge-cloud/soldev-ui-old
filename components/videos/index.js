@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import Promoted from "./promoted";
 import Playlists from "./playlists";
 

@@ -20,9 +20,9 @@ export default function Publications({ data, type, isLoading }) {
   };
 
   return (
-    <div className="relative flex flex-col mx-auto pb-16">
-      <div className="pt-7 flex justify-center">
-        <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold tracking-tight text-gray-900 capitalize w-max p-3">
+    <div className="relative flex flex-col mx-auto">
+      <div className="flex justify-center">
+        <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold tracking-tight text-gray-900 capitalize w-max ">
           {type}
         </h2>
       </div>
