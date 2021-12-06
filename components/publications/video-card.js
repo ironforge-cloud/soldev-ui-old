@@ -9,7 +9,7 @@ function Card({ content }) {
   const [openShare, setOpenShare] = useState(false);
 
   return (
-    <div className="relative flex flex-col rounded-lg h-[340px] hover:bg-opacity-80 overflow-visible w-[400px] shadow bg-white transition transform-gpu duration-150 ease-in-out hover:-translate-y-1 hover:scale-105">
+    <div className="relative flex flex-col rounded-lg h-[340px] hover:bg-opacity-80 overflow-visible w-[400px] shadow bg-white">
       <Link
         href={`/library/${content.PlaylistID}/video/${content.SK}`}
         passHref
@@ -31,7 +31,7 @@ function Card({ content }) {
       <div className="flex flex-col p-4">
         {/*Title*/}
         <div>
-          <p className="text-gray-600 overflow-hidden h-[80px]">
+          <p className="text-gray-600 overflow-hidden h-[75px]">
             {content.Title}
           </p>
         </div>
@@ -39,7 +39,7 @@ function Card({ content }) {
         {/*  Actions */}
 
         {/* Principal Btn*/}
-        <div className="flex justify-between">
+        <div className="flex flex-row justify-between items-end h-[20px]">
           <div>
             <Link
               href={`/library/${content.PlaylistID}/video/${content.SK}`}
@@ -54,7 +54,7 @@ function Card({ content }) {
 
           {/* Share Btn */}
           <div>
-            <div className="flex flex-row gap-4 items-end">
+            <div className="flex flex-row gap-6 items-end">
               {openShare && <Share content={content} />}
               <button
                 type="button"

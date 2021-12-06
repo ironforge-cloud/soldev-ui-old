@@ -82,7 +82,7 @@ export default function TopBar({ navigation, categories }) {
                       <div className="relative ">
                         <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
                           <SearchIcon
-                            className="h-6 w-6 text-gray-400"
+                            className="h-6 w-6 text-gray-700"
                             aria-hidden="true"
                           />
                         </div>
@@ -91,7 +91,7 @@ export default function TopBar({ navigation, categories }) {
                             id="search"
                             name="search"
                             disabled
-                            className="disabled:opacity-50 block w-full bg-white border border-gray-300 rounded-md py-3 pl-10 pr-3 text-sm placeholder-gray-500 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-rose-500 focus:border-rose-500 sm:text-sm"
+                            className="disabled:opacity-70 block w-full bg-white border border-gray-300 rounded-md py-3 pl-10 pr-3 text-sm placeholder-gray-500 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-rose-500 focus:border-rose-500 sm:text-sm"
                             placeholder="Quick search for anything coming soon"
                             type="search"
                           />

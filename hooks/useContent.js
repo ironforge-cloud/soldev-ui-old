@@ -1,28 +1,30 @@
 import useSWR from "swr";
 import fetcher from "../utils/fetcher";
 import { useRouter } from "next/router";
+import tags from "../utils/tags";
 
 export default function useContent() {
   const { query, isReady } = useRouter();
 
-  // Setting up default values
-  if (isReady) {
-    if (!query.tag) {
-      query.tag = "";
-    }
+  let badge = "";
+  let tag = "";
 
-    if (!query.badge) {
-      query.badge = "";
+  // Tags and Badges are similar, when I implemented this I imagine
+  // I was bored and wanted to overcomplicate stuff for some-reason
+  if (isReady && query.tag) {
+    if (tags.badge.includes(query.tag)) {
+      badge = query.tag;
+    } else {
+      tag = query.tag;
     }
   }
 
   let { data } = useSWR(
     isReady &&
-      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/${query.type}?status=active&tags=${query.tag}&specialTags=${query.badge}`,
+      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/${query.type}?status=active&tags=${tag}&specialTags=${badge}`,
     fetcher
   );
 
-  console.log(data);
   // If I have contentId in the path we need to open the
   // modal for a specific content
   let selectedContent = false;

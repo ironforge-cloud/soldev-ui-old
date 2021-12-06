@@ -20,7 +20,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
   return (
     <div
       className={classNames(
-        "relative flex flex-col p-6 rounded-lg h-[340px] w-[400px] overflow-visible transition transform-gpu duration-150 ease-in-out hover:-translate-y-1 hover:scale-105",
+        "relative flex flex-col p-6 rounded-lg h-[340px] w-[400px] overflow-visible",
         mode === "modal"
           ? ""
           : "shadow hover:bg-opacity-80 hover:opacity-95 bg-white"
@@ -34,7 +34,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
         {/*  Badge */}
         {content.SpecialTag !== "0" && (
           <Link
-            href={`/library/${content.ContentType}/badge/${content.SpecialTag}`}
+            href={`/library/${content.ContentType}/tag/${content.SpecialTag}`}
             passHref
           >
             <div className="cursor-pointer hover:opacity-80">
@@ -102,7 +102,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
 
         {/* Share Btn */}
         <div>
-          <div className="flex flex-row gap-4 items-end">
+          <div className="flex flex-row gap-5 items-end">
             {openShare && <Share content={content} />}
             <button
               type="button"

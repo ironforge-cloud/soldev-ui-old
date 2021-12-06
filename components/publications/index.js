@@ -7,6 +7,8 @@ import NotificationSuccess from "../notifications/success";
 import PropTypes from "prop-types";
 import Spinner from "../spinner";
 import VideoCard from "./video-card";
+import findTags from "../../utils/find-tags";
+import TagsSelector from "../badges/tags-selector";
 
 export default function Publications({ data, type, isLoading }) {
   const [open, setOpen] = useState(false);
@@ -19,6 +21,8 @@ export default function Publications({ data, type, isLoading }) {
     setOpen(true);
   };
 
+  const tags = findTags(data);
+
   return (
     <div className="relative flex flex-col mx-auto">
       <div className="flex justify-center">
@@ -27,14 +31,17 @@ export default function Publications({ data, type, isLoading }) {
         </h2>
       </div>
 
-      <div className="flex flex-wrap p-2 justify-around 3xl:justify-center place-content-start space-x-6 3xl:space-x-8 space-y-10">
+      <div className="mt-8 flex justify-center flex-wrap ">
+        <TagsSelector tags={tags} contentType={type} />
+      </div>
+
+      <div className="flex flex-wrap justify-around mt-6 mb-10 3xl:justify-center place-content-start space-x-6 gap-5 3xl:gap-10">
         {isLoading ? (
           <Spinner />
         ) : (
           <>
             {/*  Don't render the submit content card if Playlist*/}
-
-            <div className="mt-10 ml-8">
+            <div className="ml-6 hidden lg:block">
               <SubmitContentCard />
             </div>
 
