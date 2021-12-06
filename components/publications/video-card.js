@@ -9,7 +9,7 @@ function Card({ content }) {
   const [openShare, setOpenShare] = useState(false);
 
   return (
-    <div className="relative flex flex-col rounded-lg h-[340px] hover:bg-opacity-80 overflow-visible w-[400px] shadow bg-white">
+    <div className="relative flex flex-col rounded-lg h-[340px] hover:bg-opacity-80 overflow-visible w-[400px] shadow bg-white transition transform-gpu duration-150 ease-in-out hover:-translate-y-1 hover:scale-105">
       <Link
         href={`/library/${content.PlaylistID}/video/${content.SK}`}
         passHref

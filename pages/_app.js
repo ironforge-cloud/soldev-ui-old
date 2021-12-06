@@ -11,7 +11,6 @@ library.add(fab, fas);
 
 import PlausibleProvider from "next-plausible";
 import Nav from "../components/nav";
-import Nav2 from "../components/nav2";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 
@@ -80,7 +79,7 @@ export default function App({ Component, pageProps }) {
           <WalletConnectionProvider>
             <WalletModalProvider logo="/logo-white.png">
               <AppWrapper>
-                <Nav2>
+                <Nav>
                   {/*<div className="flex-1 flex items-stretch overflow-hidden gap-5">*/}
                   {/*  <main className="flex-1 overflow-y-auto">*/}
                   {/*    /!* Primary column *!/*/}
@@ -94,7 +93,7 @@ export default function App({ Component, pageProps }) {
                   {/*  /!*<MiniSocial size={size} />*!/*/}
                   {/*</div>*/}
                   <Component {...pageProps} />
-                </Nav2>
+                </Nav>
               </AppWrapper>
             </WalletModalProvider>
           </WalletConnectionProvider>

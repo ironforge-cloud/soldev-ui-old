@@ -20,7 +20,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
   return (
     <div
       className={classNames(
-        "relative flex flex-col p-6 rounded-lg h-[340px] w-[400px] overflow-visible",
+        "relative flex flex-col p-6 rounded-lg h-[340px] w-[400px] overflow-visible transition transform-gpu duration-150 ease-in-out hover:-translate-y-1 hover:scale-105",
         mode === "modal"
           ? ""
           : "shadow hover:bg-opacity-80 hover:opacity-95 bg-white"
