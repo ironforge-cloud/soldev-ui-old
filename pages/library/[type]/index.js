@@ -7,7 +7,7 @@ const PublicationsComponent = dynamic(() =>
 );
 
 export default function Publications({}) {
-  const { data = [], type = "", isLoading } = useContent();
+  const { data = [], type = "", isLoading, tags, badges } = useContent();
 
   return (
     <div>
@@ -17,7 +17,13 @@ export default function Publications({}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <PublicationsComponent data={data} type={type} isLoading={isLoading} />
+      <PublicationsComponent
+        data={data}
+        type={type}
+        isLoading={isLoading}
+        badges={badges}
+        tags={tags}
+      />
     </div>
   );
 }

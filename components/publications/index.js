@@ -1,6 +1,6 @@
 import Card from "./card";
 import SubmitContentCard from "./submit-content-card";
-import { useState } from "react";
+import { useState, memo } from "react";
 import { useAppState } from "../../context/AppContext";
 import CardEdit from "./card-edit";
 import NotificationSuccess from "../notifications/success";
@@ -10,7 +10,7 @@ import VideoCard from "./video-card";
 import findTags from "../../utils/find-tags";
 import TagsSelector from "../badges/tags-selector";
 
-export default function Publications({ data, type, isLoading }) {
+function Publications({ data, type, isLoading, badges, tags }) {
   const [open, setOpen] = useState(false);
   const appState = useAppState();
   const [content, setContent] = useState({});
@@ -21,7 +21,7 @@ export default function Publications({ data, type, isLoading }) {
     setOpen(true);
   };
 
-  const tags = findTags(data);
+  const tagsList = findTags(data);
 
   return (
     <div className="relative flex flex-col mx-auto">
@@ -32,7 +32,12 @@ export default function Publications({ data, type, isLoading }) {
       </div>
 
       <div className="mt-8 flex justify-center flex-wrap ">
-        <TagsSelector tags={tags} contentType={type} />
+        <TagsSelector
+          tagsList={tagsList}
+          contentType={type}
+          badges={badges}
+          tags={tags}
+        />
       </div>
 
       <div className="flex flex-wrap justify-around mt-6 mb-10 3xl:justify-center place-content-start space-x-6 gap-5 3xl:gap-10">
@@ -92,4 +97,8 @@ Publications.propTypes = {
   data: PropTypes.array.isRequired,
   type: PropTypes.string.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  badges: PropTypes.array,
+  tags: PropTypes.array,
 };
+
+export default memo(Publications);

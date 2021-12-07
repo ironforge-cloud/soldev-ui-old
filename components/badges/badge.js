@@ -10,10 +10,10 @@ export default function Badge({ text }) {
       <span
         className={classNames(
           "items-center px-2 py-0.5 rounded text-xs uppercase rounded",
-          text === "New" && "bg-green-400 text-green-50",
+          text === "New" && "bg-sky-400 text-green-50",
           text === "Old" && "bg-gray-400 text-gray-50 opacity-50",
           text === "Hot" && "bg-red-400 text-red-50",
-          text === "Best" && "bg-indigo-400 text-indigo-50"
+          text === "Best" && "bg-yellow-400 text-indigo-50"
         )}
       >
         {text}

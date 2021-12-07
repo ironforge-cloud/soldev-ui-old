@@ -7,6 +7,7 @@ import {
 import TopBar from "./topbar";
 import useUser from "../../hooks/useUser";
 import Link from "next/link";
+import { memo } from "react";
 
 const navigation = [
   {
@@ -54,7 +55,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Nav({ children }) {
+function Nav({ children }) {
   const { user, isAdmin = false, connected, error } = useUser();
 
   return (
@@ -162,3 +163,5 @@ export default function Nav({ children }) {
     </div>
   );
 }
+
+export default memo(Nav);

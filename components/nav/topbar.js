@@ -2,7 +2,7 @@ import { Menu, Popover, Transition } from "@headlessui/react";
 import { SearchIcon } from "@heroicons/react/solid";
 import { CogIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import PropTypes from "prop-types";
-import React, { Fragment } from "react";
+import React, { Fragment, memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useUser from "../../hooks/useUser";
@@ -17,7 +17,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function TopBar({ navigation, categories }) {
+function TopBar({ navigation, categories }) {
   const { user, isAdmin = false, connected, error } = useUser();
   const [editModeNotificationOn, setEditModeNotificationOn] = useState(false);
   const [editModeNotificationOff, setEditModeNotificationOff] = useState(false);
@@ -250,3 +250,5 @@ TopBar.propTypes = {
   navigation: PropTypes.array.isRequired,
   categories: PropTypes.array.isRequired,
 };
+
+export default memo(TopBar);
