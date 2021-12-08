@@ -39,7 +39,7 @@ function Card({ content }) {
         {/*  Actions */}
 
         {/* Principal Btn*/}
-        <div className="flex flex-row justify-between items-end h-[20px]">
+        <div className="flex flex-row justify-between items-end h-[25px]">
           <div>
             <Link
               href={`/library/${content.PlaylistID}/video/${content.SK}`}

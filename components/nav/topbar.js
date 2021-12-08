@@ -60,13 +60,13 @@ function TopBar({ navigation, categories }) {
                 {/* Logo */}
                 <div className="flex md:absolute md:left-0 md:inset-y-0 lg:static xl:col-span-2">
                   <Link href="/" passHref>
-                    <a className="mt-1">
+                    <a className="mt-1 -ml-1">
                       {/* TODO: This Logo could use some improvements */}
                       <Image
                         src="/logo.png"
                         alt="SolDev Logo"
                         height="60"
-                        width="140"
+                        width="150"
                       />
                     </a>
                   </Link>

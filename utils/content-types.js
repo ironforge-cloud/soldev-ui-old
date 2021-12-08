@@ -1,1 +1,1 @@
-export default ["tutorials", "courses", "resources", "books"];
+export default ["tutorials", "courses", "tools", "books", "sdk"];

@@ -27,18 +27,20 @@ function Publications({ data, type, isLoading, badges, tags }) {
     <div className="relative flex flex-col mx-auto">
       <div className="flex justify-center">
         <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold tracking-tight text-gray-900 capitalize w-max">
-          {type}
+          {type === "sdk" ? "SDKs & Frameworks" : type}
         </h2>
       </div>
 
-      <div className="mt-8 flex justify-center flex-wrap ">
-        <TagsSelector
-          tagsList={tagsList}
-          contentType={type}
-          badges={badges}
-          tags={tags}
-        />
-      </div>
+      {tags && (
+        <div className="mt-8 flex justify-center">
+          <TagsSelector
+            tagsList={tagsList}
+            contentType={type}
+            badges={badges}
+            tags={tags}
+          />
+        </div>
+      )}
 
       <div className="flex flex-wrap justify-around mt-6 mb-10 3xl:justify-center place-content-start space-x-6 gap-5 3xl:gap-10">
         {isLoading ? (
@@ -57,13 +59,12 @@ function Publications({ data, type, isLoading, badges, tags }) {
               // Everything else except playlist content
               if (content.ContentType !== "Playlist") {
                 return (
-                  <div key={content.SK}>
-                    <Card
-                      content={content}
-                      mode={appState.editMode ? "edit" : ""}
-                      editContent={editContent}
-                    />
-                  </div>
+                  <Card
+                    key={content.SK}
+                    content={content}
+                    mode={appState.editMode ? "edit" : ""}
+                    editContent={editContent}
+                  />
                 );
               }
 

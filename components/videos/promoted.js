@@ -9,7 +9,7 @@ export default function Promoted() {
   return (
     <div className="pl-4 sm:pl-0">
       <h2 className="text-gray-500 text-xs font-medium uppercase tracking-wide mb-3">
-        Promoted Videos
+        Pinned Videos
       </h2>
       {isLoading ? (
         <PlaceholderSwipper />

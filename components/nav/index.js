@@ -1,8 +1,8 @@
 import {
   LibraryIcon,
-  CalendarIcon,
-  ChatAlt2Icon,
+  InboxInIcon,
   ClipboardCheckIcon,
+  NewspaperIcon,
 } from "@heroicons/react/outline";
 import TopBar from "./topbar";
 import useUser from "../../hooks/useUser";
@@ -12,22 +12,22 @@ import { memo } from "react";
 const navigation = [
   {
     name: "Library",
-    href: "/library",
+    href: "/library/playlists",
     icon: LibraryIcon,
     current: true,
     disabled: false,
   },
   {
-    name: "Calendar",
+    name: "Blog",
     href: "#",
-    icon: CalendarIcon,
+    icon: NewspaperIcon,
     current: false,
     disabled: true,
   },
   {
-    name: "Community",
+    name: "Newsletter",
     href: "#",
-    icon: ChatAlt2Icon,
+    icon: InboxInIcon,
     current: false,
     disabled: true,
   },
@@ -42,11 +42,11 @@ const navigation = [
 
 const categories = [
   { name: "Playlists", href: "/library/playlists" },
-  { name: "Tutorials", href: "/library/tutorials" },
   { name: "Courses", href: "/library/courses" },
-  { name: "Resources", href: "/library/resources" },
+  { name: "Tutorials", href: "/library/tutorials" }, // blog posts
   { name: "Books", href: "/library/books" },
-  // { name: "Lists", href: "/library/lists" },
+  { name: "SDKs & Frameworks", href: "/library/sdk" },
+  { name: "Tools", href: "/library/tools" },
   { name: "Submitted", href: "/library/admin/submitted" },
   { name: "Inactive", href: "/library/admin/inactive" },
 ];
@@ -64,7 +64,7 @@ function Nav({ children }) {
 
       <div className="min-h-full">
         <div className="flex sm:pl-6 lg:pl-8 lg:gap-8 py-10">
-          <div className="max-w-[170px] min-w-[150px] hidden lg:block">
+          <div className="max-w-[170px]  hidden lg:block">
             <nav
               aria-label="Sidebar"
               className="sticky top-4 divide-y divide-gray-300"

@@ -48,7 +48,7 @@ function TagsSelector({ tagsList, contentType, tags, badges }) {
   }
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 flex-wrap justify-center">
       {tagsList.map((tag) => {
         return (
           <button

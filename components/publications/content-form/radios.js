@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import { memo } from "react";
 import contentStatus from "../../../utils/content-status";
-import verticals from "../../../utils/verticals";
 import contentType from "../../../utils/content-types";
 
 function Radios({ data, setData, type }) {
