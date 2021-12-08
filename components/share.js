@@ -13,9 +13,9 @@ import PropTypes from "prop-types";
 export default function Share({ content }) {
   let url = "";
   if (content.ContentType === "Playlist") {
-    url = `soldev.app/library/${content.Vertical}/${content.PlaylistID}/video/${content.SK}`;
+    url = `soldev.app/library/${content.PlaylistID}/video/${content.SK}`;
   } else {
-    url = `soldev.app/library/${content.Vertical}/${content.ContentType}/${content.SK}`;
+    url = `soldev.app/library/${content.ContentType}/${content.SK}`;
   }
 
   return (
