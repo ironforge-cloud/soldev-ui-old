@@ -18,13 +18,6 @@ const navigation = [
     disabled: false,
   },
   {
-    name: "Blog",
-    href: "#",
-    icon: NewspaperIcon,
-    current: false,
-    disabled: true,
-  },
-  {
     name: "Newsletter",
     href: "#",
     icon: InboxInIcon,
