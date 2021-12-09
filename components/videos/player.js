@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 export default function Player({ content }) {
   return (
-    <div className="flex flex-col max-w-screen-2xl mx-auto p-16 xs:text-xs text-base">
-      <div className="self-end mb-1">
+    <div className="flex flex-col max-w-screen-2xl mx-auto px-5 xs:text-xs text-base">
+      <div className="self-end">
         <a
           href={content.Url}
           className="text-purple-600 hover:text-purple-700"
