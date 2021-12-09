@@ -100,10 +100,11 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
           )}
         </div>
 
+        <div>{openShare && <Share content={content} />}</div>
+
         {/* Share Btn */}
         <div>
-          <div className="flex flex-row gap-5 items-end">
-            {openShare && <Share content={content} />}
+          <div className="flex flex-row items-end">
             <button
               type="button"
               className="inline-flex items-center space-x-2 text-gray-400 hover:text-gray-500"

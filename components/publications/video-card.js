@@ -52,10 +52,11 @@ function Card({ content }) {
             </Link>
           </div>
 
+          <div> {openShare && <Share content={content} />}</div>
+
           {/* Share Btn */}
           <div>
-            <div className="flex flex-row gap-6 items-end">
-              {openShare && <Share content={content} />}
+            <div className="flex flex-row items-end">
               <button
                 type="button"
                 className="inline-flex items-center space-x-2 text-gray-400 hover:text-gray-500"

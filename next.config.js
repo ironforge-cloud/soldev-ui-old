@@ -31,7 +31,7 @@ const moduleExports = withPlausibleProxy()(
       return [
         {
           source: "/",
-          destination: "/library/playlists",
+          destination: "/library",
         },
       ];
     },

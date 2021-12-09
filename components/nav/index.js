@@ -12,7 +12,7 @@ import { memo } from "react";
 const navigation = [
   {
     name: "Library",
-    href: "/library/playlists",
+    href: "/library",
     icon: LibraryIcon,
     current: true,
     disabled: false,
