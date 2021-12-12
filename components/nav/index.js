@@ -34,20 +34,19 @@ const navigation = [
 ];
 
 const categories = [
-  { name: "Playlists", href: "/library/playlists", color: "bg-red-600" },
-  { name: "Not Courses ", href: "/library/courses", color: "bg-amber-600" },
-  { name: "Tutorials", href: "/library/tutorials", color: "bg-lime-600" }, // blog posts
-  { name: "Books", href: "/library/books", color: "bg-emerald-600" },
-  { name: "SDKs & Frameworks", href: "/library/sdk", color: "bg-cyan-600" },
-  { name: "Tools", href: "/library/tools", color: "bg-blue-600" },
-  { name: "Twitter Threads", href: "/library/threads", color: "bg-blue-600" },
+  { name: "Playlists", href: "/library/playlists" },
+  { name: "Not Courses ", href: "/library/courses" },
+  { name: "Tutorials", href: "/library/tutorials" }, // blog posts
+  { name: "Books", href: "/library/books" },
+  { name: "SDKs & Frameworks", href: "/library/sdk" },
+  { name: "Tools", href: "/library/tools" },
+  { name: "Twitter Threads", href: "/library/threads" },
   {
     name: "Implementations",
     href: "/library/implementations",
-    color: "bg-blue-600",
   },
-  { name: "Submitted", href: "/library/admin/submitted", color: "bg-red-600" },
-  { name: "Inactive", href: "/library/admin/inactive", color: "bg-red-600" },
+  { name: "Submitted", href: "/library/admin/submitted" },
+  { name: "Inactive", href: "/library/admin/inactive" },
 ];
 
 function classNames(...classes) {
@@ -148,7 +147,7 @@ function Nav({ children }) {
                       <Link href={item.href} passHref key={item.name}>
                         <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50">
                           <HashtagIcon
-                            className="h-5 w-5 text-rose-400"
+                            className="h-4 w-4 text-rose-500"
                             aria-hidden="true"
                           />
                           <span className="truncate leading-6">
