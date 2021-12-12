@@ -2,7 +2,7 @@ import {
   LibraryIcon,
   InboxInIcon,
   ClipboardCheckIcon,
-  NewspaperIcon,
+  HashtagIcon,
 } from "@heroicons/react/outline";
 import TopBar from "./topbar";
 import useUser from "../../hooks/useUser";
@@ -34,14 +34,20 @@ const navigation = [
 ];
 
 const categories = [
-  { name: "Playlists", href: "/library/playlists" },
-  { name: "Courses", href: "/library/courses" },
-  { name: "Tutorials", href: "/library/tutorials" }, // blog posts
-  { name: "Books", href: "/library/books" },
-  { name: "SDKs & Frameworks", href: "/library/sdk" },
-  { name: "Tools", href: "/library/tools" },
-  { name: "Submitted", href: "/library/admin/submitted" },
-  { name: "Inactive", href: "/library/admin/inactive" },
+  { name: "Playlists", href: "/library/playlists", color: "bg-red-600" },
+  { name: "Not Courses ", href: "/library/courses", color: "bg-amber-600" },
+  { name: "Tutorials", href: "/library/tutorials", color: "bg-lime-600" }, // blog posts
+  { name: "Books", href: "/library/books", color: "bg-emerald-600" },
+  { name: "SDKs & Frameworks", href: "/library/sdk", color: "bg-cyan-600" },
+  { name: "Tools", href: "/library/tools", color: "bg-blue-600" },
+  { name: "Twitter Threads", href: "/library/threads", color: "bg-blue-600" },
+  {
+    name: "Implementations",
+    href: "/library/implementations",
+    color: "bg-blue-600",
+  },
+  { name: "Submitted", href: "/library/admin/submitted", color: "bg-red-600" },
+  { name: "Inactive", href: "/library/admin/inactive", color: "bg-red-600" },
 ];
 
 function classNames(...classes) {
@@ -57,7 +63,7 @@ function Nav({ children }) {
 
       <div className="min-h-full">
         <div className="flex sm:pl-6 lg:pl-8 lg:gap-8 py-10">
-          <div className="max-w-[170px]  hidden lg:block">
+          <div className="min-w-[190px]  hidden lg:block">
             <nav
               aria-label="Sidebar"
               className="sticky top-4 divide-y divide-gray-300"
@@ -127,7 +133,7 @@ function Nav({ children }) {
                   Categories
                 </p>
                 <div
-                  className="mt-3 space-y-2"
+                  className="mt-3 space-y-1"
                   aria-labelledby="communities-headline"
                 >
                   {categories.map((item) => {
@@ -140,9 +146,15 @@ function Nav({ children }) {
 
                     return (
                       <Link href={item.href} passHref key={item.name}>
-                        <a className="group flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50">
-                          <span className="truncate">{item.name}</span>
-                        </a>
+                        <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                          <HashtagIcon
+                            className="h-5 w-5 text-rose-400"
+                            aria-hidden="true"
+                          />
+                          <span className="truncate leading-6">
+                            {item.name}
+                          </span>
+                        </div>
                       </Link>
                     );
                   })}

@@ -17,28 +17,40 @@ function classNames(...classes) {
 function Card({ content, mode, editContent, defaultOpenShare }) {
   const [openShare, setOpenShare] = useState(defaultOpenShare);
 
+  let badgeUrl = "";
+  if (mode === "dashboard") {
+    badgeUrl = `/library/${content.ContentType}`;
+  } else {
+    badgeUrl = `/library/${content.ContentType}?badge=${content.SpecialTag}`;
+  }
+
   return (
     <div
       className={classNames(
-        "relative flex flex-col p-6 rounded-lg h-[340px] w-[400px] overflow-visible",
+        "relative flex flex-col p-6 rounded-lg overflow-visible",
         mode === "modal"
-          ? ""
-          : "shadow hover:bg-opacity-80 hover:opacity-95 bg-white"
+          ? "h-[340px] w-[400px] sm:w-[500px]"
+          : "shadow hover:bg-opacity-80 hover:opacity-95 bg-white",
+        mode === "dashboard" &&
+          "min-h-[300px] max-h-[340px] min-w-[400px] max-w-[700px]",
+        mode === "" && "h-[340px] w-[400px]"
       )}
     >
       <div className="flex justify-between">
+        {/*  Title */}
         <a href={content.Url} className="mr-2" rel="noreferrer" target="_blank">
-          {/*  Title */}
           <p className="text-lg font-semibold text-gray-900">{content.Title}</p>
         </a>
+
         {/*  Badge */}
         {content.SpecialTag !== "0" && (
-          <Link
-            href={`/library/${content.ContentType}?badge=${content.SpecialTag}`}
-            passHref
-          >
+          <Link href={badgeUrl} passHref>
             <div className="cursor-pointer hover:opacity-80">
-              <Badge text={content.SpecialTag} />
+              {mode === "dashboard" ? (
+                <Badge text={content.ContentType} />
+              ) : (
+                <Badge text={content.SpecialTag} />
+              )}
             </div>
           </Link>
         )}
@@ -72,7 +84,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
       </div>
 
       {/*  Description */}
-      <div className="flex-1 overflow-hidden overflow-ellipsis max-h-[170px]">
+      <div className="flex-1 overflow-hidden text-ellipsis max-h-[170px]">
         <p className="text-gray-600">{content.Description}</p>
       </div>
 

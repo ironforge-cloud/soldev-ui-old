@@ -9,11 +9,11 @@ export default function Badge({ text }) {
     <div>
       <span
         className={classNames(
-          "items-center px-2 py-0.5 rounded text-xs uppercase rounded",
-          text === "New" && "bg-purple-400 text-green-50",
+          "items-center px-2 py-0.5 rounded text-xs uppercase rounded bg-rose-400 text-gray-50",
+          text === "New" && "bg-purple-400 text-purple-50",
           text === "Old" && "bg-gray-400 text-gray-50 opacity-50",
           text === "Hot" && "bg-red-400 text-red-50",
-          text === "Best" && "bg-blue-400 text-indigo-50"
+          text === "Best" && "bg-blue-400 text-blue-50"
         )}
       >
         {text}

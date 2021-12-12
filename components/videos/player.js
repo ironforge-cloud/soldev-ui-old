@@ -17,15 +17,17 @@ export default function Player({ content }) {
         </a>
       </div>
 
-      <ReactPlayer
-        width="100%"
-        height="100%"
-        className="aspect-[16/9] w-full"
-        url={content.Url}
-        controls
-        pip
-        stopOnUnmount={false}
-      />
+      <div className="shadow-lg aspect-[16/9] w-full">
+        <ReactPlayer
+          width="100%"
+          height="100%"
+          className=""
+          url={content.Url}
+          controls
+          pip
+          stopOnUnmount={false}
+        />
+      </div>
 
       <div className="self-start md:text-lg">
         <h1 className=" font-medium text-gray-800 sm:mt-4 xl:text-xl 3xl:text-2xl">

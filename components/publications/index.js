@@ -42,7 +42,7 @@ function Publications({ data, type, isLoading, badges, tags }) {
         </div>
       )}
 
-      <div className="flex flex-wrap justify-around mt-6 mb-10 3xl:justify-center place-content-start space-x-6 gap-5 xl:gap-10">
+      <div className="flex flex-wrap justify-around py-4 px-2 md:px-6 3xl:justify-center place-content-start space-x-6 gap-5 xl:gap-10">
         {isLoading ? (
           <Spinner />
         ) : (
