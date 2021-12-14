@@ -2,7 +2,7 @@ import Card from "./card";
 import SubmitContentCard from "./submit-content-card";
 import { useState, memo } from "react";
 import { useAppState } from "../../context/AppContext";
-import CardEdit from "./card-edit";
+import CardModal from "./card-edit";
 import NotificationSuccess from "../notifications/success";
 import PropTypes from "prop-types";
 import Spinner from "../spinner";
@@ -23,11 +23,19 @@ function Publications({ data, type, isLoading, badges, tags }) {
 
   const tagsList = findTags(data);
 
+  let componentTitle = type;
+
+  if (type === "sdk") {
+    componentTitle = "SDKs & Frameworks";
+  } else if (type === "threads") {
+    componentTitle = "Twitter Threads";
+  }
+
   return (
     <div className="relative flex flex-col mx-auto">
       <div className="flex justify-center">
         <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold tracking-tight text-gray-900 capitalize w-max">
-          {type === "sdk" ? "SDKs & Frameworks" : type}
+          {componentTitle}
         </h2>
       </div>
 
@@ -78,7 +86,7 @@ function Publications({ data, type, isLoading, badges, tags }) {
           </>
         )}
       </div>
-      <CardEdit
+      <CardModal
         open={open}
         setOpen={setOpen}
         content={content}

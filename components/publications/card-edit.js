@@ -3,7 +3,12 @@ import { Dialog, Transition } from "@headlessui/react";
 import PropTypes from "prop-types";
 import ContentForm from "./content-form";
 
-export default function CardEdit({ open, setOpen, content, setNotifySuccess }) {
+export default function CardModal({
+  open,
+  setOpen,
+  content,
+  setNotifySuccess,
+}) {
   const [data, setData] = useState({});
 
   useEffect(() => {
@@ -74,7 +79,7 @@ export default function CardEdit({ open, setOpen, content, setNotifySuccess }) {
   );
 }
 
-CardEdit.propTypes = {
+CardModal.propTypes = {
   open: PropTypes.bool.isRequired,
   setOpen: PropTypes.func.isRequired,
   content: PropTypes.object.isRequired,

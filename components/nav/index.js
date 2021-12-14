@@ -3,40 +3,44 @@ import {
   InboxInIcon,
   ClipboardCheckIcon,
   HashtagIcon,
+  DesktopComputerIcon,
 } from "@heroicons/react/outline";
 import TopBar from "./topbar";
 import useUser from "../../hooks/useUser";
 import Link from "next/link";
-import { memo } from "react";
+import { memo, useState } from "react";
 
 const navigation = [
   {
     name: "Library",
     href: "/library",
     icon: LibraryIcon,
-    current: true,
+    disabled: false,
+  },
+  {
+    name: "Network Status",
+    href: "/network",
+    icon: DesktopComputerIcon,
     disabled: false,
   },
   {
     name: "Newsletter",
     href: "#",
     icon: InboxInIcon,
-    current: false,
     disabled: true,
   },
   {
     name: "Jobs",
     href: "https://jobs.solana.com/",
     icon: ClipboardCheckIcon,
-    current: false,
     disabled: false,
   },
 ];
 
 const categories = [
   { name: "Playlists", href: "/library/playlists" },
-  { name: "Not Courses ", href: "/library/courses" },
-  { name: "Tutorials", href: "/library/tutorials" }, // blog posts
+  { name: "Walkthroughs ", href: "/library/walkthroughs" },
+  { name: "Tutorials", href: "/library/tutorials" }, // articles?
   { name: "Books", href: "/library/books" },
   { name: "SDKs & Frameworks", href: "/library/sdk" },
   { name: "Tools", href: "/library/tools" },
@@ -54,6 +58,7 @@ function classNames(...classes) {
 }
 
 function Nav({ children }) {
+  const [current, setCurrent] = useState("Library");
   const { user, isAdmin = false, connected, error } = useUser();
 
   return (
@@ -76,7 +81,7 @@ function Nav({ children }) {
                         rel="noreferrer"
                         key={item.name}
                         className={classNames(
-                          item.current
+                          item.name === current
                             ? "bg-gray-200 text-gray-900"
                             : "text-gray-600",
                           "group flex items-center px-3 py-2 text-sm font-medium rounded-md max-w-[170px] min-w-[150px] cursor-pointer",
@@ -86,7 +91,9 @@ function Nav({ children }) {
                       >
                         <item.icon
                           className={classNames(
-                            item.current ? "text-gray-500" : "text-gray-400 ",
+                            item.name === current
+                              ? "text-gray-500"
+                              : "text-gray-400 ",
                             "flex-shrink-0 -ml-1 mr-3 h-6 w-6",
                             !item.disabled && "group-hover:text-gray-500"
                           )}
@@ -101,18 +108,21 @@ function Nav({ children }) {
                     <Link href={item.href} passHref key={item.name}>
                       <button
                         className={classNames(
-                          item.current
+                          item.name === current
                             ? "bg-gray-200 text-gray-900"
                             : "text-gray-600",
                           "group flex items-center px-3 py-2 text-sm font-medium rounded-md max-w-[170px] min-w-[150px]",
                           item.disabled ? "opacity-50 " : "hover:bg-gray-50"
                         )}
+                        onClick={() => setCurrent(item.name)}
                         aria-current={item.current ? "page" : undefined}
                         disabled={item.disabled}
                       >
                         <item.icon
                           className={classNames(
-                            item.current ? "text-gray-500" : "text-gray-400 ",
+                            item.name === current
+                              ? "text-gray-500"
+                              : "text-gray-400 ",
                             "flex-shrink-0 -ml-1 mr-3 h-6 w-6",
                             !item.disabled && "group-hover:text-gray-500"
                           )}
@@ -147,7 +157,7 @@ function Nav({ children }) {
                       <Link href={item.href} passHref key={item.name}>
                         <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50">
                           <HashtagIcon
-                            className="h-4 w-4 text-rose-500"
+                            className="h-4 w-4 text-rose-400"
                             aria-hidden="true"
                           />
                           <span className="truncate leading-6">

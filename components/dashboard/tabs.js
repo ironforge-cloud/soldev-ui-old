@@ -30,6 +30,7 @@ export default function Tabs() {
                 tabIdx === tabs.length - 1 ? "rounded-r-lg" : "",
                 "group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-6 text-sm font-medium text-center hover:bg-gray-50 focus:z-10"
               )}
+              disabled={tab !== "New" && true}
             >
               <span>{tab}</span>
               <span

@@ -146,7 +146,7 @@ function TopBar({ navigation, categories }) {
                         leaveTo="transform opacity-0 scale-95"
                       >
                         {/*  Desktop Profile Actions */}
-                        <Menu.Items className="origin-top-right absolute z-10 right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 focus:outline-none">
+                        <Menu.Items className="origin-top-right absolute z-10 right-0 mt-2 w-60 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 focus:outline-none">
                           {isAdmin && (
                             <Menu.Item>
                               {({ active }) => (
@@ -164,8 +164,8 @@ function TopBar({ navigation, categories }) {
                                   />
                                   <span className="pl-2">
                                     {appState.editMode
-                                      ? "Disable Edit Mode"
-                                      : "Activate Edit Mode"}
+                                      ? "Disable Admin Mode"
+                                      : "Activate Admin Mode"}
                                   </span>
                                 </button>
                               )}

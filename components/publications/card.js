@@ -33,7 +33,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
           : "shadow hover:bg-opacity-80 hover:opacity-95 bg-white",
         mode === "dashboard" &&
           "min-h-[300px] max-h-[340px] min-w-[400px] max-w-[700px]",
-        mode === "" && "h-[340px] w-[400px]"
+        (mode === "" || mode === "edit") && "h-[340px] w-[400px]"
       )}
     >
       <div className="flex justify-between">

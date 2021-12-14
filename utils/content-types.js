@@ -1,8 +1,9 @@
 export default [
+  "walkthroughs",
   "tutorials",
-  "courses",
-  "tools",
   "books",
   "sdk",
-  "twitter threads",
+  "tools",
+  "threads",
+  "implementations",
 ];
