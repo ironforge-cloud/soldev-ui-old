@@ -27,7 +27,7 @@ function PinActions({ pinned, tweetID }) {
 }
 
 PinActions.propTypes = {
-  pinned: PropTypes.number.isRequired,
+  pinned: PropTypes.number,
   tweetID: PropTypes.string.isRequired,
 };
 

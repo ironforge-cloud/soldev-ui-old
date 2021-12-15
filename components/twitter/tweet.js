@@ -23,9 +23,8 @@ function Tweet({
   const tweetUrl = `https://twitter.com/${author.username}/status/${id}`;
   const createdAt = new Date(created_at);
 
-  const formattedText = text.replace(/https:\/\/[\n\S]+/g, "");
   const quoteTweet =
-    referenced_tweets && referenced_tweets.find((t) => t.type === "quoted");
+    referenced_tweets && referenced_tweets.find((t) => t.Type === "quoted");
 
   return (
     <div className="py-5">
@@ -81,7 +80,7 @@ function Tweet({
       </div>
       <div className="mt-1 whitespace-pre-wrap text-gray-600 text-sm font-medium">
         <a href={tweetUrl} target="_blank" rel="noopener noreferrer">
-          {formattedText}
+          {text}
         </a>
       </div>
       {media && media.length ? (
@@ -111,7 +110,19 @@ function Tweet({
           })}
         </div>
       ) : null}
-      {quoteTweet ? <Tweet {...quoteTweet} /> : null}
+      {quoteTweet ? (
+        <Tweet
+          key={quoteTweet.id}
+          text={quoteTweet.text}
+          author={quoteTweet.Author}
+          id={quoteTweet.id}
+          media={quoteTweet.Media}
+          created_at={quoteTweet.created_at}
+          public_metrics={quoteTweet.public_metrics}
+          referenced_tweets={quoteTweet.ReferencedTweets}
+          pinned={quoteTweet.Pinned}
+        />
+      ) : null}
       <div className="flex text-gray-700 mt-4">
         <a
           className="flex items-center mr-4 text-gray-500 hover:text-blue-600 transition hover:underline"
@@ -168,7 +179,7 @@ Tweet.propTypes = {
   created_at: PropTypes.string.isRequired,
   public_metrics: PropTypes.object.isRequired,
   referenced_tweets: PropTypes.array,
-  pinned: PropTypes.number.isRequired,
+  pinned: PropTypes.number,
 };
 
 export default memo(Tweet);

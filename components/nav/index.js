@@ -18,10 +18,10 @@ const navigation = [
     disabled: false,
   },
   {
-    name: "Network Status",
+    name: "Network Monitor",
     href: "/network",
     icon: DesktopComputerIcon,
-    disabled: false,
+    disabled: true,
   },
   {
     name: "Newsletter",

@@ -2,11 +2,10 @@ import useTweets from "../../hooks/useTweets";
 import Tweet from "../twitter/tweet";
 import React, { memo } from "react";
 import NetworkStatus from "./network-status";
-
 import usePinnedTweets from "../../hooks/usePinnedTweets";
 
 function Sidebar() {
-  const { data: tweets = [], isLoading } = useTweets();
+  const { data: tweets = [], tweetsLoading } = useTweets();
   const { data: pinnedTweets = [], isLoading: pinnedTweetsLoading } =
     usePinnedTweets();
 
@@ -27,21 +26,23 @@ function Sidebar() {
             >
               Pinned Tweets
             </h2>
+
             <div className="mt-6 flow-root">
               <div role="list" className="-my-4 divide-y divide-gray-200">
-                {pinnedTweets.map((tweet) => (
-                  <Tweet
-                    key={tweet.id}
-                    text={tweet.text}
-                    author={tweet.Author}
-                    id={tweet.id}
-                    media={tweet.Media}
-                    created_at={tweet.created_at}
-                    public_metrics={tweet.public_metrics}
-                    referenced_tweets={tweet.ReferenceTweets}
-                    pinned={tweet.Pinned}
-                  />
-                ))}
+                {Array.isArray(pinnedTweets) &&
+                  pinnedTweets.map((tweet) => (
+                    <Tweet
+                      key={tweet.id}
+                      text={tweet.text}
+                      author={tweet.Author}
+                      id={tweet.id}
+                      media={tweet.Media}
+                      created_at={tweet.created_at}
+                      public_metrics={tweet.public_metrics}
+                      referenced_tweets={tweet.ReferencedTweets}
+                      pinned={tweet.Pinned}
+                    />
+                  ))}
               </div>
             </div>
           </div>
@@ -59,18 +60,19 @@ function Sidebar() {
           </h2>
           <div className="mt-6 flow-root">
             <div role="list" className="-my-4 divide-y divide-gray-200">
-              {tweets.map((tweet) => (
-                <Tweet
-                  key={tweet.id}
-                  text={tweet.text}
-                  author={tweet.Author}
-                  id={tweet.id}
-                  media={tweet.Media}
-                  created_at={tweet.created_at}
-                  public_metrics={tweet.public_metrics}
-                  referenced_tweets={tweet.ReferenceTweets}
-                />
-              ))}
+              {Array.isArray(tweets) &&
+                tweets.map((tweet) => (
+                  <Tweet
+                    key={tweet.id}
+                    text={tweet.text}
+                    author={tweet.Author}
+                    id={tweet.id}
+                    media={tweet.Media}
+                    created_at={tweet.created_at}
+                    public_metrics={tweet.public_metrics}
+                    referenced_tweets={tweet.ReferenceTweets}
+                  />
+                ))}
             </div>
           </div>
           <div className="mt-6">
