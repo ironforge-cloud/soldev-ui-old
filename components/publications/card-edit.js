@@ -8,6 +8,7 @@ export default function CardModal({
   setOpen,
   content,
   setNotifySuccess,
+  positions,
 }) {
   const [data, setData] = useState({});
 
@@ -24,6 +25,7 @@ export default function CardModal({
       ContentType: content.ContentType,
       ContentStatus: content.ContentStatus,
       SpecialTag: content.SpecialTag,
+      Position: content.Position,
     });
   }, [content]);
 
@@ -70,6 +72,7 @@ export default function CardModal({
                 data={data}
                 setData={setData}
                 setNotifySuccess={setNotifySuccess}
+                positions={positions}
               />
             </div>
           </Transition.Child>
@@ -84,4 +87,5 @@ CardModal.propTypes = {
   setOpen: PropTypes.func.isRequired,
   content: PropTypes.object.isRequired,
   setNotifySuccess: PropTypes.func.isRequired,
+  positions: PropTypes.array,
 };

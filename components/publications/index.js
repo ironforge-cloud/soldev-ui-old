@@ -1,8 +1,8 @@
 import Card from "./card";
 import SubmitContentCard from "./submit-content-card";
-import { useState, memo } from "react";
+import { useState, memo, useEffect } from "react";
 import { useAppState } from "../../context/AppContext";
-import CardModal from "./card-edit";
+import CardEdit from "./card-edit";
 import NotificationSuccess from "../notifications/success";
 import PropTypes from "prop-types";
 import Spinner from "../spinner";
@@ -15,6 +15,20 @@ function Publications({ data, type, isLoading, badges, tags }) {
   const appState = useAppState();
   const [content, setContent] = useState({});
   const [notifySuccess, setNotifySuccess] = useState(false);
+  const [positions, setPositions] = useState([0]);
+
+  useEffect(() => {
+    // Definition list of positions for manual sort
+    let positionsDraft = [];
+    let count = 0;
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].Position === 0) continue;
+
+      positionsDraft.push(count++);
+    }
+    positionsDraft.push(count);
+    setPositions(positionsDraft);
+  }, [data]);
 
   const editContent = (data) => {
     setContent(data);
@@ -86,11 +100,12 @@ function Publications({ data, type, isLoading, badges, tags }) {
           </>
         )}
       </div>
-      <CardModal
+      <CardEdit
         open={open}
         setOpen={setOpen}
         content={content}
         setNotifySuccess={setNotifySuccess}
+        positions={positions}
       />
       <NotificationSuccess
         show={notifySuccess}

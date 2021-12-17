@@ -2,41 +2,44 @@ import PropTypes from "prop-types";
 import { memo } from "react";
 import contentStatus from "../../../utils/content-status";
 import contentType from "../../../utils/content-types";
+import tagList from "../../../utils/tags";
 
 function Radios({ data, setData, type }) {
   return (
     <>
-      {/* Content Status */}
+      {/* Badge */}
       {type === "edit" && (
-        <fieldset className="my-3 col-span-3">
+        <fieldset className="my-3 col-span-2">
           <div>
             <legend className="text-base font-medium text-gray-900">
-              Content Status
+              Badge
             </legend>
-            <p className="mt-1 text-sm text-gray-500">
-              Inactive content is not visible (soft-delete)
-            </p>
           </div>
           <div className="mt-4 space-y-4">
-            {contentStatus.map((status) => {
+            {tagList.badge.map((tag) => {
               return (
-                <div key={status} className="flex items-center">
+                <div key={tag} className="flex items-center">
                   <input
-                    id={status}
-                    name="content-status"
+                    id={tag}
+                    name="badge"
                     type="radio"
-                    value={status}
-                    checked={data.ContentStatus === status}
-                    onChange={(e) =>
-                      setData({ ...data, ContentStatus: e.target.value })
-                    }
+                    value={tag}
+                    checked={data.SpecialTag === tag}
+                    onClick={(e) => {
+                      if (data.SpecialTag === tag) {
+                        setData({ ...data, SpecialTag: "" });
+                      } else {
+                        setData({ ...data, SpecialTag: e.target.value });
+                      }
+                    }}
+                    onChange={() => {}}
                     className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
                   />
                   <label
-                    htmlFor={status}
-                    className="ml-3 block text-sm font-medium text-gray-700 capitalize"
+                    htmlFor={tag}
+                    className="ml-3 block text-sm font-medium text-gray-700"
                   >
-                    {status}
+                    {tag}
                   </label>
                 </div>
               );

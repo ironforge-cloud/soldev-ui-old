@@ -1,15 +1,24 @@
 import fetch from "isomorphic-unfetch";
 import PropTypes from "prop-types";
 import ContentTags from "./tags";
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import Radios from "./radios";
 import Inputs from "./inputs";
+import Status from "./status";
+import Position from "./position";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function ContentForm({ type, setOpen, data, setData, setNotifySuccess }) {
+function ContentForm({
+  type,
+  setOpen,
+  data,
+  setData,
+  setNotifySuccess,
+  positions,
+}) {
   const [contentExist, setContentExist] = useState(false);
 
   const createContent = async (event) => {
@@ -33,6 +42,7 @@ function ContentForm({ type, setOpen, data, setData, setNotifySuccess }) {
       Tags: [],
       ContentType: "",
       SpecialTag: "",
+      Position: 0,
     });
 
     // Send success notification
@@ -55,19 +65,26 @@ function ContentForm({ type, setOpen, data, setData, setNotifySuccess }) {
   };
 
   return (
-    <div className="bg-white py-16 px-4 h-full overflow-hidden sm:px-6 lg:px-8 lg:py-14">
-      <div className="relative max-w-3xl mx-auto">
+    <div className="relative bg-white py-16 px-4 h-full overflow-hidden sm:px-6 lg:px-8 lg:py-14">
+      <div className=" max-w-3xl mx-auto">
+        <div className="absolute top-0 right-1">
+          {type === "edit" && (
+            <Position data={data} setData={setData} list={positions} />
+          )}
+        </div>
         <div className="text-center">
           <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
             {type === "submit" ? "Submit new content" : "Edit Content"}
           </h2>
+
           <p className="mt-4 text-lg leading-6 text-gray-500">
-            {type === "submit"
-              ? `Propose new content to the platform. Submissions will be manually
-                            reviewed before deciding to publish them to the site.`
-              : ""}
+            {type === "submit" &&
+              `Propose new content to the platform. Submissions will be manually
+                            reviewed before deciding to publish them to the site.`}
           </p>
+          {type === "edit" && <Status data={data} setData={setData} />}
         </div>
+
         <div className="mt-12">
           <form
             action="#"
@@ -130,4 +147,5 @@ ContentForm.propTypes = {
   data: PropTypes.object.isRequired,
   setData: PropTypes.func.isRequired,
   setNotifySuccess: PropTypes.func.isRequired,
+  positions: PropTypes.array.isRequired,
 };

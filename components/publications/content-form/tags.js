@@ -48,52 +48,11 @@ function ContentTags({ data, setData, type }) {
         <div></div>
       </div>
 
-      {/* Badge */}
-      {type === "edit" && (
-        <fieldset className="my-3 col-span-2">
-          <div>
-            <legend className="text-base font-medium text-gray-900">
-              Badge
-            </legend>
-          </div>
-          <div className="mt-4 space-y-4">
-            {tagList.badge.map((tag) => {
-              return (
-                <div key={tag} className="flex items-center">
-                  <input
-                    id={tag}
-                    name="badge"
-                    type="radio"
-                    value={tag}
-                    checked={data.SpecialTag === tag}
-                    onClick={(e) => {
-                      if (data.SpecialTag === tag) {
-                        setData({ ...data, SpecialTag: "" });
-                      } else {
-                        setData({ ...data, SpecialTag: e.target.value });
-                      }
-                    }}
-                    onChange={() => {}}
-                    className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
-                  />
-                  <label
-                    htmlFor={tag}
-                    className="ml-3 block text-sm font-medium text-gray-700"
-                  >
-                    {tag}
-                  </label>
-                </div>
-              );
-            })}
-          </div>
-        </fieldset>
-      )}
-
       {/* Level Tags */}
       <fieldset
         className={classNames(
           "my-3",
-          type === "edit" ? "col-span-2" : "col-span-3"
+          type === "edit" ? "col-span-3" : "col-span-3"
         )}
       >
         <div>
@@ -129,7 +88,7 @@ function ContentTags({ data, setData, type }) {
       <fieldset
         className={classNames(
           "my-3",
-          type === "edit" ? "col-span-2" : "col-span-3"
+          type === "edit" ? "col-span-3" : "col-span-3"
         )}
       >
         <div>

@@ -19,7 +19,7 @@ const navigation = [
   },
   {
     name: "Network Monitor",
-    href: "/network",
+    href: "#",
     icon: DesktopComputerIcon,
     disabled: true,
   },

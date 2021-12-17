@@ -14,7 +14,7 @@
     "@fortawesome/react-fontawesome": "^0.1.16",
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",
-    "@solana/wallet-adapter-base": "^0.8.0",
+    "@solana/wallet-adapter-base": "^0.8.1",
     "@solana/wallet-adapter-react": "^0.14.1",
     "@solana/wallet-adapter-react-ui": "^0.7.0",
     "@solana/wallet-adapter-wallets": "^0.13.0",
@@ -38,7 +38,7 @@
     "react-share": "^4.4.0",
     "swiper": "^7.3.3",
     "swr": "^1.1.1",
-    "tailwindcss": "^3.0.5"
+    "tailwindcss": "^3.0.7"
   },
   "private": true,
   "scripts": {
