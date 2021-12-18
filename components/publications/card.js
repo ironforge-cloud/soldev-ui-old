@@ -89,7 +89,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
       </div>
 
       {/*  Actions */}
-      <div className="flex flex-row justify-between items-end pt-1">
+      <div className="flex flex-row justify-between items-end pt-2">
         <div>
           {mode === "edit" ? (
             <button
