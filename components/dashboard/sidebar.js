@@ -51,19 +51,19 @@ function Sidebar() {
         </div>
 
         {/* Pinned Tweets */}
-        <div className="bg-white rounded-lg shadow  max-h-fit">
-          <div className="p-6">
-            <h2
-              id="who-to-follow-heading"
-              className="text-base font-medium text-gray-900"
-            >
-              Pinned Tweets
-            </h2>
+        {Array.isArray(pinnedTweets) && pinnedTweets.length > 0 && (
+          <div className="bg-white rounded-lg shadow  max-h-fit">
+            <div className="p-6">
+              <h2
+                id="who-to-follow-heading"
+                className="text-base font-medium text-gray-900"
+              >
+                Pinned Tweets
+              </h2>
 
-            <div className="mt-6 flow-root">
-              <div role="list" className="-my-4 divide-y divide-gray-200">
-                {Array.isArray(pinnedTweets) &&
-                  pinnedTweets.map((tweet) => (
+              <div className="mt-6 flow-root">
+                <div role="list" className="-my-4 divide-y divide-gray-200">
+                  {pinnedTweets.map((tweet) => (
                     <Tweet
                       key={tweet.id}
                       text={tweet.text}
@@ -76,10 +76,11 @@ function Sidebar() {
                       pinned={tweet.Pinned}
                     />
                   ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
 
       {/* Twitter Timeline*/}
