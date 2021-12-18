@@ -67,7 +67,7 @@ function Nav({ children }) {
 
       <div className="min-h-full">
         <div className="flex sm:pl-6 lg:pl-8 lg:gap-8 py-10">
-          <div className="min-w-[190px]  hidden lg:block">
+          <div className="min-w-[190px] hidden lg:block">
             <nav
               aria-label="Sidebar"
               className="sticky top-4 divide-y divide-gray-300"

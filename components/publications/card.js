@@ -27,7 +27,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
   return (
     <div
       className={classNames(
-        "relative flex flex-col p-6 rounded-lg overflow-visible",
+        "relative flex flex-col px-6 pt-6 pb-5 rounded-lg overflow-visible min-h-full",
         mode === "modal"
           ? "h-[340px] w-[400px] sm:w-[500px]"
           : "shadow hover:bg-opacity-80 hover:opacity-95 bg-white",
@@ -57,7 +57,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
       </div>
 
       {/*  Author */}
-      <div className="mb-6">
+      <div className="mb-4">
         {content.Author && (
           <a href={content.Url} className="" rel="noreferrer" target="_blank">
             <p className="text-xs uppercase font-semibold tracking-wide text-gray-500">
@@ -68,7 +68,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
       </div>
 
       {/*Tags*/}
-      <div className="mb-2 text-indigo-500 cursor-pointer h-[25px]">
+      <div className="mb-1 text-indigo-500 cursor-pointer">
         {content.Tags.map((tag, index) => (
           <Link
             key={tag}
@@ -76,7 +76,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
             passHref
           >
             <span>
-              <span className="hover:font-semibold">{tag}</span>
+              <span className="hover:font-semibold">#{tag}</span>
               <span>{index < content.Tags.length - 1 && <>{", "}</>}</span>
             </span>
           </Link>
@@ -84,12 +84,12 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
       </div>
 
       {/*  Description */}
-      <div className="flex-1 overflow-hidden text-ellipsis max-h-[170px]">
+      <div className="flex-1 text-ellipsis overflow-hidden prose">
         <p className="text-gray-600">{content.Description}</p>
       </div>
 
       {/*  Actions */}
-      <div className="flex flex-row justify-between items-end">
+      <div className="flex flex-row justify-between items-end pt-1">
         <div>
           {mode === "edit" ? (
             <button

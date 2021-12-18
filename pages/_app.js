@@ -51,11 +51,6 @@ import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 import { AppWrapper } from "../context/AppContext";
 
 export default function App({ Component, pageProps }) {
-  const router = useRouter();
-  const { videoID } = router.query;
-
-  const size = videoID ? "2xl" : "xl";
-
   return (
     <div>
       <Script

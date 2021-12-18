@@ -10,17 +10,14 @@ function Position({ data, setData, list }) {
     }
   }, [data]);
   return (
-    <div className="w-20 text-center">
-      <label
-        htmlFor="position"
-        className="block text-sm font-medium text-gray-700"
-      >
-        Position
+    <div className="flex flex-col items-center prose">
+      <label htmlFor="position" className="block">
+        Position weight
       </label>
       <select
         id="position"
         name="position"
-        className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+        className="mt-1 max-w-fit block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
         value={position}
         onChange={(e) =>
           setData({ ...data, Position: parseInt(e.target.value) })

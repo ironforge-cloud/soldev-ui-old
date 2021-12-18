@@ -19,8 +19,8 @@ function Publications({ data, type, isLoading, badges, tags }) {
 
   useEffect(() => {
     // Definition list of positions for manual sort
-    let positionsDraft = [];
-    let count = 0;
+    let positionsDraft = [0];
+    let count = 1;
     for (let i = 0; i < data.length; i++) {
       if (data[i].Position === 0) continue;
 
