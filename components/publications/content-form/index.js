@@ -65,7 +65,7 @@ function ContentForm({
   };
 
   return (
-    <div className="relative bg-white py-16 px-4 h-full overflow-hidden sm:px-6 lg:px-8 lg:py-14">
+    <div className="relative bg-white dark:bg-stone-800 py-16 px-4 h-full overflow-hidden sm:px-6 lg:px-8 lg:py-14">
       <div className=" max-w-3xl mx-auto">
         <div className="absolute top-0 right-1">
           {type === "edit" && (
@@ -73,11 +73,11 @@ function ContentForm({
           )}
         </div>
         <div className="text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-stone-200 sm:text-4xl">
             {type === "submit" ? "Submit new content" : "Edit Content"}
           </h2>
 
-          <p className="mt-4 text-lg leading-6 text-gray-500">
+          <p className="mt-4 text-lg leading-6 text-gray-500 dark:text-stone-400">
             {type === "submit" &&
               `Propose new content to the platform. Submissions will be manually
                             reviewed before deciding to publish them to the site.`}
@@ -112,7 +112,7 @@ function ContentForm({
               {type === "edit" && (
                 <button
                   type="button"
-                  className="bg-white py-3 px-6 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="bg-white dark:bg-stone-700 py-3 px-6 border border-gray-300 dark:border-stone-700 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-stone-400 hover:bg-gray-50 dark:hover:bg-stone-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   onClick={() => {
                     if (type === "edit") setOpen(false);
                   }}
@@ -125,7 +125,7 @@ function ContentForm({
                 type="submit"
                 disabled={contentExist}
                 className={classNames(
-                  "ml-3 inline-flex justify-center py-3 px-16 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+                  "ml-3 inline-flex justify-center py-3 px-16 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 dark:text-stone-200 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
                   contentExist && "disabled:opacity-50"
                 )}
               >

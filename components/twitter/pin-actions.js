@@ -14,13 +14,19 @@ function PinActions({ pinned, tweetID }) {
   if (pinned === 1) {
     return (
       <button>
-        <BookmarkSolid className="h-6 w-6" onClick={onClick} />
+        <BookmarkSolid
+          className="h-6 w-6 dark:text-stone-200"
+          onClick={onClick}
+        />
       </button>
     );
   } else {
     return (
       <button>
-        <BookmarkIcon className="h-6 w-6" onClick={onClick} />
+        <BookmarkIcon
+          className="h-6 w-6 dark:text-stone-400"
+          onClick={onClick}
+        />
       </button>
     );
   }

@@ -40,8 +40,10 @@ function ContentTags({ data, setData, type }) {
     <>
       <div className="divide-y divide-gray-200 sm:space-y-2 col-span-8">
         <div>
-          <h3 className="text-xl leading-6 font-medium text-gray-900">Tags</h3>
-          <p className="mt-1 max-w-2xl text-sm text-gray-500">
+          <h3 className="text-xl leading-6 font-medium text-gray-900 dark:text-stone-200">
+            Tags
+          </h3>
+          <p className="mt-1 max-w-2xl text-sm text-gray-500 dark:text-stone-400">
             Badge and Tags will improve content discovery
           </p>
         </div>
@@ -56,7 +58,9 @@ function ContentTags({ data, setData, type }) {
         )}
       >
         <div>
-          <legend className="text-base font-medium text-gray-900">Level</legend>
+          <legend className="text-base font-medium text-gray-900 dark:text-stone-400">
+            Level
+          </legend>
         </div>
         <div className="mt-4 space-y-4">
           {tagList.level.map((tag) => {
@@ -70,11 +74,11 @@ function ContentTags({ data, setData, type }) {
                   checked={data.Tags.includes(tag)}
                   onClick={(e) => tagsOnLick(e, tagList.level)}
                   onChange={() => {}}
-                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 "
                 />
                 <label
                   htmlFor={tag}
-                  className="ml-3 block text-sm font-medium text-gray-700"
+                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-stone-400"
                 >
                   {tag}
                 </label>
@@ -92,7 +96,9 @@ function ContentTags({ data, setData, type }) {
         )}
       >
         <div>
-          <legend className="text-base font-medium text-gray-900">Tech</legend>
+          <legend className="text-base font-medium text-gray-900 dark:text-stone-400">
+            Tech
+          </legend>
         </div>
         <div className="mt-4 space-y-4">
           {tagList.tech.map((tag) => {
@@ -110,7 +116,7 @@ function ContentTags({ data, setData, type }) {
                 />
                 <label
                   htmlFor={tag}
-                  className="ml-3 block text-sm font-medium text-gray-700"
+                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-stone-400"
                 >
                   {tag}
                 </label>
@@ -123,7 +129,7 @@ function ContentTags({ data, setData, type }) {
       {/* Language Tags */}
       <fieldset className="my-3 col-span-2">
         <div>
-          <legend className="text-base font-medium text-gray-900">
+          <legend className="text-base font-medium text-gray-900 dark:text-stone-400">
             Language
           </legend>
         </div>
@@ -143,7 +149,7 @@ function ContentTags({ data, setData, type }) {
                 />
                 <label
                   htmlFor={tag}
-                  className="ml-3 block text-sm font-medium text-gray-700"
+                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-stone-400"
                 >
                   {tag}
                 </label>

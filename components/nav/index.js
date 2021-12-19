@@ -67,10 +67,10 @@ function Nav({ children }) {
 
       <div className="min-h-full">
         <div className="flex sm:pl-6 lg:pl-8 lg:gap-8 py-10">
-          <div className="min-w-[190px] hidden lg:block">
+          <div className="min-w-[190px] hidden lg:block  content-between">
             <nav
               aria-label="Sidebar"
-              className="sticky top-4 divide-y divide-gray-300"
+              className="sticky top-4 divide-y divide-gray-300 dark:divide-stone-500"
             >
               <div className="pb-8 space-y-1">
                 {navigation.map((item) => {
@@ -82,10 +82,12 @@ function Nav({ children }) {
                         key={item.name}
                         className={classNames(
                           item.name === current
-                            ? "bg-gray-200 text-gray-900"
-                            : "text-gray-600",
+                            ? "bg-gray-200 text-gray-900 dark:bg-stone-800 dark:text-stone-200"
+                            : "text-gray-600 dark:text-stone-200",
                           "group flex items-center px-3 py-2 text-sm font-medium rounded-md max-w-[170px] min-w-[150px] cursor-pointer",
-                          item.disabled ? "opacity-50 " : "hover:bg-gray-50"
+                          item.disabled
+                            ? "opacity-50"
+                            : "hover:bg-gray-50 dark:hover:bg-stone-700"
                         )}
                         target="_blank"
                       >
@@ -109,10 +111,12 @@ function Nav({ children }) {
                       <button
                         className={classNames(
                           item.name === current
-                            ? "bg-gray-200 text-gray-900"
+                            ? "bg-gray-200 text-gray-900 dark:bg-stone-800 dark:text-stone-200"
                             : "text-gray-600",
                           "group flex items-center px-3 py-2 text-sm font-medium rounded-md max-w-[170px] min-w-[150px]",
-                          item.disabled ? "opacity-50 " : "hover:bg-gray-50"
+                          item.disabled
+                            ? "opacity-50"
+                            : "hover:bg-gray-50 dark:hover:bg-stone-700"
                         )}
                         onClick={() => setCurrent(item.name)}
                         aria-current={item.current ? "page" : undefined}
@@ -134,7 +138,7 @@ function Nav({ children }) {
                   );
                 })}
               </div>
-              <div className="pt-10">
+              <div className="py-10">
                 <p
                   className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider"
                   id="communities-headline"
@@ -155,9 +159,9 @@ function Nav({ children }) {
 
                     return (
                       <Link href={item.href} passHref key={item.name}>
-                        <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50">
+                        <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-sm font-medium text-gray-600 dark:text-stone-400 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300">
                           <HashtagIcon
-                            className="h-4 w-4 text-rose-400"
+                            className="h-4 w-4 text-rose-400 dark:text-rose-500"
                             aria-hidden="true"
                           />
                           <span className="truncate leading-6">

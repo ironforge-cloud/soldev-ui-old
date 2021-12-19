@@ -54,7 +54,7 @@ function Tweet({
             className="author flex flex-col ml-4 no-underline"
           >
             <span
-              className="flex items-center text-sm font-bold text-gray-900"
+              className="flex items-center text-sm font-bold text-gray-900 dark:text-stone-200"
               title={author.name}
             >
               {author.name}
@@ -71,7 +71,7 @@ function Tweet({
               ) : null}
             </span>
             <span
-              className="text-gray-500 text-sm"
+              className="text-gray-500 dark:text-stone-500 text-sm"
               title={`@${author.username}`}
             >
               @{author.username}
@@ -82,7 +82,7 @@ function Tweet({
         {appState.editMode && <PinActions pinned={pinned} tweetID={id} />}
       </div>
       <a href={tweetUrl} target="_blank" rel="noopener noreferrer">
-        <div className="mt-1 whitespace-pre-wrap text-gray-600 text-sm font-medium">
+        <div className="mt-1 whitespace-pre-wrap text-gray-600 dark:text-stone-400 text-sm font-medium">
           {!retweetedTweet && text}
         </div>
       </a>
@@ -143,9 +143,9 @@ function Tweet({
           />
         </div>
       ) : null}
-      <div className="flex text-gray-700 mt-4">
+      <div className="flex text-gray-700 dark:text-stone-500 mt-4">
         <a
-          className="flex items-center mr-4 text-gray-500 hover:text-blue-600 transition hover:underline"
+          className="flex items-center mr-4 text-gray-500 dark:text-stone-500 hover:text-blue-600 transition hover:underline"
           href={replyUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -159,7 +159,7 @@ function Tweet({
           <span>{Number(public_metrics.reply_count).toLocaleString()}</span>
         </a>
         <a
-          className="flex items-center mr-4 text-gray-500 hover:text-green-600 transition hover:underline"
+          className="flex items-center mr-4 text-gray-500 dark:text-stone-500 hover:text-green-600 transition hover:underline"
           href={retweetUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -173,7 +173,7 @@ function Tweet({
           <span>{Number(public_metrics.retweet_count).toLocaleString()}</span>
         </a>
         <a
-          className="flex items-center text-gray-500 hover:text-red-600 transition hover:underline"
+          className="flex items-center text-gray-500 dark:text-stone-500 hover:text-red-600 transition hover:underline"
           href={likeUrl}
           target="_blank"
           rel="noopener noreferrer"

@@ -34,7 +34,7 @@ function Success({ show, setShow, text, subText }) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
+            <div className="max-w-sm w-full bg-white dark:bg-stone-700 shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
               <div className="p-4">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
@@ -44,12 +44,16 @@ function Success({ show, setShow, text, subText }) {
                     />
                   </div>
                   <div className="ml-3 w-0 flex-1 pt-0.5">
-                    <p className="text-sm font-medium text-gray-900">{text}</p>
-                    <p className="mt-1 text-sm text-gray-500">{subText}</p>
+                    <p className="text-sm font-medium text-gray-900 dark:text-stone-200">
+                      {text}
+                    </p>
+                    <p className="mt-1 text-sm text-gray-500 dark:text-stone-400">
+                      {subText}
+                    </p>
                   </div>
                   <div className="ml-4 flex-shrink-0 flex">
                     <button
-                      className="bg-white rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      className="bg-white dark:bg-stone-700 rounded-md inline-flex text-gray-400 dark:text-stone-200 hover:text-gray-500 dark:hover:text-stone-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                       onClick={() => {
                         setShow(false);
                       }}

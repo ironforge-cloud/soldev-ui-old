@@ -31,11 +31,8 @@ import SwiperCore, {
   Autoplay,
   A11y,
 } from "swiper";
-import { useRouter } from "next/router";
 
 SwiperCore.use([Virtual, Navigation, Keyboard, Mousewheel, Autoplay, A11y]);
-
-const MiniSocial = dynamic(() => import("../components/twitter/index"));
 
 // Wallet Auth
 import "@solana/wallet-adapter-react-ui/styles.css";
@@ -69,7 +66,7 @@ export default function App({ Component, pageProps }) {
           `,
         }}
       />
-      <div className="min-h-screen bg-gray-100">
+      <div className="min-h-screen bg-stone-100 dark:bg-stone-900">
         <PlausibleProvider domain="soldev.app" trackOutboundLinks={true}>
           <WalletConnectionProvider>
             <WalletModalProvider logo="/logo-white.png">

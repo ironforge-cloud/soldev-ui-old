@@ -30,7 +30,7 @@ function Inputs({ data, setData, type, contentExist, setContentExist }) {
       <div className="col-span-4">
         <label
           htmlFor="title"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium text-gray-700 dark:text-stone-400"
         >
           Title
         </label>
@@ -42,7 +42,7 @@ function Inputs({ data, setData, type, contentExist, setContentExist }) {
             id="title"
             value={data.Title}
             onChange={(e) => setData({ ...data, Title: e.target.value })}
-            className="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+            className="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md dark:bg-stone-400 dark:border-stone-500 dark:text-stone-800"
           />
         </div>
       </div>
@@ -51,7 +51,7 @@ function Inputs({ data, setData, type, contentExist, setContentExist }) {
       <div className="col-span-4">
         <label
           htmlFor="author-name"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium text-gray-700 dark:text-stone-400"
         >
           Author
         </label>
@@ -63,10 +63,10 @@ function Inputs({ data, setData, type, contentExist, setContentExist }) {
             autoComplete="given-name"
             value={data.Author}
             onChange={(e) => setData({ ...data, Author: e.target.value })}
-            className="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+            className="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md dark:bg-stone-400 dark:border-stone-500 dark:text-stone-800"
           />
         </div>
-        <p className="mt-1 text-sm text-gray-500">
+        <p className="mt-1 text-sm text-gray-500 text-stone-500">
           Name, Username or Social Platform link
         </p>
       </div>
@@ -75,7 +75,7 @@ function Inputs({ data, setData, type, contentExist, setContentExist }) {
       <div className="col-span-8">
         <label
           htmlFor="url"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium text-gray-700 dark:text-stone-400"
         >
           Content URL
         </label>
@@ -92,7 +92,7 @@ function Inputs({ data, setData, type, contentExist, setContentExist }) {
               await checkForDuplicateContent(e.target.value);
             }}
             className={classNames(
-              "py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md",
+              "py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md dark:bg-stone-400 dark:border-stone-500 dark:text-stone-800",
               contentExist &&
                 "border-red-300 text-red-900 focus:ring-red-600 focus:border-red-600"
             )}
@@ -109,7 +109,7 @@ function Inputs({ data, setData, type, contentExist, setContentExist }) {
       <div className="col-span-8">
         <label
           htmlFor="description"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium text-gray-700 dark:text-stone-400"
         >
           Description
         </label>
@@ -121,9 +121,9 @@ function Inputs({ data, setData, type, contentExist, setContentExist }) {
             rows={4}
             value={data.Description}
             onChange={(e) => setData({ ...data, Description: e.target.value })}
-            className="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md"
+            className="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md dark:bg-stone-400 dark:border-stone-500 dark:text-stone-800"
           />
-          <p className="mt-2 text-sm text-gray-500">
+          <p className="mt-2 text-sm text-gray-500 dark:text-stone-500">
             Brief description about the content. ~100 characters
           </p>
         </div>

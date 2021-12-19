@@ -8,24 +8,24 @@ function NetworkStatus() {
         <div>
           <h2
             id="who-to-follow-heading"
-            className="text-base font-medium text-gray-900 "
+            className="text-base font-medium text-gray-900 dark:text-stone-200"
           >
             Mainnet Beta
           </h2>
 
-          <div className="mt-3 bg-green-400 h-10 flex justify-center items-center rounded-lg shadow cursor-pointer blur-md">
+          <div className="mt-3 bg-green-400 dark:bg-green-700 h-10 flex justify-center items-center rounded-lg shadow cursor-pointer blur-md">
             <span className="">All Systems Operational</span>
           </div>
         </div>
         <div>
           <h2
             id="who-to-follow-heading"
-            className="text-base font-medium text-gray-900 "
+            className="text-base font-medium text-gray-900 dark:text-stone-200"
           >
             Devnet
           </h2>
 
-          <div className="mt-3 bg-green-400 h-10 flex justify-center items-center rounded-lg shadow blur-md">
+          <div className="mt-3 bg-green-400 dark:bg-green-700 h-10 flex justify-center items-center rounded-lg shadow blur-md">
             <span className="">All Systems Operational</span>
           </div>
         </div>

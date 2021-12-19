@@ -1,6 +1,13 @@
 import { Menu, Popover, Transition } from "@headlessui/react";
 import { SearchIcon } from "@heroicons/react/solid";
-import { CogIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import {
+  CogIcon,
+  MenuIcon,
+  XIcon,
+  MoonIcon,
+  SunIcon,
+  DesktopComputerIcon,
+} from "@heroicons/react/outline";
 import PropTypes from "prop-types";
 import React, { Fragment, memo } from "react";
 import Image from "next/image";
@@ -12,6 +19,7 @@ import {
 } from "@solana/wallet-adapter-react-ui";
 import { useState } from "react";
 import { useAppDispatch, useAppState } from "../../context/AppContext";
+import useDarkMode from "../../hooks/useDarkMode";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -21,6 +29,7 @@ function TopBar({ navigation, categories }) {
   const { user, isAdmin = false, connected, error } = useUser();
   const [editModeNotificationOn, setEditModeNotificationOn] = useState(false);
   const [editModeNotificationOff, setEditModeNotificationOff] = useState(false);
+  const [colorTheme, setTheme] = useDarkMode();
   const appDispatch = useAppDispatch();
   const appState = useAppState();
 
@@ -48,8 +57,8 @@ function TopBar({ navigation, categories }) {
         as="header"
         className={({ open }) =>
           classNames(
-            open ? "fixed inset-0 z-40 overflow-y-auto" : "",
-            "bg-white shadow-sm lg:static lg:overflow-y-visible"
+            open && "fixed inset-0 z-40 overflow-y-auto",
+            "bg-white dark:bg-stone-800 shadow-sm lg:static lg:overflow-y-visible"
           )
         }
       >
@@ -60,7 +69,7 @@ function TopBar({ navigation, categories }) {
                 {/* Logo */}
                 <div className="flex md:absolute md:left-0 md:inset-y-0 lg:static xl:col-span-2">
                   <Link href="/" passHref>
-                    <a className="mt-1 -ml-1">
+                    <a className="mt-1 -ml-2">
                       {/* TODO: This Logo could use some improvements */}
                       <Image
                         src="/logo.png"
@@ -82,7 +91,7 @@ function TopBar({ navigation, categories }) {
                       <div className="relative ">
                         <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
                           <SearchIcon
-                            className="h-6 w-6 text-gray-700"
+                            className="h-6 w-6 text-gray-700 dark:text-stone-200"
                             aria-hidden="true"
                           />
                         </div>
@@ -91,12 +100,12 @@ function TopBar({ navigation, categories }) {
                             id="search"
                             name="search"
                             disabled
-                            className="disabled:opacity-70 block w-full bg-white border border-gray-300 rounded-md py-3 pl-10 pr-3 text-sm placeholder-gray-500 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-rose-500 focus:border-rose-500 sm:text-sm"
+                            className="disabled:opacity-70 block w-full bg-white dark:bg-stone-800 border border-gray-300 dark:border-stone-700 rounded-md py-3 pl-10 pr-3 text-sm placeholder-gray-500 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-rose-500 focus:border-rose-500 sm:text-sm"
                             placeholder="Quick search for anything coming soon"
                             type="search"
                           />
                           <div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
-                            <kbd className="inline-flex items-center border border-gray-200 rounded px-2 text-sm font-sans font-medium text-gray-400">
+                            <kbd className="inline-flex items-center border border-gray-200 dark:border-stone-600 rounded px-2 text-sm font-sans font-medium text-gray-400 dark:text-stone-500">
                               ⌘K
                             </kbd>
                           </div>
@@ -121,11 +130,32 @@ function TopBar({ navigation, categories }) {
 
                 {/*  Profile Actions */}
                 <div className="hidden lg:flex lg:items-center lg:justify-end xl:col-span-2">
+                  <div>
+                    {colorTheme === "dark" && (
+                      <MoonIcon
+                        onClick={() => setTheme("dark")}
+                        className="cursor-pointer h-8 w-8 text-gray-700 dark:text-stone-400 hover:opacity-80"
+                      />
+                    )}
+                    {colorTheme === "light" && (
+                      <SunIcon
+                        onClick={() => setTheme("light")}
+                        className="cursor-pointer h-8 w-8 text-gray-700 dark:text-stone-400 hover:opacity-80"
+                      />
+                    )}
+                    {colorTheme === "auto" && (
+                      <DesktopComputerIcon
+                        onClick={() => setTheme("light")}
+                        className="cursor-pointer h-8 w-8 text-gray-700 dark:text-stone-400 hover:opacity-80"
+                      />
+                    )}
+                  </div>
+
                   {/* Profile dropdown */}
                   {connected ? (
                     <Menu as="div" className="flex-shrink-0 relative ml-5">
                       <div>
-                        <Menu.Button className="bg-white rounded-full flex hover:outline-none hover:ring-2 hover:ring-offset-2 hover:ring-rose-500">
+                        <Menu.Button className="bg-white dark:bg-stone-800 rounded-full flex hover:outline-none hover:ring-2 hover:ring-offset-2 hover:ring-rose-500">
                           <span className="sr-only">Open user menu</span>
                           <Image
                             className="h-8 w-8 rounded-full"
@@ -146,15 +176,15 @@ function TopBar({ navigation, categories }) {
                         leaveTo="transform opacity-0 scale-95"
                       >
                         {/*  Desktop Profile Actions */}
-                        <Menu.Items className="origin-top-right absolute z-10 right-0 mt-2 w-60 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 focus:outline-none">
+                        <Menu.Items className="origin-top-right absolute z-10 right-0 mt-2 w-60 rounded-md shadow-lg bg-white dark:bg-stone-800 ring-1 ring-black ring-opacity-5 py-1 focus:outline-none">
                           {isAdmin && (
                             <Menu.Item>
                               {({ active }) => (
                                 <button
                                   onClick={() => onEditMode()}
                                   className={classNames(
-                                    active ? "bg-gray-100" : "",
-                                    "block px-4 py-2 text-md text-gray-700 w-full flex"
+                                    active && "bg-gray-100 dark:bg-stone-800",
+                                    "block px-4 py-2 text-md text-gray-700 dark:text-stone-400 w-full flex"
                                   )}
                                 >
                                   <CogIcon
@@ -187,9 +217,10 @@ function TopBar({ navigation, categories }) {
                       </Transition>
                     </Menu>
                   ) : (
-                    <div className="items-center">
+                    <div className="items-center ml-2">
                       <WalletMultiButton
                         style={{
+                          marginLeft: "6px",
                           backgroundColor: "#10B981",
                           height: "40px",
                           fontSize: "15px",
@@ -211,8 +242,8 @@ function TopBar({ navigation, categories }) {
                     aria-current={item.current ? "page" : undefined}
                     className={classNames(
                       item.current
-                        ? "bg-gray-100 text-gray-900"
-                        : "hover:bg-gray-50",
+                        ? "bg-gray-100 dark:bg-stone-800 text-gray-900 dark:text-stone-200"
+                        : "hover:bg-gray-50 dark:hover:bg-stone-700",
                       "block rounded-md py-2 px-3 text-base font-medium"
                     )}
                   >
@@ -229,7 +260,7 @@ function TopBar({ navigation, categories }) {
 
                   return (
                     <Link key={item.name} href={item.href} passHref>
-                      <a className="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900">
+                      <a className="block rounded-md py-2 px-3 text-base font-medium text-gray-500 dark:text-stone-400 hover:bg-gray-50 dark:hover:bg-stone-700 hover:text-gray-900 dark:hover:text-stone-300">
                         {item.name}
                       </a>
                     </Link>

@@ -46,23 +46,26 @@ function Sidebar() {
     <div className="flex flex-warp flex flex-col gap-6 ">
       <div className="space-y-6 w-[420px]">
         {/* Network Status */}
-        <div className="bg-white rounded-lg shadow max-h-fit ">
+        <div className="bg-white dark:bg-stone-800 rounded-lg shadow max-h-fit ">
           <NetworkStatus />
         </div>
 
         {/* Pinned Tweets */}
         {Array.isArray(pinnedTweets) && pinnedTweets.length > 0 && (
-          <div className="bg-white rounded-lg shadow  max-h-fit">
+          <div className="bg-white dark:bg-stone-800 rounded-lg shadow max-h-fit">
             <div className="p-6">
               <h2
                 id="who-to-follow-heading"
-                className="text-base font-medium text-gray-900"
+                className="text-base font-medium text-gray-900 dark:text-stone-200"
               >
                 Pinned Tweets
               </h2>
 
               <div className="mt-6 flow-root">
-                <div role="list" className="-my-4 divide-y divide-gray-200">
+                <div
+                  role="list"
+                  className="-my-4 divide-y divide-gray-200 dark:divide-stone-500"
+                >
                   {pinnedTweets.map((tweet) => (
                     <Tweet
                       key={tweet.id}
@@ -84,16 +87,19 @@ function Sidebar() {
       </div>
 
       {/* Twitter Timeline*/}
-      <div className="bg-white rounded-lg shadow w-[420px] max-h-fit">
+      <div className="bg-stone-50 dark:bg-stone-800 rounded-lg shadow w-[420px] max-h-fit ">
         <div className="p-6">
           <h2
             id="trending-heading"
-            className="text-base font-medium text-gray-900"
+            className="text-base font-medium text-gray-900 dark:text-stone-200"
           >
             Twitter Timeline
           </h2>
           <div className="mt-6 flow-root">
-            <div role="list" className="-my-4 divide-y divide-gray-200">
+            <div
+              role="list"
+              className="-my-4 divide-y divide-gray-200 dark:divide-stone-600"
+            >
               {Array.isArray(tweets) && loadTweets(tweets)}
             </div>
           </div>
@@ -101,7 +107,7 @@ function Sidebar() {
             <div className="mt-6">
               <button
                 onClick={() => setLoadMore(true)}
-                className="w-full block text-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+                className="w-full block text-center px-4 py-2 border border-gray-300 dark:border-stone-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-stone-400 bg-white dark:bg-stone-700 hover:bg-gray-50 dark:hover:bg-stone-600"
               >
                 View all
               </button>

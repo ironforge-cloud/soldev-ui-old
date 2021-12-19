@@ -17,7 +17,7 @@ export default function Tabs() {
     <>
       <div className="px-4 sm:px-0">
         <nav
-          className="relative z-0 rounded-lg shadow flex divide-x divide-gray-200"
+          className="relative z-0 rounded-lg shadow flex divide-x divide-gray-200 dark:divide-stone-700"
           aria-label="Tabs"
         >
           {tabs.map((tab, tabIdx) => (
@@ -28,7 +28,7 @@ export default function Tabs() {
               className={classNames(
                 tabIdx === 0 ? "rounded-l-lg" : "",
                 tabIdx === tabs.length - 1 ? "rounded-r-lg" : "",
-                "group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-6 text-sm font-medium text-center hover:bg-gray-50 focus:z-10"
+                "group relative min-w-0 flex-1 overflow-hidden bg-white dark:bg-stone-800 dark:text-stone-200 py-4 px-6 text-sm font-medium text-center hover:bg-gray-50 hover:bg-stone-700 focus:z-10"
               )}
               disabled={tab === "Releases" && true}
             >
