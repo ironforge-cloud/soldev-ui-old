@@ -182,9 +182,8 @@ function TopBar({ navigation, categories }) {
                                   )}
                                 >
                                   <CogIcon
-                                    className="block h-7 w-7"
+                                    className="block h-7 w-7 text-gray-700 dark:text-stone-300"
                                     aria-hidden="true"
-                                    color={appState.editMode ? "red" : "black"}
                                   />
                                   <span className="pl-2">
                                     {appState.editMode
