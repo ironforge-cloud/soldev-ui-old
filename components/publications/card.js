@@ -87,7 +87,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
 
       {/*  Description */}
       <div className="flex-1 text-ellipsis overflow-hidden prose">
-        <p className="text-gray-600 dark:text-stone-400">
+        <p className="text-gray-600 dark:text-stone-300">
           {content.Description}
         </p>
       </div>
@@ -97,11 +97,11 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
         <div>
           {mode === "edit" ? (
             <button
-              className="inline-flex space-x-2 text-gray-400 hover:text-gray-500 dark:text-stone-400 dark:hover:text-stone-500 items-center"
+              className="inline-flex space-x-2 text-gray-400 hover:text-gray-500 dark:text-stone-300 dark:hover:text-stone-500 items-center"
               onClick={() => editContent(content)}
             >
               <DocumentTextIcon className="h-5 w-5" aria-hidden="true" />
-              <span className="font-medium text-gray-900 dark:text-stone-400 dark:hover:text-stone-500">
+              <span className="font-medium text-gray-900 dark:text-stone-300 dark:hover:text-stone-500">
                 Edit Data
               </span>
             </button>
@@ -110,10 +110,10 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
               href={content.Url}
               rel="noreferrer"
               target="_blank"
-              className="inline-flex space-x-2 text-gray-400 dark:text-stone-400 hover:text-gray-500 dark:hover:text-stone-500 items-center"
+              className="inline-flex space-x-2 text-gray-400 dark:text-stone-300 hover:text-gray-500 dark:hover:text-stone-500 items-center"
             >
               <ExternalLinkIcon className="h-5 w-5" aria-hidden="true" />
-              <span className="font-medium text-gray-900 dark:text-stone-400 dark:hover:text-stone-500">
+              <span className="font-medium text-gray-900 dark:text-stone-300 dark:hover:text-stone-500">
                 Open
               </span>
             </a>
@@ -127,11 +127,11 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
           <div className="flex flex-row items-end">
             <button
               type="button"
-              className="inline-flex items-center space-x-2 text-gray-400 dark:text-stone-400 hover:text-gray-500 dark:hover:text-stone-500"
+              className="inline-flex items-center space-x-2 text-gray-400 dark:text-stone-300 hover:text-gray-500 dark:hover:text-stone-500"
               onClick={() => setOpenShare(!openShare)}
             >
               <ShareIcon className="h-5 w-5" aria-hidden="true" />
-              <span className="font-medium text-gray-900 dark:text-stone-400 dark:hover:text-stone-500">
+              <span className="font-medium text-gray-900 dark:text-stone-300 dark:hover:text-stone-500">
                 Share
               </span>
             </button>
@@ -141,7 +141,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
 
       {mode === "edit" && (
         <div className="absolute -top-1 right-0">
-          <PencilIcon className="animate-bounce h-6 w-6 dark:text-stone-400" />
+          <PencilIcon className="animate-bounce h-6 w-6 dark:text-stone-300" />
         </div>
       )}
     </div>

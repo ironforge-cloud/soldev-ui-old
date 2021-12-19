@@ -159,7 +159,7 @@ function Nav({ children }) {
 
                     return (
                       <Link href={item.href} passHref key={item.name}>
-                        <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-sm font-medium text-gray-600 dark:text-stone-400 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300">
+                        <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300">
                           <HashtagIcon
                             className="h-4 w-4 text-rose-400 dark:text-rose-500"
                             aria-hidden="true"

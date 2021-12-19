@@ -30,7 +30,7 @@ function Inputs({ data, setData, type, contentExist, setContentExist }) {
       <div className="col-span-4">
         <label
           htmlFor="title"
-          className="block text-sm font-medium text-gray-700 dark:text-stone-400"
+          className="block text-sm font-medium text-gray-700 dark:text-stone-300"
         >
           Title
         </label>
@@ -51,7 +51,7 @@ function Inputs({ data, setData, type, contentExist, setContentExist }) {
       <div className="col-span-4">
         <label
           htmlFor="author-name"
-          className="block text-sm font-medium text-gray-700 dark:text-stone-400"
+          className="block text-sm font-medium text-gray-700 dark:text-stone-300"
         >
           Author
         </label>
@@ -75,7 +75,7 @@ function Inputs({ data, setData, type, contentExist, setContentExist }) {
       <div className="col-span-8">
         <label
           htmlFor="url"
-          className="block text-sm font-medium text-gray-700 dark:text-stone-400"
+          className="block text-sm font-medium text-gray-700 dark:text-stone-300"
         >
           Content URL
         </label>
@@ -109,7 +109,7 @@ function Inputs({ data, setData, type, contentExist, setContentExist }) {
       <div className="col-span-8">
         <label
           htmlFor="description"
-          className="block text-sm font-medium text-gray-700 dark:text-stone-400"
+          className="block text-sm font-medium text-gray-700 dark:text-stone-300"
         >
           Description
         </label>

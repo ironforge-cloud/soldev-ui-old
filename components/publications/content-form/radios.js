@@ -11,7 +11,7 @@ function Radios({ data, setData, type }) {
       {type === "edit" && (
         <fieldset className="my-3 col-span-2">
           <div>
-            <legend className="text-base font-medium text-gray-900 dark:text-stone-400">
+            <legend className="text-base font-medium text-gray-900 dark:text-stone-300">
               Badge
             </legend>
           </div>
@@ -37,7 +37,7 @@ function Radios({ data, setData, type }) {
                   />
                   <label
                     htmlFor={tag}
-                    className="ml-3 block text-sm font-medium text-gray-700 dark:text-stone-400"
+                    className="ml-3 block text-sm font-medium text-gray-700 dark:text-stone-300"
                   >
                     {tag}
                   </label>
@@ -51,7 +51,7 @@ function Radios({ data, setData, type }) {
       {/* Content Type */}
       <fieldset className="my-3 col-span-3">
         <div>
-          <legend className="text-base font-medium text-gray-900 dark:text-stone-400">
+          <legend className="text-base font-medium text-gray-900 dark:text-stone-300">
             Content Type
           </legend>
         </div>
@@ -73,7 +73,7 @@ function Radios({ data, setData, type }) {
                 />
                 <label
                   htmlFor={type}
-                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-stone-400 capitalize"
+                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-stone-300 capitalize"
                 >
                   {type}
                 </label>

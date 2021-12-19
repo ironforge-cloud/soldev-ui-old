@@ -47,7 +47,7 @@ function Success({ show, setShow, text, subText }) {
                     <p className="text-sm font-medium text-gray-900 dark:text-stone-200">
                       {text}
                     </p>
-                    <p className="mt-1 text-sm text-gray-500 dark:text-stone-400">
+                    <p className="mt-1 text-sm text-gray-500 dark:text-stone-300">
                       {subText}
                     </p>
                   </div>

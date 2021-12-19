@@ -107,7 +107,7 @@ function Sidebar() {
             <div className="mt-6">
               <button
                 onClick={() => setLoadMore(true)}
-                className="w-full block text-center px-4 py-2 border border-gray-300 dark:border-stone-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-stone-400 bg-white dark:bg-stone-700 hover:bg-gray-50 dark:hover:bg-stone-600"
+                className="w-full block text-center px-4 py-2 border border-gray-300 dark:border-stone-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-stone-300 bg-white dark:bg-stone-700 hover:bg-gray-50 dark:hover:bg-stone-600"
               >
                 View all
               </button>

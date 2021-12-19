@@ -82,7 +82,7 @@ function Tweet({
         {appState.editMode && <PinActions pinned={pinned} tweetID={id} />}
       </div>
       <a href={tweetUrl} target="_blank" rel="noopener noreferrer">
-        <div className="mt-1 whitespace-pre-wrap text-gray-600 dark:text-stone-400 text-sm font-medium">
+        <div className="mt-1 whitespace-pre-wrap text-gray-600 dark:text-stone-300 text-sm font-medium">
           {!retweetedTweet && text}
         </div>
       </a>

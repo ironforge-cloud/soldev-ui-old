@@ -43,7 +43,7 @@ function ContentTags({ data, setData, type }) {
           <h3 className="text-xl leading-6 font-medium text-gray-900 dark:text-stone-200">
             Tags
           </h3>
-          <p className="mt-1 max-w-2xl text-sm text-gray-500 dark:text-stone-400">
+          <p className="mt-1 max-w-2xl text-sm text-gray-500 dark:text-stone-300">
             Badge and Tags will improve content discovery
           </p>
         </div>
@@ -58,7 +58,7 @@ function ContentTags({ data, setData, type }) {
         )}
       >
         <div>
-          <legend className="text-base font-medium text-gray-900 dark:text-stone-400">
+          <legend className="text-base font-medium text-gray-900 dark:text-stone-300">
             Level
           </legend>
         </div>
@@ -78,7 +78,7 @@ function ContentTags({ data, setData, type }) {
                 />
                 <label
                   htmlFor={tag}
-                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-stone-400"
+                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-stone-300"
                 >
                   {tag}
                 </label>
@@ -96,7 +96,7 @@ function ContentTags({ data, setData, type }) {
         )}
       >
         <div>
-          <legend className="text-base font-medium text-gray-900 dark:text-stone-400">
+          <legend className="text-base font-medium text-gray-900 dark:text-stone-300">
             Tech
           </legend>
         </div>
@@ -116,7 +116,7 @@ function ContentTags({ data, setData, type }) {
                 />
                 <label
                   htmlFor={tag}
-                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-stone-400"
+                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-stone-300"
                 >
                   {tag}
                 </label>
@@ -129,7 +129,7 @@ function ContentTags({ data, setData, type }) {
       {/* Language Tags */}
       <fieldset className="my-3 col-span-2">
         <div>
-          <legend className="text-base font-medium text-gray-900 dark:text-stone-400">
+          <legend className="text-base font-medium text-gray-900 dark:text-stone-300">
             Language
           </legend>
         </div>
@@ -149,7 +149,7 @@ function ContentTags({ data, setData, type }) {
                 />
                 <label
                   htmlFor={tag}
-                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-stone-400"
+                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-stone-300"
                 >
                   {tag}
                 </label>

@@ -134,19 +134,13 @@ function TopBar({ navigation, categories }) {
                     {colorTheme === "dark" && (
                       <MoonIcon
                         onClick={() => setTheme("dark")}
-                        className="cursor-pointer h-8 w-8 text-gray-700 dark:text-stone-400 hover:opacity-80"
+                        className="cursor-pointer h-8 w-8 text-gray-700 dark:text-stone-300 hover:opacity-80"
                       />
                     )}
                     {colorTheme === "light" && (
                       <SunIcon
                         onClick={() => setTheme("light")}
-                        className="cursor-pointer h-8 w-8 text-gray-700 dark:text-stone-400 hover:opacity-80"
-                      />
-                    )}
-                    {colorTheme === "auto" && (
-                      <DesktopComputerIcon
-                        onClick={() => setTheme("light")}
-                        className="cursor-pointer h-8 w-8 text-gray-700 dark:text-stone-400 hover:opacity-80"
+                        className="cursor-pointer h-8 w-8 text-gray-700 dark:text-stone-300 hover:opacity-80"
                       />
                     )}
                   </div>
@@ -184,7 +178,7 @@ function TopBar({ navigation, categories }) {
                                   onClick={() => onEditMode()}
                                   className={classNames(
                                     active && "bg-gray-100 dark:bg-stone-800",
-                                    "block px-4 py-2 text-md text-gray-700 dark:text-stone-400 w-full flex"
+                                    "block px-4 py-2 text-md text-gray-700 dark:text-stone-300 w-full flex"
                                   )}
                                 >
                                   <CogIcon
@@ -260,7 +254,7 @@ function TopBar({ navigation, categories }) {
 
                   return (
                     <Link key={item.name} href={item.href} passHref>
-                      <a className="block rounded-md py-2 px-3 text-base font-medium text-gray-500 dark:text-stone-400 hover:bg-gray-50 dark:hover:bg-stone-700 hover:text-gray-900 dark:hover:text-stone-300">
+                      <a className="block rounded-md py-2 px-3 text-base font-medium text-gray-500 dark:text-stone-300 hover:bg-gray-50 dark:hover:bg-stone-700 hover:text-gray-900 dark:hover:text-stone-300">
                         {item.name}
                       </a>
                     </Link>

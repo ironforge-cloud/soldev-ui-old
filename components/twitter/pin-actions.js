@@ -24,7 +24,7 @@ function PinActions({ pinned, tweetID }) {
     return (
       <button>
         <BookmarkIcon
-          className="h-6 w-6 dark:text-stone-400"
+          className="h-6 w-6 dark:text-stone-300"
           onClick={onClick}
         />
       </button>

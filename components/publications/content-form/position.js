@@ -10,7 +10,7 @@ function Position({ data, setData, list }) {
     }
   }, [data]);
   return (
-    <div className="flex flex-col items-center dark:text-stone-400 text-sm font-medium text-gray-700">
+    <div className="flex flex-col items-center dark:text-stone-300 text-sm font-medium text-gray-700">
       <label htmlFor="position" className="block">
         Position weight
       </label>
