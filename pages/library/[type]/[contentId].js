@@ -1,11 +1,14 @@
 import Head from "next/head";
 import useContent from "../../../hooks/useContent";
 import dynamic from "next/dynamic";
-import CardModal from "../../../components/publications/card-modal";
 import { useState } from "react";
 
 const PublicationsComponent = dynamic(() =>
   import("../../../components/publications")
+);
+
+const CardModal = dynamic(() =>
+  import("../../../components/publications/card-modal")
 );
 
 export default function Publications({}) {

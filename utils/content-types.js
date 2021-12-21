@@ -6,4 +6,5 @@ export default [
   "tools",
   "threads",
   "implementations",
+  "spl",
 ];

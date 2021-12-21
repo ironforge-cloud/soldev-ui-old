@@ -1,7 +1,7 @@
 import fetch from "isomorphic-unfetch";
 import PropTypes from "prop-types";
 import ContentTags from "./tags";
-import { memo, useEffect, useState } from "react";
+import { memo, useState } from "react";
 import Radios from "./radios";
 import Inputs from "./inputs";
 import Status from "./status";
@@ -41,7 +41,7 @@ function ContentForm({
       Vertical: "Solana",
       Tags: [],
       ContentType: "",
-      SpecialTag: "",
+      SpecialTag: "New",
       Position: 0,
     });
 
@@ -147,5 +147,5 @@ ContentForm.propTypes = {
   data: PropTypes.object.isRequired,
   setData: PropTypes.func.isRequired,
   setNotifySuccess: PropTypes.func.isRequired,
-  positions: PropTypes.array.isRequired,
+  positions: PropTypes.array,
 };

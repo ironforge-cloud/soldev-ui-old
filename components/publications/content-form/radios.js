@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { memo } from "react";
-import contentStatus from "../../../utils/content-status";
 import contentType from "../../../utils/content-types";
 import tagList from "../../../utils/tags";
 

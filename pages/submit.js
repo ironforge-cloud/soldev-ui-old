@@ -17,7 +17,7 @@ export default function Submit() {
   const [notifySuccess, setNotifySuccess] = useState(false);
 
   return (
-    <div>
+    <div className="px-6">
       <Head>
         <title>SolDev: Submit</title>
         <meta name="description" content="SolDev: Submit" />

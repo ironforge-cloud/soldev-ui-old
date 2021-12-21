@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 
 const Dashboard = dynamic(() => import("../../components/dashboard"));
 
-export default function Video() {
+export default function Library() {
   return (
     <div>
       <Head>

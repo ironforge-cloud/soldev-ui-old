@@ -49,6 +49,7 @@ const categories = [
     name: "Implementations",
     href: "/library/implementations",
   },
+  { name: "Program Library", href: "/library/spl" },
   { name: "Submitted", href: "/library/admin/submitted" },
   { name: "Inactive", href: "/library/admin/inactive" },
 ];
