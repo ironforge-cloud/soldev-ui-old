@@ -43,6 +43,8 @@ function Publications({ data, type, isLoading, badges, tags }) {
     componentTitle = "SDKs & Frameworks";
   } else if (type === "threads") {
     componentTitle = "Twitter Threads";
+  } else if (type === "spl") {
+    componentTitle = "Program Library";
   }
 
   return (
