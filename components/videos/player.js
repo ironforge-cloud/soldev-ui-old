@@ -19,9 +19,9 @@ export default function Player({ content }) {
 
       <div className="shadow-lg aspect-[16/9] w-full">
         <ReactPlayer
-          width="100%"
           height="100%"
-          className=""
+          width="100%"
+          style={{ aspectRatio: "16/9" }}
           url={content.Url}
           controls
           pip
