@@ -7,6 +7,7 @@ import {
   MoonIcon,
   SunIcon,
   DesktopComputerIcon,
+  ColorSwatchIcon,
 } from "@heroicons/react/outline";
 import PropTypes from "prop-types";
 import React, { Fragment, memo } from "react";
@@ -197,19 +198,8 @@ function TopBar({ navigation, categories }) {
                     <Menu as="div" className="flex-shrink-0 relative ml-5">
                       <div>
                         <Menu.Button className="rounded-full flex hover:outline-none hover:ring-2 hover:ring-offset-2 hover:ring-green-500">
-                          <span className="sr-only">Open user menu</span>
-
-                          {setting === "system" && (
-                            <DesktopComputerIcon className="h-7 w-7 text-gray-600 dark:text-stone-300 hover:opacity-80" />
-                          )}
-
-                          {setting === "dark" && (
-                            <MoonIcon className="h-7 w-7 text-gray-600 dark:text-stone-300 hover:opacity-80" />
-                          )}
-
-                          {setting === "light" && (
-                            <SunIcon className="h-7 w-7 text-gray-600 dark:text-stone-300 hover:opacity-80" />
-                          )}
+                          <span className="sr-only">Open Theme menu</span>
+                          <ColorSwatchIcon className="h-7 w-7 text-gray-600 dark:text-stone-300 hover:opacity-80" />
                         </Menu.Button>
                       </div>
                       <Transition
