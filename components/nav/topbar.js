@@ -301,7 +301,7 @@ function TopBar({ navigation, categories }) {
                       </Transition>
                     </Menu>
                   ) : (
-                    <div className="items-center ml-2">
+                    <div className="items-center">
                       <WalletMultiButton
                         style={{
                           marginLeft: "6px",
