@@ -17,9 +17,72 @@ import {
   WalletDisconnectButton,
   WalletMultiButton,
 } from "@solana/wallet-adapter-react-ui";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useAppDispatch, useAppState } from "../../context/AppContext";
-import useDarkMode from "../../hooks/useDarkMode";
+import { useIsomorphicLayoutEffect } from "../../hooks/useIsomorphicLayoutEffect";
+
+function update() {
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark", "changing-theme");
+  } else {
+    document.documentElement.classList.remove("dark", "changing-theme");
+  }
+  window.setTimeout(() => {
+    document.documentElement.classList.remove("changing-theme");
+  });
+}
+
+function useTheme() {
+  let [setting, setSetting] = useState("system");
+  let initial = useRef(true);
+
+  useIsomorphicLayoutEffect(() => {
+    let theme = localStorage.theme;
+    if (theme === "light" || theme === "dark") {
+      setSetting(theme);
+    }
+  }, []);
+
+  useIsomorphicLayoutEffect(() => {
+    if (setting === "system") {
+      localStorage.removeItem("theme");
+    } else if (setting === "light" || setting === "dark") {
+      localStorage.theme = setting;
+    }
+    if (initial.current) {
+      initial.current = false;
+    } else {
+      update();
+    }
+  }, [setting]);
+
+  useEffect(() => {
+    let mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    mediaQuery.addEventListener("change", update);
+
+    function onStorage() {
+      update();
+      let theme = localStorage.theme;
+      if (theme === "light" || theme === "dark") {
+        setSetting(theme);
+      } else {
+        setSetting("system");
+      }
+    }
+    window.addEventListener("storage", onStorage);
+
+    return () => {
+      mediaQuery.removeEventListener("change", update);
+      window.removeEventListener("storage", onStorage);
+    };
+  }, []);
+
+  return [setting, setSetting];
+}
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -29,7 +92,7 @@ function TopBar({ navigation, categories }) {
   const { user, isAdmin = false, connected, error } = useUser();
   const [editModeNotificationOn, setEditModeNotificationOn] = useState(false);
   const [editModeNotificationOff, setEditModeNotificationOff] = useState(false);
-  const [colorTheme, setTheme] = useDarkMode();
+  let [setting, setSetting] = useTheme();
   const appDispatch = useAppDispatch();
   const appState = useAppState();
 
@@ -118,7 +181,7 @@ function TopBar({ navigation, categories }) {
                 {/*  Mobile Menu, only visible in small screens*/}
                 <div className="flex items-center md:absolute md:right-0 md:inset-y-0 lg:hidden">
                   {/* Mobile menu button */}
-                  <Popover.Button className="-mx-2 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rose-500">
+                  <Popover.Button className="-mx-2 rounded-md p-2 inline-flex items-center justify-center text-gray-400 dark:text-stone-300 hover:bg-gray-100 dark:hover:bg-stone-600 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500">
                     <span className="sr-only">Open menu</span>
                     {open ? (
                       <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -128,28 +191,65 @@ function TopBar({ navigation, categories }) {
                   </Popover.Button>
                 </div>
 
-                {/*  Profile Actions */}
-                <div className="hidden lg:flex lg:items-center lg:justify-end xl:col-span-2">
+                <div className="hidden lg:flex lg:items-center lg:justify-end xl:col-span-2 gap-6">
+                  {/* Theme Settings*/}
                   <div>
-                    {colorTheme === "dark" && (
-                      <MoonIcon
-                        onClick={() => setTheme("dark")}
-                        className="cursor-pointer h-8 w-8 text-gray-700 dark:text-stone-300 hover:opacity-80"
-                      />
-                    )}
-                    {colorTheme === "light" && (
-                      <SunIcon
-                        onClick={() => setTheme("light")}
-                        className="cursor-pointer h-8 w-8 text-gray-700 dark:text-stone-300 hover:opacity-80"
-                      />
-                    )}
-                  </div>
-
-                  {/* Profile dropdown */}
-                  {connected ? (
                     <Menu as="div" className="flex-shrink-0 relative ml-5">
                       <div>
-                        <Menu.Button className="bg-white dark:bg-stone-800 rounded-full flex hover:outline-none hover:ring-2 hover:ring-offset-2 hover:ring-rose-500">
+                        <Menu.Button className="rounded-full flex hover:outline-none hover:ring-2 hover:ring-offset-2 hover:ring-green-500">
+                          <span className="sr-only">Open user menu</span>
+
+                          {setting === "system" && (
+                            <DesktopComputerIcon className="h-7 w-7 text-gray-600 dark:text-stone-300 hover:opacity-80" />
+                          )}
+
+                          {setting === "dark" && (
+                            <MoonIcon className="h-7 w-7 text-gray-600 dark:text-stone-300 hover:opacity-80" />
+                          )}
+
+                          {setting === "light" && (
+                            <SunIcon className="h-7 w-7 text-gray-600 dark:text-stone-300 hover:opacity-80" />
+                          )}
+                        </Menu.Button>
+                      </div>
+                      <Transition
+                        as={Fragment}
+                        enter="transition ease-out duration-100"
+                        enterFrom="transform opacity-0 scale-95"
+                        enterTo="transform opacity-100 scale-100"
+                        leave="transition ease-in duration-75"
+                        leaveFrom="transform opacity-100 scale-100"
+                        leaveTo="transform opacity-0 scale-95"
+                      >
+                        <Menu.Items className="origin-top-right absolute z-10 right-0 mt-2 w-36 rounded-xl shadow-lg border border-gray-300 dark:border-stone-600 bg-white dark:bg-stone-800 ring-1 ring-black ring-opacity-5 pl-4 py-2 mx-auto focus:outline-none space-y-3">
+                          <Menu.Item onClick={() => setSetting("light")}>
+                            <button className="flex gap-2 text-gray-700 dark:text-stone-300 hover:opacity-70">
+                              <SunIcon className=" h-6 w-6" />
+                              <span>Light</span>
+                            </button>
+                          </Menu.Item>
+                          <Menu.Item onClick={() => setSetting("dark")}>
+                            <button className="flex gap-2 text-gray-700 dark:text-stone-300 hover:opacity-70">
+                              <MoonIcon className="h-6 w-6" />
+                              <span className="">Dark</span>
+                            </button>
+                          </Menu.Item>
+                          <Menu.Item onClick={() => setSetting("system")}>
+                            <button className="flex gap-2 text-gray-700 dark:text-stone-300 hover:opacity-70">
+                              <DesktopComputerIcon className="h-6 w-6" />
+                              <span>System</span>
+                            </button>
+                          </Menu.Item>
+                        </Menu.Items>
+                      </Transition>
+                    </Menu>
+                  </div>
+
+                  {/*  Profile Actions */}
+                  {connected ? (
+                    <Menu as="div" className="flex-shrink-0 relative">
+                      <div>
+                        <Menu.Button className="rounded-full flex hover:outline-none hover:ring-2 hover:ring-offset-2 hover:ring-green-500">
                           <span className="sr-only">Open user menu</span>
                           <Image
                             className="h-8 w-8 rounded-full"
@@ -170,14 +270,15 @@ function TopBar({ navigation, categories }) {
                         leaveTo="transform opacity-0 scale-95"
                       >
                         {/*  Desktop Profile Actions */}
-                        <Menu.Items className="origin-top-right absolute z-10 right-0 mt-2 w-60 rounded-md shadow-lg bg-white dark:bg-stone-800 ring-1 ring-black ring-opacity-5 py-1 focus:outline-none">
+                        <Menu.Items className="origin-top-right absolute z-10 right-0 mt-2 w-60 border dark:border-stone-600 border-gray-300 rounded-xl shadow-lg bg-white dark:bg-stone-800 ring-1 ring-black ring-opacity-5 py-1 focus:outline-none">
                           {isAdmin && (
                             <Menu.Item>
                               {({ active }) => (
                                 <button
                                   onClick={() => onEditMode()}
                                   className={classNames(
-                                    active && "bg-gray-100 dark:bg-stone-800",
+                                    active &&
+                                      "bg-gray-100 dark:bg-stone-700 hover:opacity-80",
                                     "block px-4 py-2 text-md text-gray-700 dark:text-stone-300 w-full flex"
                                   )}
                                 >
@@ -235,16 +336,16 @@ function TopBar({ navigation, categories }) {
                     aria-current={item.current ? "page" : undefined}
                     className={classNames(
                       item.current
-                        ? "bg-gray-100 dark:bg-stone-800 text-gray-900 dark:text-stone-200"
+                        ? "bg-gray-100 dark:bg-stone-900 text-gray-900 dark:text-stone-300"
                         : "hover:bg-gray-50 dark:hover:bg-stone-700",
-                      "block rounded-md py-2 px-3 text-base font-medium"
+                      "block rounded-md py-2 px-3 text-base font-medium text-gray-700 dark:text-stone-300"
                     )}
                   >
                     {item.name}
                   </a>
                 ))}
               </div>
-              <div className="border-t max-w-3xl mx-auto px-2 space-y-1 sm:px-4">
+              <div className="border-t dark:border-stone-500 border-gray-300 max-w-3xl mx-auto px-2 space-y-1 sm:px-4">
                 {categories.map((item) => {
                   // We don't render Submitted and Inactive in the mobile version
                   if (item.name === "Submitted" || item.name === "Inactive") {
@@ -253,7 +354,7 @@ function TopBar({ navigation, categories }) {
 
                   return (
                     <Link key={item.name} href={item.href} passHref>
-                      <a className="block rounded-md py-2 px-3 text-base font-medium text-gray-500 dark:text-stone-300 hover:bg-gray-50 dark:hover:bg-stone-700 hover:text-gray-900 dark:hover:text-stone-300">
+                      <a className="block rounded-md py-2 px-3 text-base font-medium text-gray-600 dark:text-stone-400 hover:bg-gray-50 dark:hover:bg-stone-700 hover:text-gray-900 dark:hover:text-stone-300">
                         {item.name}
                       </a>
                     </Link>
