@@ -66,6 +66,7 @@ const categories = [
     href: "/library/implementations",
   },
   { name: "Program Library", href: "/library/spl" },
+  { name: "Security", href: "/library/security" },
   { name: "Submitted", href: "/library/admin/submitted" },
   { name: "Inactive", href: "/library/admin/inactive" },
 ];
