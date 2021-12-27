@@ -32,6 +32,7 @@ function update() {
   } else {
     document.documentElement.classList.remove("dark", "changing-theme");
   }
+
   window.setTimeout(() => {
     document.documentElement.classList.remove("changing-theme");
   });

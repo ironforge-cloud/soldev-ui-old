@@ -79,19 +79,16 @@ export default function Newsletter() {
                     Email address
                   </label>
                   <input
-                    disabled
                     id="cta-email"
                     type="email"
                     className="block w-full border border-transparent rounded-md px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600"
-                    placeholder="Comming soon!"
+                    placeholder="Enter your email"
                   />
                 </div>
                 <div className="mt-4 sm:mt-0 sm:ml-3">
                   <button
-                    disabled
                     type="submit"
-                    // hover:bg-indigo-400
-                    className="block w-full rounded-md border border-transparent px-5 py-3 bg-indigo-500 text-base font-medium text-white shadow  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600 sm:px-10 disabled:opacity-50"
+                    className="block w-full rounded-md border border-transparent px-5 py-3 bg-indigo-500 text-base font-medium text-white shadow hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600 sm:px-10 disabled:opacity-50"
                   >
                     Subscribe!
                   </button>
