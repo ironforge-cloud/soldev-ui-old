@@ -7,4 +7,6 @@ export default [
   "threads",
   "implementations",
   "spl",
+  "security",
+  "metaplex",
 ];

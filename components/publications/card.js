@@ -33,7 +33,8 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
           : "shadow hover:bg-opacity-80 hover:opacity-95 bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700",
         mode === "dashboard" &&
           "min-h-[300px] max-h-[340px] min-w-[400px] max-w-[700px]",
-        (mode === "" || mode === "edit") && "h-[340px] w-[400px]"
+        (mode === "" || mode === "edit") &&
+          "h-[340px] w-[400px] transition ease-in-out duration-150 hover:-translate-y-2"
       )}
     >
       <div className="flex justify-between">
@@ -78,7 +79,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
             passHref
           >
             <span>
-              <span className="hover:font-semibold">#{tag}</span>
+              <span className="hover:font-semibold lowercase">#{tag}</span>
               <span>{index < content.Tags.length - 1 && <>{", "}</>}</span>
             </span>
           </Link>

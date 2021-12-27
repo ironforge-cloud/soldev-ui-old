@@ -6,7 +6,7 @@ export default function FAQ() {
     <div>
       <Head>
         <title>SolDev: Newsletter</title>
-        <meta name="description" content="SolDev" />
+        <meta name="description" content="SolDev: Newsletter" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

@@ -4,6 +4,8 @@ import {
   ClipboardCheckIcon,
   HashtagIcon,
   DesktopComputerIcon,
+  CubeIcon,
+  BeakerIcon,
 } from "@heroicons/react/outline";
 import TopBar from "./topbar";
 import useUser from "../../hooks/useUser";
@@ -24,10 +26,22 @@ const navigation = [
     disabled: true,
   },
   {
+    name: "Services",
+    href: "#",
+    icon: CubeIcon,
+    disabled: true,
+  },
+  {
     name: "Newsletter",
     href: "#",
     icon: InboxInIcon,
     disabled: true,
+  },
+  {
+    name: "Cookbook",
+    href: "https://solanacookbook.com/",
+    icon: BeakerIcon,
+    disabled: false,
   },
   {
     name: "Jobs",
@@ -50,6 +64,7 @@ const categories = [
     href: "/library/implementations",
   },
   { name: "Program Library", href: "/library/spl" },
+  { name: "Security", href: "/library/security" },
   { name: "Submitted", href: "/library/admin/submitted" },
   { name: "Inactive", href: "/library/admin/inactive" },
 ];
@@ -75,7 +90,7 @@ function Nav({ children }) {
             >
               <div className="pb-8 space-y-1">
                 {navigation.map((item) => {
-                  if (item.name === "Jobs") {
+                  if (item.name === "Jobs" || item.name === "Cookbook") {
                     return (
                       <a
                         href={item.href}
