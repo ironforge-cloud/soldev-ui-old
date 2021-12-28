@@ -3,7 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import PropTypes from "prop-types";
 import ContentForm from "./content-form";
 
-export default function CardModal({
+export default function CardEdit({
   open,
   setOpen,
   content,
@@ -82,7 +82,7 @@ export default function CardModal({
   );
 }
 
-CardModal.propTypes = {
+CardEdit.propTypes = {
   open: PropTypes.bool.isRequired,
   setOpen: PropTypes.func.isRequired,
   content: PropTypes.object.isRequired,

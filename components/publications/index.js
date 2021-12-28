@@ -113,7 +113,7 @@ function Publications({ data, type, isLoading, badges, tags }) {
         show={notifySuccess}
         setShow={setNotifySuccess}
         text="Successfully updated!"
-        subText="Changes can take up to 1 minute to be reflected in the UI"
+        subText="Refresh the page if you want to see changes immediately"
       />
     </div>
   );

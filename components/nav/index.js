@@ -57,7 +57,6 @@ const categories = [
   { name: "Tutorials", href: "/library/tutorials" },
   { name: "Scaffolds", href: "/library/scaffolds" },
   { name: "Security", href: "/library/security" },
-  { name: "Books", href: "/library/books" },
   { name: "SDKs & Frameworks", href: "/library/sdk" },
   { name: "Tools", href: "/library/tools" },
   { name: "Twitter Threads", href: "/library/threads" },
