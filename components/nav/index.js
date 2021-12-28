@@ -54,7 +54,9 @@ const navigation = [
 const categories = [
   { name: "Playlists", href: "/library/playlists" },
   { name: "Walkthroughs ", href: "/library/walkthroughs" },
-  { name: "Tutorials", href: "/library/tutorials" }, // articles?
+  { name: "Tutorials", href: "/library/tutorials" },
+  { name: "Scaffolds", href: "/library/scaffolds" },
+  { name: "Security", href: "/library/security" },
   { name: "Books", href: "/library/books" },
   { name: "SDKs & Frameworks", href: "/library/sdk" },
   { name: "Tools", href: "/library/tools" },
@@ -64,7 +66,6 @@ const categories = [
     href: "/library/implementations",
   },
   { name: "Program Library", href: "/library/spl" },
-  { name: "Security", href: "/library/security" },
   { name: "Submitted", href: "/library/admin/submitted" },
   { name: "Inactive", href: "/library/admin/inactive" },
 ];

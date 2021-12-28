@@ -8,5 +8,5 @@ export default [
   "implementations",
   "spl",
   "security",
-  "metaplex",
+  "scaffolds",
 ];
