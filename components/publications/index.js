@@ -10,7 +10,7 @@ import VideoCard from "./video-card";
 import findTags from "../../utils/find-tags";
 import TagsSelector from "../badges/tags-selector";
 
-function Publications({ data, type, isLoading, badges, tags }) {
+function Publications({ data, title, isLoading, badges, tags }) {
   const [open, setOpen] = useState(false);
   const appState = useAppState();
   const [content, setContent] = useState({});
@@ -37,29 +37,31 @@ function Publications({ data, type, isLoading, badges, tags }) {
 
   const tagsList = findTags(data);
 
-  let componentTitle = type;
+  let componentTitle = title;
 
-  if (type === "sdk") {
+  if (title === "sdk") {
     componentTitle = "SDKs & Frameworks";
-  } else if (type === "threads") {
+  } else if (title === "threads") {
     componentTitle = "Twitter Threads";
-  } else if (type === "spl") {
+  } else if (title === "spl") {
     componentTitle = "Program Library";
+  } else if (title === "started") {
+    componentTitle = "Getting Started with Solana";
   }
 
   return (
     <div className="relative flex flex-col mx-auto">
-      <div className="flex justify-center">
+      <div className="flex justify-center mb-8">
         <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold tracking-tight text-gray-900 dark:text-stone-200 capitalize w-max">
           {componentTitle}
         </h2>
       </div>
 
       {tags && (
-        <div className="mt-8 flex justify-center">
+        <div className="flex justify-center">
           <TagsSelector
             tagsList={tagsList}
-            contentType={type}
+            contentType={title}
             badges={badges}
             tags={tags}
           />
@@ -121,10 +123,11 @@ function Publications({ data, type, isLoading, badges, tags }) {
 
 Publications.propTypes = {
   data: PropTypes.array.isRequired,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
   isLoading: PropTypes.bool.isRequired,
   badges: PropTypes.array,
   tags: PropTypes.array,
+  title: PropTypes.string.isRequired,
 };
 
 export default memo(Publications);

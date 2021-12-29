@@ -23,7 +23,7 @@ export default function Publications({}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <PublicationsComponent data={data} type={type} isLoading={isLoading} />
+      <PublicationsComponent data={data} title={type} isLoading={isLoading} />
       {selectedContent && (
         <CardModal content={selectedContent} open={open} setOpen={setOpen} />
       )}

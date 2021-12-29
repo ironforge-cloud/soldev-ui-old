@@ -34,7 +34,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
         mode === "dashboard" &&
           "min-h-[300px] max-h-[340px] min-w-[400px] max-w-[700px]",
         (mode === "" || mode === "edit") &&
-          "h-[340px] w-[400px] transition ease-in-out duration-150 hover:-translate-y-2"
+          "h-[340px] w-[400px] transition ease-in-out duration-150 hover:scale-105"
       )}
     >
       <div className="flex justify-between">

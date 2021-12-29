@@ -53,7 +53,7 @@ const navigation = [
 ];
 
 const specialLists = [
-  { name: "Getting Started", href: "/library/getting-started" },
+  { name: "Getting Started", href: "/library/list/started" },
 ];
 
 const categories = [

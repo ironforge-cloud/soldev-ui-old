@@ -1,5 +1,5 @@
 import Head from "next/head";
-import useContent from "../../../hooks/useContent";
+import useList from "../../../hooks/useList";
 import dynamic from "next/dynamic";
 
 const PublicationsComponent = dynamic(() =>
@@ -7,22 +7,21 @@ const PublicationsComponent = dynamic(() =>
 );
 
 export default function Publications({}) {
-  const { data = [], type = "", isLoading, tags, badges } = useContent();
+  const { data = [], isLoading, type } = useList();
 
   return (
     <div>
       <Head>
         <title>SolDev: Library</title>
-        <meta name="description" content="SolDev: Library" />
+        <meta name="description" content="SolDev: List" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <PublicationsComponent
         data={data}
         title={type}
+        type="list"
         isLoading={isLoading}
-        badges={badges}
-        tags={tags}
       />
     </div>
   );
