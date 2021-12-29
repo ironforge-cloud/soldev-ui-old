@@ -10,7 +10,7 @@ import VideoCard from "./video-card";
 import findTags from "../../utils/find-tags";
 import TagsSelector from "../badges/tags-selector";
 
-function Publications({ data, title, isLoading, badges, tags }) {
+function Publications({ data, title, isLoading, badges, tags, type }) {
   const [open, setOpen] = useState(false);
   const appState = useAppState();
   const [content, setContent] = useState({});
@@ -73,7 +73,6 @@ function Publications({ data, title, isLoading, badges, tags }) {
           <Spinner />
         ) : (
           <>
-            {/*  Don't render the submit content card if Playlist*/}
             <div className="ml-6 hidden lg:block">
               <SubmitContentCard />
             </div>

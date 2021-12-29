@@ -26,6 +26,7 @@ export default function CardEdit({
       ContentStatus: content.ContentStatus,
       SpecialTag: content.SpecialTag,
       Position: content.Position,
+      Lists: content.Lists,
     });
   }, [content]);
 

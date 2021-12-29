@@ -43,6 +43,7 @@ function ContentForm({
       ContentType: "",
       SpecialTag: "New",
       Position: 0,
+      Lists: "",
     });
 
     // Send success notification

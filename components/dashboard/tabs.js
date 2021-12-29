@@ -3,14 +3,14 @@ import useBadge from "../../hooks/useBadge";
 import Card from "../publications/card";
 import Spinner from "../spinner";
 
-const tabs = ["New", "Trending"];
+const tabs = ["New Content", "Announcements", "Releases"];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Tabs() {
-  const [selectedTab, setSelectedTab] = useState("New");
+  const [selectedTab, setSelectedTab] = useState("New Content");
   const { isLoading, data } = useBadge(selectedTab);
 
   return (
@@ -30,7 +30,7 @@ export default function Tabs() {
                 tabIdx === tabs.length - 1 ? "rounded-r-lg" : "",
                 "group relative min-w-0 flex-1 overflow-hidden bg-white dark:bg-stone-800 dark:text-stone-200 py-4 px-6 text-sm font-medium text-center hover:bg-gray-50 dark:hover:bg-stone-700 focus:z-10"
               )}
-              disabled={tab === "Releases" && true}
+              disabled={(tab === "Releases" || tab === "Announcements") && true}
             >
               <span>{tab}</span>
               <span

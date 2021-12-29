@@ -7,6 +7,7 @@ import {
   CubeIcon,
   BeakerIcon,
   SparklesIcon,
+  ExternalLinkIcon,
 } from "@heroicons/react/outline";
 import TopBar from "./topbar";
 import useUser from "../../hooks/useUser";
@@ -39,12 +40,6 @@ const navigation = [
     disabled: true,
   },
   {
-    name: "Solana Cookbook",
-    href: "https://solanacookbook.com/",
-    icon: BeakerIcon,
-    disabled: false,
-  },
-  {
     name: "Jobs",
     href: "https://jobs.solana.com/",
     icon: ClipboardCheckIcon,
@@ -52,8 +47,26 @@ const navigation = [
   },
 ];
 
+const special = [
+  {
+    name: "Solana Cookbook",
+    href: "https://solanacookbook.com/",
+    disabled: false,
+  },
+  {
+    name: "Documentation",
+    href: "https://docs.solana.com/introduction",
+    disabled: false,
+  },
+];
+
 const specialLists = [
   { name: "Getting Started", href: "/library/list/started" },
+];
+
+const series = [
+  { name: "Figment", href: "https://learn.figment.io/protocols/solana" },
+  { name: "Questbook", href: "https://www.startonsolana.com/" },
 ];
 
 const categories = [
@@ -84,7 +97,7 @@ function Nav({ children }) {
   const { user, isAdmin = false, connected, error } = useUser();
 
   return (
-    <div className="">
+    <div>
       <TopBar categories={categories} navigation={navigation} />
 
       <div className="min-h-full">
@@ -96,7 +109,7 @@ function Nav({ children }) {
             >
               <div className="pb-8 space-y-1">
                 {navigation.map((item) => {
-                  if (item.name === "Jobs" || item.name === "Solana Cookbook") {
+                  if (item.name === "Jobs") {
                     return (
                       <a
                         href={item.href}
@@ -161,7 +174,43 @@ function Nav({ children }) {
                 })}
               </div>
 
-              <div className="py-10 space-y-5">
+              <div className="pt-5 space-y-5">
+                {/* Special */}
+                <div>
+                  <p
+                    className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                    id="communities-headline"
+                  >
+                    Reference
+                  </p>
+                  <div
+                    className="mt-3 space-y-1"
+                    aria-labelledby="communities-headline"
+                  >
+                    {special.map((item) => {
+                      return (
+                        <a
+                          href={item.href}
+                          key={item.name}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300">
+                            <ExternalLinkIcon
+                              className="h-4 w-4 text-rose-400 dark:text-rose-500"
+                              aria-hidden="true"
+                            />
+                            <span className="truncate leading-6">
+                              {item.name}
+                            </span>
+                          </div>
+                        </a>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Lists */}
                 <div>
                   <p
                     className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider"
@@ -190,6 +239,43 @@ function Nav({ children }) {
                     })}
                   </div>
                 </div>
+
+                {/* Series */}
+                <div>
+                  <p
+                    className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                    id="communities-headline"
+                  >
+                    Series
+                  </p>
+                  <div
+                    className="mt-3 space-y-1"
+                    aria-labelledby="communities-headline"
+                  >
+                    {series.map((item) => {
+                      return (
+                        <a
+                          href={item.href}
+                          key={item.name}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300">
+                            <ExternalLinkIcon
+                              className="h-4 w-4 text-rose-400 dark:text-rose-500"
+                              aria-hidden="true"
+                            />
+                            <span className="truncate leading-6">
+                              {item.name}
+                            </span>
+                          </div>
+                        </a>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Tags */}
                 <div>
                   <p
                     className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider"
