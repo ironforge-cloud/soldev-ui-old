@@ -52,20 +52,21 @@ const navigation = [
 ];
 
 const categories = [
-  { name: "Playlists", href: "/library/playlists" },
-  { name: "Walkthroughs ", href: "/library/walkthroughs" },
+  { name: "Projects", href: "/library/projects" },
   { name: "Tutorials", href: "/library/tutorials" },
-  { name: "Scaffolds", href: "/library/scaffolds" },
+  { name: "Articles", href: "/library/articles" },
   { name: "Security", href: "/library/security" },
+  { name: "Twitter Threads", href: "/library/threads" },
+  { name: "Scaffolds", href: "/library/scaffolds" },
+  { name: "Program Library", href: "/library/spl" },
   { name: "SDKs & Frameworks", href: "/library/sdk" },
   { name: "Tools", href: "/library/tools" },
-  { name: "Twitter Threads", href: "/library/threads" },
   {
     name: "Implementations",
     href: "/library/implementations",
   },
-  { name: "Program Library", href: "/library/spl" },
-  { name: "Security", href: "/library/security" },
+
+  { name: "Playlists", href: "/library/playlists" },
   { name: "Submitted", href: "/library/admin/submitted" },
   { name: "Inactive", href: "/library/admin/inactive" },
 ];
