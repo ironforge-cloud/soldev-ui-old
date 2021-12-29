@@ -6,6 +6,7 @@ import {
   DesktopComputerIcon,
   CubeIcon,
   BeakerIcon,
+  SparklesIcon,
 } from "@heroicons/react/outline";
 import TopBar from "./topbar";
 import useUser from "../../hooks/useUser";
@@ -49,6 +50,10 @@ const navigation = [
     icon: ClipboardCheckIcon,
     disabled: false,
   },
+];
+
+const specialLists = [
+  { name: "Getting Started", href: "/library/getting-started" },
 ];
 
 const categories = [
@@ -155,39 +160,71 @@ function Nav({ children }) {
                   );
                 })}
               </div>
-              <div className="py-10">
-                <p
-                  className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider"
-                  id="communities-headline"
-                >
-                  Categories
-                </p>
-                <div
-                  className="mt-3 space-y-1"
-                  aria-labelledby="communities-headline"
-                >
-                  {categories.map((item) => {
-                    if (
-                      (item.name === "Submitted" || item.name === "Inactive") &&
-                      !isAdmin
-                    ) {
-                      return;
-                    }
 
-                    return (
-                      <Link href={item.href} passHref key={item.name}>
-                        <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300">
-                          <HashtagIcon
-                            className="h-4 w-4 text-rose-400 dark:text-rose-500"
-                            aria-hidden="true"
-                          />
-                          <span className="truncate leading-6">
-                            {item.name}
-                          </span>
-                        </div>
-                      </Link>
-                    );
-                  })}
+              <div className="py-10 space-y-5">
+                <div>
+                  <p
+                    className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                    id="communities-headline"
+                  >
+                    Lists
+                  </p>
+                  <div
+                    className="mt-3 space-y-1"
+                    aria-labelledby="communities-headline"
+                  >
+                    {specialLists.map((item) => {
+                      return (
+                        <Link href={item.href} passHref key={item.name}>
+                          <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300">
+                            <SparklesIcon
+                              className="h-4 w-4 text-rose-400 dark:text-rose-500"
+                              aria-hidden="true"
+                            />
+                            <span className="truncate leading-6">
+                              {item.name}
+                            </span>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div>
+                  <p
+                    className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                    id="communities-headline"
+                  >
+                    Tags
+                  </p>
+                  <div
+                    className="mt-3 space-y-1"
+                    aria-labelledby="communities-headline"
+                  >
+                    {categories.map((item) => {
+                      if (
+                        (item.name === "Submitted" ||
+                          item.name === "Inactive") &&
+                        !isAdmin
+                      ) {
+                        return;
+                      }
+
+                      return (
+                        <Link href={item.href} passHref key={item.name}>
+                          <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300">
+                            <HashtagIcon
+                              className="h-4 w-4 text-rose-400 dark:text-rose-500"
+                              aria-hidden="true"
+                            />
+                            <span className="truncate leading-6">
+                              {item.name}
+                            </span>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </nav>

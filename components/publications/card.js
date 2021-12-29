@@ -40,7 +40,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
       <div className="flex justify-between">
         {/*  Title */}
         <a href={content.Url} className="mr-2" rel="noreferrer" target="_blank">
-          <p className="text-lg font-semibold text-gray-900 dark:text-stone-200">
+          <p className="text-lg font-semibold text-gray-900 dark:text-stone-200 hover:text-blue-600 dark:hover:text-blue-600">
             {content.Title}
           </p>
         </a>
@@ -71,7 +71,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
       </div>
 
       {/*Tags*/}
-      <div className="mb-1 text-indigo-500 cursor-pointer">
+      <div className="mb-1 text-indigo-500 dark:text-indigo-400 cursor-pointer">
         {content.Tags.map((tag, index) => (
           <Link
             key={tag}
@@ -79,7 +79,9 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
             passHref
           >
             <span>
-              <span className="hover:font-semibold lowercase">#{tag}</span>
+              <span className="hover:underline decoration-rose-500 lowercase">
+                #{tag}
+              </span>
               <span>{index < content.Tags.length - 1 && <>{", "}</>}</span>
             </span>
           </Link>

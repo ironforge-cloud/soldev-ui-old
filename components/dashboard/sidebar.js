@@ -89,12 +89,23 @@ function Sidebar() {
       {/* Twitter Timeline*/}
       <div className="bg-stone-50 dark:bg-stone-800 rounded-lg shadow w-[420px] max-h-fit ">
         <div className="p-6">
-          <h2
-            id="trending-heading"
-            className="text-base font-medium text-gray-900 dark:text-stone-200"
-          >
-            Twitter Timeline
-          </h2>
+          <div className="flex justify-between">
+            <h2
+              id="trending-heading"
+              className="text-base font-medium text-gray-900 dark:text-stone-200"
+            >
+              Twitter Timeline
+            </h2>
+            <a
+              href="https://twitter.com/soldevapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="text-blue-500 dark:text-stone-500 text-sm">
+                @soldevapp
+              </span>
+            </a>
+          </div>
           <div className="mt-6 flow-root">
             <div
               role="list"

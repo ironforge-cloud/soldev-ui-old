@@ -3,7 +3,7 @@ import useBadge from "../../hooks/useBadge";
 import Card from "../publications/card";
 import Spinner from "../spinner";
 
-const tabs = ["New", "Trending"];
+const tabs = ["Announcements", "New Content", "Getting Started"];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
