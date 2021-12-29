@@ -52,7 +52,6 @@ const navigation = [
 ];
 
 const categories = [
-  { name: "Series", href: "/library/series" },
   { name: "Tutorials", href: "/library/tutorials" },
   { name: "Articles", href: "/library/articles" },
   { name: "Projects", href: "/library/projects" },
