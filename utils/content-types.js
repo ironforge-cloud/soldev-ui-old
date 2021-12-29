@@ -1,4 +1,5 @@
 export default [
+  "series",
   "tutorials",
   "articles",
   "projects",
