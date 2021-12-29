@@ -105,7 +105,7 @@ function Nav({ children }) {
           <div className="min-w-[190px] hidden lg:block content-between">
             <nav
               aria-label="Sidebar"
-              className="sticky top-4 divide-y divide-gray-300 dark:divide-stone-500"
+              className=" top-4 divide-y divide-gray-300 dark:divide-stone-500"
             >
               <div className="pb-8 space-y-1">
                 {navigation.map((item) => {
