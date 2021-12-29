@@ -1,12 +1,12 @@
 export default [
-  "projects",
   "tutorials",
   "articles",
-  "security",
-  "threads",
-  "scaffolds",
-  "spl",
+  "projects",
   "sdk",
+  "scaffolds",
   "tools",
   "implementations",
+  "security",
+  "spl",
+  "threads",
 ];
