@@ -38,7 +38,7 @@ const navigation = [
     disabled: true,
   },
   {
-    name: "Cookbook",
+    name: "Solana Cookbook",
     href: "https://solanacookbook.com/",
     icon: BeakerIcon,
     disabled: false,
@@ -84,14 +84,14 @@ function Nav({ children }) {
 
       <div className="min-h-full">
         <div className="flex sm:pl-6 lg:pl-8 lg:gap-8 py-10">
-          <div className="min-w-[190px] hidden lg:block  content-between">
+          <div className="min-w-[190px] hidden lg:block content-between">
             <nav
               aria-label="Sidebar"
               className="sticky top-4 divide-y divide-gray-300 dark:divide-stone-500"
             >
               <div className="pb-8 space-y-1">
                 {navigation.map((item) => {
-                  if (item.name === "Jobs" || item.name === "Cookbook") {
+                  if (item.name === "Jobs" || item.name === "Solana Cookbook") {
                     return (
                       <a
                         href={item.href}
@@ -101,7 +101,7 @@ function Nav({ children }) {
                           item.name === current
                             ? "bg-gray-200 text-gray-900 dark:bg-stone-800 dark:text-stone-200"
                             : "text-gray-600 dark:text-stone-200",
-                          "group flex items-center px-3 py-2 text-sm font-medium rounded-md max-w-[170px] min-w-[150px] cursor-pointer",
+                          "group flex items-center px-3 py-2 text-sm font-medium rounded-md max-w-[190px] min-w-[150px] cursor-pointer",
                           item.disabled
                             ? "opacity-50"
                             : "hover:bg-gray-50 dark:hover:bg-stone-700"
@@ -130,7 +130,7 @@ function Nav({ children }) {
                           item.name === current
                             ? "bg-gray-200 text-gray-900 dark:bg-stone-800 dark:text-stone-200"
                             : "text-gray-600",
-                          "group flex items-center px-3 py-2 text-sm font-medium rounded-md max-w-[170px] min-w-[150px]",
+                          "group flex items-center px-3 py-2 text-sm font-medium rounded-md max-w-[190px] min-w-[150px]",
                           item.disabled
                             ? "opacity-50"
                             : "hover:bg-gray-50 dark:hover:bg-stone-700"
