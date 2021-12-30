@@ -3,13 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import PropTypes from "prop-types";
 import ContentForm from "./content-form";
 
-export default function CardEdit({
-  open,
-  setOpen,
-  content,
-  setNotifySuccess,
-  positions,
-}) {
+export default function CardEdit({ open, setOpen, content, positions }) {
   const [data, setData] = useState({});
 
   useEffect(() => {
@@ -72,7 +66,6 @@ export default function CardEdit({
                 setOpen={setOpen}
                 data={data}
                 setData={setData}
-                setNotifySuccess={setNotifySuccess}
                 positions={positions}
               />
             </div>
@@ -87,6 +80,5 @@ CardEdit.propTypes = {
   open: PropTypes.bool.isRequired,
   setOpen: PropTypes.func.isRequired,
   content: PropTypes.object.isRequired,
-  setNotifySuccess: PropTypes.func.isRequired,
   positions: PropTypes.array,
 };

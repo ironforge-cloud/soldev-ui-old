@@ -63,8 +63,6 @@ function ContentForm({
     // Edit happens inside a modal, we need to close it after
     setOpen(false);
 
-    // Send success notification
-    setNotifySuccess(true);
     // force refresh
     router.reload(window.location.pathname);
   };
@@ -151,6 +149,5 @@ ContentForm.propTypes = {
   setOpen: PropTypes.func,
   data: PropTypes.object.isRequired,
   setData: PropTypes.func.isRequired,
-  setNotifySuccess: PropTypes.func.isRequired,
   positions: PropTypes.array,
 };

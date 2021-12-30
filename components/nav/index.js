@@ -105,11 +105,11 @@ function Nav({ children }) {
 
   return (
     <div>
-      <div className="fixed w-full z-50">
+      <div className=" w-full z-50">
         <TopBar categories={categories} navigation={navigation} />
       </div>
 
-      <div className="min-h-full pt-20">
+      <div className="min-h-full ">
         <div className="flex sm:pl-6 lg:pl-8 lg:gap-8 py-10">
           <div className="min-w-[190px] hidden lg:block content-between">
             <nav

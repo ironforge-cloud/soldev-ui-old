@@ -14,7 +14,7 @@ function Publications({ data, title, isLoading, badges, tags, type }) {
   const [open, setOpen] = useState(false);
   const appState = useAppState();
   const [content, setContent] = useState({});
-  const [notifySuccess, setNotifySuccess] = useState(false);
+
   const [positions, setPositions] = useState([0]);
 
   useEffect(() => {
@@ -107,14 +107,7 @@ function Publications({ data, title, isLoading, badges, tags, type }) {
         open={open}
         setOpen={setOpen}
         content={content}
-        setNotifySuccess={setNotifySuccess}
         positions={positions}
-      />
-      <NotificationSuccess
-        show={notifySuccess}
-        setShow={setNotifySuccess}
-        text="Successfully updated!"
-        subText="Refresh the page if you want to see changes immediately"
       />
     </div>
   );
