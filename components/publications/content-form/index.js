@@ -6,6 +6,7 @@ import Radios from "./radios";
 import Inputs from "./inputs";
 import Status from "./status";
 import Position from "./position";
+import { useRouter } from "next/router";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -20,6 +21,7 @@ function ContentForm({
   positions,
 }) {
   const [contentExist, setContentExist] = useState(false);
+  const router = useRouter();
 
   const createContent = async (event) => {
     event.preventDefault();
@@ -63,6 +65,8 @@ function ContentForm({
 
     // Send success notification
     setNotifySuccess(true);
+    // force refresh
+    router.reload(window.location.pathname);
   };
 
   return (

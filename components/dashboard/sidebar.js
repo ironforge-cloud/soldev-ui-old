@@ -43,7 +43,7 @@ function Sidebar() {
   }
 
   return (
-    <div className="flex flex-warp flex flex-col gap-6 ">
+    <div className="flex flex-warp flex flex-col gap-6">
       <div className="space-y-6 w-[420px]">
         {/* Network Status */}
         <div className="bg-white dark:bg-stone-800 rounded-lg shadow max-h-fit ">

@@ -8,6 +8,7 @@ import {
   BeakerIcon,
   SparklesIcon,
   ExternalLinkIcon,
+  UserGroupIcon,
 } from "@heroicons/react/outline";
 import TopBar from "./topbar";
 import useUser from "../../hooks/useUser";
@@ -20,6 +21,12 @@ const navigation = [
     href: "/library",
     icon: LibraryIcon,
     disabled: false,
+  },
+  {
+    name: "Community",
+    href: "/community",
+    icon: UserGroupIcon,
+    disabled: true,
   },
   {
     name: "Network Monitor",
