@@ -61,8 +61,13 @@ const special = [
     disabled: false,
   },
   {
-    name: "Documentation",
+    name: "Solana Docs",
     href: "https://docs.solana.com/introduction",
+    disabled: false,
+  },
+  {
+    name: "Metaplex Docs",
+    href: "https://docs.metaplex.com/",
     disabled: false,
   },
 ];
