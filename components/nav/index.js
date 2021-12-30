@@ -9,6 +9,12 @@ import {
   SparklesIcon,
   ExternalLinkIcon,
   UserGroupIcon,
+  ChatAlt2Icon,
+  CollectionIcon,
+  FolderAddIcon,
+  FolderIcon,
+  FlagIcon,
+  PaperClipIcon,
 } from "@heroicons/react/outline";
 import TopBar from "./topbar";
 import useUser from "../../hooks/useUser";
@@ -25,7 +31,7 @@ const navigation = [
   {
     name: "Community",
     href: "/community",
-    icon: UserGroupIcon,
+    icon: ChatAlt2Icon,
     disabled: true,
   },
   {
@@ -289,13 +295,13 @@ function Nav({ children }) {
                   </div>
                 </div>
 
-                {/* Tags */}
+                {/* Categories */}
                 <div>
                   <p
                     className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider"
                     id="communities-headline"
                   >
-                    Tags
+                    Categories
                   </p>
                   <div
                     className="mt-3 space-y-1"
@@ -313,7 +319,7 @@ function Nav({ children }) {
                       return (
                         <Link href={item.href} passHref key={item.name}>
                           <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300">
-                            <HashtagIcon
+                            <PaperClipIcon
                               className="h-4 w-4 text-rose-400 dark:text-rose-500"
                               aria-hidden="true"
                             />
