@@ -11,9 +11,6 @@ export default function useList() {
     fetcher
   );
 
-  // TODO: fix this in the api
-  if (data == null) data = [];
-
   return {
     isLoading: !data,
     data,

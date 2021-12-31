@@ -7,7 +7,7 @@ const PublicationsComponent = dynamic(() =>
 );
 
 export default function Publications({}) {
-  const { data = [], isLoading, type } = useList();
+  let { data = [], isLoading, type } = useList();
 
   return (
     <div>

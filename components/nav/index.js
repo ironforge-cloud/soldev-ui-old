@@ -15,6 +15,7 @@ import {
   FolderIcon,
   FlagIcon,
   PaperClipIcon,
+  ChatAltIcon,
 } from "@heroicons/react/outline";
 import TopBar from "./topbar";
 import useUser from "../../hooks/useUser";
@@ -31,7 +32,7 @@ const navigation = [
   {
     name: "Community",
     href: "/community",
-    icon: ChatAlt2Icon,
+    icon: ChatAltIcon,
     disabled: true,
   },
   {

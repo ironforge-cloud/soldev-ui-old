@@ -2,12 +2,9 @@ import useTweets from "../../hooks/useTweets";
 import Tweet from "../twitter/tweet";
 import React, { memo, useState } from "react";
 import NetworkStatus from "./network-status";
-import usePinnedTweets from "../../hooks/usePinnedTweets";
 
 function Sidebar() {
-  const { data: tweets = [], tweetsLoading } = useTweets();
-  const { data: pinnedTweets = [], isLoading: pinnedTweetsLoading } =
-    usePinnedTweets();
+  const { data: tweets = [], tweetsLoading } = useTweets("1444990678371651585");
   const [loadMore, setLoadMore] = useState(false);
 
   // This helper function allow me to have infinity loading without having
@@ -49,45 +46,10 @@ function Sidebar() {
         <div className="bg-white dark:bg-stone-800 rounded-lg shadow max-h-fit ">
           <NetworkStatus />
         </div>
-
-        {/* Pinned Tweets */}
-        {Array.isArray(pinnedTweets) && pinnedTweets.length > 0 && (
-          <div className="bg-white dark:bg-stone-800 rounded-lg shadow max-h-fit">
-            <div className="p-6">
-              <h2
-                id="who-to-follow-heading"
-                className="text-base font-medium text-gray-900 dark:text-stone-200"
-              >
-                Pinned Tweets
-              </h2>
-
-              <div className="mt-6 flow-root">
-                <div
-                  role="list"
-                  className="-my-4 divide-y divide-gray-200 dark:divide-stone-500"
-                >
-                  {pinnedTweets.map((tweet) => (
-                    <Tweet
-                      key={tweet.id}
-                      text={tweet.text}
-                      author={tweet.Author}
-                      id={tweet.id}
-                      media={tweet.Media}
-                      created_at={tweet.created_at}
-                      public_metrics={tweet.public_metrics}
-                      referenced_tweets={tweet.ReferencedTweets}
-                      pinned={tweet.Pinned}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Twitter Timeline*/}
-      <div className="bg-stone-50 dark:bg-stone-800 rounded-lg shadow w-[420px] max-h-fit ">
+      <div className="bg-white dark:bg-stone-800 rounded-lg shadow w-[420px] max-h-fit ">
         <div className="p-6">
           <div className="flex justify-between">
             <h2
@@ -96,15 +58,6 @@ function Sidebar() {
             >
               Twitter Timeline
             </h2>
-            <a
-              href="https://twitter.com/soldevapp"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="text-blue-500 dark:text-stone-500 text-sm">
-                @soldevapp
-              </span>
-            </a>
           </div>
           <div className="mt-6 flow-root">
             <div

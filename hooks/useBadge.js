@@ -4,7 +4,7 @@ import fetcher from "../utils/fetcher";
 export default function useBadge(badge) {
   let specialTag = "New";
 
-  if (badge === "Recent") specialTag = "New";
+  if (badge === "New") specialTag = "New";
   if (badge === "Trending") specialTag = "Hot";
 
   let { data } = useSWR(

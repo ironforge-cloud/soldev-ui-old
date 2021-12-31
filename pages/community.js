@@ -4,16 +4,13 @@ import Tweet from "../components/twitter/tweet";
 import { useState } from "react";
 
 export default function Community() {
+  const [loadMore, setLoadMore] = useState(false);
   const { data: projectsTweets = [], projectsTweetsLoading } = useTweets(
     "1476564921030782979"
   );
   const { data: developersTweets = [], developersTweetsLoading } = useTweets(
     "1452853465210933252"
   );
-  const { data: capitalTweets = [], capitalTweetsLeading } = useTweets(
-    "1476564968665497607"
-  );
-  const [loadMore, setLoadMore] = useState(false);
 
   // This helper function allow me to have infinity loading without having
   // to build pagination in the api
@@ -98,33 +95,6 @@ export default function Community() {
           <div className="mt-10 flow-root">
             <div role="list">
               {Array.isArray(projectsTweets) && loadTweets(projectsTweets)}
-            </div>
-          </div>
-          {!loadMore && (
-            <div className="mt-6">
-              <button
-                onClick={() => setLoadMore(true)}
-                className="w-full block text-center px-4 py-2 border border-gray-300 dark:border-stone-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-stone-300 bg-white dark:bg-stone-700 hover:bg-gray-50 dark:hover:bg-stone-600"
-              >
-                View all
-              </button>
-            </div>
-          )}
-        </div>
-
-        {/* Investors Timeline*/}
-        <div className="max-h-fit">
-          <div className="flex justify-center">
-            <h2
-              id="trending-heading"
-              className="text-lg font-medium text-gray-900 dark:text-stone-200"
-            >
-              Solana Capital
-            </h2>
-          </div>
-          <div className="mt-10 flow-root">
-            <div role="list">
-              {Array.isArray(capitalTweets) && loadTweets(capitalTweets)}
             </div>
           </div>
           {!loadMore && (

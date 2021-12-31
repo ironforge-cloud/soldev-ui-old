@@ -30,7 +30,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
         "relative flex flex-col px-6 pt-6 pb-5 rounded-lg overflow-visible min-h-full",
         mode === "modal"
           ? "h-[340px] w-[400px] sm:w-[500px]"
-          : "shadow hover:bg-opacity-80 hover:opacity-95 bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700",
+          : "shadow-lg hover:bg-opacity-80 hover:opacity-95 bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700",
         mode === "dashboard" &&
           "min-h-[300px] max-h-[340px] min-w-[400px] max-w-[700px]",
         (mode === "" || mode === "edit") &&
