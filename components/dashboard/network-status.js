@@ -13,13 +13,9 @@ function NetworkStatus() {
             >
               Mainnet Beta
             </h2>
-
-            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-rose-200 dark:bg-rose-300">
-              v0.1
-            </span>
           </div>
 
-          <div className="mt-3 bg-green-400 dark:bg-green-700 h-10 flex justify-center items-center rounded-lg shadow cursor-pointer">
+          <div className="mt-3 bg-green-400 dark:bg-green-700 h-10 flex justify-center items-center rounded-lg shadow">
             <span className="">All Systems Operational</span>
           </div>
         </div>
