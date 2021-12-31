@@ -102,7 +102,7 @@ const categories = [
   { name: "Security", href: "/library/security" },
   { name: "Program Library", href: "/library/spl" },
   { name: "Twitter Threads", href: "/library/threads" },
-  { name: "Playlists", href: "/library/playlists" },
+  { name: "Video Playlists", href: "/library/playlists" },
   { name: "Submitted", href: "/library/admin/submitted" },
   { name: "Inactive", href: "/library/admin/inactive" },
 ];
@@ -128,7 +128,7 @@ function Nav({ children }) {
               aria-label="Sidebar"
               className=" top-4 divide-y divide-gray-300 dark:divide-stone-500"
             >
-              <div className="pb-8 space-y-1">
+              <div className="pb-5 space-y-1">
                 {navigation.map((item) => {
                   if (item.name === "Jobs") {
                     return (

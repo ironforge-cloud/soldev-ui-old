@@ -30,48 +30,55 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
         "relative flex flex-col px-6 pt-6 pb-5 rounded-lg overflow-visible min-h-full",
         mode === "modal"
           ? "h-[340px] w-[400px] sm:w-[500px]"
-          : "shadow-lg hover:bg-opacity-80 hover:opacity-95 bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700",
+          : "shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 hover:bg-opacity-80 hover:opacity-95 bg-white dark:bg-stone-800  ",
         mode === "dashboard" &&
           "min-h-[300px] max-h-[340px] min-w-[400px] max-w-[700px]",
         (mode === "" || mode === "edit") &&
           "h-[340px] w-[400px] transition ease-in-out duration-150 hover:scale-105"
       )}
     >
-      <div className="flex justify-between">
-        {/*  Title */}
-        <a href={content.Url} className="mr-2" rel="noreferrer" target="_blank">
-          <p className="text-lg font-semibold text-gray-900 dark:text-stone-200 hover:text-blue-600 dark:hover:text-blue-600">
-            {content.Title}
-          </p>
-        </a>
-
-        {/*  Badge */}
-        {content.SpecialTag !== "0" && (
-          <Link href={badgeUrl} passHref>
-            <div className="cursor-pointer hover:opacity-80">
-              {mode === "dashboard" ? (
-                <Badge text={content.ContentType} />
-              ) : (
-                <Badge text={content.SpecialTag} />
-              )}
-            </div>
-          </Link>
-        )}
-      </div>
-
-      {/*  Author */}
-      <div className="mb-4">
-        {content.Author && (
-          <a href={content.Url} className="" rel="noreferrer" target="_blank">
-            <p className="text-xs uppercase font-semibold tracking-wide text-gray-500 dark:text-stone-500">
-              by {content.Author}
+      <div className="border-b-2 border-dashed border-gray-700 dark:border-stone-500">
+        <div className="flex justify-between">
+          {/*  Title */}
+          <a
+            href={content.Url}
+            className="mr-2"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <p className="text-lg font-semibold text-gray-900 dark:text-stone-200 hover:text-sky-500 dark:hover:text-sky-600">
+              {content.Title}
             </p>
           </a>
-        )}
+
+          {/*  Badge */}
+          {content.SpecialTag !== "0" && (
+            <Link href={badgeUrl} passHref>
+              <div className="cursor-pointer hover:opacity-80">
+                {mode === "dashboard" ? (
+                  <Badge text={content.ContentType} />
+                ) : (
+                  <Badge text={content.SpecialTag} />
+                )}
+              </div>
+            </Link>
+          )}
+        </div>
+
+        {/*  Author */}
+        <div className="mb-2">
+          {content.Author && (
+            <a href={content.Url} className="" rel="noreferrer" target="_blank">
+              <p className="text-xs uppercase font-semibold tracking-wide text-gray-500 dark:text-stone-500">
+                by {content.Author}
+              </p>
+            </a>
+          )}
+        </div>
       </div>
 
       {/*Tags*/}
-      <div className="mb-1 text-indigo-500 dark:text-indigo-400 cursor-pointer">
+      <div className="mb-1 mt-2 text-sky-500 dark:text-sky-600 cursor-pointer">
         {content.Tags.map((tag, index) => (
           <Link
             key={tag}
@@ -90,7 +97,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
 
       {/*  Description */}
       <div className="flex-1 text-ellipsis overflow-hidden prose">
-        <p className="text-gray-600 dark:text-stone-300">
+        <p className="text-gray-600 dark:text-stone-400">
           {content.Description}
         </p>
       </div>
@@ -100,25 +107,21 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
         <div>
           {mode === "edit" ? (
             <button
-              className="inline-flex space-x-2 text-gray-400 hover:text-gray-500 dark:text-stone-300 dark:hover:text-stone-500 items-center"
+              className="inline-flex space-x-2 text-gray-600 hover:text-gray-400 dark:text-stone-300 dark:hover:text-stone-500 items-center"
               onClick={() => editContent(content)}
             >
               <DocumentTextIcon className="h-5 w-5" aria-hidden="true" />
-              <span className="font-medium text-gray-900 dark:text-stone-300 dark:hover:text-stone-500">
-                Edit Data
-              </span>
+              <span className="font-medium">Edit Data</span>
             </button>
           ) : (
             <a
               href={content.Url}
               rel="noreferrer"
               target="_blank"
-              className="inline-flex space-x-2 text-gray-400 dark:text-stone-300 hover:text-gray-500 dark:hover:text-stone-500 items-center"
+              className="inline-flex space-x-2 text-gray-600 hover:text-gray-400 dark:text-stone-300 dark:hover:text-stone-500 items-center"
             >
               <ExternalLinkIcon className="h-5 w-5" aria-hidden="true" />
-              <span className="font-medium text-gray-900 dark:text-stone-300 dark:hover:text-stone-500">
-                Open
-              </span>
+              <span className="font-medium">Open</span>
             </a>
           )}
         </div>
@@ -130,13 +133,11 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
           <div className="flex flex-row items-end">
             <button
               type="button"
-              className="inline-flex items-center space-x-2 text-gray-400 dark:text-stone-300 hover:text-gray-500 dark:hover:text-stone-500"
+              className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-stone-300 dark:hover:text-stone-500"
               onClick={() => setOpenShare(!openShare)}
             >
               <ShareIcon className="h-5 w-5" aria-hidden="true" />
-              <span className="font-medium text-gray-900 dark:text-stone-300 dark:hover:text-stone-500">
-                Share
-              </span>
+              <span className="font-medium">Share</span>
             </button>
           </div>
         </div>

@@ -36,6 +36,21 @@ function ContentTags({ data, setData, type }) {
     }
   }
 
+  function checkboxOnClick(value) {
+    if (data.Tags.includes(value)) {
+      // If I click the selected element we need to deleted
+      const newTags = data.Tags.filter((item) => item !== value);
+
+      setData({ ...data, Tags: newTags });
+    } else {
+      let newTags = data.Tags;
+      // Add the new item
+      newTags.push(value);
+
+      setData({ ...data, Tags: newTags });
+    }
+  }
+
   return (
     <>
       <div className="divide-y divide-gray-200 sm:space-y-2 col-span-8">
@@ -44,7 +59,7 @@ function ContentTags({ data, setData, type }) {
             Tags
           </h3>
           <p className="mt-1 max-w-2xl text-sm text-gray-500 dark:text-stone-300">
-            Badge and Tags will improve content discovery
+            Tags will improve content discovery
           </p>
         </div>
         <div></div>
@@ -72,8 +87,8 @@ function ContentTags({ data, setData, type }) {
                   type="radio"
                   value={tag}
                   checked={data.Tags.includes(tag)}
-                  onClick={(e) => tagsOnLick(e, tagList.level)}
                   onChange={() => {}}
+                  onClick={(e) => tagsOnLick(e, tagList.level)}
                   className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 "
                 />
                 <label
@@ -107,12 +122,10 @@ function ContentTags({ data, setData, type }) {
                 <input
                   id={tag}
                   name="techTags"
-                  type="radio"
-                  value={tag}
+                  type="checkbox"
                   checked={data.Tags.includes(tag)}
-                  onClick={(e) => tagsOnLick(e, tagList.tech)}
-                  onChange={() => {}}
-                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                  onChange={() => checkboxOnClick(tag)}
                 />
                 <label
                   htmlFor={tag}
@@ -140,12 +153,10 @@ function ContentTags({ data, setData, type }) {
                 <input
                   id={tag}
                   name="languageTags"
-                  type="radio"
-                  value={tag}
+                  type="checkbox"
                   checked={data.Tags.includes(tag)}
-                  onClick={(e) => tagsOnLick(e, tagList.language)}
-                  onChange={() => {}}
-                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                  onChange={() => checkboxOnClick(tag)}
                 />
                 <label
                   htmlFor={tag}

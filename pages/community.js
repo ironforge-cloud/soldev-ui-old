@@ -55,58 +55,48 @@ export default function Community() {
       </Head>
 
       <div className="flex 3xl:gap-20 xl:gap-10 lg:gap-2 justify-center">
+        <h1 className="text-lg font-medium text-gray-900 dark:text-stone-200">
+          Community
+        </h1>
         {/* Developers Timeline*/}
-        <div className="max-h-fit">
-          <div className="flex justify-center">
-            <h2
-              id="trending-heading"
-              className="text-lg font-medium text-gray-900 dark:text-stone-200"
-            >
-              Developers
-            </h2>
-          </div>
-          <div className="mt-10 flow-root">
-            <div role="list">
-              {Array.isArray(developersTweets) && loadTweets(developersTweets)}
+        <div className="flex">
+          <div className="max-h-fit">
+            <div className="mt-10 flow-root">
+              <div role="list">
+                {Array.isArray(developersTweets) &&
+                  loadTweets(developersTweets)}
+              </div>
             </div>
+            {!loadMore && (
+              <div className="mt-6">
+                <button
+                  onClick={() => setLoadMore(true)}
+                  className="w-full block text-center px-4 py-2 border border-gray-300 dark:border-stone-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-stone-300 bg-white dark:bg-stone-700 hover:bg-gray-50 dark:hover:bg-stone-600"
+                >
+                  View all
+                </button>
+              </div>
+            )}
           </div>
-          {!loadMore && (
-            <div className="mt-6">
-              <button
-                onClick={() => setLoadMore(true)}
-                className="w-full block text-center px-4 py-2 border border-gray-300 dark:border-stone-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-stone-300 bg-white dark:bg-stone-700 hover:bg-gray-50 dark:hover:bg-stone-600"
-              >
-                View all
-              </button>
-            </div>
-          )}
-        </div>
 
-        {/* Projects Timeline*/}
-        <div className="max-h-fit">
-          <div className="flex justify-center">
-            <h2
-              id="trending-heading"
-              className="text-lg font-medium text-gray-900 dark:text-stone-200"
-            >
-              Ecosystem Projects
-            </h2>
-          </div>
-          <div className="mt-10 flow-root">
-            <div role="list">
-              {Array.isArray(projectsTweets) && loadTweets(projectsTweets)}
+          {/* Projects Timeline*/}
+          <div className="max-h-fit">
+            <div className="mt-10 flow-root">
+              <div role="list">
+                {Array.isArray(projectsTweets) && loadTweets(projectsTweets)}
+              </div>
             </div>
+            {!loadMore && (
+              <div className="mt-6">
+                <button
+                  onClick={() => setLoadMore(true)}
+                  className="w-full block text-center px-4 py-2 border border-gray-300 dark:border-stone-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-stone-300 bg-white dark:bg-stone-700 hover:bg-gray-50 dark:hover:bg-stone-600"
+                >
+                  View all
+                </button>
+              </div>
+            )}
           </div>
-          {!loadMore && (
-            <div className="mt-6">
-              <button
-                onClick={() => setLoadMore(true)}
-                className="w-full block text-center px-4 py-2 border border-gray-300 dark:border-stone-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-stone-300 bg-white dark:bg-stone-700 hover:bg-gray-50 dark:hover:bg-stone-600"
-              >
-                View all
-              </button>
-            </div>
-          )}
         </div>
       </div>
     </div>
