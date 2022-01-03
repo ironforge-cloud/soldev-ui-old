@@ -15,7 +15,7 @@ function NetworkStatus() {
             </h2>
           </div>
 
-          <div className="mt-3 bg-green-400 dark:bg-amber-600 h-10 flex justify-center items-center rounded-lg shadow">
+          <div className="mt-3 bg-amber-500 dark:bg-amber-600 h-10 flex justify-center items-center rounded-lg shadow">
             <span className="">Degraded Performance</span>
           </div>
         </div>
