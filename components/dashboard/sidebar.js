@@ -1,10 +1,10 @@
-import useTweets from "../../hooks/useTweets";
 import Tweet from "../twitter/tweet";
 import React, { memo, useState } from "react";
 import NetworkStatus from "./network-status";
+import usePinnedTweets from "../../hooks/usePinnedTweets";
 
 function Sidebar() {
-  const { data: tweets = [], tweetsLoading } = useTweets("1444990678371651585");
+  const { data: tweets = [], tweetsLoading } = usePinnedTweets();
   const [loadMore, setLoadMore] = useState(false);
 
   // This helper function allow me to have infinity loading without having
@@ -41,14 +41,12 @@ function Sidebar() {
 
   return (
     <div className="flex flex-warp flex flex-col gap-6">
-      <div className="space-y-6 w-[420px]">
-        {/* Network Status */}
-        <div className="bg-white dark:bg-stone-800 rounded-lg shadow max-h-fit ">
-          <NetworkStatus />
-        </div>
+      {/* Network Status */}
+      <div className="bg-white dark:bg-stone-800 rounded-lg shadow max-h-fit">
+        <NetworkStatus />
       </div>
 
-      {/* Twitter Timeline*/}
+      {/* Announcements */}
       <div className="bg-white dark:bg-stone-800 rounded-lg shadow w-[420px] max-h-fit ">
         <div className="p-6">
           <div className="flex justify-between">
@@ -56,7 +54,7 @@ function Sidebar() {
               id="trending-heading"
               className="text-base font-medium text-gray-900 dark:text-stone-200"
             >
-              Twitter Timeline
+              Announcements
             </h2>
           </div>
           <div className="mt-6 flow-root">

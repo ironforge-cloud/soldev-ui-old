@@ -2,28 +2,15 @@ import React, { useState } from "react";
 import useBadge from "../../hooks/useBadge";
 import Card from "../publications/card";
 import Spinner from "../spinner";
-import usePinnedTweets from "../../hooks/usePinnedTweets";
-import Tweet from "../twitter/tweet";
-import useTweets from "../../hooks/useTweets";
-import loadTweets from "../../utils/loadTweets";
-
-const tabs = ["New Content", "Developers", "Projects", "Releases"];
+const tabs = ["New", "Trending", "Releases"];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Tabs() {
-  const [selectedTab, setSelectedTab] = useState("New Content");
+  const [selectedTab, setSelectedTab] = useState("New");
   const { isLoading, data } = useBadge(selectedTab);
-  const { data: projectsTweets = [], projectsTweetsLoading } = useTweets(
-    "1476564921030782979"
-  );
-  const { data: developersTweets = [], developersTweetsLoading } = useTweets(
-    "1452853465210933252"
-  );
-  const [loadMoreDevelopers, setLoadMoreDevelopers] = useState(false);
-  const [loadMoreProjects, setLoadMoreProjects] = useState(10);
 
   return (
     <>
@@ -38,11 +25,6 @@ export default function Tabs() {
               aria-current={selectedTab === tab ? "page" : undefined}
               onClick={() => {
                 setSelectedTab(tab);
-
-                // state reset to remove memory usage
-                // TODO: this could be improved with better pagination support.
-                setLoadMoreProjects(false);
-                setLoadMoreDevelopers(false);
               }}
               className={classNames(
                 tabIdx === 0 ? "rounded-l-lg" : "",
@@ -55,6 +37,7 @@ export default function Tabs() {
               disabled={tab === "Releases" && true}
             >
               <span>{tab}</span>
+
               <span
                 aria-hidden="true"
                 className={classNames(
@@ -69,13 +52,11 @@ export default function Tabs() {
       <div className="mt-5">
         <h1 className="sr-only">Recent</h1>
         <div className="flex flex-col justify-between gap-5">
-          {isLoading && (
+          {isLoading ? (
             <div className="mx-auto">
               <Spinner />
             </div>
-          )}
-          {/*  New Content Tab */}
-          {selectedTab === "New Content" &&
+          ) : (
             Array.isArray(data) &&
             data.map((content) => {
               return (
@@ -86,40 +67,7 @@ export default function Tabs() {
                   mode="dashboard"
                 />
               );
-            })}
-          {/*  Developers Tab */}
-          {selectedTab === "Developers" && (
-            <div className="flex flex-col gap-5">
-              {Array.isArray(developersTweets) &&
-                loadTweets(developersTweets, loadMoreDevelopers)}
-              {!loadMoreDevelopers && (
-                <div className="">
-                  <button
-                    onClick={() => setLoadMoreDevelopers(true)}
-                    className="w-full block text-center px-4 py-2 border border-gray-300 dark:border-stone-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-stone-300 bg-white dark:bg-stone-700 hover:bg-gray-50 dark:hover:bg-stone-600"
-                  >
-                    View all
-                  </button>
-                </div>
-              )}
-            </div>
-          )}
-          {/*  Projects Tab */}
-          {selectedTab === "Projects" && (
-            <div className="flex flex-col gap-5">
-              {Array.isArray(projectsTweets) &&
-                loadTweets(projectsTweets, loadMoreProjects)}
-              {/*{!loadMoreProjects && (*/}
-              <div className="">
-                <button
-                  onClick={() => setLoadMoreProjects(true)}
-                  className="w-full block text-center px-4 py-2 border border-gray-300 dark:border-stone-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-stone-300 bg-white dark:bg-stone-700 hover:bg-gray-50 dark:hover:bg-stone-600"
-                >
-                  View all
-                </button>
-              </div>
-              {/*)}*/}
-            </div>
+            })
           )}
         </div>
       </div>

@@ -2,20 +2,12 @@ import {
   LibraryIcon,
   InboxInIcon,
   ClipboardCheckIcon,
-  HashtagIcon,
   DesktopComputerIcon,
   CubeIcon,
-  BeakerIcon,
   SparklesIcon,
   ExternalLinkIcon,
-  UserGroupIcon,
   ChatAlt2Icon,
-  CollectionIcon,
-  FolderAddIcon,
-  FolderIcon,
-  FlagIcon,
   PaperClipIcon,
-  ChatAltIcon,
 } from "@heroicons/react/outline";
 import TopBar from "./topbar";
 import useUser from "../../hooks/useUser";
@@ -27,6 +19,12 @@ const navigation = [
     name: "Library",
     href: "/library",
     icon: LibraryIcon,
+    disabled: false,
+  },
+  {
+    name: "Community",
+    href: "/community",
+    icon: ChatAlt2Icon,
     disabled: false,
   },
   {
