@@ -4,8 +4,10 @@ import Card from "../publications/card";
 import Spinner from "../spinner";
 import usePinnedTweets from "../../hooks/usePinnedTweets";
 import Tweet from "../twitter/tweet";
+import useTweets from "../../hooks/useTweets";
+import loadTweets from "../../utils/loadTweets";
 
-const tabs = ["New Content", "Community", "Releases"];
+const tabs = ["New Content", "Developers", "Projects", "Releases"];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -13,9 +15,15 @@ function classNames(...classes) {
 
 export default function Tabs() {
   const [selectedTab, setSelectedTab] = useState("New Content");
-  const { data: pinnedTweets = [], isLoading: pinnedTweetsLoading } =
-    usePinnedTweets();
   const { isLoading, data } = useBadge(selectedTab);
+  const { data: projectsTweets = [], projectsTweetsLoading } = useTweets(
+    "1476564921030782979"
+  );
+  const { data: developersTweets = [], developersTweetsLoading } = useTweets(
+    "1452853465210933252"
+  );
+  const [loadMoreDevelopers, setLoadMoreDevelopers] = useState(false);
+  const [loadMoreProjects, setLoadMoreProjects] = useState(10);
 
   return (
     <>
@@ -28,7 +36,14 @@ export default function Tabs() {
             <button
               key={tabIdx}
               aria-current={selectedTab === tab ? "page" : undefined}
-              onClick={() => setSelectedTab(tab)}
+              onClick={() => {
+                setSelectedTab(tab);
+
+                // state reset to remove memory usage
+                // TODO: this could be improved with better pagination support.
+                setLoadMoreProjects(false);
+                setLoadMoreDevelopers(false);
+              }}
               className={classNames(
                 tabIdx === 0 ? "rounded-l-lg" : "",
                 tabIdx === tabs.length - 1 ? "rounded-r-lg" : "",
@@ -54,11 +69,12 @@ export default function Tabs() {
       <div className="mt-5">
         <h1 className="sr-only">Recent</h1>
         <div className="flex flex-col justify-between gap-5">
-          {pinnedTweetsLoading && (
+          {isLoading && (
             <div className="mx-auto">
               <Spinner />
             </div>
           )}
+          {/*  New Content Tab */}
           {selectedTab === "New Content" &&
             Array.isArray(data) &&
             data.map((content) => {
@@ -71,24 +87,40 @@ export default function Tabs() {
                 />
               );
             })}
-          {selectedTab === "Community" &&
-            pinnedTweets.map((tweet) => (
-              <div
-                key={tweet.id}
-                className="bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 px-6 shadow-lg rounded-lg"
-              >
-                <Tweet
-                  text={tweet.text}
-                  author={tweet.Author}
-                  id={tweet.id}
-                  media={tweet.Media}
-                  created_at={tweet.created_at}
-                  public_metrics={tweet.public_metrics}
-                  referenced_tweets={tweet.ReferencedTweets}
-                  pinned={tweet.Pinned}
-                />
+          {/*  Developers Tab */}
+          {selectedTab === "Developers" && (
+            <div className="flex flex-col gap-5">
+              {Array.isArray(developersTweets) &&
+                loadTweets(developersTweets, loadMoreDevelopers)}
+              {!loadMoreDevelopers && (
+                <div className="">
+                  <button
+                    onClick={() => setLoadMoreDevelopers(true)}
+                    className="w-full block text-center px-4 py-2 border border-gray-300 dark:border-stone-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-stone-300 bg-white dark:bg-stone-700 hover:bg-gray-50 dark:hover:bg-stone-600"
+                  >
+                    View all
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+          {/*  Projects Tab */}
+          {selectedTab === "Projects" && (
+            <div className="flex flex-col gap-5">
+              {Array.isArray(projectsTweets) &&
+                loadTweets(projectsTweets, loadMoreProjects)}
+              {/*{!loadMoreProjects && (*/}
+              <div className="">
+                <button
+                  onClick={() => setLoadMoreProjects(true)}
+                  className="w-full block text-center px-4 py-2 border border-gray-300 dark:border-stone-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-stone-300 bg-white dark:bg-stone-700 hover:bg-gray-50 dark:hover:bg-stone-600"
+                >
+                  View all
+                </button>
               </div>
-            ))}
+              {/*)}*/}
+            </div>
+          )}
         </div>
       </div>
     </>

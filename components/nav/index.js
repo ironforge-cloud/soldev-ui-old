@@ -30,12 +30,6 @@ const navigation = [
     disabled: false,
   },
   {
-    name: "Community",
-    href: "/community",
-    icon: ChatAltIcon,
-    disabled: false,
-  },
-  {
     name: "Network Monitor",
     href: "#",
     icon: DesktopComputerIcon,
