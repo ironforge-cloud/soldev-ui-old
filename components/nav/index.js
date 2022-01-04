@@ -12,6 +12,7 @@ import {
   ChatAlt2Icon,
   CollectionIcon,
   FolderAddIcon,
+  FolderOpenIcon,
   FolderIcon,
   FlagIcon,
   PaperClipIcon,
@@ -27,6 +28,12 @@ const navigation = [
     name: "Library",
     href: "/library",
     icon: LibraryIcon,
+    disabled: false,
+  },
+  {
+    name: "Directory",
+    href: "/directory",
+    icon: FolderOpenIcon,
     disabled: false,
   },
   {
