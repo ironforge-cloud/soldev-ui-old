@@ -1,13 +1,10 @@
 import {
-  LibraryIcon,
-  InboxInIcon,
-  ClipboardCheckIcon,
-  DesktopComputerIcon,
-  CubeIcon,
-  SparklesIcon,
-  ExternalLinkIcon,
   ChatAlt2Icon,
+  ClipboardCheckIcon,
+  ExternalLinkIcon,
+  LibraryIcon,
   PaperClipIcon,
+  SparklesIcon,
 } from "@heroicons/react/outline";
 import TopBar from "./topbar";
 import useUser from "../../hooks/useUser";
@@ -26,24 +23,6 @@ const navigation = [
     href: "/community",
     icon: ChatAlt2Icon,
     disabled: false,
-  },
-  {
-    name: "Network Monitor",
-    href: "#",
-    icon: DesktopComputerIcon,
-    disabled: true,
-  },
-  {
-    name: "Services",
-    href: "#",
-    icon: CubeIcon,
-    disabled: true,
-  },
-  {
-    name: "Newsletter",
-    href: "#",
-    icon: InboxInIcon,
-    disabled: true,
   },
   {
     name: "Jobs",
