@@ -13,7 +13,20 @@ export default function ContentAdmin({}) {
     <div>
       <Head>
         <title>SolDev: Content Admin</title>
-        <meta name="description" content="Content Administration" />
+        <meta name="title" content="SolDev: Content Admin" />
+        <meta name="og:title" content="SolDev: Content Admin" />
+        <meta
+          name="description"
+          content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
+        />
+        <meta
+          name="og:description"
+          content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
+        />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@soldevapp" />
+        <meta name="robot" content="index,follow,noodp" />
+        <meta name="googlebot" content="index,follow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

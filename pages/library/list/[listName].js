@@ -13,7 +13,20 @@ export default function Publications({}) {
     <div>
       <Head>
         <title>SolDev: Library</title>
-        <meta name="description" content="SolDev: List" />
+        <meta name="title" content="SolDev: Library" />
+        <meta name="og:title" content="SolDev: Library" />
+        <meta
+          name="description"
+          content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
+        />
+        <meta
+          name="og:description"
+          content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
+        />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@soldevapp" />
+        <meta name="robot" content="index,follow,noodp" />
+        <meta name="googlebot" content="index,follow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

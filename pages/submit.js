@@ -20,7 +20,20 @@ export default function Submit() {
     <div className="px-6">
       <Head>
         <title>SolDev: Submit</title>
-        <meta name="description" content="SolDev: Submit" />
+        <meta name="title" content="SolDev: Submit" />
+        <meta name="og:title" content="SolDev: Submit" />
+        <meta
+          name="description"
+          content="Propose new content to the platform. Submissions will be manually reviewed before deciding to publish them to the site."
+        />
+        <meta
+          name="og:description"
+          content="Propose new content to the platform. Submissions will be manually reviewed before deciding to publish them to the site."
+        />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@soldevapp" />
+        <meta name="robot" content="index,follow,noodp" />
+        <meta name="googlebot" content="index,follow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

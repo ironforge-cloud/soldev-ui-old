@@ -25,7 +25,20 @@ export default function Library({ newContent, trendingContent }) {
     <div>
       <Head>
         <title>SolDev: Library</title>
-        <meta name="description" content="SolDev" />
+        <meta name="title" content="SolDev: Library" />
+        <meta name="og:title" content="SolDev: Library" />
+        <meta
+          name="description"
+          content="Stay up to date with the Solana developer community."
+        />
+        <meta
+          name="og:description"
+          content="Stay up to date with the Solana developer community."
+        />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@soldevapp" />
+        <meta name="robot" content="index,follow,noodp" />
+        <meta name="googlebot" content="index,follow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

@@ -56,7 +56,20 @@ export default function Community() {
     <div>
       <Head>
         <title>SolDev: Community</title>
-        <meta name="description" content="SolDev: Community" />
+        <meta name="title" content="SolDev: Community" />
+        <meta name="og:title" content="SolDev: Community" />
+        <meta
+          name="description"
+          content="Stay up-to-date with the Twitter Solana ecosystem. Solana Projects and Developers in one place."
+        />
+        <meta
+          name="og:description"
+          content="Stay up-to-date with the Twitter Solana ecosystem. Solana Projects and Developers in one place."
+        />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@soldevapp" />
+        <meta name="robot" content="index,follow,noodp" />
+        <meta name="googlebot" content="index,follow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
