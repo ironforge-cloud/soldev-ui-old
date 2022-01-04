@@ -13,12 +13,10 @@ function classNames(...classes) {
 
 export default function Community() {
   const [selectedTab, setSelectedTab] = useState("Developers");
-  const { data: projectsTweets = [], projectsTweetsLoading } = useTweets(
-    "1476564921030782979"
-  );
-  const { data: developersTweets = [], developersTweetsLoading } = useTweets(
-    "1452853465210933252"
-  );
+  const { data: projectsTweets = [], isLoading: projectsTweetsLoading } =
+    useTweets("1476564921030782979");
+  const { data: developersTweets = [], isLoading: developersTweetsLoading } =
+    useTweets("1452853465210933252");
   const [developersTweetsAmount, setDevelopersTweetsAmount] = useState(15);
   const [projectsTweetsAmount, setProjectsTweetsAmount] = useState(15);
 
@@ -100,7 +98,6 @@ export default function Community() {
             </nav>
           </div>
           <div className="mt-5">
-            <h1 className="sr-only">Recent</h1>
             <div className="flex flex-col justify-between gap-5">
               {/*  Developers Tab */}
               {selectedTab === "Developers" &&
