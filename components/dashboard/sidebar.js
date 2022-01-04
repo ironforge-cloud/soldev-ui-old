@@ -2,9 +2,10 @@ import Tweet from "../twitter/tweet";
 import React, { memo, useState } from "react";
 import NetworkStatus from "./network-status";
 import usePinnedTweets from "../../hooks/usePinnedTweets";
+import Spinner from "../spinner";
 
 function Sidebar() {
-  const { data: tweets = [], tweetsLoading } = usePinnedTweets();
+  const { data: tweets = [], isLoading } = usePinnedTweets();
   const [loadMore, setLoadMore] = useState(false);
 
   // This helper function allow me to have infinity loading without having
@@ -62,7 +63,13 @@ function Sidebar() {
               role="list"
               className="-my-4 divide-y divide-gray-200 dark:divide-stone-600"
             >
-              {Array.isArray(tweets) && loadTweets(tweets)}
+              {isLoading ? (
+                <div className="flex justify-center min-h-screen">
+                  <Spinner />
+                </div>
+              ) : (
+                Array.isArray(tweets) && loadTweets(tweets)
+              )}
             </div>
           </div>
           {!loadMore && (
