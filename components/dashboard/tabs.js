@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import useBadge from "../../hooks/useBadge";
 import Card from "../publications/card";
-import Spinner from "../spinner";
+import PropTypes from "prop-types";
+
 const tabs = ["New", "Trending", "Releases"];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Tabs() {
+export default function Tabs({ newContent, trendingContent }) {
   const [selectedTab, setSelectedTab] = useState("New");
   const { isLoading, data } = useBadge(selectedTab);
 
@@ -50,15 +51,9 @@ export default function Tabs() {
         </nav>
       </div>
       <div className="mt-5">
-        <h1 className="sr-only">Recent</h1>
         <div className="flex flex-col justify-between gap-5">
-          {isLoading ? (
-            <div className="mx-auto">
-              <Spinner />
-            </div>
-          ) : (
-            Array.isArray(data) &&
-            data.map((content) => {
+          {selectedTab === "New" &&
+            newContent.map((content) => {
               return (
                 <Card
                   content={content}
@@ -67,10 +62,25 @@ export default function Tabs() {
                   mode="dashboard"
                 />
               );
-            })
-          )}
+            })}
+          {selectedTab === "Trending" &&
+            trendingContent.map((content) => {
+              return (
+                <Card
+                  content={content}
+                  key={content.SK}
+                  editContent={() => {}}
+                  mode="dashboard"
+                />
+              );
+            })}
         </div>
       </div>
     </>
   );
 }
+
+Tabs.propTypes = {
+  newContent: PropTypes.array.isRequired,
+  trendingContent: PropTypes.array.isRequired,
+};
