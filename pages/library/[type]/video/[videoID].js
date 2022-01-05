@@ -1,34 +1,46 @@
 import Head from "next/head";
 import Player from "../../../../components/videos/player";
-import fetch from "isomorphic-unfetch";
+import fetcher from "../../../../utils/fetcher";
 
 export async function getStaticPaths() {
-  const playlistsResponse = await fetch(
-      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists/Solana`
+  const data = await fetcher(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists/Solana`
   );
-  const playlists = await playlistsResponse.json();
 
-  // Get the paths we want to pre-render based on posts
-  const paths = posts.map((post) => ({
-    params: { playlistID:, videoID: post.id },
-  }));
+  // Fetch playlist content
+  let contentList = [];
+  for await (let playlist of data) {
+    const content = await fetcher(
+      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/${playlist.Vertical}/${playlist.ID}`
+    );
 
-  // We'll pre-render only these paths at build time.
-  // { fallback: blocking } will server-render pages
-  // on-demand if the path doesn't exist.
+    contentList.push(content);
+  }
+
+  // contentList was an array of arrays
+  contentList = contentList.flat();
+
+  const paths = contentList.map((content) => {
+    return {
+      params: {
+        type: content.PlaylistID,
+        videoID: content.SK,
+      },
+    };
+  });
+
+  // All missing paths are going to be server-side rendered and cached
   return { paths, fallback: "blocking" };
 }
 
 export async function getStaticProps({ params }) {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/${query.type}/${query.videoID}`
+  const data = await fetcher(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/${params.type}/${params.videoID}`
   );
-
-  const data = await response.json();
 
   return {
     props: { data },
-    revalidate: 60,
+    revalidate: 300,
   };
 }
 
@@ -37,16 +49,10 @@ function VideoID({ data }) {
     <div>
       <Head>
         <title>SolDev: Video Player</title>
-        <meta name="title" content="SolDev: Video Player" />
-        <meta name="og:title" content="SolDev: Video Player" />
-        <meta
-          name="description"
-          content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
-        />
-        <meta
-          name="og:description"
-          content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
-        />
+        <meta name="title" content={`SolDev: ${data.Title}`} />
+        <meta name="og:title" content={`SolDev: ${data.Title}`} />
+        <meta name="description" content={`SolDev: ${data.Description}`} />
+        <meta name="og:description" content={`SolDev: ${data.Description}`} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@soldevapp" />
         <meta name="robot" content="index,follow,noodp" />
