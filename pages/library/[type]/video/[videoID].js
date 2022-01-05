@@ -48,7 +48,7 @@ function VideoID({ data }) {
   return (
     <div>
       <Head>
-        <title>SolDev: Video Player</title>
+        <title>{`SolDev: ${data.Title}`}</title>
         <meta name="title" content={`SolDev: ${data.Title}`} />
         <meta name="og:title" content={`SolDev: ${data.Title}`} />
         <meta name="description" content={`SolDev: ${data.Description}`} />
