@@ -12,6 +12,21 @@ const directory = [
         ID: "mango",
         Logo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
       },
+      {
+        Title: "Raydium",
+        ID: "raydium",
+        Logo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      },
+      {
+        Title: "Serum",
+        ID: "serum",
+        Logo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      },
+      {
+        Title: "Quarry Protocols",
+        ID: "quarry",
+        Logo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      },
     ],
   },
   {
@@ -20,6 +35,46 @@ const directory = [
       {
         Title: "Triton",
         ID: "triton",
+        Logo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      },
+      {
+        Title: "GenesysGO",
+        ID: "genesys",
+        Logo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      },
+    ],
+  },
+  {
+    Name: "Oracles",
+    Projects: [
+      {
+        Title: "Pyth Network",
+        ID: "pyth",
+        Logo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      },
+      {
+        Title: "Chainlink",
+        ID: "chainlink",
+        Logo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      },
+    ],
+  },
+  {
+    Name: "Program Library",
+    Projects: [
+      {
+        Title: "Yield Farming",
+        ID: "yield",
+        Logo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      },
+      {
+        Title: "Name Service",
+        ID: "sns",
+        Logo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      },
+      {
+        Title: "Token Lending",
+        ID: "lending",
         Logo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
       },
     ],
@@ -71,14 +126,14 @@ const projects = {
 
 export default function DirectoryProject({ project, directory }) {
   return (
-    <div>
+    <>
       <Head>
         <title>SolDev: Directory</title>
         <meta name="description" content="SolDev" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <DirectoryDashboard project={project} directory={directory} />
-    </div>
+    </>
   );
 }
 

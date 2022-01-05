@@ -106,7 +106,7 @@ function Nav({ children }) {
 
       <div className="min-h-full ">
         <div className="flex sm:pl-6 lg:pl-8 lg:gap-8 py-10">
-          <div className="min-w-[190px] hidden lg:block content-between">
+          <div className="min-w-[190px] hidden lg:block content-between h-fit">
             <nav
               aria-label="Sidebar"
               className=" top-4 divide-y divide-gray-300 dark:divide-stone-500"
@@ -319,7 +319,7 @@ function Nav({ children }) {
               </div>
             </nav>
           </div>
-          <div className="w-full overflow-hidden">{children}</div>
+          <div className="w-full overflow-hidden relative">{children}</div>
         </div>
       </div>
     </div>

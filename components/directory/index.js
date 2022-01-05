@@ -3,7 +3,7 @@ import DirectoryProject from "./project";
 
 export default function DirectoryDashboard({ project, directory }) {
   return (
-    <div className="flex-1 relative z-0 flex overflow-hidden">
+    <div className="w-full h-full flex-1 absolute z-0 flex overflow-hidden">
       <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none xl:order-last">
         {/* Mobile */}
         <nav
@@ -18,7 +18,7 @@ export default function DirectoryDashboard({ project, directory }) {
       </main>
 
       {/* Desktop */}
-      <aside className="hidden lg:order-first lg:flex lg:flex-col flex-shrink-0 w-96 border-r border-gray-200">
+      <aside className="hidden h-full overflow-hidden lg:order-first lg:flex lg:flex-col flex-shrink-0 w-96 border-r border-gray-200">
         <div className="px-6 pt-6 pb-4">
           <h2 className="text-lg font-medium text-gray-900">Directory</h2>
         </div>
