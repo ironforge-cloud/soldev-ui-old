@@ -1,7 +1,7 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
 
-import { directory, projects } from "./data.temp";
+import { directory, projects } from "../../utils/data.temp";
 
 const DirectoryDashboard = dynamic(() => import("../../components/directory"));
 
