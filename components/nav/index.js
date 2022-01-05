@@ -1,5 +1,4 @@
 import {
-  ChatAlt2Icon,
   ClipboardCheckIcon,
   ExternalLinkIcon,
   UserGroupIcon,

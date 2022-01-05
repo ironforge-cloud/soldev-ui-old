@@ -7,20 +7,20 @@ export default function DirectoryProject({ project }) {
       <div className="w-full flex items-center space-x-4">
         <Image
           className="inline-block h-14 w-14 rounded-full"
-          src={project.logo}
+          src={project.Logo}
           height="96px"
           width="96px"
           alt=""
         />
-        <h1 className="text-xl font-semibold">{project.name}</h1>
+        <h1 className="text-xl font-semibold">{project.Name}</h1>
       </div>
       <div>
         <h2 className="text-lg font-medium">About</h2>
-        <p>{project.data.about}</p>
+        <p>{project.About}</p>
       </div>
       <div className="grid grid-cols-2 gap-x-4 gap-y-6">
-        {project.data.links.map((link, i) => (
-          <div key={`${project.name}-link-${i}`}>
+        {project.Links.map((link, i) => (
+          <div key={`${project.Name}-link-${i}`}>
             <h2 className="text-lg font-medium">{link.type}</h2>
             <a
               href={link.href}
