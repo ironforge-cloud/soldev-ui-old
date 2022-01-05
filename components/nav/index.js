@@ -31,12 +31,6 @@ const navigation = [
     disabled: false,
   },
   {
-    name: "Directory",
-    href: "/directory",
-    icon: FolderOpenIcon,
-    disabled: false,
-  },
-  {
     name: "Community",
     href: "/community",
     icon: ChatAltIcon,
@@ -64,6 +58,12 @@ const navigation = [
     name: "Jobs",
     href: "https://jobs.solana.com/",
     icon: ClipboardCheckIcon,
+    disabled: false,
+  },
+  {
+    name: "Directory",
+    href: "/directory",
+    icon: FolderOpenIcon,
     disabled: false,
   },
 ];
