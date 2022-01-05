@@ -50,7 +50,7 @@ function Publications({ data, title, isLoading, badges, tags, type }) {
   }
 
   return (
-    <div className="relative flex flex-col mx-auto">
+    <div className="flex flex-col mx-auto">
       <div className="flex justify-center mb-8">
         <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold tracking-tight text-gray-900 dark:text-stone-200 capitalize w-max">
           {componentTitle}

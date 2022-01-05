@@ -1,103 +1,140 @@
 import Head from "next/head";
 import useTweets from "../hooks/useTweets";
-import Tweet from "../components/twitter/tweet";
 import { useState } from "react";
+import Spinner from "../components/spinner";
+import Sidebar from "../components/dashboard/sidebar";
+import loadTweets from "../utils/loadTweets";
+
+const tabs = ["Developers", "Projects"];
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 
 export default function Community() {
-  const [loadMore, setLoadMore] = useState(false);
-  const { data: projectsTweets = [], projectsTweetsLoading } = useTweets(
-    "1476564921030782979"
-  );
-  const { data: developersTweets = [], developersTweetsLoading } = useTweets(
-    "1452853465210933252"
-  );
+  const [selectedTab, setSelectedTab] = useState("Developers");
+  const { data: projectsTweets = [], isLoading: projectsTweetsLoading } =
+    useTweets("1476564921030782979");
+  const { data: developersTweets = [], isLoading: developersTweetsLoading } =
+    useTweets("1452853465210933252");
+  const [developersTweetsAmount, setDevelopersTweetsAmount] = useState(15);
+  const [projectsTweetsAmount, setProjectsTweetsAmount] = useState(15);
 
-  // This helper function allow me to have infinity loading without having
-  // to build pagination in the api
-  function loadTweets(tweets) {
-    let size = 0;
-    // If there are enough tweets we load 10, if not we load array.length
-    if (Array.isArray(tweets) && tweets.length > 0) {
-      tweets.length >= 10 ? (size = 10) : (size = tweets.length);
-    }
-
-    // if loadMore then we want to render all the tweets
-    if (loadMore) size = tweets.length;
-
-    let component = [];
-    for (let i = 0; i < size; i++) {
-      component.push(
-        <div className="bg-white dark:bg-stone-800 px-6 mb-10 shadow-lg rounded-xl w-96 hover:bg-sky-50 dark:hover:bg-stone-700">
-          <Tweet
-            key={tweets[i].id}
-            text={tweets[i].text}
-            author={tweets[i].Author}
-            id={tweets[i].id}
-            media={tweets[i].Media}
-            created_at={tweets[i].created_at}
-            public_metrics={tweets[i].public_metrics}
-            referenced_tweets={tweets[i].ReferencedTweets}
-            pinned={tweets[i].Pinned}
-          />
+  function loadDevelopersTweets(
+    isLoading,
+    tweets,
+    tweetsAmount,
+    setTweetsAmount
+  ) {
+    if (isLoading) {
+      return (
+        <div className="mx-auto">
+          <Spinner />
         </div>
       );
-    }
+    } else {
+      if (Array.isArray(tweets) && tweets.length > 0) {
+        return (
+          <div className="flex flex-col gap-5">
+            {loadTweets(tweets, tweetsAmount)}
 
-    return <div className="">{component}</div>;
+            <div className="">
+              <button
+                onClick={() => setTweetsAmount((tweetsAmount += 10))}
+                className="w-full block text-center px-4 py-2 border border-gray-300 dark:border-stone-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-stone-300 bg-white dark:bg-stone-700 hover:bg-gray-50 dark:hover:bg-stone-600"
+              >
+                View all
+              </button>
+            </div>
+          </div>
+        );
+      }
+    }
   }
 
   return (
-    <div className="px-6">
+    <div>
       <Head>
         <title>SolDev: Community</title>
-        <meta name="description" content="SolDev: Submit" />
+        <meta name="title" content="SolDev: Community" />
+        <meta name="og:title" content="SolDev: Community" />
+        <meta
+          name="description"
+          content="Stay up-to-date with the Twitter Solana ecosystem. Solana Projects and Developers in one place."
+        />
+        <meta
+          name="og:description"
+          content="Stay up-to-date with the Twitter Solana ecosystem. Solana Projects and Developers in one place."
+        />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@soldevapp" />
+        <meta name="robot" content="index,follow,noodp" />
+        <meta name="googlebot" content="index,follow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="flex 3xl:gap-20 xl:gap-10 lg:gap-2 justify-center">
-        <h1 className="text-lg font-medium text-gray-900 dark:text-stone-200">
-          Community
-        </h1>
-        {/* Developers Timeline*/}
-        <div className="flex">
-          <div className="max-h-fit">
-            <div className="mt-10 flow-root">
-              <div role="list">
-                {Array.isArray(developersTweets) &&
-                  loadTweets(developersTweets)}
-              </div>
-            </div>
-            {!loadMore && (
-              <div className="mt-6">
+      <div className="flex gap-6 px-2 md:pl-0 justify-center">
+        <main className="w-[700px]">
+          <div className="px-4 sm:px-0">
+            <nav
+              className="relative z-0 rounded-lg shadow flex divide-x divide-gray-200 dark:divide-stone-700"
+              aria-label="Tabs"
+            >
+              {tabs.map((tab, tabIdx) => (
                 <button
-                  onClick={() => setLoadMore(true)}
-                  className="w-full block text-center px-4 py-2 border border-gray-300 dark:border-stone-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-stone-300 bg-white dark:bg-stone-700 hover:bg-gray-50 dark:hover:bg-stone-600"
+                  key={tabIdx}
+                  onClick={() => {
+                    setSelectedTab(tab);
+                    setDevelopersTweetsAmount(15);
+                    setProjectsTweetsAmount(15);
+                  }}
+                  className={classNames(
+                    tabIdx === 0 ? "rounded-l-lg" : "",
+                    tabIdx === tabs.length - 1 ? "rounded-r-lg" : "",
+                    "group relative min-w-0 flex-1 overflow-hidden bg-white dark:bg-stone-800 dark:text-stone-200 py-4 px-6 text-sm font-medium text-center  focus:z-10",
+                    tab !== "Releases" &&
+                      "hover:bg-gray-50 dark:hover:bg-stone-700",
+                    tab === "Releases" && "opacity-40 cursor-not-allowed"
+                  )}
                 >
-                  View all
-                </button>
-              </div>
-            )}
-          </div>
+                  <span>{tab}</span>
 
-          {/* Projects Timeline*/}
-          <div className="max-h-fit">
-            <div className="mt-10 flow-root">
-              <div role="list">
-                {Array.isArray(projectsTweets) && loadTweets(projectsTweets)}
-              </div>
-            </div>
-            {!loadMore && (
-              <div className="mt-6">
-                <button
-                  onClick={() => setLoadMore(true)}
-                  className="w-full block text-center px-4 py-2 border border-gray-300 dark:border-stone-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-stone-300 bg-white dark:bg-stone-700 hover:bg-gray-50 dark:hover:bg-stone-600"
-                >
-                  View all
+                  <span
+                    aria-hidden="true"
+                    className={classNames(
+                      tab === selectedTab ? "bg-rose-500" : "bg-transparent",
+                      "absolute inset-x-0 bottom-0 h-0.5"
+                    )}
+                  />
                 </button>
-              </div>
-            )}
+              ))}
+            </nav>
           </div>
-        </div>
+          <div className="mt-5">
+            <div className="flex flex-col justify-between gap-5">
+              {/*  Developers Tab */}
+              {selectedTab === "Developers" &&
+                loadDevelopersTweets(
+                  developersTweetsLoading,
+                  developersTweets,
+                  developersTweetsAmount,
+                  setDevelopersTweetsAmount
+                )}
+
+              {/*  Projects Tab */}
+              {selectedTab === "Projects" &&
+                loadDevelopersTweets(
+                  projectsTweetsLoading,
+                  projectsTweets,
+                  projectsTweetsAmount,
+                  setProjectsTweetsAmount
+                )}
+            </div>
+          </div>
+        </main>
+        <aside className="hidden xl:block">
+          <Sidebar />
+        </aside>
       </div>
     </div>
   );

@@ -1,20 +1,16 @@
 import React, { useState } from "react";
 import useBadge from "../../hooks/useBadge";
 import Card from "../publications/card";
-import Spinner from "../spinner";
-import usePinnedTweets from "../../hooks/usePinnedTweets";
-import Tweet from "../twitter/tweet";
+import PropTypes from "prop-types";
 
-const tabs = ["New Content", "Community", "Releases"];
+const tabs = ["New", "Trending", "Releases"];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Tabs() {
-  const [selectedTab, setSelectedTab] = useState("New Content");
-  const { data: pinnedTweets = [], isLoading: pinnedTweetsLoading } =
-    usePinnedTweets();
+export default function Tabs({ newContent, trendingContent }) {
+  const [selectedTab, setSelectedTab] = useState("New");
   const { isLoading, data } = useBadge(selectedTab);
 
   return (
@@ -28,7 +24,9 @@ export default function Tabs() {
             <button
               key={tabIdx}
               aria-current={selectedTab === tab ? "page" : undefined}
-              onClick={() => setSelectedTab(tab)}
+              onClick={() => {
+                setSelectedTab(tab);
+              }}
               className={classNames(
                 tabIdx === 0 ? "rounded-l-lg" : "",
                 tabIdx === tabs.length - 1 ? "rounded-r-lg" : "",
@@ -40,6 +38,7 @@ export default function Tabs() {
               disabled={tab === "Releases" && true}
             >
               <span>{tab}</span>
+
               <span
                 aria-hidden="true"
                 className={classNames(
@@ -52,16 +51,9 @@ export default function Tabs() {
         </nav>
       </div>
       <div className="mt-5">
-        <h1 className="sr-only">Recent</h1>
         <div className="flex flex-col justify-between gap-5">
-          {pinnedTweetsLoading && (
-            <div className="mx-auto">
-              <Spinner />
-            </div>
-          )}
-          {selectedTab === "New Content" &&
-            Array.isArray(data) &&
-            data.map((content) => {
+          {selectedTab === "New" &&
+            newContent.map((content) => {
               return (
                 <Card
                   content={content}
@@ -71,26 +63,24 @@ export default function Tabs() {
                 />
               );
             })}
-          {selectedTab === "Community" &&
-            pinnedTweets.map((tweet) => (
-              <div
-                key={tweet.id}
-                className="bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 px-6 shadow-lg rounded-lg"
-              >
-                <Tweet
-                  text={tweet.text}
-                  author={tweet.Author}
-                  id={tweet.id}
-                  media={tweet.Media}
-                  created_at={tweet.created_at}
-                  public_metrics={tweet.public_metrics}
-                  referenced_tweets={tweet.ReferencedTweets}
-                  pinned={tweet.Pinned}
+          {selectedTab === "Trending" &&
+            trendingContent.map((content) => {
+              return (
+                <Card
+                  content={content}
+                  key={content.SK}
+                  editContent={() => {}}
+                  mode="dashboard"
                 />
-              </div>
-            ))}
+              );
+            })}
         </div>
       </div>
     </>
   );
 }
+
+Tabs.propTypes = {
+  newContent: PropTypes.array.isRequired,
+  trendingContent: PropTypes.array.isRequired,
+};

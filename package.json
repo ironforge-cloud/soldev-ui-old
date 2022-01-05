@@ -14,10 +14,10 @@
     "@fortawesome/react-fontawesome": "^0.1.16",
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",
-    "@solana/wallet-adapter-base": "^0.8.1",
-    "@solana/wallet-adapter-react": "^0.14.1",
-    "@solana/wallet-adapter-react-ui": "^0.7.0",
-    "@solana/wallet-adapter-wallets": "^0.13.0",
+      "@solana/wallet-adapter-base": "^0.8.1",
+        "@solana/wallet-adapter-react": "^0.14.1",
+        "@solana/wallet-adapter-react-ui": "^0.7.0",
+        "@solana/wallet-adapter-wallets": "^0.13.0",
     "@solana/web3.js": "^1.31.0",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.4.0",
@@ -38,7 +38,7 @@
     "react-share": "^4.4.0",
     "swiper": "^7.4.1",
     "swr": "^1.1.2",
-    "tailwindcss": "^3.0.8"
+    "tailwindcss": "^3.0.9"
   },
   "private": true,
   "scripts": {

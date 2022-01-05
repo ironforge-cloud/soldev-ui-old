@@ -1,12 +1,6 @@
 import {
-  LibraryIcon,
-  InboxInIcon,
+  ChatAlt2Icon,
   ClipboardCheckIcon,
-  HashtagIcon,
-  DesktopComputerIcon,
-  CubeIcon,
-  BeakerIcon,
-  SparklesIcon,
   ExternalLinkIcon,
   UserGroupIcon,
   ChatAlt2Icon,
@@ -15,8 +9,9 @@ import {
   FolderOpenIcon,
   FolderIcon,
   FlagIcon,
+  LibraryIcon,
   PaperClipIcon,
-  ChatAltIcon,
+  SparklesIcon,
 } from "@heroicons/react/outline";
 import TopBar from "./topbar";
 import useUser from "../../hooks/useUser";
@@ -33,26 +28,8 @@ const navigation = [
   {
     name: "Community",
     href: "/community",
-    icon: ChatAltIcon,
-    disabled: true,
-  },
-  {
-    name: "Network Monitor",
-    href: "#",
-    icon: DesktopComputerIcon,
-    disabled: true,
-  },
-  {
-    name: "Services",
-    href: "#",
-    icon: CubeIcon,
-    disabled: true,
-  },
-  {
-    name: "Newsletter",
-    href: "#",
-    icon: InboxInIcon,
-    disabled: true,
+    icon: ChatAlt2Icon,
+    disabled: false,
   },
   {
     name: "Jobs",
@@ -175,10 +152,10 @@ function Nav({ children }) {
                         className={classNames(
                           item.name === current
                             ? "bg-gray-200 text-gray-900 dark:bg-stone-800 dark:text-stone-200"
-                            : "text-gray-600",
+                            : "text-gray-800 dark:text-stone-300",
                           "group flex items-center px-3 py-2 text-sm font-medium rounded-md max-w-[190px] min-w-[150px]",
                           item.disabled
-                            ? "opacity-50"
+                            ? "opacity-20"
                             : "hover:bg-gray-50 dark:hover:bg-stone-700"
                         )}
                         onClick={() => setCurrent(item.name)}

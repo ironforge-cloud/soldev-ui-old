@@ -5,9 +5,9 @@ import Badge from "../badges/badge.js";
 import Link from "next/link";
 import Share from "../share";
 import {
-  ShareIcon,
   DocumentTextIcon,
   ExternalLinkIcon,
+  ShareIcon,
 } from "@heroicons/react/solid";
 
 function classNames(...classes) {
@@ -30,7 +30,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
         "relative flex flex-col px-6 pt-6 pb-5 rounded-lg overflow-visible min-h-full",
         mode === "modal"
           ? "h-[340px] w-[400px] sm:w-[500px]"
-          : "shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 hover:bg-opacity-80 hover:opacity-95 bg-white dark:bg-stone-800  ",
+          : "shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 hover:bg-opacity-80 hover:opacity-95 bg-white dark:bg-stone-800",
         mode === "dashboard" &&
           "min-h-[300px] max-h-[340px] min-w-[400px] max-w-[700px]",
         (mode === "" || mode === "edit") &&
