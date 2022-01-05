@@ -38,7 +38,7 @@ const navigation = [
   },
   {
     name: "Directory",
-    href: "/directory",
+    href: "/directory/mango", // default to some project
     icon: FolderOpenIcon,
     disabled: false,
   },
