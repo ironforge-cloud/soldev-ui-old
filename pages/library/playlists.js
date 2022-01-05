@@ -24,7 +24,7 @@ export default function Video({ promoted, playlists }) {
   return (
     <div>
       <Head>
-        <title>SolDev: Library</title>
+        <title>SolDev: Video Playlists</title>
         <meta name="title" content="SolDev: Video Playlists" />
         <meta name="og:title" content="SolDev: Video Playlists" />
         <meta
