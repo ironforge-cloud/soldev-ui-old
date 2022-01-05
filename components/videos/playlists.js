@@ -1,12 +1,9 @@
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import useVerticalPlaylists from "../../hooks/useVerticalPlaylists";
-import Spinner from "../spinner";
+import PropTypes from "prop-types";
 
-export default function Playlists() {
-  const { data = [], isLoading } = useVerticalPlaylists();
-
+export default function Playlists({ data }) {
   return (
     <>
       {/* Mobile */}
@@ -20,30 +17,26 @@ export default function Playlists() {
           role="list"
           className="mt-3 border-t border-gray-200 dark:border-stone-700 divide-y divide-gray-100 dark:divide:stone-600"
         >
-          {isLoading ? (
-            <Spinner />
-          ) : (
-            <>
-              {data.map((playlist) => (
-                <li key={playlist.ID}>
-                  <Link href={`/library/${playlist.ID}`} passHref>
-                    <div className="flex items-center space-x-2 pl-2 h-12">
-                      <ChevronRightIcon
-                        className="h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-stone-500"
-                        aria-hidden="true"
-                      />
-                      <span className="truncate hover:text-gray-600 dark:hover:text-stone-500  dark:text-stone-200 cursor-pointer text-sm">
-                        {playlist.Title}{" "}
-                        <span className="text-gray-500 dark:text-stone-500 font-normal">
-                          by {playlist.Author}
-                        </span>
+          <>
+            {data.map((playlist) => (
+              <li key={playlist.ID}>
+                <Link href={`/library/${playlist.ID}`} passHref>
+                  <div className="flex items-center space-x-2 pl-2 h-12">
+                    <ChevronRightIcon
+                      className="h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-stone-500"
+                      aria-hidden="true"
+                    />
+                    <span className="truncate hover:text-gray-600 dark:hover:text-stone-500  dark:text-stone-200 cursor-pointer text-sm">
+                      {playlist.Title}{" "}
+                      <span className="text-gray-500 dark:text-stone-500 font-normal">
+                        by {playlist.Author}
                       </span>
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </>
-          )}
+                    </span>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </>
         </ul>
       </div>
 
@@ -108,3 +101,7 @@ export default function Playlists() {
     </>
   );
 }
+
+Playlists.propTypes = {
+  data: PropTypes.array.isRequired,
+};

@@ -18,7 +18,7 @@ export default function Publications({}) {
   return (
     <div>
       <Head>
-        <title>SolDev: Library Content</title>
+        <title>SolDev: Library</title>
         <meta name="title" content="SolDev: Library" />
         <meta name="og:title" content="SolDev: Library" />
         <meta
