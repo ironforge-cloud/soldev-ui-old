@@ -1,12 +1,38 @@
 import Head from "next/head";
-import useVideo from "../../../../hooks/useVideo";
-import dynamic from "next/dynamic";
+import Player from "../../../../components/videos/player";
+import fetch from "isomorphic-unfetch";
 
-const Player = dynamic(() => import("../../../../components/videos/player"));
+export async function getStaticPaths() {
+  const playlistsResponse = await fetch(
+      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists/Solana`
+  );
+  const playlists = await playlistsResponse.json();
 
-function VideoID() {
-  const { data = {} } = useVideo();
+  // Get the paths we want to pre-render based on posts
+  const paths = posts.map((post) => ({
+    params: { playlistID:, videoID: post.id },
+  }));
 
+  // We'll pre-render only these paths at build time.
+  // { fallback: blocking } will server-render pages
+  // on-demand if the path doesn't exist.
+  return { paths, fallback: "blocking" };
+}
+
+export async function getStaticProps({ params }) {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/${query.type}/${query.videoID}`
+  );
+
+  const data = await response.json();
+
+  return {
+    props: { data },
+    revalidate: 60,
+  };
+}
+
+function VideoID({ data }) {
   return (
     <div>
       <Head>
