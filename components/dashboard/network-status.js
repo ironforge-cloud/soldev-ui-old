@@ -1,5 +1,4 @@
 import { memo } from "react";
-import Link from "next/link";
 
 function NetworkStatus() {
   return (
@@ -15,13 +14,13 @@ function NetworkStatus() {
             </h2>
           </div>
 
-          <div className="mt-3 bg-green-400 dark:bg-green-700 h-10 flex justify-center items-center rounded-lg shadow">
-            <span className="">All Systems Operational</span>
-          </div>
-
-          {/*<div className="mt-3 bg-amber-500 dark:bg-amber-600 h-10 flex justify-center items-center rounded-lg shadow">*/}
-          {/*  <span className="">Degraded Performance</span>*/}
+          {/*<div className="mt-3 bg-green-400 dark:bg-green-700 h-10 flex justify-center items-center rounded-lg shadow">*/}
+          {/*  <span className="">All Systems Operational</span>*/}
           {/*</div>*/}
+
+          <div className="mt-3 bg-amber-500 dark:bg-amber-600 h-10 flex justify-center items-center rounded-lg shadow">
+            <span className="">Degraded Performance</span>
+          </div>
         </div>
         <div>
           <h2
