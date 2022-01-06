@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function DirectoryProject({ project }) {
   return (
-    <section className="lg:ml-8 px-4 space-y-8">
+    <section className="mx-4 lg:mx-6 p-6 space-y-8 bg-white rounded-lg shadow-lg">
       <div className="w-full flex items-center space-x-4">
         <Image
           className="inline-block h-14 w-14 rounded-full"

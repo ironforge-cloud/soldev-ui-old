@@ -319,7 +319,9 @@ function Nav({ children }) {
               </div>
             </nav>
           </div>
-          <div className="w-full overflow-hidden relative">{children}</div>
+          <div className="w-full lg:overflow-hidden relative min-h-screen">
+            {children}
+          </div>
         </div>
       </div>
     </div>
