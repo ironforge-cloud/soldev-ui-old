@@ -12,9 +12,9 @@ export default function Publications({}) {
   return (
     <div>
       <Head>
-        <title>SolDev: Library</title>
-        <meta name="title" content="SolDev: Library" />
-        <meta name="og:title" content="SolDev: Library" />
+        <title>SolDev: Lists</title>
+        <meta name="title" content="SolDev: Lists" />
+        <meta name="og:title" content="SolDev: Lists" />
         <meta
           name="description"
           content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"

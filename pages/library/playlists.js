@@ -1,13 +1,30 @@
 import Head from "next/head";
-import dynamic from "next/dynamic";
+import fetch from "isomorphic-unfetch";
+import Promoted from "../../components/videos/promoted";
+import Playlists from "../../components/videos/playlists";
 
-const Videos = dynamic(() => import("../../components/videos"));
+export async function getStaticProps() {
+  const promotedResponse = await fetch(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/promoted`
+  );
+  const playlistsResponse = await fetch(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists/Solana`
+  );
 
-export default function Video() {
+  const promoted = await promotedResponse.json();
+  const playlists = await playlistsResponse.json();
+
+  return {
+    props: { promoted, playlists },
+    revalidate: 60,
+  };
+}
+
+export default function Video({ promoted, playlists }) {
   return (
     <div>
       <Head>
-        <title>SolDev: Library</title>
+        <title>SolDev: Video Playlists</title>
         <meta name="title" content="SolDev: Video Playlists" />
         <meta name="og:title" content="SolDev: Video Playlists" />
         <meta
@@ -25,7 +42,13 @@ export default function Video() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Videos />
+      <main className="flex-1 relative z-0 overflow-hidden focus:outline-none">
+        {/* Promoted videos */}
+        <Promoted data={promoted} />
+
+        {/* Playlists */}
+        <Playlists data={playlists} />
+      </main>
     </div>
   );
 }
