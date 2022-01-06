@@ -18,7 +18,7 @@ export default function DirectoryDashboard({ project, directory }) {
       </main>
 
       {/* Desktop */}
-      <aside className="hidden h-full overflow-hidden lg:order-first lg:flex lg:flex-col flex-shrink-0 w-96 border-r pr-4 border-gray-200">
+      <aside className="hidden h-full overflow-hidden lg:order-first lg:flex lg:flex-col flex-shrink-0 w-96 border-r pr-4 border-gray-200 dark:border-stone-500">
         {/* <div className="px-6 pt-6 pb-4">
           <h2 className="text-lg font-medium text-gray-900">Directory</h2>
         </div> */}

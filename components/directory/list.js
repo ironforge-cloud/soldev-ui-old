@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function DirectoryList({ directory }) {
   const TypeHeader = ({ children }) => {
     return (
-      <div className="z-10 top-0 bg-green-400 text-white font-medium text-sm px-6 py-1 rounded-lg mx-2 shadow-lg">
+      <div className="z-10 top-0 dark:bg-green-500 bg-green-400 text-stone-50 dark:text-stone-900 font-medium text-sm px-6 py-1 rounded-lg mx-2 shadow-lg">
         {children}
       </div>
     );
@@ -15,7 +15,7 @@ export default function DirectoryList({ directory }) {
       <li>
         <Link href={`/directory/${project.ID}`} passHref>
           <a>
-            <div className="relative px-6 py-3 mx-2 my-4 flex items-center space-x-3 bg-white hover:bg-gray-100 rounded-md shadow-md ">
+            <div className="relative px-6 py-3 mx-2 my-4 flex items-center space-x-3 bg-white dark:bg-stone-800 hover:bg-gray-100 dark:hover:bg-stone-700 rounded-md shadow-md ">
               <Image
                 className="h-10 w-10 rounded-full"
                 src={project.Logo}
@@ -26,7 +26,9 @@ export default function DirectoryList({ directory }) {
               <div className="flex-1 min-w-0">
                 {/* Extend touch target to entire panel */}
                 <span className="absolute inset-0" aria-hidden="true" />
-                <p className="font-medium text-gray-900">{project.Title}</p>
+                <p className="font-medium text-gray-900 dark:text-stone-200">
+                  {project.Title}
+                </p>
               </div>
             </div>
           </a>
