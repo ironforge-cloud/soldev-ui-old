@@ -39,7 +39,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  console.log(context);
   const data = await fetcher(
     `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/${context.params.type}`
   );

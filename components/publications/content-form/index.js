@@ -64,7 +64,8 @@ function ContentForm({
     await fetch(`/api/preview?type=${data.ContentType}`);
 
     // Edit happens inside a modal, we need to close it after
-    // setOpen(false);
+    setOpen(false);
+    router.reload();
   };
 
   return (
