@@ -59,6 +59,7 @@ export async function getStaticProps({ params }) {
   }
 
   if (contentType === "playlist") {
+    console.log(data);
     title = data[0].PlaylistTitle;
   } else if (contentType === "threads") {
     title = "Twitter Threads";
