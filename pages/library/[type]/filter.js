@@ -1,45 +1,28 @@
 import Head from "next/head";
+import useContent from "../../../hooks/useContent";
 import dynamic from "next/dynamic";
-import contentLists from "../../../utils/content-lists";
-import fetcher from "../../../utils/fetcher";
-import defineTitle from "../../../utils/define-title";
 
 const PublicationsComponent = dynamic(() =>
   import("../../../components/publications")
 );
 
-export async function getStaticPaths() {
-  const paths = contentLists.map((list) => {
-    return {
-      params: {
-        listName: list,
-      },
-    };
-  });
+export default function PublicationsFilter({}) {
+  const {
+    data = [],
+    isLoading,
+    tags,
+    badges,
+    tagsList,
+    contentType,
+    title,
+  } = useContent();
 
-  return { paths, fallback: "blocking" };
-}
-
-export async function getStaticProps({ params }) {
-  const data = await fetcher(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/lists/${params.listName}`
-  );
-
-  const title = defineTitle(params.listName);
-
-  return {
-    props: { data, title },
-    revalidate: 60,
-  };
-}
-
-export default function LibraryLists({ data, title }) {
   return (
     <div>
       <Head>
-        <title>{`SolDev: ${title}`}</title>
-        <meta name="title" content={`SolDev: ${title}`} />
-        <meta name="og:title" content={`SolDev: ${title}`} />
+        <title>SolDev: Library</title>
+        <meta name="title" content="SolDev: Library" />
+        <meta name="og:title" content="SolDev: Library" />
         <meta
           name="description"
           content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
@@ -58,8 +41,11 @@ export default function LibraryLists({ data, title }) {
       <PublicationsComponent
         data={data}
         title={title}
-        type="list"
-        isLoading={false}
+        contentType={contentType}
+        isLoading={isLoading}
+        badges={badges}
+        tags={tags}
+        tagsList={tagsList}
       />
     </div>
   );

@@ -1,18 +1,15 @@
 import Head from "next/head";
-import fetch from "isomorphic-unfetch";
 import Promoted from "../../components/videos/promoted";
 import Playlists from "../../components/videos/playlists";
+import fetcher from "../../utils/fetcher";
 
 export async function getStaticProps() {
-  const promotedResponse = await fetch(
+  const promoted = await fetcher(
     `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/promoted`
   );
-  const playlistsResponse = await fetch(
+  const playlists = await fetcher(
     `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists/Solana`
   );
-
-  const promoted = await promotedResponse.json();
-  const playlists = await playlistsResponse.json();
 
   return {
     props: { promoted, playlists },

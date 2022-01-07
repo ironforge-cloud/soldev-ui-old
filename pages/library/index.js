@@ -3,7 +3,7 @@ import fetch from "isomorphic-unfetch";
 import Tabs from "../../components/dashboard/tabs";
 import Sidebar from "../../components/dashboard/sidebar";
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   const newResponse = await fetch(
     `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/specialtag/New`
   );

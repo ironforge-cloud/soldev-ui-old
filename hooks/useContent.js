@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import fetcher from "../utils/fetcher";
 import { useRouter } from "next/router";
+import findTags from "../utils/find-tags";
 
 export default function useContent() {
   const { query, isReady } = useRouter();
@@ -49,16 +50,6 @@ export default function useContent() {
     }
   }
 
-  // For Playlists, we need do some extra work for the page title
-  let type;
-  if (Array.isArray(data) && data.length > 0) {
-    if (data[0].PlaylistTitle !== "") {
-      type = data[0].PlaylistTitle;
-    } else {
-      type = query.type;
-    }
-  }
-
   // Normalizing data to be used in the components
   let badgesState = [];
   let tagsState = [];
@@ -75,12 +66,36 @@ export default function useContent() {
     tagsState.push(query.tag);
   }
 
+  // find all tags and badges
+  const tagsList = findTags(data);
+
+  // define content type and title
+  let contentType = "";
+  let title = "";
+  if (isReady) {
+    contentType = query.type;
+    if (contentType === "threads") {
+      title = "Twitter Threads";
+    } else if (contentType === "spl") {
+      title = "Program Library";
+    } else if (contentType === "started") {
+      title = "Getting Started with Solana";
+    } else if (contentType === "sdk") {
+      title = "SDKs & Frameworks";
+    } else {
+      // Capitalize the first char
+      title = contentType.charAt(0).toUpperCase() + contentType.slice(1);
+    }
+  }
+
   return {
     isLoading: !data,
     data,
-    type,
     selectedContent,
     badges: badgesState,
     tags: tagsState,
+    tagsList,
+    contentType,
+    title,
   };
 }

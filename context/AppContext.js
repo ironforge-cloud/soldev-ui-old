@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, useMemo } from "react";
+import { createContext, useContext, useMemo, useReducer } from "react";
 
 const AppStateContext = createContext();
 const AppDispatchContext = createContext();
@@ -6,13 +6,13 @@ const AppDispatchContext = createContext();
 function AppReducer(state, action) {
   switch (action.type) {
     case "editMode":
-      if (window) window.sessionStorage.setItem("editMode", action.payload);
+      if (window) window.localStorage.setItem("editMode", action.payload);
       return {
         ...state,
         editMode: action.payload,
       };
     case "vertical":
-      if (window) window.sessionStorage.setItem("vertical", action.payload);
+      if (window) window.localStorage.setItem("vertical", action.payload);
       return {
         ...state,
         vertical: action.payload,
@@ -24,7 +24,7 @@ function AppReducer(state, action) {
 
 export function AppWrapper({ children }) {
   const [state, dispatch] = useReducer(AppReducer, {
-    editMode: false,
+    editMode: window.localStorage.getItem("editMode") === "true" ? true : false,
     vertical: "Solana",
   });
 

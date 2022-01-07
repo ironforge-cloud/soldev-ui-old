@@ -52,6 +52,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
           </a>
 
           {/*  Badge */}
+          {/*// TODO: fix technical debt that is requiring the "0" check. It's in the API*/}
           {content.SpecialTag !== "0" && (
             <Link href={badgeUrl} passHref>
               <div className="cursor-pointer hover:opacity-80">
