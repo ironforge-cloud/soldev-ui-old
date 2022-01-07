@@ -2,6 +2,7 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import fetcher from "../../../utils/fetcher";
 import findTags from "../../../utils/find-tags";
+import defineTitle from "../../../utils/define-title";
 
 const PublicationsComponent = dynamic(() =>
   import("../../../components/publications")
@@ -45,7 +46,6 @@ export async function getStaticProps({ params }) {
     `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/types`
   );
 
-  let title = "";
   let contentType = "";
 
   // Content Type definition
@@ -58,22 +58,8 @@ export async function getStaticProps({ params }) {
     contentType = "playlist";
   }
 
-  if (contentType === "playlist") {
-    title = data[0].PlaylistTitle;
-  } else if (contentType === "threads") {
-    title = "Twitter Threads";
-  } else if (contentType === "spl") {
-    title = "Program Library";
-  } else if (contentType === "started") {
-    title = "Getting Started with Solana";
-  } else if (contentType === "sdk") {
-    title = "SDKs & Frameworks";
-  } else {
-    // Capitalize the first char
-    title = contentType.charAt(0).toUpperCase() + contentType.slice(1);
-  }
-
-  let tags = findTags(data);
+  const title = defineTitle(contentType, data);
+  const tags = findTags(data);
 
   return {
     props: { data, title, contentType, tags },
