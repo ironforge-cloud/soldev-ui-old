@@ -108,6 +108,7 @@ Publications.defaultProps = {
   tags: [],
   badges: [],
   tagsList: [],
+  contentType: "", // TODO: this is used in the tags component and needs some improvements
 };
 
 Publications.propTypes = {
@@ -118,7 +119,7 @@ Publications.propTypes = {
   tags: PropTypes.array,
   title: PropTypes.string.isRequired,
   tagsList: PropTypes.array,
-  contentType: PropTypes.string.isRequired,
+  contentType: PropTypes.string,
 };
 
 export default memo(Publications);
