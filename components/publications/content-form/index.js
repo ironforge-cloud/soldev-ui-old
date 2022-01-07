@@ -60,6 +60,9 @@ function ContentForm({
       body: JSON.stringify([{ ...data }]),
     });
 
+    // call preview mode
+    await fetch(`/api/preview?type=${data.ContentType}`);
+
     // Edit happens inside a modal, we need to close it after
     setOpen(false);
   };

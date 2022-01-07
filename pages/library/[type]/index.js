@@ -38,9 +38,9 @@ export async function getStaticPaths() {
   return { paths, fallback: "blocking" };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps(context) {
   const data = await fetcher(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/${params.type}`
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/${context.params.type}`
   );
   const contentTypes = await fetcher(
     `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/types`
@@ -50,7 +50,7 @@ export async function getStaticProps({ params }) {
 
   // Content Type definition
   for (let i = 0; i < contentTypes.length; i++) {
-    if (contentTypes[i] === params.type) {
+    if (contentTypes[i] === context.params.type) {
       contentType = contentTypes[i];
       break;
     }
