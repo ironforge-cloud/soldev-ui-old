@@ -62,9 +62,6 @@ function ContentForm({
 
     // Edit happens inside a modal, we need to close it after
     setOpen(false);
-
-    // force refresh
-    router.reload(window.location.pathname);
   };
 
   return (

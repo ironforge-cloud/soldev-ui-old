@@ -31,7 +31,7 @@ function TagsSelector({ tagsList, contentType, tags, badges }) {
     }
 
     // url composition
-    let url = `/library/${contentType}?`;
+    let url = `/library/${contentType}/filter?`;
     newTags.forEach((item) => {
       if (listOfTags.badge.includes(item)) {
         url = url + `badge=${item}&`;
