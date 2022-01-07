@@ -1,20 +1,25 @@
 import Card from "./card";
 import SubmitContentCard from "./submit-content-card";
-import { useState, memo, useEffect } from "react";
+import { memo, useEffect, useState } from "react";
 import { useAppState } from "../../context/AppContext";
 import CardEdit from "./card-edit";
-import NotificationSuccess from "../notifications/success";
 import PropTypes from "prop-types";
 import Spinner from "../spinner";
 import VideoCard from "./video-card";
-import findTags from "../../utils/find-tags";
 import TagsSelector from "../badges/tags-selector";
 
-function Publications({ data, title, isLoading, badges, tags, type }) {
+function Publications({
+  data,
+  title,
+  contentType,
+  isLoading,
+  badges,
+  tags,
+  tagsList,
+}) {
   const [open, setOpen] = useState(false);
   const appState = useAppState();
   const [content, setContent] = useState({});
-
   const [positions, setPositions] = useState([0]);
 
   useEffect(() => {
@@ -35,25 +40,11 @@ function Publications({ data, title, isLoading, badges, tags, type }) {
     setOpen(true);
   };
 
-  const tagsList = findTags(data);
-
-  let componentTitle = title;
-
-  if (title === "sdk") {
-    componentTitle = "SDKs & Frameworks";
-  } else if (title === "threads") {
-    componentTitle = "Twitter Threads";
-  } else if (title === "spl") {
-    componentTitle = "Program Library";
-  } else if (title === "started") {
-    componentTitle = "Getting Started with Solana";
-  }
-
   return (
     <div className="flex flex-col mx-auto">
       <div className="flex justify-center mb-8">
         <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold tracking-tight text-gray-900 dark:text-stone-200 capitalize w-max">
-          {componentTitle}
+          {title}
         </h2>
       </div>
 
@@ -61,7 +52,7 @@ function Publications({ data, title, isLoading, badges, tags, type }) {
         <div className="flex justify-center">
           <TagsSelector
             tagsList={tagsList}
-            contentType={title}
+            contentType={contentType}
             badges={badges}
             tags={tags}
           />
@@ -113,6 +104,12 @@ function Publications({ data, title, isLoading, badges, tags, type }) {
   );
 }
 
+Publications.defaultProps = {
+  tags: [],
+  badges: [],
+  tagsList: [],
+};
+
 Publications.propTypes = {
   data: PropTypes.array.isRequired,
   type: PropTypes.string,
@@ -120,6 +117,8 @@ Publications.propTypes = {
   badges: PropTypes.array,
   tags: PropTypes.array,
   title: PropTypes.string.isRequired,
+  tagsList: PropTypes.array,
+  contentType: PropTypes.string.isRequired,
 };
 
 export default memo(Publications);
