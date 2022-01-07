@@ -1,5 +1,4 @@
 import Head from "next/head";
-import useContent from "../../../hooks/useContent";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import fetcher from "../../../utils/fetcher";
@@ -46,12 +45,23 @@ export async function getStaticProps({ params }) {
   const data = await fetcher(
     `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/${params.type}`
   );
-  const content = await fetcher(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/${params.type}/${params.contentId}`
-  );
 
   let title = "";
+  let pageTitle = "";
+  let pageDescription = "";
+  let selectedContent = {};
   let contentType = params.type;
+
+  for (let i = 0; i < data.length; i++) {
+    // If ID doesn't match next
+    if (params.contentId !== data[i].SK) continue;
+
+    // Save content and stop loop
+    selectedContent = data[i];
+    pageTitle = data[i].Title;
+    pageDescription = data[i].Description;
+    break;
+  }
 
   if (contentType === "threads") {
     title = "Twitter Threads";
@@ -69,29 +79,38 @@ export async function getStaticProps({ params }) {
   let tags = findTags(data);
 
   return {
-    props: { data, title, contentType, tags },
+    props: {
+      data,
+      title,
+      contentType,
+      tags,
+      selectedContent,
+      pageTitle,
+      pageDescription,
+    },
     revalidate: 60,
   };
 }
 
-export default function Publications({}) {
-  const { data = [], type = "", isLoading, selectedContent } = useContent();
+export default function LibraryContent({
+  data,
+  title,
+  contentType,
+  tags,
+  selectedContent,
+  pageTitle,
+  pageDescription,
+}) {
   const [open, setOpen] = useState(true);
 
   return (
     <div>
       <Head>
-        <title>SolDev: Library</title>
-        <meta name="title" content="SolDev: Library" />
-        <meta name="og:title" content="SolDev: Library" />
-        <meta
-          name="description"
-          content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
-        />
-        <meta
-          name="og:description"
-          content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
-        />
+        <title className="capitalize">{`SolDev: ${pageTitle}`}</title>
+        <meta name="title" content={`SolDev: ${pageTitle}`} />
+        <meta name="og:title" content={`SolDev: ${pageTitle}`} />
+        <meta name="description" content={pageDescription} />
+        <meta name="og:description" content={pageDescription} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@soldevapp" />
         <meta name="robot" content="index,follow,noodp" />
@@ -99,7 +118,13 @@ export default function Publications({}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <PublicationsComponent data={data} title={type} isLoading={isLoading} />
+      <PublicationsComponent
+        data={data}
+        title={title}
+        contentType={contentType}
+        isLoading={false}
+        tagsList={tags}
+      />
       {selectedContent && (
         <CardModal content={selectedContent} open={open} setOpen={setOpen} />
       )}
