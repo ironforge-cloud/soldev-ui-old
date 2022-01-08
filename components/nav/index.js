@@ -26,7 +26,7 @@ const navigation = [
   },
   {
     name: "Jobs",
-    href: "https://jobs.solana.com/",
+    href: "https://jobs.solana.com?utm_source=soldev.app",
     icon: ClipboardCheckIcon,
     disabled: false,
   },
@@ -35,17 +35,17 @@ const navigation = [
 const special = [
   {
     name: "Solana Cookbook",
-    href: "https://solanacookbook.com/",
+    href: "https://solanacookbook.com/?utm_source=soldev.app",
     disabled: false,
   },
   {
     name: "Solana Docs",
-    href: "https://docs.solana.com/introduction",
+    href: "https://docs.solana.com/introduction?utm_source=soldev.app",
     disabled: false,
   },
   {
     name: "Metaplex Docs",
-    href: "https://docs.metaplex.com/",
+    href: "https://docs.metaplex.com?utm_source=soldev.app",
     disabled: false,
   },
 ];
@@ -55,8 +55,14 @@ const specialLists = [
 ];
 
 const series = [
-  { name: "Figment", href: "https://learn.figment.io/protocols/solana" },
-  { name: "Questbook", href: "https://www.startonsolana.com/" },
+  {
+    name: "Figment",
+    href: "https://learn.figment.io/protocols/solana",
+  },
+  {
+    name: "Questbook",
+    href: "https://www.startonsolana.com",
+  },
 ];
 
 const categories = [
