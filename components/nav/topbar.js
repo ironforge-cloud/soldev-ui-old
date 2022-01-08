@@ -2,15 +2,15 @@ import { Menu, Popover, Transition } from "@headlessui/react";
 import { SearchIcon } from "@heroicons/react/solid";
 import {
   CogIcon,
+  ColorSwatchIcon,
+  DesktopComputerIcon,
   MenuIcon,
-  XIcon,
   MoonIcon,
   SunIcon,
-  DesktopComputerIcon,
-  ColorSwatchIcon,
+  XIcon,
 } from "@heroicons/react/outline";
 import PropTypes from "prop-types";
-import React, { Fragment, memo } from "react";
+import React, { Fragment, memo, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useUser from "../../hooks/useUser";
@@ -18,7 +18,6 @@ import {
   WalletDisconnectButton,
   WalletMultiButton,
 } from "@solana/wallet-adapter-react-ui";
-import { useState, useRef, useEffect } from "react";
 import { useAppDispatch, useAppState } from "../../context/AppContext";
 import { useIsomorphicLayoutEffect } from "../../hooks/useIsomorphicLayoutEffect";
 
@@ -243,7 +242,7 @@ function TopBar({ navigation, categories }) {
                         <Menu.Button className="rounded-full flex hover:outline-none hover:ring-2 hover:ring-offset-2 hover:ring-green-500">
                           <span className="sr-only">Open user menu</span>
                           <Image
-                            className="h-8 w-8 rounded-full"
+                            className="rounded-full"
                             src="/avatar.svg"
                             height="32px"
                             width="32px"

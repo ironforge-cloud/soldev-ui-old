@@ -55,21 +55,48 @@ export default function Community() {
   return (
     <div>
       <Head>
-        <title>SolDev: Community</title>
-        <meta name="title" content="SolDev: Community" />
-        <meta name="og:title" content="SolDev: Community" />
+        <title>SolDev - Community</title>
+
+        <meta name="title" content="SolDev - Community" />
         <meta
           name="description"
-          content="Stay up-to-date with the Twitter Solana ecosystem. Solana Projects and Developers in one place."
+          content="Stay up-to-date with the Solana ecosystem. Solana Projects and Developers in one place."
         />
+
+        {/* Google */}
+        <meta name="robot" content="index,follow,noodp" />
+        <meta name="googlebot" content="index,follow" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.soldev.app/community" />
+        <meta name="og:title" content="SolDev - Community" />
         <meta
           name="og:description"
           content="Stay up-to-date with the Twitter Solana ecosystem. Solana Projects and Developers in one place."
         />
+        <meta
+          property="og:image"
+          content="https://www.soldev.app/solanaVerticalLogo.png"
+        />
+
+        {/* Twitter */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@soldevapp" />
-        <meta name="robot" content="index,follow,noodp" />
-        <meta name="googlebot" content="index,follow" />
+        <meta
+          property="twitter:url"
+          content="https://www.soldev.app/community"
+        />
+        <meta property="twitter:title" content="SolDev - Community" />
+        <meta
+          property="twitter:description"
+          content="Stay up-to-date with the Twitter Solana ecosystem. Solana Projects and Developers in one place."
+        />
+        <meta
+          property="twitter:image"
+          content="https://www.soldev.app/solanaVerticalLogo.png"
+        />
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
