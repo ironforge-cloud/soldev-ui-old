@@ -1,7 +1,10 @@
 import Head from "next/head";
-import Promoted from "../../components/videos/promoted";
-import Playlists from "../../components/videos/playlists";
 import fetcher from "../../utils/fetcher";
+import dynamic from "next/dynamic";
+
+const Playlists = dynamic(() => import("../../components/videos/playlists"));
+
+const Promoted = dynamic(() => import("../../components/videos/promoted"));
 
 export async function getStaticProps() {
   const promoted = await fetcher(

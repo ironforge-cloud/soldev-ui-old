@@ -1,7 +1,10 @@
 import Head from "next/head";
 import fetch from "isomorphic-unfetch";
-import Tabs from "../../components/dashboard/tabs";
-import Sidebar from "../../components/dashboard/sidebar";
+import dynamic from "next/dynamic";
+
+const Sidebar = dynamic(() => import("../../components/dashboard/sidebar"));
+
+const Tabs = dynamic(() => import("../../components/dashboard/tabs"));
 
 export async function getStaticProps() {
   const newResponse = await fetch(

@@ -1,7 +1,14 @@
 import Head from "next/head";
-import ContentForm from "../components/publications/content-form";
 import { useState } from "react";
-import NotificationSuccess from "../components/notifications/success";
+import dynamic from "next/dynamic";
+
+const ContentForm = dynamic(() =>
+  import("../components/publications/content-form")
+);
+
+const NotificationSuccess = dynamic(() =>
+  import("../components/notifications/success")
+);
 
 export default function Submit() {
   const [data, setData] = useState({
