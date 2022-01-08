@@ -1,21 +1,18 @@
 import Head from "next/head";
-import fetch from "isomorphic-unfetch";
 import dynamic from "next/dynamic";
+import fetch from "../../utils/fetcher";
 
 const Sidebar = dynamic(() => import("../../components/dashboard/sidebar"));
 
 const Tabs = dynamic(() => import("../../components/dashboard/tabs"));
 
 export async function getStaticProps() {
-  const newResponse = await fetch(
+  const newContent = await fetch(
     `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/specialtag/New`
   );
-  const trendingResponse = await fetch(
+  const trendingContent = await fetch(
     `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/specialtag/Hot`
   );
-
-  const newContent = await newResponse.json();
-  const trendingContent = await trendingResponse.json();
 
   return {
     props: { newContent, trendingContent },
