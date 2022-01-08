@@ -52,20 +52,20 @@ export default function Video({ promoted, playlists }) {
         />
 
         {/* Twitter */}
-        <meta property="twitter:card" content="summary" />
-        <meta property="twitter:site" content="@soldevapp" />
-        <meta property="twitter:creator" content="@italoacasas" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@soldevapp" />
+        <meta name="twitter:creator" content="@italoacasas" />
         <meta
-          property="twitter:url"
+          name="twitter:url"
           content="https://www.soldev.app/library/playlists"
         />
-        <meta property="twitter:title" content="SolDev - Video Playlists" />
+        <meta name="twitter:title" content="SolDev - Video Playlists" />
         <meta
-          property="twitter:description"
+          name="twitter:description"
           content="Watch Solana conferences, live streams and stay up to date with the latest Podcasts"
         />
         <meta
-          property="twitter:image"
+          name="twitter:image"
           content="https://www.soldev.app/solanaLogoMark.png"
         />
 

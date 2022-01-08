@@ -69,16 +69,16 @@ function VideoID({ data }) {
         <meta property="og:image" content={data.Img} />
 
         {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:site" content="@soldevapp" />
-        <meta property="twitter:creator" content="@italoacasas" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@soldevapp" />
+        <meta name="twitter:creator" content="@italoacasas" />
         <meta
-          property="twitter:url"
+          name="twitter:url"
           content={`https://www.soldev.app/library/${data.PlaylistID}/video/${data.SK}`}
         />
-        <meta property="twitter:title" content={`SolDev - ${data.Title}`} />
-        <meta property="twitter:description" content={data.Description} />
-        <meta property="twitter:image" content={data.Img} />
+        <meta name="twitter:title" content={`SolDev - ${data.Title}`} />
+        <meta name="twitter:description" content={data.Description} />
+        <meta name="twitter:image" content={data.Img} />
 
         <link rel="icon" href="/favicon.ico" />
       </Head>

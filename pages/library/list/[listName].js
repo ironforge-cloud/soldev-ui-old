@@ -65,20 +65,20 @@ export default function LibraryLists({ data, title, listName }) {
         />
 
         {/* Twitter */}
-        <meta property="twitter:card" content="summary" />
-        <meta property="twitter:site" content="@soldevapp" />
-        <meta property="twitter:creator" content="@italoacasas" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@soldevapp" />
+        <meta name="twitter:creator" content="@italoacasas" />
         <meta
-          property="twitter:url"
+          name="twitter:url"
           content={`https://www.soldev.app/library/list/${listName}`}
         />
-        <meta property="twitter:title" content={`SolDev - ${title}`} />
+        <meta name="twitter:title" content={`SolDev - ${title}`} />
         <meta
-          property="twitter:description"
+          name="twitter:description"
           content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
         />
         <meta
-          property="twitter:image"
+          name="twitter:image"
           content="https://www.soldev.app/solanaLogoMark.png"
         />
 

@@ -31,14 +31,14 @@ export default function ContentAdmin({}) {
         />
 
         {/* Twitter */}
-        <meta property="twitter:card" content="summary" />
-        <meta property="twitter:site" content="@soldevapp" />
-        <meta property="twitter:creator" content="@italoacasas" />
-        <meta property="og:url" content="https://www.soldev.app/admin" />
-        <meta property="twitter:title" content="SolDev - Library Admin" />
-        <meta property="twitter:description" content="SolDev - Library Admin" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@soldevapp" />
+        <meta name="twitter:creator" content="@italoacasas" />
+        <meta name="og:url" content="https://www.soldev.app/admin" />
+        <meta name="twitter:title" content="SolDev - Library Admin" />
+        <meta name="twitter:description" content="SolDev - Library Admin" />
         <meta
-          property="twitter:image"
+          name="twitter:image"
           content="https://www.soldev.app/solanaLogoMark.png"
         />
 

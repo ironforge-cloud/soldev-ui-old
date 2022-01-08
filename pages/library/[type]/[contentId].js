@@ -116,17 +116,17 @@ export default function LibraryContent({
         />
 
         {/* Twitter */}
-        <meta property="twitter:card" content="summary" />
-        <meta property="twitter:site" content="@soldevapp" />
-        <meta property="twitter:creator" content="@italoacasas" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@soldevapp" />
+        <meta name="twitter:creator" content="@italoacasas" />
         <meta
-          property="twitter:url"
+          name="twitter:url"
           content={`https://www.soldev.app/library/${contentType}/${selectedContent.SK}`}
         />
-        <meta property="twitter:title" content={`SolDev - ${pageTitle}`} />
-        <meta property="twitter:description" content={pageDescription} />
+        <meta name="twitter:title" content={`SolDev - ${pageTitle}`} />
+        <meta name="twitter:description" content={pageDescription} />
         <meta
-          property="twitter:image"
+          name="twitter:image"
           content="https://www.soldev.app/solanaLogoMark.png"
         />
 

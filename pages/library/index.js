@@ -49,17 +49,17 @@ export default function Library({ newContent, trendingContent }) {
         />
 
         {/* Twitter */}
-        <meta property="twitter:card" content="summary" />
-        <meta property="twitter:site" content="@soldevapp" />
-        <meta property="twitter:creator" content="@italoacasas" />
-        <meta property="twitter:url" content="https://www.soldev.app/library" />
-        <meta property="twitter:title" content="SolDev - Community" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@soldevapp" />
+        <meta name="twitter:creator" content="@italoacasas" />
+        <meta name="twitter:url" content="https://www.soldev.app/library" />
+        <meta name="twitter:title" content="SolDev - Community" />
         <meta
-          property="twitter:description"
+          name="twitter:description"
           content="Stay up to date with the Solana developer community."
         />
         <meta
-          property="twitter:image"
+          name="twitter:image"
           content="https://www.soldev.app/solanaLogoMark.png"
         />
 

@@ -51,16 +51,16 @@ export default function Submit() {
         />
 
         {/* Twitter */}
-        <meta property="twitter:card" content="summary" />
-        <meta property="twitter:site" content="@soldevapp" />
-        <meta property="twitter:url" content="https://www.soldev.app/submit" />
-        <meta property="twitter:title" content="SolDev - Submit" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@soldevapp" />
+        <meta name="twitter:url" content="https://www.soldev.app/submit" />
+        <meta name="twitter:title" content="SolDev - Submit" />
         <meta
-          property="twitter:description"
+          name="twitter:description"
           content="Propose new content to the platform. Submissions will be manually reviewed before deciding to publish them to the site."
         />
         <meta
-          property="twitter:image"
+          name="twitter:image"
           content="https://www.soldev.app/solanaLogoMark.png"
         />
 
