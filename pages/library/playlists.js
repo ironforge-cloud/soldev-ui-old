@@ -32,8 +32,8 @@ export default function Video({ promoted, playlists }) {
         />
 
         {/* Google */}
-        <meta property="robot" content="index,follow,noodp" />
-        <meta property="googlebot" content="index,follow" />
+        <meta name="robots" content="index,follow,noodp" />
+        <meta name="googlebot" content="index,follow" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />

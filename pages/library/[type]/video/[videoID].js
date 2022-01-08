@@ -55,8 +55,8 @@ function VideoID({ data }) {
         <meta name="description" content={data.Description} />
 
         {/* Google */}
-        <meta property="robot" content="index,follow,noodp" />
-        <meta property="googlebot" content="index,follow" />
+        <meta name="robots" content="index,follow,noodp" />
+        <meta name="googlebot" content="index,follow" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />

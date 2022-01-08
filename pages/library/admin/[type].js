@@ -17,8 +17,8 @@ export default function ContentAdmin({}) {
         <meta name="description" content="Library Admin" />
 
         {/* Google */}
-        <meta property="googlebot" content="noindex" />
-        <meta property="robots" content="noindex" />
+        <meta name="robots" content="noindex" />
+        <meta name="googlebot" content="noindex" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />

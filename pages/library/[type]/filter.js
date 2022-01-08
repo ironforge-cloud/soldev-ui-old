@@ -28,8 +28,8 @@ export default function PublicationsFilter({}) {
         />
 
         {/* Google */}
-        <meta property="googlebot" content="noindex" />
-        <meta property="robots" content="noindex" />
+        <meta name="robots" content="noindex" />
+        <meta name="googlebot" content="noindex" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
