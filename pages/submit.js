@@ -34,15 +34,15 @@ export default function Submit() {
         />
 
         {/* Google */}
-        <meta name="robot" content="index,follow,noodp" />
-        <meta name="googlebot" content="index,follow" />
+        <meta property="robot" content="index,follow,noodp" />
+        <meta property="googlebot" content="index,follow" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.soldev.app/submit" />
-        <meta name="og:title" content="SolDev - Submit" />
+        <meta property="og:title" content="SolDev - Submit" />
         <meta
-          name="og:description"
+          property="og:description"
           content="Propose new content to the platform. Submissions will be manually reviewed before deciding to publish them to the site."
         />
         <meta
@@ -51,8 +51,8 @@ export default function Submit() {
         />
 
         {/* Twitter */}
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@soldevapp" />
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:site" content="@soldevapp" />
         <meta property="twitter:url" content="https://www.soldev.app/submit" />
         <meta property="twitter:title" content="SolDev - Submit" />
         <meta

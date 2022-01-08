@@ -55,8 +55,8 @@ function VideoID({ data }) {
         <meta name="description" content={data.Description} />
 
         {/* Google */}
-        <meta name="robot" content="index,follow,noodp" />
-        <meta name="googlebot" content="index,follow" />
+        <meta property="robot" content="index,follow,noodp" />
+        <meta property="googlebot" content="index,follow" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
@@ -64,14 +64,14 @@ function VideoID({ data }) {
           property="og:url"
           content={`https://www.soldev.app/library/${data.PlaylistID}/video/${data.SK}`}
         />
-        <meta name="og:title" content={`SolDev - ${data.Title}`} />
-        <meta name="og:description" content={data.Description} />
+        <meta property="og:title" content={`SolDev - ${data.Title}`} />
+        <meta property="og:description" content={data.Description} />
         <meta property="og:image" content={data.Img} />
 
         {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@soldevapp" />
-        <meta name="twitter:creator" content="@italoacasas" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:site" content="@soldevapp" />
+        <meta property="twitter:creator" content="@italoacasas" />
         <meta
           property="twitter:url"
           content={`https://www.soldev.app/library/${data.PlaylistID}/video/${data.SK}`}

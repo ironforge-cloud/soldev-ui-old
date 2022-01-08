@@ -45,8 +45,8 @@ export default function LibraryLists({ data, title, listName }) {
         />
 
         {/* Google */}
-        <meta name="robot" content="index,follow,noodp" />
-        <meta name="googlebot" content="index,follow" />
+        <meta property="robot" content="index,follow,noodp" />
+        <meta property="googlebot" content="index,follow" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
@@ -54,9 +54,9 @@ export default function LibraryLists({ data, title, listName }) {
           property="og:url"
           content={`https://www.soldev.app/library/list/${listName}`}
         />
-        <meta name="og:title" content={`SolDev - ${title}`} />
+        <meta property="og:title" content={`SolDev - ${title}`} />
         <meta
-          name="og:description"
+          property="og:description"
           content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
         />
         <meta
@@ -65,9 +65,9 @@ export default function LibraryLists({ data, title, listName }) {
         />
 
         {/* Twitter */}
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@soldevapp" />
-        <meta name="twitter:creator" content="@italoacasas" />
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:site" content="@soldevapp" />
+        <meta property="twitter:creator" content="@italoacasas" />
         <meta
           property="twitter:url"
           content={`https://www.soldev.app/library/list/${listName}`}

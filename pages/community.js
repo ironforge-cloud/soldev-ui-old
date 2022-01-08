@@ -64,15 +64,15 @@ export default function Community() {
         />
 
         {/* Google */}
-        <meta name="robot" content="index,follow,noodp" />
-        <meta name="googlebot" content="index,follow" />
+        <meta property="robot" content="index,follow,noodp" />
+        <meta property="googlebot" content="index,follow" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.soldev.app/community" />
-        <meta name="og:title" content="SolDev - Community" />
+        <meta property="og:title" content="SolDev - Community" />
         <meta
-          name="og:description"
+          property="og:description"
           content="Stay up-to-date with the Twitter Solana ecosystem. Solana Projects and Developers in one place."
         />
         <meta
@@ -81,9 +81,9 @@ export default function Community() {
         />
 
         {/* Twitter */}
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@soldevapp" />
-        <meta name="twitter:creator" content="@italoacasas" />
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:site" content="@soldevapp" />
+        <meta property="twitter:creator" content="@italoacasas" />
         <meta
           property="twitter:url"
           content="https://www.soldev.app/community"

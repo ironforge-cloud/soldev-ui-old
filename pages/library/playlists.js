@@ -32,8 +32,8 @@ export default function Video({ promoted, playlists }) {
         />
 
         {/* Google */}
-        <meta name="robot" content="index,follow,noodp" />
-        <meta name="googlebot" content="index,follow" />
+        <meta property="robot" content="index,follow,noodp" />
+        <meta property="googlebot" content="index,follow" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
@@ -41,7 +41,7 @@ export default function Video({ promoted, playlists }) {
           property="og:url"
           content="https://www.soldev.app/library/playlists"
         />
-        <meta name="og:title" content="SolDev - Video Playlists" />
+        <meta property="og:title" content="SolDev - Video Playlists" />
         <meta
           name="og:description"
           content="Watch Solana conferences, live streams and stay up to date with the latest Podcasts"
@@ -52,9 +52,9 @@ export default function Video({ promoted, playlists }) {
         />
 
         {/* Twitter */}
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@soldevapp" />
-        <meta name="twitter:creator" content="@italoacasas" />
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:site" content="@soldevapp" />
+        <meta property="twitter:creator" content="@italoacasas" />
         <meta
           property="twitter:url"
           content="https://www.soldev.app/library/playlists"

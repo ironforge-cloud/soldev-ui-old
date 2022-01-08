@@ -99,8 +99,8 @@ export default function LibraryContent({
         <meta name="description" content={pageDescription} />
 
         {/* Google */}
-        <meta name="robot" content="index,follow,noodp" />
-        <meta name="googlebot" content="index,follow" />
+        <meta property="robot" content="index,follow,noodp" />
+        <meta property="googlebot" content="index,follow" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
@@ -108,17 +108,17 @@ export default function LibraryContent({
           property="og:url"
           content={`https://www.soldev.app/library/${contentType}/${selectedContent.ID}`}
         />
-        <meta name="og:title" content={`SolDev - ${pageTitle}`} />
-        <meta name="og:description" content={pageDescription} />
+        <meta property="og:title" content={`SolDev - ${pageTitle}`} />
+        <meta property="og:description" content={pageDescription} />
         <meta
           property="og:image"
           content="https://www.soldev.app/solanaLogoMark.png"
         />
 
         {/* Twitter */}
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@soldevapp" />
-        <meta name="twitter:creator" content="@italoacasas" />
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:site" content="@soldevapp" />
+        <meta property="twitter:creator" content="@italoacasas" />
         <meta
           property="twitter:url"
           content={`https://www.soldev.app/library/${contentType}/${selectedContent.SK}`}

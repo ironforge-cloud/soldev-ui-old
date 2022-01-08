@@ -28,15 +28,15 @@ export default function PublicationsFilter({}) {
         />
 
         {/* Google */}
-        <meta name="googlebot" content="noindex" />
-        <meta name="robots" content="noindex" />
+        <meta property="googlebot" content="noindex" />
+        <meta property="robots" content="noindex" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.soldev.app/library" />
-        <meta name="og:title" content="SolDev - Library" />
+        <meta property="og:title" content="SolDev - Library" />
         <meta
-          name="og:description"
+          property="og:description"
           content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
         />
         <meta
@@ -45,9 +45,9 @@ export default function PublicationsFilter({}) {
         />
 
         {/* Twitter */}
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@soldevapp" />
-        <meta name="twitter:creator" content="@italoacasas" />
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:site" content="@soldevapp" />
+        <meta property="twitter:creator" content="@italoacasas" />
         <meta property="og:url" content="https://www.soldev.app/library" />
         <meta property="twitter:title" content="SolDev - Library" />
         <meta
