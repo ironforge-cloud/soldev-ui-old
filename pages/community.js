@@ -77,12 +77,13 @@ export default function Community() {
         />
         <meta
           property="og:image"
-          content="https://www.soldev.app/solanaVerticalLogo.png"
+          content="https://www.soldev.app/solanaLogoMark.png"
         />
 
         {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@soldevapp" />
+        <meta name="twitter:creator" content="@italoacasas" />
         <meta
           property="twitter:url"
           content="https://www.soldev.app/community"
@@ -94,7 +95,7 @@ export default function Community() {
         />
         <meta
           property="twitter:image"
-          content="https://www.soldev.app/solanaVerticalLogo.png"
+          content="https://www.soldev.app/solanaLogoMark.png"
         />
 
         <link rel="icon" href="/favicon.ico" />

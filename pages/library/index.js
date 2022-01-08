@@ -24,21 +24,45 @@ export default function Library({ newContent, trendingContent }) {
   return (
     <div>
       <Head>
-        <title>SolDev: Library</title>
-        <meta name="title" content="SolDev: Library" />
-        <meta name="og:title" content="SolDev: Library" />
+        <title>SolDev - Library</title>
+        <meta name="title" content="SolDev - Library" />
         <meta
           name="description"
           content="Stay up to date with the Solana developer community."
         />
+
+        {/* Google */}
+        <meta name="robot" content="index,follow,noodp" />
+        <meta name="googlebot" content="index,follow" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.soldev.app/library" />
+        <meta name="og:title" content="SolDev - Library" />
         <meta
           name="og:description"
           content="Stay up to date with the Solana developer community."
         />
+        <meta
+          property="og:image"
+          content="https://www.soldev.app/solanaLogoMark.png"
+        />
+
+        {/* Twitter */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@soldevapp" />
-        <meta name="robot" content="index,follow,noodp" />
-        <meta name="googlebot" content="index,follow" />
+        <meta name="twitter:creator" content="@italoacasas" />
+        <meta property="twitter:url" content="https://www.soldev.app/library" />
+        <meta property="twitter:title" content="SolDev - Community" />
+        <meta
+          property="twitter:description"
+          content="Stay up to date with the Solana developer community."
+        />
+        <meta
+          property="twitter:image"
+          content="https://www.soldev.app/solanaLogoMark.png"
+        />
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

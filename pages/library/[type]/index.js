@@ -76,15 +76,42 @@ export default function Publications({ data, title, contentType, tags }) {
   return (
     <div>
       <Head>
-        <title className="capitalize">{`SolDev: ${title}`}</title>
-        <meta name="title" content={`SolDev: ${title}`} />
-        <meta name="og:title" content={`SolDev: ${title}`} />
+        <title>{`SolDev: ${title}`}</title>
+        <meta name="title" content={`SolDev - ${title}`} />
         <meta name="description" content={pageDescription} />
-        <meta name="og:description" content={pageDescription} />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@soldevapp" />
+
+        {/* Google */}
         <meta name="robot" content="index,follow,noodp" />
         <meta name="googlebot" content="index,follow" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content={`https://www.soldev.app/library/${contentType}`}
+        />
+        <meta name="og:title" content={`SolDev - ${title}`} />
+        <meta name="og:description" content={pageDescription} />
+        <meta
+          property="og:image"
+          content="https://www.soldev.app/solanaLogoMark.png"
+        />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@soldevapp" />
+        <meta name="twitter:creator" content="@italoacasas" />
+        <meta
+          property="twitter:url"
+          content={`https://www.soldev.app/library/${contentType}`}
+        />
+        <meta property="twitter:title" content={`SolDev - ${title}`} />
+        <meta property="twitter:description" content={pageDescription} />
+        <meta
+          property="twitter:image"
+          content="https://www.soldev.app/solanaLogoMark.png"
+        />
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

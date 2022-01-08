@@ -24,21 +24,51 @@ export default function Video({ promoted, playlists }) {
   return (
     <div>
       <Head>
-        <title>SolDev: Video Playlists</title>
-        <meta name="title" content="SolDev: Video Playlists" />
-        <meta name="og:title" content="SolDev: Video Playlists" />
+        <title>SolDev - Video Playlists</title>
+        <meta name="title" content="SolDev - Video Playlists" />
         <meta
           name="description"
           content="Watch Solana conferences, live streams and stay up to date with the latest Podcasts"
         />
+
+        {/* Google */}
+        <meta name="robot" content="index,follow,noodp" />
+        <meta name="googlebot" content="index,follow" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://www.soldev.app/library/playlists"
+        />
+        <meta name="og:title" content="SolDev - Video Playlists" />
         <meta
           name="og:description"
           content="Watch Solana conferences, live streams and stay up to date with the latest Podcasts"
         />
+        <meta
+          property="og:image"
+          content="https://www.soldev.app/solanaLogoMark.png"
+        />
+
+        {/* Twitter */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@soldevapp" />
-        <meta name="robot" content="index,follow,noodp" />
-        <meta name="googlebot" content="index,follow" />
+        <meta name="twitter:creator" content="@italoacasas" />
+        <meta
+          property="twitter:url"
+          content="https://www.soldev.app/library/playlists"
+        />
+        <meta property="twitter:title" content="SolDev - Video Playlists" />
+        <meta
+          property="twitter:description"
+          content="Watch Solana conferences, live streams and stay up to date with the latest Podcasts"
+        />
+        <meta
+          property="twitter:image"
+          content="https://www.soldev.app/solanaLogoMark.png"
+        />
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

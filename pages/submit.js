@@ -27,20 +27,43 @@ export default function Submit() {
     <div className="px-6">
       <Head>
         <title>SolDev: Submit</title>
-        <meta name="title" content="SolDev: Submit" />
-        <meta name="og:title" content="SolDev: Submit" />
+        <meta name="title" content="SolDev - Submit" />
         <meta
           name="description"
           content="Propose new content to the platform. Submissions will be manually reviewed before deciding to publish them to the site."
         />
+
+        {/* Google */}
+        <meta name="robot" content="index,follow,noodp" />
+        <meta name="googlebot" content="index,follow" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.soldev.app/submit" />
+        <meta name="og:title" content="SolDev - Submit" />
         <meta
           name="og:description"
           content="Propose new content to the platform. Submissions will be manually reviewed before deciding to publish them to the site."
         />
+        <meta
+          property="og:image"
+          content="https://www.soldev.app/solanaVerticalLogo.png"
+        />
+
+        {/* Twitter */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@soldevapp" />
-        <meta name="robot" content="index,follow,noodp" />
-        <meta name="googlebot" content="index,follow" />
+        <meta property="twitter:url" content="https://www.soldev.app/submit" />
+        <meta property="twitter:title" content="SolDev - Submit" />
+        <meta
+          property="twitter:description"
+          content="Propose new content to the platform. Submissions will be manually reviewed before deciding to publish them to the site."
+        />
+        <meta
+          property="twitter:image"
+          content="https://www.soldev.app/solanaLogoMark.png"
+        />
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

@@ -28,30 +28,60 @@ export async function getStaticProps({ params }) {
   const title = defineTitle(params.listName);
 
   return {
-    props: { data, title },
+    props: { data, title, listName: params.listName },
     revalidate: 60,
   };
 }
 
-export default function LibraryLists({ data, title }) {
+export default function LibraryLists({ data, title, listName }) {
   return (
     <div>
       <Head>
-        <title>{`SolDev: ${title}`}</title>
-        <meta name="title" content={`SolDev: ${title}`} />
-        <meta name="og:title" content={`SolDev: ${title}`} />
+        <title>{`SolDev - ${title}`}</title>
+        <meta name="title" content={`SolDev - ${title}`} />
         <meta
           name="description"
           content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
         />
+
+        {/* Google */}
+        <meta name="robot" content="index,follow,noodp" />
+        <meta name="googlebot" content="index,follow" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content={`https://www.soldev.app/library/list/${listName}`}
+        />
+        <meta name="og:title" content={`SolDev - ${title}`} />
         <meta
           name="og:description"
           content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
         />
+        <meta
+          property="og:image"
+          content="https://www.soldev.app/solanaLogoMark.png"
+        />
+
+        {/* Twitter */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@soldevapp" />
-        <meta name="robot" content="index,follow,noodp" />
-        <meta name="googlebot" content="index,follow" />
+        <meta name="twitter:creator" content="@italoacasas" />
+        <meta
+          property="twitter:url"
+          content={`https://www.soldev.app/library/list/${listName}`}
+        />
+        <meta property="twitter:title" content={`SolDev - ${title}`} />
+        <meta
+          property="twitter:description"
+          content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
+        />
+        <meta
+          property="twitter:image"
+          content="https://www.soldev.app/solanaLogoMark.png"
+        />
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
