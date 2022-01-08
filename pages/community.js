@@ -5,18 +5,18 @@ import Spinner from "../components/spinner";
 import Sidebar from "../components/dashboard/sidebar";
 import loadTweets from "../utils/loadTweets";
 
-const tabs = ["Developers", "Projects"];
+const tabs = ["developers", "projects"];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Community() {
-  const [selectedTab, setSelectedTab] = useState("Developers");
+  const [selectedTab, setSelectedTab] = useState("developers");
   const { data: projectsTweets = [], isLoading: projectsTweetsLoading } =
-    useTweets("1476564921030782979");
+    useTweets("projects");
   const { data: developersTweets = [], isLoading: developersTweetsLoading } =
-    useTweets("1452853465210933252");
+    useTweets("developers");
   const [developersTweetsAmount, setDevelopersTweetsAmount] = useState(15);
   const [projectsTweetsAmount, setProjectsTweetsAmount] = useState(15);
 
@@ -122,7 +122,7 @@ export default function Community() {
                     tab === "Releases" && "opacity-40 cursor-not-allowed"
                   )}
                 >
-                  <span>{tab}</span>
+                  <span className="capitalize">{tab}</span>
 
                   <span
                     aria-hidden="true"
@@ -138,7 +138,7 @@ export default function Community() {
           <div className="mt-5">
             <div className="flex flex-col justify-between gap-5">
               {/*  Developers Tab */}
-              {selectedTab === "Developers" &&
+              {selectedTab === "developers" &&
                 loadDevelopersTweets(
                   developersTweetsLoading,
                   developersTweets,
@@ -147,7 +147,7 @@ export default function Community() {
                 )}
 
               {/*  Projects Tab */}
-              {selectedTab === "Projects" &&
+              {selectedTab === "projects" &&
                 loadDevelopersTweets(
                   projectsTweetsLoading,
                   projectsTweets,
