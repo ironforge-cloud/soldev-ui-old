@@ -1,10 +1,5 @@
 import "tailwindcss/tailwind.css";
 
-// FontAwesome
-import { config, library } from "@fortawesome/fontawesome-svg-core";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import "@fortawesome/fontawesome-svg-core/styles.css"; // Import the CSS
 import PlausibleProvider from "next-plausible";
 import dynamic from "next/dynamic";
 import Script from "next/script";
@@ -15,9 +10,6 @@ import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 
 // App Context
 import { AppWrapper } from "../context/AppContext";
-
-config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
-library.add(fab, fas);
 
 const Nav = dynamic(() => import("../components/nav"));
 

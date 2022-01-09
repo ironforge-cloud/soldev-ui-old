@@ -1,6 +1,9 @@
-import { ChevronRightIcon } from "@heroicons/react/solid";
+import {
+  ChevronRightIcon,
+  FolderIcon,
+  VideoCameraIcon,
+} from "@heroicons/react/solid";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropTypes from "prop-types";
 
 export default function Playlists({ data }) {
@@ -59,12 +62,15 @@ export default function Playlists({ data }) {
               {data.map((playlist) => (
                 <tr key={playlist.ID}>
                   <td className="px-6 py-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-stone-200">
-                    <div className="flex items-center space-x-3 lg:pl-2">
-                      <FontAwesomeIcon icon={["fas", "folder"]} size="2x" />
+                    <div className="flex items-center space-x-3 lg:pl-2 cursor-pointer">
+                      <FolderIcon
+                        className="h-8 w-8 text-gray-700 dark:text-stone-500"
+                        aria-hidden="true"
+                      />
                       <Link href={`/library/${playlist.ID}`} passHref>
-                        <span className="truncate hover:text-gray-600 dark:hover:text-stone-500 cursor-pointer">
+                        <span className="truncate hover:text-gray-600 dark:text-stone-200 tracking-wide font-medium">
                           {playlist.Title}{" "}
-                          <span className="text-gray-500 dark:text-stone-400 font-normal xl:hidden">
+                          <span className="text-gray-500 dark:text-stone-400 font-normal">
                             by {playlist.Author}
                           </span>
                         </span>
@@ -75,21 +81,20 @@ export default function Playlists({ data }) {
                   <td className="hidden md:table-cell px-3 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-stone-300">
                     <div className="flex items-center space-x-2">
                       {playlist.Provider === "Youtube" && (
-                        <FontAwesomeIcon
-                          icon={["fab", "youtube"]}
-                          size="2x"
-                          color="red"
+                        <VideoCameraIcon
+                          className="h-6 w-6 text-red-500"
+                          aria-hidden="true"
                         />
                       )}
                       {playlist.Provider === "Twitch" && (
-                        <FontAwesomeIcon
-                          icon={["fab", "twitch"]}
-                          size="2x"
-                          color="purple"
+                        <VideoCameraIcon
+                          className="h-6 w-6 text-purple-500"
+                          aria-hidden="true"
                         />
                       )}
-                      <span></span>
-                      {playlist.Provider}
+                      <span className="text-gray-500 dark:text-stone-400 tracking-wide font-medium">
+                        {playlist.Provider}
+                      </span>
                     </div>
                   </td>
                 </tr>
