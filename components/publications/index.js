@@ -59,12 +59,12 @@ function Publications({
         </div>
       )}
 
-      <div className="flex flex-wrap justify-center mt-1 py-4 px-2 md:px-6 place-content-start space-x-6 gap-5 xl:gap-10">
+      <div className="flex flex-wrap justify-center mt-1 py-4 px-2 md:px-6 place-content-start md:space-x-6 gap-5 xl:gap-10">
         {isLoading ? (
           <Spinner />
         ) : (
           <>
-            <div className="ml-6 hidden lg:block">
+            <div className="md:ml-6 hidden lg:block">
               <SubmitContentCard />
             </div>
 
