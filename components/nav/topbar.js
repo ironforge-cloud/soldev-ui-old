@@ -9,7 +9,6 @@ import {
   SunIcon,
   XIcon,
 } from "@heroicons/react/outline";
-import PropTypes from "prop-types";
 import React, { Fragment, memo, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,6 +19,7 @@ import {
 } from "@solana/wallet-adapter-react-ui";
 import { useAppDispatch, useAppState } from "../../context/AppContext";
 import { useIsomorphicLayoutEffect } from "../../hooks/useIsomorphicLayoutEffect";
+import NavSidebar from "./sidebar";
 
 function update() {
   if (
@@ -122,7 +122,7 @@ function TopBar({ navigation, categories }) {
         className={({ open }) =>
           classNames(
             open && "fixed inset-0 z-40 overflow-y-auto",
-            "bg-white dark:bg-stone-800 shadow-sm lg:static lg:overflow-y-visible"
+            "bg-white dark:bg-stone-800 shadow-sm md:static md:overflow-y-visible"
           )
         }
       >
@@ -180,7 +180,7 @@ function TopBar({ navigation, categories }) {
                 </div>
 
                 {/*  Mobile Menu, only visible in small screens*/}
-                <div className="flex items-center md:absolute md:right-0 md:inset-y-0 lg:hidden">
+                <div className="flex items-center md:absolute md:right-0 md:inset-y-0 md:hidden pl-2">
                   {/* Mobile menu button */}
                   <Popover.Button className="-mx-2 rounded-md p-2 inline-flex items-center justify-center text-gray-400 dark:text-stone-300 hover:bg-gray-100 dark:hover:bg-stone-600 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500">
                     <span className="sr-only">Open menu</span>
@@ -318,39 +318,9 @@ function TopBar({ navigation, categories }) {
             </div>
 
             {/* Mobile Menu*/}
-            <Popover.Panel as="nav" className="lg:hidden" aria-label="Global">
+            <Popover.Panel as="nav" className="md:hidden" aria-label="Global">
               <div className="max-w-3xl mx-auto px-2 pt-2 pb-3 space-y-1 sm:px-4">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    aria-current={item.current ? "page" : undefined}
-                    className={classNames(
-                      item.current
-                        ? "bg-gray-100 dark:bg-stone-900 text-gray-900 dark:text-stone-300"
-                        : "hover:bg-gray-50 dark:hover:bg-stone-700",
-                      "block rounded-md py-2 px-3 text-base font-medium text-gray-700 dark:text-stone-300"
-                    )}
-                  >
-                    {item.name}
-                  </a>
-                ))}
-              </div>
-              <div className="border-t dark:border-stone-500 border-gray-300 max-w-3xl mx-auto px-2 space-y-1 sm:px-4">
-                {categories.map((item) => {
-                  // We don't render Submitted and Inactive in the mobile version
-                  if (item.name === "Submitted" || item.name === "Inactive") {
-                    return;
-                  }
-
-                  return (
-                    <Link key={item.name} href={item.href} passHref>
-                      <a className="block rounded-md py-2 px-3 text-base font-medium text-gray-600 dark:text-stone-400 hover:bg-gray-50 dark:hover:bg-stone-700 hover:text-gray-900 dark:hover:text-stone-300">
-                        {item.name}
-                      </a>
-                    </Link>
-                  );
-                })}
+                <NavSidebar />
               </div>
             </Popover.Panel>
           </>
@@ -359,10 +329,5 @@ function TopBar({ navigation, categories }) {
     </>
   );
 }
-
-TopBar.propTypes = {
-  navigation: PropTypes.array.isRequired,
-  categories: PropTypes.array.isRequired,
-};
 
 export default memo(TopBar);
