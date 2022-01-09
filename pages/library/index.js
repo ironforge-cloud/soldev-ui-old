@@ -28,7 +28,7 @@ export default function Library({ newContent, trendingContent }) {
         <meta name="title" content="SolDev - Library" />
         <meta
           name="description"
-          content="Stay up to date with the Solana developer community."
+          content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
         />
 
         {/* Google */}
@@ -41,7 +41,7 @@ export default function Library({ newContent, trendingContent }) {
         <meta property="og:title" content="SolDev - Library" />
         <meta
           property="og:description"
-          content="Stay up to date with the Solana developer community."
+          content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
         />
         <meta
           property="og:image"
@@ -53,10 +53,10 @@ export default function Library({ newContent, trendingContent }) {
         <meta name="twitter:site" content="@soldevapp" />
         <meta name="twitter:creator" content="@italoacasas" />
         <meta name="twitter:url" content="https://www.soldev.app/library" />
-        <meta name="twitter:title" content="SolDev - Community" />
+        <meta name="twitter:title" content="SolDev - Library" />
         <meta
           name="twitter:description"
-          content="Stay up to date with the Solana developer community."
+          content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
         />
         <meta
           name="twitter:image"
