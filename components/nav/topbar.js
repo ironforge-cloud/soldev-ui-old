@@ -122,7 +122,7 @@ function TopBar({ navigation, categories }) {
         className={({ open }) =>
           classNames(
             open && "fixed inset-0 z-40 overflow-y-auto",
-            "bg-white dark:bg-stone-800 shadow-sm md:static md:overflow-y-visible"
+            "bg-white dark:bg-stone-800 shadow-sm lg:static lg:overflow-y-visible"
           )
         }
       >
@@ -180,7 +180,7 @@ function TopBar({ navigation, categories }) {
                 </div>
 
                 {/*  Mobile Menu, only visible in small screens*/}
-                <div className="flex items-center md:absolute md:right-0 md:inset-y-0 md:hidden pl-2">
+                <div className="flex items-center lg:absolute lg:right-0 lg:inset-y-0 lg:hidden pl-2">
                   {/* Mobile menu button */}
                   <Popover.Button className="-mx-2 rounded-md p-2 inline-flex items-center justify-center text-gray-400 dark:text-stone-300 hover:bg-gray-100 dark:hover:bg-stone-600 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500">
                     <span className="sr-only">Open menu</span>
@@ -192,9 +192,9 @@ function TopBar({ navigation, categories }) {
                   </Popover.Button>
                 </div>
 
-                <div className="hidden md:flex md:items-center md:justify-end gap-6">
+                <div className="gap-6 flex items-center">
                   {/* Theme Settings*/}
-                  <div>
+                  <div className="hidden md:flex">
                     <Menu as="div" className="flex-shrink-0 relative ml-5">
                       <div>
                         <Menu.Button className="rounded-full flex hover:outline-none hover:ring-2 hover:ring-offset-2 hover:ring-green-500">
@@ -236,92 +236,96 @@ function TopBar({ navigation, categories }) {
                   </div>
 
                   {/*  Profile Button */}
-                  {connected ? (
-                    <Menu as="div" className="flex-shrink-0 relative">
-                      <div>
-                        <Menu.Button className="rounded-full flex hover:outline-none hover:ring-2 hover:ring-offset-2 hover:ring-green-500">
-                          <span className="sr-only">Open user menu</span>
-                          <Image
-                            className="rounded-full"
-                            src="/avatar.svg"
-                            height="32px"
-                            width="32px"
-                            alt="avatar"
-                          />
-                        </Menu.Button>
-                      </div>
-                      <Transition
-                        as={Fragment}
-                        enter="transition ease-out duration-100"
-                        enterFrom="transform opacity-0 scale-95"
-                        enterTo="transform opacity-100 scale-100"
-                        leave="transition ease-in duration-75"
-                        leaveFrom="transform opacity-100 scale-100"
-                        leaveTo="transform opacity-0 scale-95"
-                      >
-                        {/*  Desktop Profile Actions */}
-                        <Menu.Items className="origin-top-right absolute z-10 right-0 mt-2 w-60 border dark:border-stone-600 border-gray-300 rounded-xl shadow-lg bg-white dark:bg-stone-800 ring-1 ring-black ring-opacity-5 py-1 focus:outline-none">
-                          {isAdmin && (
+                  <div className="hidden lg:flex">
+                    {connected ? (
+                      <Menu as="div" className="flex-shrink-0 relative">
+                        <div>
+                          <Menu.Button className="rounded-full flex hover:outline-none hover:ring-2 hover:ring-offset-2 hover:ring-green-500">
+                            <span className="sr-only">Open user menu</span>
+                            <Image
+                              className="rounded-full"
+                              src="/avatar.svg"
+                              height="32px"
+                              width="32px"
+                              alt="avatar"
+                            />
+                          </Menu.Button>
+                        </div>
+                        <Transition
+                          as={Fragment}
+                          enter="transition ease-out duration-100"
+                          enterFrom="transform opacity-0 scale-95"
+                          enterTo="transform opacity-100 scale-100"
+                          leave="transition ease-in duration-75"
+                          leaveFrom="transform opacity-100 scale-100"
+                          leaveTo="transform opacity-0 scale-95"
+                        >
+                          {/*  Desktop Profile Actions */}
+                          <Menu.Items className="origin-top-right absolute z-10 right-0 mt-2 w-60 border dark:border-stone-600 border-gray-300 rounded-xl shadow-lg bg-white dark:bg-stone-800 ring-1 ring-black ring-opacity-5 py-1 focus:outline-none">
+                            {isAdmin && (
+                              <Menu.Item>
+                                {({ active }) => (
+                                  <button
+                                    onClick={() => onEditMode()}
+                                    className={classNames(
+                                      active &&
+                                        "bg-gray-100 dark:bg-stone-700 hover:opacity-80",
+                                      "block px-4 py-2 text-md text-gray-700 dark:text-stone-300 w-full flex"
+                                    )}
+                                  >
+                                    <CogIcon
+                                      className="block h-7 w-7 text-gray-700 dark:text-stone-300"
+                                      aria-hidden="true"
+                                    />
+                                    <span className="pl-2">
+                                      {appState.editMode
+                                        ? "Disable Admin Mode"
+                                        : "Activate Admin Mode"}
+                                    </span>
+                                  </button>
+                                )}
+                              </Menu.Item>
+                            )}
                             <Menu.Item>
                               {({ active }) => (
-                                <button
-                                  onClick={() => onEditMode()}
-                                  className={classNames(
-                                    active &&
-                                      "bg-gray-100 dark:bg-stone-700 hover:opacity-80",
-                                    "block px-4 py-2 text-md text-gray-700 dark:text-stone-300 w-full flex"
-                                  )}
-                                >
-                                  <CogIcon
-                                    className="block h-7 w-7 text-gray-700 dark:text-stone-300"
-                                    aria-hidden="true"
-                                  />
-                                  <span className="pl-2">
-                                    {appState.editMode
-                                      ? "Disable Admin Mode"
-                                      : "Activate Admin Mode"}
-                                  </span>
-                                </button>
+                                <WalletDisconnectButton
+                                  style={{
+                                    background: "none",
+                                    color: "black",
+                                    lineHeight: "1.25rem",
+                                    fontFamily: "inherit",
+                                  }}
+                                />
                               )}
                             </Menu.Item>
-                          )}
-                          <Menu.Item>
-                            {({ active }) => (
-                              <WalletDisconnectButton
-                                style={{
-                                  background: "none",
-                                  color: "black",
-                                  lineHeight: "1.25rem",
-                                  fontFamily: "inherit",
-                                }}
-                              />
-                            )}
-                          </Menu.Item>
-                        </Menu.Items>
-                      </Transition>
-                    </Menu>
-                  ) : (
-                    <div className="items-center">
-                      <WalletMultiButton
-                        style={{
-                          marginLeft: "6px",
-                          backgroundColor: "#10B981",
-                          height: "40px",
-                          fontSize: "15px",
-                          width: "135px",
-                        }}
-                      />
-                    </div>
-                  )}
+                          </Menu.Items>
+                        </Transition>
+                      </Menu>
+                    ) : (
+                      <div className="items-center">
+                        <WalletMultiButton
+                          style={{
+                            marginLeft: "6px",
+                            backgroundColor: "#10B981",
+                            height: "40px",
+                            fontSize: "15px",
+                            width: "135px",
+                          }}
+                        />
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Mobile Menu*/}
-            <Popover.Panel as="nav" className="md:hidden" aria-label="Global">
-              <div className="max-w-3xl mx-auto px-2 pt-2 pb-3 space-y-1 sm:px-4">
-                <NavSidebar />
-              </div>
+            <Popover.Panel as="nav" className="lg:hidden" aria-label="Global">
+              {({ close }) => (
+                <div className="max-w-3xl mx-auto px-2 pt-2 pb-3 space-y-1 sm:px-4">
+                  <NavSidebar closeMobileMenu={close} />
+                </div>
+              )}
             </Popover.Panel>
           </>
         )}

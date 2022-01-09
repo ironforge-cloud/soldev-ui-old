@@ -9,6 +9,7 @@ import {
 } from "@heroicons/react/outline";
 import useUser from "../../hooks/useUser";
 import { memo, useState } from "react";
+import PropTypes from "prop-types";
 
 const navigation = [
   {
@@ -87,7 +88,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function NavSidebar({}) {
+function NavSidebar({ closeMobileMenu }) {
   const [current, setCurrent] = useState("Library");
   const { user, isAdmin = false, connected, error } = useUser();
 
@@ -104,11 +105,12 @@ function NavSidebar({}) {
                 href={item.href}
                 rel="noreferrer"
                 key={item.name}
+                onClick={() => closeMobileMenu()}
                 className={classNames(
                   item.name === current
                     ? "bg-gray-200 text-gray-900 dark:bg-stone-800 dark:text-stone-200"
                     : "text-gray-600 dark:text-stone-200",
-                  "group flex items-center px-3 py-2 text-sm font-medium rounded-md max-w-[190px] min-w-[150px] cursor-pointer",
+                  "group flex items-center px-3 py-2 text-lg lg:text-sm font-medium rounded-md max-w-[190px] min-w-[150px] cursor-pointer",
                   item.disabled
                     ? "opacity-50"
                     : "hover:bg-gray-50 dark:hover:bg-stone-700"
@@ -135,12 +137,15 @@ function NavSidebar({}) {
                   item.name === current
                     ? "bg-gray-200 text-gray-900 dark:bg-stone-800 dark:text-stone-200"
                     : "text-gray-800 dark:text-stone-300",
-                  "group flex items-center px-3 py-2 text-sm font-medium rounded-md max-w-[190px] min-w-[150px]",
+                  "group flex items-center px-3 py-2 text-lg lg:text-sm font-medium rounded-md max-w-[190px] min-w-[150px]",
                   item.disabled
                     ? "opacity-20"
                     : "hover:bg-gray-50 dark:hover:bg-stone-700"
                 )}
-                onClick={() => setCurrent(item.name)}
+                onClick={() => {
+                  setCurrent(item.name);
+                  closeMobileMenu();
+                }}
                 aria-current={item.current ? "page" : undefined}
                 disabled={item.disabled}
               >
@@ -163,7 +168,7 @@ function NavSidebar({}) {
         {/* Special */}
         <div>
           <p
-            className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider"
+            className="px-3 text-md lg:text-xs font-semibold text-gray-500 uppercase tracking-wider"
             id="communities-headline"
           >
             Reference
@@ -179,8 +184,9 @@ function NavSidebar({}) {
                   key={item.name}
                   target="_blank"
                   rel="noreferrer"
+                  onClick={() => closeMobileMenu()}
                 >
-                  <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300">
+                  <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300">
                     <ExternalLinkIcon
                       className="h-4 w-4 text-rose-400 dark:text-rose-500"
                       aria-hidden="true"
@@ -196,7 +202,7 @@ function NavSidebar({}) {
         {/* Lists */}
         <div>
           <p
-            className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider"
+            className="px-3 text-md lg:text-xs font-semibold text-gray-500 uppercase tracking-wider"
             id="communities-headline"
           >
             Lists
@@ -208,13 +214,16 @@ function NavSidebar({}) {
             {specialLists.map((item) => {
               return (
                 <Link href={item.href} passHref key={item.name}>
-                  <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300">
+                  <button
+                    onClick={() => closeMobileMenu()}
+                    className="min-w-full group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300"
+                  >
                     <SparklesIcon
                       className="h-4 w-4 text-rose-400 dark:text-rose-500"
                       aria-hidden="true"
                     />
                     <span className="truncate leading-6">{item.name}</span>
-                  </div>
+                  </button>
                 </Link>
               );
             })}
@@ -224,7 +233,7 @@ function NavSidebar({}) {
         {/* Series */}
         <div>
           <p
-            className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider"
+            className="px-3 text-md lg:text-xs font-semibold text-gray-500 uppercase tracking-wider"
             id="communities-headline"
           >
             Series
@@ -240,8 +249,9 @@ function NavSidebar({}) {
                   key={item.name}
                   target="_blank"
                   rel="noreferrer"
+                  onClick={() => closeMobileMenu()}
                 >
-                  <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300">
+                  <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300">
                     <ExternalLinkIcon
                       className="h-4 w-4 text-rose-400 dark:text-rose-500"
                       aria-hidden="true"
@@ -257,7 +267,7 @@ function NavSidebar({}) {
         {/* Categories */}
         <div>
           <p
-            className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider"
+            className="px-3 text-md lg:text-xs font-semibold text-gray-500 uppercase tracking-wider"
             id="communities-headline"
           >
             Categories
@@ -276,13 +286,16 @@ function NavSidebar({}) {
 
               return (
                 <Link href={item.href} passHref key={item.name}>
-                  <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300">
+                  <button
+                    onClick={() => closeMobileMenu()}
+                    className="min-w-full group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300"
+                  >
                     <PaperClipIcon
                       className="h-4 w-4 text-rose-400 dark:text-rose-500"
                       aria-hidden="true"
                     />
                     <span className="truncate leading-6">{item.name}</span>
-                  </div>
+                  </button>
                 </Link>
               );
             })}
@@ -292,5 +305,9 @@ function NavSidebar({}) {
     </nav>
   );
 }
+
+NavSidebar.prototype = {
+  closeMobileMenu: PropTypes.func,
+};
 
 export default memo(NavSidebar);
