@@ -129,9 +129,9 @@ function TopBar({ navigation, categories }) {
         {({ open }) => (
           <>
             <div className="mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="relative flex justify-between xl:grid xl:grid-cols-12 lg:gap-8">
+              <div className="relative flex justify-between">
                 {/* Logo */}
-                <div className="flex md:absolute md:left-0 md:inset-y-0 lg:static xl:col-span-2">
+                <div className="hidden sm:inline-flex  md:left-0 md:inset-y-0 lg:static">
                   <Link href="/" passHref>
                     <a className="mt-1 -ml-2">
                       {/* TODO: This Logo could use some improvements */}
@@ -146,8 +146,8 @@ function TopBar({ navigation, categories }) {
                 </div>
 
                 {/* Search Bar */}
-                <div className="min-w-0 max-w-xl flex-1 md:px-8 lg:px-0 xl:col-span-8 xl:col-start-5 xl:col-end-11">
-                  <div className="flex items-center px-6 py-3 md:max-w-3xl md:mx-auto lg:max-w-none lg:mx-0 xl:px-0">
+                <div className="min-w-0 max-w-xl flex-1 px-0 ">
+                  <div className="flex items-center px-2 sm:px-6 py-3 xl:px-0">
                     <div className="w-full">
                       <label htmlFor="search" className="sr-only">
                         Search
@@ -192,7 +192,7 @@ function TopBar({ navigation, categories }) {
                   </Popover.Button>
                 </div>
 
-                <div className="hidden lg:flex lg:items-center lg:justify-end xl:col-span-2 gap-6">
+                <div className="hidden md:flex md:items-center md:justify-end gap-6">
                   {/* Theme Settings*/}
                   <div>
                     <Menu as="div" className="flex-shrink-0 relative ml-5">
@@ -235,7 +235,7 @@ function TopBar({ navigation, categories }) {
                     </Menu>
                   </div>
 
-                  {/*  Profile Actions */}
+                  {/*  Profile Button */}
                   {connected ? (
                     <Menu as="div" className="flex-shrink-0 relative">
                       <div>
@@ -308,6 +308,7 @@ function TopBar({ navigation, categories }) {
                           backgroundColor: "#10B981",
                           height: "40px",
                           fontSize: "15px",
+                          width: "135px",
                         }}
                       />
                     </div>
