@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import useBadge from "../../hooks/useBadge";
 import Card from "../publications/card";
 import PropTypes from "prop-types";
 
@@ -11,7 +10,6 @@ function classNames(...classes) {
 
 export default function Tabs({ newContent, trendingContent }) {
   const [selectedTab, setSelectedTab] = useState("New");
-  const { isLoading, data } = useBadge(selectedTab);
 
   return (
     <>
