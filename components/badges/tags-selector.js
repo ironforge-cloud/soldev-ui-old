@@ -48,7 +48,7 @@ function TagsSelector({ tagsList, contentType, tags, badges }) {
   }
 
   return (
-    <div className="flex gap-2 flex-wrap justify-center max-w-sm xl:max-w-3xl 3xl:max-w-full">
+    <div className="flex gap-2 flex-wrap justify-center max-w-sm sm:max-w-lg lg:max-w-xl xl:max-w-3xl 3xl:max-w-full">
       {tagsList.map((tag) => {
         return (
           <button
