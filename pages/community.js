@@ -17,15 +17,10 @@ export default function Community() {
     useTweets("1452853465210933252");
   const { data: projectsTweets = [], isLoading: projectsTweetsLoading } =
     useTweets("1476564921030782979");
-  const [developersTweetsAmount, setDevelopersTweetsAmount] = useState(15);
-  const [projectsTweetsAmount, setProjectsTweetsAmount] = useState(15);
+  const [developersTweetsAmount, setDevelopersTweetsAmount] = useState(10);
+  const [projectsTweetsAmount, setProjectsTweetsAmount] = useState(10);
 
-  function loadDevelopersTweets(
-    isLoading,
-    tweets,
-    tweetsAmount,
-    setTweetsAmount
-  ) {
+  function loadMoreTweets(isLoading, tweets, tweetsAmount, setTweetsAmount) {
     if (isLoading) {
       return (
         <div className="mx-auto">
@@ -35,17 +30,15 @@ export default function Community() {
     } else {
       if (Array.isArray(tweets) && tweets.length > 0) {
         return (
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5 pb-5">
             {loadTweets(tweets, tweetsAmount)}
 
-            <div className="">
-              <button
-                onClick={() => setTweetsAmount((tweetsAmount += 10))}
-                className="w-full block text-center px-4 py-2 border border-gray-300 dark:border-stone-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-stone-300 bg-white dark:bg-stone-700 hover:bg-gray-50 dark:hover:bg-stone-600"
-              >
-                View all
-              </button>
-            </div>
+            <button
+              onClick={() => setTweetsAmount((tweetsAmount += 10))}
+              className="w-full block text-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-stone-300 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 hover:bg-opacity-80 hover:opacity-95 bg-white dark:bg-stone-800"
+            >
+              View more
+            </button>
           </div>
         );
       }
@@ -139,7 +132,7 @@ export default function Community() {
             <div className="flex flex-col justify-between gap-5">
               {/*  Developers Tab */}
               {selectedTab === "developers" &&
-                loadDevelopersTweets(
+                loadMoreTweets(
                   developersTweetsLoading,
                   developersTweets,
                   developersTweetsAmount,
@@ -148,7 +141,7 @@ export default function Community() {
 
               {/*  Projects Tab */}
               {selectedTab === "projects" &&
-                loadDevelopersTweets(
+                loadMoreTweets(
                   projectsTweetsLoading,
                   projectsTweets,
                   projectsTweetsAmount,

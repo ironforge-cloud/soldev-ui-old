@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Card from "../publications/card";
 import PropTypes from "prop-types";
+import loadContent from "../../utils/load-content";
 
 const tabs = ["New", "Trending", "Releases"];
 
@@ -10,6 +10,26 @@ function classNames(...classes) {
 
 export default function Tabs({ newContent, trendingContent }) {
   const [selectedTab, setSelectedTab] = useState("New");
+  const [contentAmount, setContentAmount] = useState(10);
+
+  function loadMoreContent(content, contentAmount, setContentAmount) {
+    if (Array.isArray(content) && content.length > 0) {
+      return (
+        <div className="flex flex-col gap-5 pb-5">
+          {loadContent(content, contentAmount)}
+
+          {contentAmount < content.length && (
+            <button
+              onClick={() => setContentAmount((contentAmount += 5))}
+              className="w-full block text-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-stone-300 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 hover:bg-opacity-80 hover:opacity-95 bg-white dark:bg-stone-800"
+            >
+              View More
+            </button>
+          )}
+        </div>
+      );
+    }
+  }
 
   return (
     <>
@@ -23,6 +43,7 @@ export default function Tabs({ newContent, trendingContent }) {
               key={tabIdx}
               aria-current={selectedTab === tab ? "page" : undefined}
               onClick={() => {
+                setContentAmount(10);
                 setSelectedTab(tab);
               }}
               className={classNames(
@@ -51,27 +72,9 @@ export default function Tabs({ newContent, trendingContent }) {
       <div className="mt-5">
         <div className="flex flex-col justify-between gap-5">
           {selectedTab === "New" &&
-            newContent.map((content) => {
-              return (
-                <Card
-                  content={content}
-                  key={content.SK}
-                  editContent={() => {}}
-                  mode="dashboard"
-                />
-              );
-            })}
+            loadMoreContent(newContent, contentAmount, setContentAmount)}
           {selectedTab === "Trending" &&
-            trendingContent.map((content) => {
-              return (
-                <Card
-                  content={content}
-                  key={content.SK}
-                  editContent={() => {}}
-                  mode="dashboard"
-                />
-              );
-            })}
+            loadMoreContent(trendingContent, contentAmount, setContentAmount)}
         </div>
       </div>
     </>
