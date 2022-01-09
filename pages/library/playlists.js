@@ -4,28 +4,23 @@ import dynamic from "next/dynamic";
 
 const Playlists = dynamic(() => import("../../components/videos/playlists"));
 
-const Promoted = dynamic(() => import("../../components/videos/promoted"));
-
 export async function getStaticProps() {
-  const promoted = await fetcher(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/promoted`
-  );
   const playlists = await fetcher(
     `${process.env.NEXT_PUBLIC_API_ENDPOINT}/playlists/Solana`
   );
 
   return {
-    props: { promoted, playlists },
-    revalidate: 60,
+    props: { playlists },
+    revalidate: 300,
   };
 }
 
-export default function Video({ promoted, playlists }) {
+export default function Video({ playlists }) {
   return (
     <div>
       <Head>
-        <title>SolDev - Video Playlists</title>
-        <meta name="title" content="SolDev - Video Playlists" />
+        <title>SolDev - Playlists</title>
+        <meta name="title" content="SolDev - Playlists" />
         <meta
           name="description"
           content="Watch Solana conferences, live streams and stay up to date with the latest Podcasts"
@@ -41,7 +36,7 @@ export default function Video({ promoted, playlists }) {
           property="og:url"
           content="https://www.soldev.app/library/playlists"
         />
-        <meta property="og:title" content="SolDev - Video Playlists" />
+        <meta property="og:title" content="SolDev - Playlists" />
         <meta
           name="og:description"
           content="Watch Solana conferences, live streams and stay up to date with the latest Podcasts"
@@ -73,8 +68,11 @@ export default function Video({ promoted, playlists }) {
       </Head>
 
       <main className="flex-1 relative z-0 overflow-hidden focus:outline-none">
-        {/* Promoted videos */}
-        <Promoted data={promoted} />
+        <div className="flex justify-center mb-8">
+          <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold tracking-tight text-gray-900 dark:text-stone-200 capitalize w-max">
+            Playlists
+          </h2>
+        </div>
 
         {/* Playlists */}
         <Playlists data={playlists} />

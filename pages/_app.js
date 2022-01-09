@@ -8,23 +8,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css"; // Import the CSS
 import PlausibleProvider from "next-plausible";
 import dynamic from "next/dynamic";
 import Script from "next/script";
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/virtual";
-import "swiper/css/navigation";
-import "swiper/css/keyboard";
-import "swiper/css/mousewheel";
-import "swiper/css/autoplay";
-import "swiper/css/a11y";
 
-import SwiperCore, {
-  A11y,
-  Autoplay,
-  Keyboard,
-  Mousewheel,
-  Navigation,
-  Virtual,
-} from "swiper";
 // Wallet Auth
 import "@solana/wallet-adapter-react-ui/styles.css";
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
@@ -36,8 +20,6 @@ config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatic
 library.add(fab, fas);
 
 const Nav = dynamic(() => import("../components/nav"));
-
-SwiperCore.use([Virtual, Navigation, Keyboard, Mousewheel, Autoplay, A11y]);
 
 const WalletConnectionProvider = dynamic(
   () => import("../components/wallet-connection-provider"),
