@@ -13,10 +13,10 @@ function classNames(...classes) {
 
 export default function Community() {
   const [selectedTab, setSelectedTab] = useState("developers");
-  const { data: projectsTweets = [], isLoading: projectsTweetsLoading } =
-    useTweets("projects");
   const { data: developersTweets = [], isLoading: developersTweetsLoading } =
-    useTweets("developers");
+    useTweets("1452853465210933252");
+  const { data: projectsTweets = [], isLoading: projectsTweetsLoading } =
+    useTweets("1476564921030782979");
   const [developersTweetsAmount, setDevelopersTweetsAmount] = useState(15);
   const [projectsTweetsAmount, setProjectsTweetsAmount] = useState(15);
 
