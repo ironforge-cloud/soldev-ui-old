@@ -1,5 +1,5 @@
-import { Fragment, useRef, useState } from "react";
-import { Transition, Dialog } from "@headlessui/react";
+import { Fragment } from "react";
+import { Dialog, Transition } from "@headlessui/react";
 import PropTypes from "prop-types";
 import Card from "./card";
 import { XIcon } from "@heroicons/react/outline";

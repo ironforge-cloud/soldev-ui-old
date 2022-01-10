@@ -29,7 +29,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
       className={classNames(
         "relative flex flex-col px-6 pt-6 pb-5 rounded-lg overflow-visible min-h-full",
         mode === "modal"
-          ? "h-[340px] w-[400px] sm:w-[500px]"
+          ? "h-[400px] sm:h-[340px] max-w-[400px] sm:max-w-[500px]"
           : "shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 hover:bg-opacity-80 hover:opacity-95 bg-white dark:bg-stone-800",
         mode === "dashboard" &&
           "min-h-[300px] max-h-[340px] min-w-[400px] max-w-[700px]",
