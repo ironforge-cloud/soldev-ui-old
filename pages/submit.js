@@ -1,10 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 import dynamic from "next/dynamic";
-
-const ContentForm = dynamic(() =>
-  import("../components/publications/content-form")
-);
+import ContentForm from "../components/publications/content-form";
 
 const NotificationSuccess = dynamic(() =>
   import("../components/notifications/success")

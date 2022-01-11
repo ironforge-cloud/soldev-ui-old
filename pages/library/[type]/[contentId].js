@@ -1,17 +1,10 @@
 import Head from "next/head";
-import dynamic from "next/dynamic";
 import { useState } from "react";
 import fetcher from "../../../utils/fetcher";
 import findTags from "../../../utils/find-tags";
 import defineTitle from "../../../utils/define-title";
-
-const PublicationsComponent = dynamic(() =>
-  import("../../../components/publications")
-);
-
-const CardModal = dynamic(() =>
-  import("../../../components/publications/card-modal")
-);
+import PublicationsComponent from "../../../components/publications";
+import CardModal from "../../../components/publications/card-modal";
 
 export async function getStaticPaths() {
   const contentTypes = await fetcher(

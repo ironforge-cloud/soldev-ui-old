@@ -1,8 +1,6 @@
 import Head from "next/head";
 import fetcher from "../../../../utils/fetcher";
-import dynamic from "next/dynamic";
-
-const Player = dynamic(() => import("../../../../components/videos/player"));
+import Player from "../../../../components/videos/player";
 
 export async function getStaticPaths() {
   const data = await fetcher(

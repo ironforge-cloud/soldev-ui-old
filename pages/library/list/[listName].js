@@ -1,12 +1,8 @@
 import Head from "next/head";
-import dynamic from "next/dynamic";
 import contentLists from "../../../utils/content-lists";
 import fetcher from "../../../utils/fetcher";
 import defineTitle from "../../../utils/define-title";
-
-const PublicationsComponent = dynamic(() =>
-  import("../../../components/publications")
-);
+import PublicationsComponent from "../../../components/publications";
 
 export async function getStaticPaths() {
   const paths = contentLists.map((list) => {

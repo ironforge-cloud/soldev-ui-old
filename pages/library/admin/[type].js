@@ -1,10 +1,6 @@
 import Head from "next/head";
-import dynamic from "next/dynamic";
 import useGetContentByStatus from "../../../hooks/useGeneralContent";
-
-const PublicationsComponent = dynamic(() =>
-  import("../../../components/publications")
-);
+import PublicationsComponent from "../../../components/publications";
 
 export default function ContentAdmin({}) {
   const { data = [], type = "", isLoading } = useGetContentByStatus();
