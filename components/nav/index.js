@@ -1,6 +1,8 @@
-import TopBar from "./topbar";
 import { memo } from "react";
-import Sidebar from "./sidebar";
+import dynamic from "next/dynamic";
+import TopBar from "./topbar";
+
+const Sidebar = dynamic(() => import("./sidebar"));
 
 function Nav({ children }) {
   return (
