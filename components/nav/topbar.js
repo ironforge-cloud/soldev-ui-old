@@ -19,7 +19,9 @@ import {
 } from "@solana/wallet-adapter-react-ui";
 import { useAppDispatch, useAppState } from "../../context/AppContext";
 import { useIsomorphicLayoutEffect } from "../../hooks/useIsomorphicLayoutEffect";
-import NavSidebar from "./sidebar";
+import dynamic from "next/dynamic";
+
+const NavSidebar = dynamic(() => import("./sidebar"));
 
 function update() {
   if (

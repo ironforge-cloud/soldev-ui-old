@@ -1,12 +1,14 @@
 import Card from "./card";
-import SubmitContentCard from "./submit-content-card";
 import { memo, useEffect, useState } from "react";
 import { useAppState } from "../../context/AppContext";
-import CardEdit from "./card-edit";
 import PropTypes from "prop-types";
-import Spinner from "../spinner";
-import VideoCard from "./video-card";
-import TagsSelector from "../badges/tags-selector";
+import dynamic from "next/dynamic";
+
+const VideoCard = dynamic(() => import("./video-card"));
+const TagsSelector = dynamic(() => import("../badges/tags-selector"));
+const Spinner = dynamic(() => import("../spinner"));
+const CardEdit = dynamic(() => import("./card-edit"));
+const SubmitContentCard = dynamic(() => import("./submit-content-card"));
 
 function Publications({
   data,

@@ -1,9 +1,11 @@
 import Head from "next/head";
 import useTweets from "../hooks/useTweets";
 import { useState } from "react";
-import Spinner from "../components/spinner";
-import Sidebar from "../components/dashboard/sidebar";
 import loadTweets from "../utils/loadTweets";
+import dynamic from "next/dynamic";
+
+const Sidebar = dynamic(() => import("../components/dashboard/sidebar"));
+const Spinner = dynamic(() => import("../components/spinner"));
 
 const tabs = ["developers", "projects"];
 

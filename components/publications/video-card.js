@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
 import { memo, useState } from "react";
 import Link from "next/link";
-import Share from "../share";
 import Image from "next/image";
 import { FilmIcon, ShareIcon } from "@heroicons/react/solid";
+import dynamic from "next/dynamic";
+
+const Share = dynamic(() => import("../share"));
 
 function Card({ content }) {
   const [openShare, setOpenShare] = useState(false);

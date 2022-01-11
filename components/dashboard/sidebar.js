@@ -1,8 +1,10 @@
-import Tweet from "../twitter/tweet";
 import React, { memo, useState } from "react";
-import NetworkStatus from "./network-status";
+import dynamic from "next/dynamic";
 import usePinnedTweets from "../../hooks/usePinnedTweets";
-import Spinner from "../spinner";
+import NetworkStatus from "./network-status";
+
+const Tweet = dynamic(() => import("../twitter/tweet"));
+const Spinner = dynamic(() => import("../spinner"));
 
 function Sidebar() {
   const { data: tweets = [], isLoading } = usePinnedTweets();

@@ -1,14 +1,16 @@
 import PropTypes from "prop-types";
 import { memo, useState } from "react";
 import { PencilIcon } from "@heroicons/react/outline";
-import Badge from "../badges/badge.js";
 import Link from "next/link";
-import Share from "../share";
+import dynamic from "next/dynamic";
 import {
   DocumentTextIcon,
   ExternalLinkIcon,
   ShareIcon,
 } from "@heroicons/react/solid";
+
+const Share = dynamic(() => import("../share"));
+const Badge = dynamic(() => import("../badges/badge.js"));
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
