@@ -23,7 +23,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
   if (mode === "dashboard") {
     badgeUrl = `/library/${content.ContentType}`;
   } else {
-    badgeUrl = `/library/${content.ContentType}?badge=${content.SpecialTag}`;
+    badgeUrl = `/library/${content.ContentType}/filter/?badge=${content.SpecialTag}`;
   }
 
   return (
@@ -85,7 +85,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
         {content.Tags.map((tag, index) => (
           <Link
             key={tag}
-            href={`/library/${content.ContentType}?tag=${tag}`}
+            href={`/library/${content.ContentType}/filter/?tag=${tag}`}
             passHref
           >
             <span>
