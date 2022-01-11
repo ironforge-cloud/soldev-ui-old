@@ -1,8 +1,6 @@
 import Head from "next/head";
 import fetcher from "../../utils/fetcher";
-import dynamic from "next/dynamic";
-
-const Playlists = dynamic(() => import("../../components/videos/playlists"));
+import Playlists from "../../components/videos/playlists";
 
 export async function getStaticProps() {
   const playlists = await fetcher(

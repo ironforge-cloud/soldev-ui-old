@@ -1,12 +1,8 @@
 import Head from "next/head";
-import dynamic from "next/dynamic";
 import fetcher from "../../../utils/fetcher";
 import findTags from "../../../utils/find-tags";
 import defineTitle from "../../../utils/define-title";
-
-const PublicationsComponent = dynamic(() =>
-  import("../../../components/publications")
-);
+import PublicationsComponent from "../../../components/publications";
 
 export async function getStaticPaths() {
   const contentTypes = await fetcher(
