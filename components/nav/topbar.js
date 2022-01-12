@@ -1,5 +1,4 @@
 import { Menu, Popover, Transition } from "@headlessui/react";
-import { SearchIcon } from "@heroicons/react/solid";
 import {
   CogIcon,
   ColorSwatchIcon,
@@ -21,6 +20,7 @@ import { useAppDispatch, useAppState } from "../../context/AppContext";
 import { useIsomorphicLayoutEffect } from "../../hooks/useIsomorphicLayoutEffect";
 import dynamic from "next/dynamic";
 
+const Search = dynamic(() => import("./search"));
 const NavSidebar = dynamic(() => import("./sidebar"));
 
 function update() {
@@ -131,7 +131,7 @@ function TopBar({ navigation, categories }) {
         {({ open }) => (
           <>
             <div className="mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="relative flex justify-between">
+              <div className="flex justify-between">
                 {/* Logo */}
                 <div className="hidden sm:inline-flex  md:left-0 md:inset-y-0 lg:static">
                   <Link href="/" passHref>
@@ -148,38 +148,7 @@ function TopBar({ navigation, categories }) {
                 </div>
 
                 {/* Search Bar */}
-                <div className="min-w-0 max-w-xl flex-1 px-0 ">
-                  <div className="flex items-center px-2 sm:px-6 py-3 xl:px-0">
-                    <div className="w-full">
-                      <label htmlFor="search" className="sr-only">
-                        Search
-                      </label>
-                      <div className="relative ">
-                        <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
-                          <SearchIcon
-                            className="h-6 w-6 text-gray-700 dark:text-stone-200"
-                            aria-hidden="true"
-                          />
-                        </div>
-                        <div className="mt-1 relative flex items-center">
-                          <input
-                            id="search"
-                            name="search"
-                            disabled
-                            className="disabled:opacity-70 block w-full bg-white dark:bg-stone-800 border border-gray-300 dark:border-stone-700 rounded-md py-3 pl-10 pr-3 text-sm placeholder-gray-500 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-rose-500 focus:border-rose-500 sm:text-sm"
-                            placeholder="Quick search for anything coming soon"
-                            type="search"
-                          />
-                          <div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
-                            <kbd className="inline-flex items-center border border-gray-200 dark:border-stone-600 rounded px-2 text-sm font-sans font-medium text-gray-400 dark:text-stone-500">
-                              ⌘K
-                            </kbd>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <Search />
 
                 {/*  Mobile Menu, only visible in small screens*/}
                 <div className="flex items-center lg:absolute lg:right-0 lg:inset-y-0 lg:hidden pl-2">

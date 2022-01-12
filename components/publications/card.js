@@ -36,7 +36,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
         mode === "dashboard" &&
           "min-h-[300px] max-h-[340px] min-w-[400px] max-w-[700px]",
         (mode === "" || mode === "edit") &&
-          "h-[340px] w-[400px] transition ease-in-out duration-150 hover:scale-105"
+          "h-[340px] w-[400px] transform-gpu transition ease-in-out duration-150 hover:scale-105"
       )}
     >
       <div className="border-b-2 border-dashed border-gray-700 dark:border-stone-500">
@@ -45,8 +45,8 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
           <a
             href={content.Url}
             className="mr-2"
-            rel="noreferrer"
             target="_blank"
+            rel="noreferrer"
           >
             <p className="text-lg font-semibold text-gray-900 dark:text-stone-200 hover:text-sky-500 dark:hover:text-sky-600">
               {content.Title}
@@ -81,22 +81,24 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
       </div>
 
       {/*Tags*/}
-      <div className="mb-1 mt-2 text-sky-500 dark:text-sky-600 cursor-pointer">
-        {content.Tags.map((tag, index) => (
-          <Link
-            key={tag}
-            href={`/library/${content.ContentType}/filter/?tag=${tag}`}
-            passHref
-          >
-            <span>
-              <span className="hover:underline decoration-rose-500 lowercase">
-                #{tag}
+      {Array.isArray(content.Tags) && (
+        <div className="mb-1 mt-2 text-sky-500 dark:text-sky-600 cursor-pointer">
+          {content.Tags.map((tag, index) => (
+            <Link
+              key={tag}
+              href={`/library/${content.ContentType}/filter/?tag=${tag}`}
+              passHref
+            >
+              <span>
+                <span className="hover:underline decoration-rose-500 lowercase">
+                  #{tag}
+                </span>
+                <span>{index < content.Tags.length - 1 && <>{", "}</>}</span>
               </span>
-              <span>{index < content.Tags.length - 1 && <>{", "}</>}</span>
-            </span>
-          </Link>
-        ))}
-      </div>
+            </Link>
+          ))}
+        </div>
+      )}
 
       {/*  Description */}
       <div className="flex-1 text-ellipsis overflow-hidden prose">

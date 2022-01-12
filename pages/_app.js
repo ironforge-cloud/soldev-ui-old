@@ -1,3 +1,4 @@
+import Script from "next/script";
 import "tailwindcss/tailwind.css";
 
 import PlausibleProvider from "next-plausible";
@@ -22,6 +23,22 @@ const WalletConnectionProvider = dynamic(
 export default function App({ Component, pageProps }) {
   return (
     <div>
+      <Script
+        id="1"
+        src="https://www.googletagmanager.com/gtag/js?id=G-HT8DFYDG03"
+      />
+      <Script
+        id="2"
+        dangerouslySetInnerHTML={{
+          __html: `
+          if (window.location.hostname === "localhost") window['ga-disable-G-HT8DFYDG03'] = true;
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-HT8DFYDG03');
+          `,
+        }}
+      />
       <div className="min-h-screen bg-stone-100 dark:bg-stone-900">
         <PlausibleProvider domain="soldev.app" trackOutboundLinks={true}>
           <WalletConnectionProvider>

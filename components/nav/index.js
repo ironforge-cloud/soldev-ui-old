@@ -7,7 +7,7 @@ const Sidebar = dynamic(() => import("./sidebar"));
 function Nav({ children }) {
   return (
     <div>
-      <div className=" w-full z-50">
+      <div className="w-full z-50">
         <TopBar />
       </div>
 
