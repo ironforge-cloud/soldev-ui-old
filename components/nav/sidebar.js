@@ -110,7 +110,7 @@ function NavSidebar({ closeMobileMenu }) {
                   item.name === current
                     ? "bg-gray-200 text-gray-900 dark:bg-stone-800 dark:text-stone-200"
                     : "text-gray-600 dark:text-stone-200",
-                  "min-w-full group flex items-center px-3 py-2 text-lg lg:text-sm font-medium rounded-md max-w-[190px] min-w-[150px] cursor-pointer",
+                  "min-w-full group flex items-center px-3 py-2 text-lg lg:text-sm font-medium rounded-md max-w-[190px] cursor-pointer",
                   item.disabled
                     ? "opacity-50"
                     : "hover:bg-gray-50 dark:hover:bg-stone-700"
@@ -137,10 +137,7 @@ function NavSidebar({ closeMobileMenu }) {
                   item.name === current
                     ? "bg-gray-200 text-gray-900 dark:bg-stone-800 dark:text-stone-200"
                     : "text-gray-800 dark:text-stone-300",
-                  "min-w-full group flex items-center px-3 py-2 text-lg lg:text-sm font-medium rounded-md max-w-[190px] min-w-[150px]",
-                  item.disabled
-                    ? "opacity-20"
-                    : "hover:bg-gray-50 dark:hover:bg-stone-700"
+                  "min-w-full hover:bg-gray-50 dark:hover:bg-stone-700 group flex items-center px-3 py-2 text-lg lg:text-sm font-medium rounded-md max-w-[190px]"
                 )}
                 onClick={() => {
                   setCurrent(item.name);

@@ -7,8 +7,8 @@ import { Popover } from "@headlessui/react";
 import Link from "next/link";
 
 const searchClient = algoliasearch(
-  "V4D5J873RY",
-  "e723db2ac97033e29fa9f74a7470cd75"
+  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
+  process.env.NEXT_PUBLIC_ALGOLIA_API_KEY
 );
 
 function Search() {
@@ -19,6 +19,7 @@ function Search() {
         onStateChange({ state }) {
           setAutocompleteState(state);
         },
+        placeholder: "Quick search...",
         getSources() {
           return [
             {
@@ -77,11 +78,9 @@ function Search() {
                     id="search"
                     name="search"
                     className="block w-full bg-white dark:bg-stone-800 border border-gray-300 dark:border-stone-700 rounded-md py-3 pl-10 pr-3 text-sm placeholder-gray-500 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-rose-500 focus:border-rose-500 sm:text-sm"
-                    placeholder="Quick search..."
                     type="search"
                     {...autocomplete.getInputProps({})}
                   />
-
                   <div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
                     <kbd className="inline-flex items-center border border-gray-200 dark:border-stone-600 rounded px-2 text-sm font-sans font-medium text-gray-400 dark:text-stone-500">
                       ⌘K
