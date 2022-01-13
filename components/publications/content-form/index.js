@@ -24,7 +24,7 @@ function ContentForm({
   const [contentExist, setContentExist] = useState(false);
   const { isAdmin = false } = useUser();
   const router = useRouter();
-  console.log(isAdmin);
+
   const createContent = async (event) => {
     event.preventDefault();
 
@@ -54,6 +54,7 @@ function ContentForm({
       SpecialTag: "New",
       Position: 0,
       Lists: "",
+      ContentStatus: "submitted",
     });
 
     // Send success notification
