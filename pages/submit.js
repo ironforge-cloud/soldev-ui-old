@@ -17,6 +17,7 @@ export default function Submit() {
     Tags: [],
     ContentType: "",
     SpecialTag: "New",
+    ContentStatus: "submitted",
   });
   const [notifySuccess, setNotifySuccess] = useState(false);
 

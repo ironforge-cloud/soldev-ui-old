@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 
 const Share = dynamic(() => import("../share"));
 
-function Card({ content }) {
+function Card({ content, closeSearch }) {
   const [openShare, setOpenShare] = useState(false);
 
   return (
@@ -45,7 +45,10 @@ function Card({ content }) {
               href={`/library/${content.PlaylistID}/video/${content.SK}`}
               passHref
             >
-              <button className="inline-flex space-x-2 items-center text-gray-600 hover:text-gray-400 dark:text-stone-300 dark:hover:text-stone-500">
+              <button
+                onClick={() => closeSearch()}
+                className="inline-flex space-x-2 items-center text-gray-600 hover:text-gray-400 dark:text-stone-300 dark:hover:text-stone-500"
+              >
                 <FilmIcon className="h-5 w-5" aria-hidden="true" />
                 <span className="font-medium">Watch</span>
               </button>
@@ -73,8 +76,13 @@ function Card({ content }) {
   );
 }
 
+Card.defaultProps = {
+  closeSearch: () => {},
+};
+
 Card.propTypes = {
   content: PropTypes.object.isRequired,
+  closeSearch: PropTypes.func,
 };
 
 export default memo(Card);

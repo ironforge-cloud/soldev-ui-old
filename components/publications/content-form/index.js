@@ -7,6 +7,7 @@ import Inputs from "./inputs";
 import Status from "./status";
 import Position from "./position";
 import { useRouter } from "next/router";
+import useUser from "../../../hooks/useUser";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -21,15 +22,22 @@ function ContentForm({
   positions,
 }) {
   const [contentExist, setContentExist] = useState(false);
+  const { isAdmin = false } = useUser();
   const router = useRouter();
 
   const createContent = async (event) => {
     event.preventDefault();
 
+    // If the user is an admin, content will be active by default
+    const content = data;
+    if (isAdmin) {
+      content.ContentStatus = "active";
+    }
+
     await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/content`, {
       method: "POST",
       body: JSON.stringify({
-        ...data,
+        ...content,
       }),
     });
 
@@ -46,6 +54,7 @@ function ContentForm({
       SpecialTag: "New",
       Position: 0,
       Lists: "",
+      ContentStatus: "submitted",
     });
 
     // Send success notification
@@ -143,8 +152,6 @@ function ContentForm({
   );
 }
 
-export default memo(ContentForm);
-
 ContentForm.propTypes = {
   type: PropTypes.oneOf(["submit", "edit"]),
   setOpen: PropTypes.func,
@@ -152,3 +159,5 @@ ContentForm.propTypes = {
   setData: PropTypes.func.isRequired,
   positions: PropTypes.array,
 };
+
+export default memo(ContentForm);

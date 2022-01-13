@@ -18,6 +18,8 @@ function Publications({
   badges,
   tags,
   tagsList,
+  closeSearch,
+  cardMode,
 }) {
   const [open, setOpen] = useState(false);
   const appState = useAppState();
@@ -80,8 +82,13 @@ function Publications({
                   <Card
                     key={content.SK}
                     content={content}
-                    mode={appState.editMode ? "edit" : ""}
+                    mode={
+                      appState.editMode && cardMode !== "search"
+                        ? "edit"
+                        : cardMode
+                    }
                     editContent={editContent}
+                    closeSearch={closeSearch}
                   />
                 );
               }
@@ -89,7 +96,7 @@ function Publications({
               // Playlist Content
               return (
                 <div key={content.SK}>
-                  <VideoCard content={content} />
+                  <VideoCard content={content} closeSearch={closeSearch} />
                 </div>
               );
             })}
@@ -110,7 +117,9 @@ Publications.defaultProps = {
   tags: [],
   badges: [],
   tagsList: [],
-  contentType: "", // TODO: this is used in the tags component and needs some improvements
+  title: "",
+  contentType: "",
+  cardMode: "",
 };
 
 Publications.propTypes = {
@@ -119,9 +128,11 @@ Publications.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   badges: PropTypes.array,
   tags: PropTypes.array,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   tagsList: PropTypes.array,
   contentType: PropTypes.string,
+  closeSearch: PropTypes.func,
+  cardMode: PropTypes.string,
 };
 
 export default memo(Publications);
