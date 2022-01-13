@@ -29,7 +29,7 @@ function Search({ setSearch }) {
         getSources() {
           return [
             {
-              sourceId: "dev_soldev",
+              sourceId: process.env.NEXT_PUBLIC_ALGOLIA_SOURCE_ID,
               getItemInputValue({ item }) {
                 return item.query;
               },
