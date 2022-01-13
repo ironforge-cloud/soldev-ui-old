@@ -12,7 +12,7 @@ function Nav({ children }) {
   const [search, setSearch] = useState(false);
 
   return (
-    <div>
+    <div className={classNames(search && "min-h-[2500px]")}>
       <div className="w-full z-50">
         <TopBar setSearch={setSearch} />
       </div>
@@ -23,7 +23,7 @@ function Nav({ children }) {
             <Sidebar />
           </div>
 
-          {!search && <div className="w-full overflow-hidden">{children}</div>}
+          <div className="w-full overflow-hidden">{!search && children}</div>
         </div>
       </div>
     </div>

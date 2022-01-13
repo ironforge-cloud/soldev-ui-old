@@ -39,6 +39,11 @@ const special = [
     disabled: false,
   },
   {
+    name: "Anchor Book",
+    href: "https://book.anchor-lang.com/?utm_source=soldev.app",
+    disabled: false,
+  },
+  {
     name: "Solana Docs",
     href: "https://docs.solana.com/introduction?utm_source=soldev.app",
     disabled: false,

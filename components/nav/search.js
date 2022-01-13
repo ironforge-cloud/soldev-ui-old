@@ -97,7 +97,7 @@ function Search({ setSearch }) {
           {autocompleteState.isOpen && (
             <Popover.Panel
               static
-              className="absolute inset-x-0 lg:left-[250px] min-w-fit min-h-full bg-stone-100 dark:bg-stone-900"
+              className="absolute inset-x-0 lg:left-[250px] min-w-fit min-h-full"
               {...autocomplete.getPanelProps({})}
             >
               {/* Results*/}
@@ -107,7 +107,10 @@ function Search({ setSearch }) {
                   return (
                     <div key={`source-${index}`}>
                       {items.length > 0 && (
-                        <div className="mt-10" {...autocomplete.getListProps()}>
+                        <div
+                          className="mt-10 pb-10"
+                          {...autocomplete.getListProps()}
+                        >
                           <PublicationsComponent
                             data={items}
                             title="Search Results"

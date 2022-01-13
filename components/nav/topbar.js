@@ -93,7 +93,7 @@ function classNames(...classes) {
 }
 
 function TopBar({ setSearch }) {
-  const { user, isAdmin = false, connected, error } = useUser();
+  const { isAdmin = false, connected } = useUser();
   const [editModeNotificationOn, setEditModeNotificationOn] = useState(false);
   const [editModeNotificationOff, setEditModeNotificationOff] = useState(false);
   let [setting, setSetting] = useTheme();
