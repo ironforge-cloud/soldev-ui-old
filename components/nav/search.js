@@ -97,7 +97,7 @@ function Search({ setSearch }) {
           {autocompleteState.isOpen && (
             <Popover.Panel
               static
-              className="absolute inset-x-0 lg:left-[250px] min-w-fit min-h-full"
+              className="absolute inset-x-0 lg:left-[250px] min-h-full"
               {...autocomplete.getPanelProps({})}
             >
               {/* Results*/}
