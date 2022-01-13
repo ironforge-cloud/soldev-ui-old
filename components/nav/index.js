@@ -12,7 +12,12 @@ function Nav({ children }) {
   const [search, setSearch] = useState(false);
 
   return (
-    <div className={classNames(search && "min-h-[2500px]")}>
+    <div
+      className={classNames(
+        "min-h-screen bg-stone-100 dark:bg-stone-900",
+        search && "min-h-[2500px]"
+      )}
+    >
       <div className="w-full z-50">
         <TopBar setSearch={setSearch} />
       </div>

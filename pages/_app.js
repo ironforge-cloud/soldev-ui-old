@@ -22,7 +22,7 @@ const WalletConnectionProvider = dynamic(
 
 export default function App({ Component, pageProps }) {
   return (
-    <div>
+    <>
       <Script
         id="1"
         src="https://www.googletagmanager.com/gtag/js?id=G-HT8DFYDG03"
@@ -39,19 +39,17 @@ export default function App({ Component, pageProps }) {
           `,
         }}
       />
-      <div className="bg-stone-100 dark:bg-stone-900 max-h-max">
-        <PlausibleProvider domain="soldev.app" trackOutboundLinks={true}>
-          <WalletConnectionProvider>
-            <WalletModalProvider logo="/logo-white.png">
-              <AppWrapper>
-                <Nav>
-                  <Component {...pageProps} />
-                </Nav>
-              </AppWrapper>
-            </WalletModalProvider>
-          </WalletConnectionProvider>
-        </PlausibleProvider>
-      </div>
-    </div>
+      <PlausibleProvider domain="soldev.app" trackOutboundLinks={true}>
+        <WalletConnectionProvider>
+          <WalletModalProvider logo="/logo-white.png">
+            <AppWrapper>
+              <Nav>
+                <Component {...pageProps} />
+              </Nav>
+            </AppWrapper>
+          </WalletModalProvider>
+        </WalletConnectionProvider>
+      </PlausibleProvider>
+    </>
   );
 }
