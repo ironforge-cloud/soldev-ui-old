@@ -303,6 +303,10 @@ function NavSidebar({ closeMobileMenu }) {
   );
 }
 
+NavSidebar.defaultProps = {
+  closeMobileMenu: () => {},
+};
+
 NavSidebar.prototype = {
   closeMobileMenu: PropTypes.func,
 };

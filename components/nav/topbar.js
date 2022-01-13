@@ -19,6 +19,7 @@ import {
 import { useAppDispatch, useAppState } from "../../context/AppContext";
 import { useIsomorphicLayoutEffect } from "../../hooks/useIsomorphicLayoutEffect";
 import dynamic from "next/dynamic";
+import PropTypes from "prop-types";
 
 const Search = dynamic(() => import("./search"));
 const NavSidebar = dynamic(() => import("./sidebar"));
@@ -91,7 +92,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function TopBar({ navigation, categories }) {
+function TopBar({ setSearch }) {
   const { user, isAdmin = false, connected, error } = useUser();
   const [editModeNotificationOn, setEditModeNotificationOn] = useState(false);
   const [editModeNotificationOff, setEditModeNotificationOff] = useState(false);
@@ -148,7 +149,7 @@ function TopBar({ navigation, categories }) {
                 </div>
 
                 {/* Search Bar */}
-                <Search />
+                <Search setSearch={setSearch} />
 
                 {/*  Mobile Menu, only visible in small screens*/}
                 <div className="flex items-center lg:absolute lg:right-0 lg:inset-y-0 lg:hidden pl-2">
@@ -304,5 +305,9 @@ function TopBar({ navigation, categories }) {
     </>
   );
 }
+
+TopBar.propTypes = {
+  setSearch: PropTypes.func.isRequired,
+};
 
 export default memo(TopBar);

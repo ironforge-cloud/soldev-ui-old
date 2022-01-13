@@ -16,11 +16,11 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function Card({ content, mode, editContent, defaultOpenShare }) {
+function Card({ content, mode, editContent, defaultOpenShare, closeSearch }) {
   const [openShare, setOpenShare] = useState(defaultOpenShare);
 
   let badgeUrl = "";
-  if (mode === "dashboard") {
+  if (mode === "dashboard" || mode === "search") {
     badgeUrl = `/library/${content.ContentType}`;
   } else {
     badgeUrl = `/library/${content.ContentType}/filter/?badge=${content.SpecialTag}`;
@@ -35,7 +35,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
           : "shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 hover:bg-opacity-80 hover:opacity-95 bg-white dark:bg-stone-800",
         mode === "dashboard" &&
           "min-h-[300px] max-h-[340px] min-w-[400px] max-w-[700px]",
-        (mode === "" || mode === "edit") &&
+        (mode === "" || mode === "edit" || mode === "search") &&
           "h-[340px] w-[400px] transform-gpu transition ease-in-out duration-150 hover:scale-105"
       )}
     >
@@ -57,13 +57,15 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
           {/*// TODO: fix technical debt that is requiring the "0" check. It's in the API*/}
           {content.SpecialTag !== "0" && (
             <Link href={badgeUrl} passHref>
-              <div className="cursor-pointer hover:opacity-80">
-                {mode === "dashboard" ? (
-                  <Badge text={content.ContentType} />
-                ) : (
-                  <Badge text={content.SpecialTag} />
-                )}
-              </div>
+              <button onClick={() => closeSearch()}>
+                <div className="cursor-pointer hover:opacity-80">
+                  {mode === "dashboard" || mode === "search" ? (
+                    <Badge text={content.ContentType} />
+                  ) : (
+                    <Badge text={content.SpecialTag} />
+                  )}
+                </div>
+              </button>
             </Link>
           )}
         </div>
@@ -89,12 +91,13 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
               href={`/library/${content.ContentType}/filter/?tag=${tag}`}
               passHref
             >
-              <span>
-                <span className="hover:underline decoration-rose-500 lowercase">
-                  #{tag}
-                </span>
-                <span>{index < content.Tags.length - 1 && <>{", "}</>}</span>
-              </span>
+              <button
+                className="hover:underline decoration-rose-500 lowercase"
+                onClick={() => closeSearch()}
+              >
+                #{tag}
+                {index < content.Tags.length - 1 && <span>,&nbsp;</span>}
+              </button>
             </Link>
           ))}
         </div>
@@ -113,7 +116,10 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
           {mode === "edit" ? (
             <button
               className="inline-flex space-x-2 text-gray-600 hover:text-gray-400 dark:text-stone-300 dark:hover:text-stone-500 items-center"
-              onClick={() => editContent(content)}
+              onClick={() => {
+                closeSearch();
+                editContent(content);
+              }}
             >
               <DocumentTextIcon className="h-5 w-5" aria-hidden="true" />
               <span className="font-medium">Edit Data</span>
@@ -159,6 +165,7 @@ function Card({ content, mode, editContent, defaultOpenShare }) {
 
 Card.defaultProps = {
   defaultOpenShare: false,
+  closeSearch: () => {},
 };
 
 Card.propTypes = {
@@ -166,6 +173,7 @@ Card.propTypes = {
   mode: PropTypes.string.isRequired,
   editContent: PropTypes.func.isRequired,
   defaultOpenShare: PropTypes.bool,
+  closeSearch: PropTypes.func,
 };
 
 export default memo(Card);

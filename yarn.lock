@@ -2,14 +2,44 @@
 # yarn lockfile v1
 
 
-"@algolia/autocomplete-core@^1.5.1":
+"@algolia/autocomplete-core@1.5.1", "@algolia/autocomplete-core@^1.5.1":
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/@algolia/autocomplete-core/-/autocomplete-core-1.5.1.tgz#7c6ecc1a1bb8bce0f7c6f04afe16a82457ea2f12"
   integrity sha512-18uRUqR0vSmbKSZxUjo8EJcYLdUZlcpA9LiKMUs7c87aABqib3PFKaTnQYMmM7hpI+FduU3GBvN7EOgLTeaa6g==
   dependencies:
     "@algolia/autocomplete-shared" "1.5.1"
 
-"@algolia/autocomplete-preset-algolia@^1.5.1":
+"@algolia/autocomplete-js@1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@algolia/autocomplete-js/-/autocomplete-js-1.5.1.tgz#b86eb20b99b94feedf0e5f43d8b65c4d9287322b"
+  integrity sha512-lRYNkHtuUI+SVnSiiryRThRN/3DpwW4KrM5j6oIFbsfsW8nwj5rsd+6x9Z4+MPwzC/8iM/TJEUoalwQBR+ZScA==
+  dependencies:
+    "@algolia/autocomplete-core" "1.5.1"
+    "@algolia/autocomplete-preset-algolia" "1.5.1"
+    "@algolia/autocomplete-shared" "1.5.1"
+    preact "^10.0.0"
+
+"@algolia/autocomplete-plugin-query-suggestions@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@algolia/autocomplete-plugin-query-suggestions/-/autocomplete-plugin-query-suggestions-1.5.1.tgz#0f66d4710ecb7e2375db6fe00fc49ffb138abe4b"
+  integrity sha512-/GPvgWcSW9HQ4MezfOnRVyyJxZKEg2zN7OYMW8ozOlTUM6FdHdT4v1w4gXINltmJoak5k0py9Tea9qB7Qewafg==
+  dependencies:
+    "@algolia/autocomplete-core" "1.5.1"
+    "@algolia/autocomplete-js" "1.5.1"
+    "@algolia/autocomplete-preset-algolia" "1.5.1"
+    "@algolia/autocomplete-shared" "1.5.1"
+
+"@algolia/autocomplete-plugin-recent-searches@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@algolia/autocomplete-plugin-recent-searches/-/autocomplete-plugin-recent-searches-1.5.1.tgz#371e877b1c4c5dba1ca1342fea02bc2d12c4f5b9"
+  integrity sha512-IZWaxcRl3I6XPvcXQC+pMd8gK+d29J4gcfrvdlozz/GxUOxn7lC6c5aEO49hrI8qH4fwop8qb5qaHb/LEliDJQ==
+  dependencies:
+    "@algolia/autocomplete-core" "1.5.1"
+    "@algolia/autocomplete-js" "1.5.1"
+    "@algolia/autocomplete-preset-algolia" "1.5.1"
+    "@algolia/autocomplete-shared" "1.5.1"
+
+"@algolia/autocomplete-preset-algolia@1.5.1", "@algolia/autocomplete-preset-algolia@^1.5.1":
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/@algolia/autocomplete-preset-algolia/-/autocomplete-preset-algolia-1.5.1.tgz#6aa30eac79ccf06eb274297e4a23ce45e542eb4f"
   integrity sha512-0hgoAHk0StMQkT73aiui+IZEKqkexOTapEowKNSQPB55aLeuC2VKGbhVk5mdrw5juP8TjXLihGovLedv1zTjeA==
@@ -3306,6 +3336,11 @@ postcss@^8.4.5:
     nanoid "^3.1.30"
     picocolors "^1.0.0"
     source-map-js "^1.0.1"
+
+preact@^10.0.0:
+  version "10.6.4"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.6.4.tgz#ad12c409ff1b4316158486e0a7b8d43636f7ced8"
+  integrity sha512-WyosM7pxGcndU8hY0OQlLd54tOU+qmG45QXj2dAYrL11HoyU/EzOSTlpJsirbBr1QW7lICxSsVJJmcmUglovHQ==
 
 prelude-ls@^1.2.1:
   version "1.2.1"
