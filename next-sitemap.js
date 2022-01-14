@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: "https://www.soldev.app",
+  siteUrl: "https://soldev.app",
   generateRobotsTxt: true,
 };
