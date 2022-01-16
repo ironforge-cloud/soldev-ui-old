@@ -13,7 +13,7 @@ function Hackathon() {
           <span className="text-base font-light">
             Hosted By{" "}
             <a
-              className="decoration-solid decoration-2 underline-offset-4 decoration-yellow-500"
+              className="decoration-solid decoration-2 underline-offset-4 decoration-yellow-500 text-gray-900 dark:text-stone-200"
               href="https://www.projectserum.com/"
               target="_blank"
               rel="noreferrer"
@@ -22,7 +22,7 @@ function Hackathon() {
             </a>{" "}
             &{" "}
             <a
-              className="decoration-solid decoration-2 underline-offset-4 decoration-pink-500"
+              className="decoration-solid decoration-2 underline-offset-4 decoration-pink-500 text-gray-900 dark:text-stone-200"
               href="https://wormholenetwork.com/en/"
               target="_blank"
               rel="noreferrer"
