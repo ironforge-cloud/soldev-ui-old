@@ -10,7 +10,7 @@
   "devDependencies": {
     "@algolia/autocomplete-core": "^1.5.1",
     "@algolia/autocomplete-preset-algolia": "^1.5.1",
-    "@headlessui/react": "^1.4.2",
+    "@headlessui/react": "^1.4.3",
     "@heroicons/react": "^1.0.5",
     "@solana/wallet-adapter-base": "^0.9.0",
     "@solana/wallet-adapter-react": "^0.14.1",
@@ -37,7 +37,7 @@
     "react-player": "^2.9.0",
     "react-share": "^4.4.0",
     "swr": "^1.1.2",
-    "tailwindcss": "^3.0.13"
+    "tailwindcss": "^3.0.15"
   },
   "private": true,
   "scripts": {

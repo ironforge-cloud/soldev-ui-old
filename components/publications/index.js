@@ -1,14 +1,13 @@
-import Card from "./card";
 import { memo, useEffect, useState } from "react";
 import { useAppState } from "../../context/AppContext";
 import PropTypes from "prop-types";
 import dynamic from "next/dynamic";
 
-const VideoCard = dynamic(() => import("./video-card"));
+const CardVideo = dynamic(() => import("./card/card-video"));
+const CardRegular = dynamic(() => import("./card/card-regular"));
 const TagsSelector = dynamic(() => import("../badges/tags-selector"));
 const Spinner = dynamic(() => import("../spinner"));
-const CardEdit = dynamic(() => import("./card-edit"));
-const SubmitContentCard = dynamic(() => import("./submit-content-card"));
+const ContentFormModal = dynamic(() => import("./content-form/modal"));
 
 function Publications({
   data,
@@ -63,47 +62,41 @@ function Publications({
         </div>
       )}
 
-      <div className="flex flex-wrap justify-center mt-1 py-4 px-2 md:px-6 place-content-start md:space-x-6 gap-5 xl:gap-10">
+      <div className="flex flex-wrap justify-center mt-1 py-4 px-2 md:px-6 place-content-start gap-5 xl:gap-10">
         {isLoading ? (
           <Spinner />
         ) : (
-          <>
-            <div className="md:ml-6 hidden lg:block">
-              <SubmitContentCard />
-            </div>
+          data.map((content) => {
+            //  Initial Tags for content type "Playlists" is null
+            if (!content.Tags) content.Tags = [];
 
-            {data.map((content) => {
-              //  Initial Tags for content type "Playlists" is null
-              if (!content.Tags) content.Tags = [];
-
-              // Everything else except playlist content
-              if (content.ContentType !== "Playlist") {
-                return (
-                  <Card
-                    key={content.SK}
-                    content={content}
-                    mode={
-                      appState.editMode && cardMode !== "search"
-                        ? "edit"
-                        : cardMode
-                    }
-                    editContent={editContent}
-                    closeSearch={closeSearch}
-                  />
-                );
-              }
-
-              // Playlist Content
+            // Everything else except playlist content
+            if (content.ContentType !== "Playlist") {
               return (
-                <div key={content.SK}>
-                  <VideoCard content={content} closeSearch={closeSearch} />
-                </div>
+                <CardRegular
+                  key={content.SK}
+                  content={content}
+                  mode={
+                    appState.editMode && cardMode !== "search"
+                      ? "edit"
+                      : cardMode
+                  }
+                  editContent={editContent}
+                  closeSearch={closeSearch}
+                />
               );
-            })}
-          </>
+            }
+
+            // Playlist Content
+            return (
+              <div key={content.SK}>
+                <CardVideo content={content} closeSearch={closeSearch} />
+              </div>
+            );
+          })
         )}
       </div>
-      <CardEdit
+      <ContentFormModal
         open={open}
         setOpen={setOpen}
         content={content}

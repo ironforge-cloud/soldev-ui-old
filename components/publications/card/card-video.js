@@ -5,7 +5,7 @@ import Image from "next/image";
 import { FilmIcon, ShareIcon } from "@heroicons/react/solid";
 import dynamic from "next/dynamic";
 
-const Share = dynamic(() => import("../share"));
+const Share = dynamic(() => import("../../share"));
 
 function Card({ content, closeSearch }) {
   const [openShare, setOpenShare] = useState(false);
