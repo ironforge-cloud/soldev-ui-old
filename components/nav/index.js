@@ -14,7 +14,7 @@ function Nav({ children }) {
   return (
     <div
       className={classNames(
-        "min-h-screen bg-stone-100 dark:bg-stone-900",
+        "min-h-screen bg-gray-100 dark:bg-stone-900",
         search && "min-h-[3850px] 3xl:min-h-[1800px]"
       )}
     >
