@@ -8,6 +8,7 @@ export default {
     "Serum",
     "Gaming",
     "Governance",
+    "Mobile",
   ],
   language: [
     "Rust",
