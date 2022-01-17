@@ -65,7 +65,7 @@ export default function Submit() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="mx-auto max-w-6xl">
+      <main className="mx-auto max-w-6xl mb-5 shadow">
         <ContentForm
           type="submit"
           data={data}
