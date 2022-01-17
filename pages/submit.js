@@ -65,12 +65,14 @@ export default function Submit() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <ContentForm
-        type="submit"
-        data={data}
-        setData={setData}
-        setNotifySuccess={setNotifySuccess}
-      />
+      <main className="mx-auto max-w-6xl">
+        <ContentForm
+          type="submit"
+          data={data}
+          setData={setData}
+          setNotifySuccess={setNotifySuccess}
+        />
+      </main>
 
       <NotificationSuccess
         show={notifySuccess}
