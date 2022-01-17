@@ -21,7 +21,7 @@ export default function CardModal({ content, open, setOpen }) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-stone-700 dark:bg-stone-500 dark:bg-opacity-90 bg-opacity-90 transition-opacity" />
+            <Dialog.Overlay className="fixed inset-0 bg-gray-700 dark:bg-gray-500 dark:bg-opacity-90 bg-opacity-90 transition-opacity" />
           </Transition.Child>
 
           {/* This element is to trick the browser into centering the modal contents. */}
@@ -40,7 +40,7 @@ export default function CardModal({ content, open, setOpen }) {
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="inline-block align-bottom bg-white dark:bg-stone-800 rounded-xl text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-2xl">
+            <div className="inline-block align-bottom bg-white dark:bg-gray-800 rounded-xl text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-2xl">
               <div className="sm:flex sm:items-start">
                 <Card content={content} mode="modal" editContent={() => {}} />
               </div>

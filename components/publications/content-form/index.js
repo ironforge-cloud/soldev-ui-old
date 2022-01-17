@@ -78,7 +78,7 @@ function ContentForm({
   };
 
   return (
-    <div className="relative bg-white dark:bg-stone-800 py-16 px-4 h-full overflow-hidden sm:px-6 lg:px-8 lg:py-14">
+    <div className="relative bg-white dark:bg-gray-800 py-16 px-4 h-full overflow-hidden sm:px-6 lg:px-8 lg:py-14">
       <div className=" max-w-3xl mx-auto">
         <div className="absolute top-0 right-1">
           {type === "edit" && (
@@ -125,7 +125,7 @@ function ContentForm({
               {type === "edit" && (
                 <button
                   type="button"
-                  className="bg-white dark:bg-stone-700 py-3 px-6 border border-gray-300 dark:border-stone-700 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-stone-300 hover:bg-gray-50 dark:hover:bg-stone-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="bg-white dark:bg-gray-700 py-3 px-6 border border-gray-300 dark:border-stone-700 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-stone-300 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   onClick={() => {
                     if (type === "edit") setOpen(false);
                   }}

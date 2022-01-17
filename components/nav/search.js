@@ -81,7 +81,7 @@ function Search({ setSearch }) {
                 </div>
                 <div className="mt-1 flex items-center">
                   <input
-                    className="block w-full bg-white dark:bg-stone-900 border border-gray-300 dark:border-stone-700 rounded-md py-3 pl-10 pr-3 text-sm placeholder-gray-500 dark:placeholder-stone-300 focus:outline-none text-gray-900 dark:text-stone-300 focus:ring-1 focus:ring-rose-500 focus:border-rose-500"
+                    className="block w-full bg-white dark:bg-gray-900 border border-gray-300 dark:border-stone-700 rounded-md py-3 pl-10 pr-3 text-sm placeholder-gray-500 dark:placeholder-stone-300 focus:outline-none text-gray-900 dark:text-stone-300 focus:ring-1 focus:ring-rose-500 focus:border-rose-500"
                     {...autocomplete.getInputProps({})}
                   />
                   {/* TODO: Add keyboard shortcut */}

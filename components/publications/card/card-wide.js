@@ -18,7 +18,7 @@ function CardWide({ content, mode }) {
   return (
     <div
       className={classNames(
-        "flex flex-col rounded-lg min-h-full bg-white dark:bg-stone-800",
+        "flex flex-col rounded-lg min-h-full bg-white dark:bg-gray-800",
         mode === "dashboard" &&
           "border border-gray-300 dark:border-stone-700/60 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 hover:opacity-95"
       )}

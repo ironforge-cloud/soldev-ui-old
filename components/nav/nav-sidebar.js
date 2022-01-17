@@ -114,12 +114,12 @@ function NavSidebar({ closeMobileMenu }) {
                 onClick={() => closeMobileMenu()}
                 className={classNames(
                   item.name === current
-                    ? "bg-gray-200 text-gray-900 dark:bg-stone-800 dark:text-stone-200"
+                    ? "bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-stone-200"
                     : "text-gray-600 dark:text-stone-200",
                   "min-w-full group flex items-center px-3 py-2 text-lg lg:text-sm font-medium rounded-md max-w-[190px] cursor-pointer",
                   item.disabled
                     ? "opacity-50"
-                    : "hover:bg-gray-50 dark:hover:bg-stone-700"
+                    : "hover:bg-gray-50 dark:hover:bg-gray-700"
                 )}
                 target="_blank"
               >
@@ -141,9 +141,9 @@ function NavSidebar({ closeMobileMenu }) {
               <button
                 className={classNames(
                   item.name === current
-                    ? "bg-gray-200 text-gray-900 dark:bg-stone-800 dark:text-stone-200"
+                    ? "bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-stone-200"
                     : "text-gray-800 dark:text-stone-300",
-                  "min-w-full hover:bg-gray-50 dark:hover:bg-stone-700 group flex items-center px-3 py-2 text-lg lg:text-sm font-medium rounded-md max-w-[190px]"
+                  "min-w-full hover:bg-gray-50 dark:hover:bg-gray-700 group flex items-center px-3 py-2 text-lg lg:text-sm font-medium rounded-md max-w-[190px]"
                 )}
                 onClick={() => {
                   setCurrent(item.name);
@@ -170,7 +170,7 @@ function NavSidebar({ closeMobileMenu }) {
       <div className="pt-5 space-y-5">
         {/* Add new content*/}
         <Link href="/submit">
-          <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300">
+          <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-stone-300">
             <FolderAddIcon
               className="h-5 w-5 text-sky-500"
               aria-hidden="true"
@@ -200,7 +200,7 @@ function NavSidebar({ closeMobileMenu }) {
                   rel="noreferrer"
                   onClick={() => closeMobileMenu()}
                 >
-                  <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300">
+                  <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-stone-300">
                     <ExternalLinkIcon
                       className="h-4 w-4 text-rose-400 dark:text-rose-500"
                       aria-hidden="true"
@@ -230,7 +230,7 @@ function NavSidebar({ closeMobileMenu }) {
                 <Link href={item.href} passHref key={item.name}>
                   <button
                     onClick={() => closeMobileMenu()}
-                    className="min-w-full group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300"
+                    className="min-w-full group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-stone-300"
                   >
                     <SparklesIcon
                       className="h-4 w-4 text-rose-400 dark:text-rose-500"
@@ -265,7 +265,7 @@ function NavSidebar({ closeMobileMenu }) {
                   rel="noreferrer"
                   onClick={() => closeMobileMenu()}
                 >
-                  <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300">
+                  <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-stone-300">
                     <ExternalLinkIcon
                       className="h-4 w-4 text-rose-400 dark:text-rose-500"
                       aria-hidden="true"
@@ -302,7 +302,7 @@ function NavSidebar({ closeMobileMenu }) {
                 <Link href={item.href} passHref key={item.name}>
                   <button
                     onClick={() => closeMobileMenu()}
-                    className="min-w-full group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300"
+                    className="min-w-full group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-stone-300"
                   >
                     <PaperClipIcon
                       className="h-4 w-4 text-rose-400 dark:text-rose-500"

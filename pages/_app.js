@@ -22,7 +22,7 @@ const WalletConnectionProvider = dynamic(
 
 export default function App({ Component, pageProps }) {
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-stone-900">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
       <Script
         id="1"
         src="https://www.googletagmanager.com/gtag/js?id=G-HT8DFYDG03"

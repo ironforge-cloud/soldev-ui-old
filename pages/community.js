@@ -49,7 +49,7 @@ export default function Community({ tweets }) {
 
             <button
               onClick={() => setTweetsAmount((tweetsAmount += 10))}
-              className="w-full block text-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-stone-300 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 hover:bg-opacity-80 hover:opacity-95 bg-white dark:bg-stone-800"
+              className="w-full block text-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-stone-300 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 hover:bg-opacity-80 hover:opacity-95 bg-white dark:bg-gray-800"
             >
               View more
             </button>
@@ -123,9 +123,9 @@ export default function Community({ tweets }) {
                   className={classNames(
                     tabIdx === 0 ? "rounded-l-lg" : "",
                     tabIdx === tabs.length - 1 ? "rounded-r-lg" : "",
-                    "group relative min-w-0 flex-1 overflow-hidden bg-white dark:bg-stone-800 dark:text-stone-200 py-4 px-6 text-sm font-medium text-center  focus:z-10",
+                    "group relative min-w-0 flex-1 overflow-hidden bg-white dark:bg-gray-800 dark:text-stone-200 py-4 px-6 text-sm font-medium text-center  focus:z-10",
                     tab !== "Releases" &&
-                      "hover:bg-gray-50 dark:hover:bg-stone-700",
+                      "hover:bg-gray-50 dark:hover:bg-gray-700",
                     tab === "Releases" && "opacity-40 cursor-not-allowed"
                   )}
                 >

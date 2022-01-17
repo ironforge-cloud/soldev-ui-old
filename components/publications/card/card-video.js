@@ -11,7 +11,7 @@ function Card({ content, closeSearch }) {
   const [openShare, setOpenShare] = useState(false);
 
   return (
-    <div className="relative flex flex-col rounded-lg h-[340px] hover:bg-opacity-80 overflow-visible w-[400px] hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 shadow-lg bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700/60 min-h-full">
+    <div className="relative flex flex-col rounded-lg h-[340px] hover:bg-opacity-80 overflow-visible w-[400px] hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 shadow-lg bg-white dark:bg-gray-800 border border-stone-200 dark:border-stone-700/60 min-h-full">
       <Link
         href={`/library/${content.PlaylistID}/video/${content.SK}`}
         passHref
