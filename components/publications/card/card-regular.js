@@ -21,6 +21,11 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
 
   const imageUrl = content.Img ? content.Img : "/placeholder.webp";
 
+  const badgeUrl =
+    mode === "search"
+      ? `/library/${content.ContentType}`
+      : `/library/${content.ContentType}?badge=${content.SpecialTag}`;
+
   return (
     <div className="flex flex-col rounded-lg border max-h-[540px] border-gray-300 dark:border-stone-700/60 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20hover:opacity-95 bg-white dark:bg-gray-800 w-[400px]">
       <a href={content.Url} target="_blank" rel="noreferrer">
@@ -54,14 +59,18 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
 
               {/*  Badge */}
               {/*// TODO: fix technical debt that is requiring the "0" check. It's in the API*/}
-              {content.SpecialTag !== "0" && (
-                <Link
-                  href={`/library/${content.ContentType}/filter/?badge=${content.SpecialTag}`}
-                  passHref
-                >
-                  <Badge text={content.SpecialTag} />
-                </Link>
-              )}
+              {/*{content.SpecialTag !== "0" ||  && (*/}
+              <Link href={badgeUrl} passHref>
+                {mode === "search" ? (
+                  <Badge text={content.ContentType} />
+                ) : (
+                  <>
+                    {content.SpecialTag !== "0" && (
+                      <Badge text={content.SpecialTag} />
+                    )}
+                  </>
+                )}
+              </Link>
             </div>
 
             {/*  Author */}
