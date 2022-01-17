@@ -2,7 +2,11 @@ import Head from "next/head";
 import fetcher from "../../../utils/fetcher";
 import findTags from "../../../utils/find-tags";
 import defineTitle from "../../../utils/define-title";
-import PublicationsComponent from "../../../components/publications";
+import dynamic from "next/dynamic";
+
+const PublicationsComponent = dynamic(() =>
+  import("../../../components/publications")
+);
 
 export async function getStaticPaths() {
   const contentTypes = await fetcher(

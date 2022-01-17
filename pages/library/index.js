@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import fetch from "../../utils/fetcher";
 import Tabs from "../../components/dashboard/tabs";
 
-const Sidebar = dynamic(() => import("../../components/dashboard/sidebar"));
+const Sidebar = dynamic(() => import("../../components/sidebar"));
 
 export async function getStaticProps() {
   const newContent = await fetch(
@@ -12,14 +12,17 @@ export async function getStaticProps() {
   const trendingContent = await fetch(
     `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/specialtag/Hot`
   );
+  const tweets = await fetch(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/tweets/pinned`
+  );
 
   return {
-    props: { newContent, trendingContent },
+    props: { newContent, trendingContent, tweets },
     revalidate: 60,
   };
 }
 
-export default function Library({ newContent, trendingContent }) {
+export default function Library({ newContent, trendingContent, tweets }) {
   return (
     <div>
       <Head>
@@ -66,11 +69,12 @@ export default function Library({ newContent, trendingContent }) {
       </Head>
 
       <div className="flex gap-6 px-2 md:pl-0 justify-center">
-        <main className="w-[700px]">
+        <main className="max-w-2xl">
           <Tabs newContent={newContent} trendingContent={trendingContent} />
         </main>
-        <aside className="hidden xl:block">
-          <Sidebar />
+
+        <aside className="hidden xl:block max-w-sm">
+          <Sidebar tweets={tweets} />
         </aside>
       </div>
     </div>

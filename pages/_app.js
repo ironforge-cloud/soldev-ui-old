@@ -1,5 +1,5 @@
+import "../style.css";
 import Script from "next/script";
-import "tailwindcss/tailwind.css";
 
 import PlausibleProvider from "next-plausible";
 import dynamic from "next/dynamic";
@@ -22,7 +22,7 @@ const WalletConnectionProvider = dynamic(
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
+    <div className="min-h-screen bg-gray-100 dark:bg-stone-900">
       <Script
         id="1"
         src="https://www.googletagmanager.com/gtag/js?id=G-HT8DFYDG03"
@@ -50,6 +50,6 @@ export default function App({ Component, pageProps }) {
           </WalletModalProvider>
         </WalletConnectionProvider>
       </PlausibleProvider>
-    </>
+    </div>
   );
 }

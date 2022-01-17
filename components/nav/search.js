@@ -38,7 +38,7 @@ function Search({ setSearch }) {
                   searchClient,
                   queries: [
                     {
-                      indexName: "dev_soldev",
+                      indexName: process.env.NEXT_PUBLIC_ALGOLIA_SOURCE_ID,
                       query,
                       params: {
                         hitsPerPage: 10,

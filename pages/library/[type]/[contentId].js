@@ -4,7 +4,7 @@ import fetcher from "../../../utils/fetcher";
 import findTags from "../../../utils/find-tags";
 import defineTitle from "../../../utils/define-title";
 import PublicationsComponent from "../../../components/publications";
-import CardModal from "../../../components/publications/card-modal";
+import CardModal from "../../../components/publications/card/card-modal";
 
 export async function getStaticPaths() {
   const contentTypes = await fetcher(

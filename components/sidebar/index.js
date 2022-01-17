@@ -1,13 +1,11 @@
 import React, { memo, useState } from "react";
 import dynamic from "next/dynamic";
-import usePinnedTweets from "../../hooks/usePinnedTweets";
-import NetworkStatus from "./network-status";
+import PropTypes from "prop-types";
 
 const Tweet = dynamic(() => import("../twitter/tweet"));
-const Spinner = dynamic(() => import("../spinner"));
+const Hackathon = dynamic(() => import("./hackathon"));
 
-function Sidebar() {
-  const { data: tweets = [], isLoading } = usePinnedTweets();
+function Sidebar({ tweets }) {
   const [loadMore, setLoadMore] = useState(false);
 
   // This helper function allow me to have infinity loading without having
@@ -43,14 +41,13 @@ function Sidebar() {
   }
 
   return (
-    <div className="flex flex-warp flex flex-col gap-6">
-      {/* Network Status */}
-      <div className="bg-white dark:bg-stone-800 rounded-lg shadow max-h-fit">
-        <NetworkStatus />
+    <div className="flex flex-col gap-6">
+      <div className="bg-white dark:bg-stone-800 rounded-lg shadow">
+        <Hackathon />
       </div>
 
       {/* Announcements */}
-      <div className="bg-white dark:bg-stone-800 rounded-lg shadow w-[420px] max-h-fit ">
+      <div className="bg-white dark:bg-stone-800 rounded-lg shadow">
         <div className="p-6">
           <div className="flex justify-between">
             <h2
@@ -65,13 +62,7 @@ function Sidebar() {
               role="list"
               className="-my-4 divide-y divide-gray-200 dark:divide-stone-600"
             >
-              {isLoading ? (
-                <div className="flex justify-center min-h-screen">
-                  <Spinner />
-                </div>
-              ) : (
-                Array.isArray(tweets) && loadTweets(tweets)
-              )}
+              {Array.isArray(tweets) && loadTweets(tweets)}
             </div>
           </div>
           {!loadMore && (
@@ -89,5 +80,9 @@ function Sidebar() {
     </div>
   );
 }
+
+Sidebar.propTypes = {
+  tweets: PropTypes.array.isRequired,
+};
 
 export default memo(Sidebar);

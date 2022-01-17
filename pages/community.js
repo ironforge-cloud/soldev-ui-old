@@ -3,8 +3,9 @@ import useTweets from "../hooks/useTweets";
 import { useState } from "react";
 import loadTweets from "../utils/loadTweets";
 import dynamic from "next/dynamic";
+import fetch from "../utils/fetcher";
 
-const Sidebar = dynamic(() => import("../components/dashboard/sidebar"));
+const Sidebar = dynamic(() => import("../components/sidebar"));
 const Spinner = dynamic(() => import("../components/spinner"));
 
 const tabs = ["developers", "projects"];
@@ -13,7 +14,18 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Community() {
+export async function getStaticProps() {
+  const tweets = await fetch(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/tweets/pinned`
+  );
+
+  return {
+    props: { tweets },
+    revalidate: 60,
+  };
+}
+
+export default function Community({ tweets }) {
   const [selectedTab, setSelectedTab] = useState("developers");
   const { data: developersTweets = [], isLoading: developersTweetsLoading } =
     useTweets("1452853465210933252");
@@ -152,8 +164,9 @@ export default function Community() {
             </div>
           </div>
         </main>
-        <aside className="hidden xl:block">
-          <Sidebar />
+
+        <aside className="hidden xl:block max-w-sm">
+          <Sidebar tweets={tweets} />
         </aside>
       </div>
     </div>

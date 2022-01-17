@@ -5,13 +5,13 @@ import Image from "next/image";
 import { FilmIcon, ShareIcon } from "@heroicons/react/solid";
 import dynamic from "next/dynamic";
 
-const Share = dynamic(() => import("../share"));
+const Share = dynamic(() => import("../../share"));
 
 function Card({ content, closeSearch }) {
   const [openShare, setOpenShare] = useState(false);
 
   return (
-    <div className="relative flex flex-col rounded-lg h-[340px] hover:bg-opacity-80 overflow-visible w-[400px] hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 shadow-lg bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 min-h-full transition ease-in-out duration-150 hover:scale-105">
+    <div className="relative flex flex-col rounded-lg h-[340px] hover:bg-opacity-80 overflow-visible w-[400px] hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 shadow-lg bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700/60 min-h-full">
       <Link
         href={`/library/${content.PlaylistID}/video/${content.SK}`}
         passHref

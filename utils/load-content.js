@@ -1,4 +1,4 @@
-import Card from "../components/publications/card";
+import CardWide from "../components/publications/card/card-wide";
 
 // This helper function allow me to have infinity loading without having
 // to build pagination in the api
@@ -14,7 +14,7 @@ export default function loadContent(content, contentAmount) {
   let component = [];
   for (let i = 0; i < size; i++) {
     component.push(
-      <Card
+      <CardWide
         content={content[i]}
         key={content[i].SK}
         editContent={() => {}}

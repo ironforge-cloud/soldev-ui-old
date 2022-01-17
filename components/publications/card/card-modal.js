@@ -1,35 +1,15 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import PropTypes from "prop-types";
-import ContentForm from "./content-form";
+import Card from "./card-wide";
 
-export default function CardEdit({ open, setOpen, content, positions }) {
-  const [data, setData] = useState({});
-
-  useEffect(() => {
-    setData({
-      PK: content.PK,
-      SK: content.SK,
-      Title: content.Title,
-      Author: content.Author,
-      Description: content.Description,
-      Url: content.Url,
-      Vertical: content.Vertical,
-      Tags: content.Tags,
-      ContentType: content.ContentType,
-      ContentStatus: content.ContentStatus,
-      SpecialTag: content.SpecialTag,
-      Position: content.Position,
-      Lists: content.Lists,
-    });
-  }, [content]);
-
+export default function CardModal({ content, open, setOpen }) {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
         as="div"
         className="fixed z-10 inset-0 overflow-y-auto"
-        onClose={() => setOpen(false)}
+        onClose={setOpen}
       >
         <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child
@@ -41,7 +21,7 @@ export default function CardEdit({ open, setOpen, content, positions }) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-gray-800 bg-opacity-20 transition-opacity" />
+            <Dialog.Overlay className="fixed inset-0 bg-stone-700 dark:bg-stone-500 dark:bg-opacity-90 bg-opacity-90 transition-opacity" />
           </Transition.Child>
 
           {/* This element is to trick the browser into centering the modal contents. */}
@@ -60,14 +40,10 @@ export default function CardEdit({ open, setOpen, content, positions }) {
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="inline-block align-bottom bg-white dark:bg-stone-800 rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle max-w-3xl sm:p-6">
-              <ContentForm
-                type="edit"
-                setOpen={setOpen}
-                data={data}
-                setData={setData}
-                positions={positions}
-              />
+            <div className="inline-block align-bottom bg-white dark:bg-stone-800 rounded-xl text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-2xl">
+              <div className="sm:flex sm:items-start">
+                <Card content={content} mode="modal" editContent={() => {}} />
+              </div>
             </div>
           </Transition.Child>
         </div>
@@ -75,10 +51,8 @@ export default function CardEdit({ open, setOpen, content, positions }) {
     </Transition.Root>
   );
 }
-
-CardEdit.propTypes = {
+CardModal.propTypes = {
+  content: PropTypes.object.isRequired,
   open: PropTypes.bool.isRequired,
   setOpen: PropTypes.func.isRequired,
-  content: PropTypes.object.isRequired,
-  positions: PropTypes.array,
 };

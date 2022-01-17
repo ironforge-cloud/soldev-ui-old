@@ -22,7 +22,7 @@ import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
 
 const Search = dynamic(() => import("./search"));
-const NavSidebar = dynamic(() => import("./sidebar"));
+const NavSidebar = dynamic(() => import("./nav-sidebar"));
 
 function update() {
   if (
