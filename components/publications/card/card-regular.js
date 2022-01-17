@@ -24,7 +24,7 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
   const badgeUrl =
     mode === "search"
       ? `/library/${content.ContentType}`
-      : `/library/${content.ContentType}?badge=${content.SpecialTag}`;
+      : `/library/${content.ContentType}/filter?badge=${content.SpecialTag}`;
 
   return (
     <div className="flex flex-col rounded-lg border max-h-[540px] border-gray-300 dark:border-stone-700/60 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20hover:opacity-95 bg-white dark:bg-gray-800 w-[400px]">
@@ -58,18 +58,21 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
               </a>
 
               {/*  Badge */}
-              {/*// TODO: fix technical debt that is requiring the "0" check. It's in the API*/}
-              {/*{content.SpecialTag !== "0" ||  && (*/}
               <Link href={badgeUrl} passHref>
-                {mode === "search" ? (
-                  <Badge text={content.ContentType} />
-                ) : (
-                  <>
-                    {content.SpecialTag !== "0" && (
-                      <Badge text={content.SpecialTag} />
-                    )}
-                  </>
-                )}
+                <div
+                  className="cursor-pointer hover:opacity-80"
+                  onClick={() => closeSearch()}
+                >
+                  {mode === "search" ? (
+                    <Badge text={content.ContentType} />
+                  ) : (
+                    <>
+                      {content.SpecialTag !== "0" && (
+                        <Badge text={content.SpecialTag} />
+                      )}
+                    </>
+                  )}
+                </div>
               </Link>
             </div>
 
