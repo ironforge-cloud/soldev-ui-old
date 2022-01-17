@@ -19,7 +19,7 @@ function classNames(...classes) {
 function CardRegular({ content, mode, editContent, closeSearch }) {
   const [openShare, setOpenShare] = useState(false);
 
-  const imageUrl = content.Img ? content.Img : "/placeholder.png";
+  const imageUrl = content.Img ? content.Img : "/placeholder.webp";
 
   return (
     <div className="flex flex-col rounded-lg border max-h-[540px] border-gray-300 dark:border-stone-700/60 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20hover:opacity-95 bg-white dark:bg-gray-800 w-[400px]">
