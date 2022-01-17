@@ -54,6 +54,11 @@ const special = [
     href: "https://docs.metaplex.com?utm_source=soldev.app",
     disabled: false,
   },
+  {
+    name: "DAO Docs",
+    href: "https://docs.realms.today/",
+    disabled: false,
+  },
 ];
 
 const specialLists = [
