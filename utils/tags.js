@@ -1,6 +1,15 @@
 export default {
   level: ["Beginner", "Intermediate", "Expert"],
-  tech: ["Anchor", "Arweave", "Metaplex", "Web3.js", "Serum", "Solana"],
+  tech: [
+    "Anchor",
+    "Arweave",
+    "Metaplex",
+    "Web3.js",
+    "Serum",
+    "Solana",
+    "Gaming",
+    "Governance",
+  ],
   language: [
     "Rust",
     "JavaScript",
