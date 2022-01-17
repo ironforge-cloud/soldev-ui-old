@@ -19,27 +19,22 @@ function classNames(...classes) {
 function CardRegular({ content, mode, editContent, closeSearch }) {
   const [openShare, setOpenShare] = useState(false);
 
+  const imageUrl = content.Img ? content.Img : "/placeholder.png";
+
   return (
-    <div
-      className={classNames(
-        "flex flex-col rounded-lg border border-gray-300 dark:border-stone-700/60 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20hover:opacity-95 bg-white dark:bg-gray-800 w-[400px]",
-        content.Img ? "max-h-[540px]" : "max-h-[340px]"
-      )}
-    >
-      {content.Img && (
-        <a href={content.Url} target="_blank" rel="noreferrer">
-          <Image
-            className="object-cover rounded-t-lg cursor-pointer hover:opacity-90"
-            src={content.Img}
-            alt=""
-            height="200"
-            width="400"
-            quality="100"
-            placeholder="blur"
-            blurDataURL={content.Img}
-          />
-        </a>
-      )}
+    <div className="flex flex-col rounded-lg border max-h-[540px] border-gray-300 dark:border-stone-700/60 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20hover:opacity-95 bg-white dark:bg-gray-800 w-[400px]">
+      <a href={content.Url} target="_blank" rel="noreferrer">
+        <Image
+          className="object-cover rounded-t-lg cursor-pointer hover:opacity-90"
+          src={imageUrl}
+          alt=""
+          height="200"
+          width="400"
+          quality="100"
+          placeholder="blur"
+          blurDataURL={imageUrl}
+        />
+      </a>
 
       <div className="px-5 pt-5">
         <div className="overflow-hidden h-[275px]">
