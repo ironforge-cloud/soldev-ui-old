@@ -22,7 +22,7 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
   return (
     <div
       className={classNames(
-        "flex flex-col rounded-lg border border-gray-300 dark:border-stone-700 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20hover:opacity-95 bg-white dark:bg-stone-800 w-[400px]",
+        "flex flex-col rounded-lg border border-gray-300 dark:border-stone-700/60 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20hover:opacity-95 bg-white dark:bg-stone-800 w-[400px]",
         content.Img ? "max-h-[540px]" : "max-h-[340px]"
       )}
     >
