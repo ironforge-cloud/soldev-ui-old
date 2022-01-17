@@ -32,7 +32,6 @@ function Hackathon() {
           </span>
         </p>
       </div>
-
       <a
         href="https://serum-wormhole-hackathon.com/"
         className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-md font-medium bg-gradient-to-r hover:from-green-400 hover:to-blue-500 from-yellow-500 to-pink-500"

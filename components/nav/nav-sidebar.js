@@ -2,8 +2,8 @@ import Link from "next/link";
 import {
   ChatAlt2Icon,
   ClipboardCheckIcon,
-  DocumentAddIcon,
   ExternalLinkIcon,
+  FolderAddIcon,
   LibraryIcon,
   PaperClipIcon,
   SparklesIcon,
@@ -171,11 +171,11 @@ function NavSidebar({ closeMobileMenu }) {
         {/* Add new content*/}
         <Link href="/submit">
           <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-stone-700 dark:hover:text-stone-300">
-            <DocumentAddIcon
-              className="h-4 w-4 stroke-sky-500 dark:stroke-sky-600"
+            <FolderAddIcon
+              className="h-5 w-5 text-sky-500"
               aria-hidden="true"
             />
-            <span className="truncate leading-6"> Submit new content</span>
+            <span className="truncate leading-6"> Submit content</span>
           </div>
         </Link>
 
