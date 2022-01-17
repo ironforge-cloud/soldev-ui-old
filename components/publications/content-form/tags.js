@@ -112,7 +112,7 @@ function ContentTags({ data, setData, type }) {
       >
         <div>
           <legend className="text-base font-medium text-gray-900 dark:text-stone-300">
-            Tech
+            Technology
           </legend>
         </div>
         <div className="mt-4 space-y-4">

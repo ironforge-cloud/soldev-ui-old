@@ -6,7 +6,6 @@ export default {
     "Metaplex",
     "Web3.js",
     "Serum",
-    "Solana",
     "Gaming",
     "Governance",
   ],
@@ -19,6 +18,7 @@ export default {
     "Java",
     "Swift",
     "CLI",
+    "Kotlin",
   ],
   badge: ["New", "Hot", "Best", "Old"],
 };
