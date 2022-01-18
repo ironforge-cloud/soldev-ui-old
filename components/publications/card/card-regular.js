@@ -19,7 +19,8 @@ function classNames(...classes) {
 function CardRegular({ content, mode, editContent, closeSearch }) {
   const [openShare, setOpenShare] = useState(false);
 
-  const imageUrl = content.Img ? content.Img : "/placeholder.webp";
+  let imageUrl = content.Img ? content.Img : "/placeholder.webp";
+  if (content.ContentType === "threads") imageUrl = "/twitter-placeholder.webp";
 
   const badgeUrl =
     mode === "search"

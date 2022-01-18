@@ -15,6 +15,13 @@ function classNames(...classes) {
 function CardWide({ content, mode }) {
   const [openShare, setOpenShare] = useState(false);
 
+  let imageUrl = "";
+  if (content.Img) {
+    imageUrl = content.Img;
+  } else if (content.ContentType === "threads") {
+    imageUrl = "/twitter-placeholder.webp";
+  }
+
   return (
     <div
       className={classNames(
@@ -23,18 +30,18 @@ function CardWide({ content, mode }) {
           "border border-gray-300 dark:border-stone-700/60 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 hover:opacity-95"
       )}
     >
-      {content.Img && (
+      {imageUrl && (
         <a href={content.Url} target="_blank" rel="noreferrer">
           <div>
             <Image
               className="object-cover rounded-t-lg cursor-pointer hover:opacity-90"
-              src={content.Img}
+              src={imageUrl}
               alt=""
               height="350"
               width="700"
               quality="100"
               placeholder="blur"
-              blurDataURL={content.Img}
+              blurDataURL={imageUrl}
             />
           </div>
         </a>
