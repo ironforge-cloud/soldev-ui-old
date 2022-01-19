@@ -1,9 +1,9 @@
-import Head from "next/head";
 import useTweets from "../hooks/useTweets";
 import { useState } from "react";
 import loadTweets from "../utils/loadTweets";
 import dynamic from "next/dynamic";
 import fetch from "../utils/fetcher";
+import { Container } from "../components/layout";
 
 const Sidebar = dynamic(() => import("../components/sidebar"));
 const Spinner = dynamic(() => import("../components/spinner"));
@@ -34,6 +34,15 @@ export default function Community({ tweets }) {
   const [developersTweetsAmount, setDevelopersTweetsAmount] = useState(10);
   const [projectsTweetsAmount, setProjectsTweetsAmount] = useState(10);
 
+  const metaTags = {
+    title: "SolDev - Community",
+    description:
+      "Stay up-to-date with the Solana ecosystem. Solana Projects and Developers in one place.",
+    url: "https://soldev.app/community",
+    image: "https://soldev.app/solanaLogoMark.png",
+    shouldIndex: true,
+  };
+
   function loadMoreTweets(isLoading, tweets, tweetsAmount, setTweetsAmount) {
     if (isLoading) {
       return (
@@ -60,51 +69,7 @@ export default function Community({ tweets }) {
   }
 
   return (
-    <div>
-      <Head>
-        <title>SolDev - Community</title>
-
-        <meta name="title" content="SolDev - Community" />
-        <meta
-          name="description"
-          content="Stay up-to-date with the Solana ecosystem. Solana Projects and Developers in one place."
-        />
-
-        {/* Google */}
-        <meta name="robots" content="index,follow,noodp" />
-        <meta name="googlebot" content="index,follow" />
-
-        {/* Open Graph */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.soldev.app/community" />
-        <meta property="og:title" content="SolDev - Community" />
-        <meta
-          property="og:description"
-          content="Stay up-to-date with the Twitter Solana ecosystem. Solana Projects and Developers in one place."
-        />
-        <meta
-          property="og:image"
-          content="https://www.soldev.app/solanaLogoMark.png"
-        />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@soldevapp" />
-        <meta name="twitter:creator" content="@italoacasas" />
-        <meta name="twitter:url" content="https://www.soldev.app/community" />
-        <meta name="twitter:title" content="SolDev - Community" />
-        <meta
-          name="twitter:description"
-          content="Stay up-to-date with the Twitter Solana ecosystem. Solana Projects and Developers in one place."
-        />
-        <meta
-          name="twitter:image"
-          content="https://www.soldev.app/solanaLogoMark.png"
-        />
-
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <Container metaTags={metaTags}>
       <div className="flex gap-6 px-2 md:pl-0 justify-center">
         <main className="w-[700px]">
           <div className="px-4 sm:px-0">
@@ -169,6 +134,6 @@ export default function Community({ tweets }) {
           <Sidebar tweets={tweets} />
         </aside>
       </div>
-    </div>
+    </Container>
   );
 }

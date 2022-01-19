@@ -1,6 +1,8 @@
-import Head from "next/head";
 import fetcher from "../../../../utils/fetcher";
-import Player from "../../../../components/videos/player";
+import { Container } from "../../../../components/layout";
+import dynamic from "next/dynamic";
+
+const Player = dynamic(() => import("../../../../components/videos/player"));
 
 export async function getStaticPaths() {
   const data = await fetcher(
@@ -45,44 +47,18 @@ export async function getStaticProps({ params }) {
 }
 
 function VideoID({ data }) {
+  const metaTags = {
+    title: `SolDev - ${data.Title}`,
+    description: data.Description,
+    url: `https://www.soldev.app/library/${data.PlaylistID}/video/${data.SK}`,
+    image: "https://soldev.app/solanaLogoMark.png",
+    shouldIndex: true,
+  };
+
   return (
-    <div>
-      <Head>
-        <title>{`SolDev - ${data.Title}`}</title>
-        <meta name="title" content={`SolDev - ${data.Title}`} />
-        <meta name="description" content={data.Description} />
-
-        {/* Google */}
-        <meta name="robots" content="index,follow,noodp" />
-        <meta name="googlebot" content="index,follow" />
-
-        {/* Open Graph */}
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content={`https://www.soldev.app/library/${data.PlaylistID}/video/${data.SK}`}
-        />
-        <meta property="og:title" content={`SolDev - ${data.Title}`} />
-        <meta property="og:description" content={data.Description} />
-        <meta property="og:image" content={data.Img} />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@soldevapp" />
-        <meta name="twitter:creator" content="@italoacasas" />
-        <meta
-          name="twitter:url"
-          content={`https://www.soldev.app/library/${data.PlaylistID}/video/${data.SK}`}
-        />
-        <meta name="twitter:title" content={`SolDev - ${data.Title}`} />
-        <meta name="twitter:description" content={data.Description} />
-        <meta name="twitter:image" content={data.Img} />
-
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <Container metaTags={metaTags}>
       <Player content={data} />
-    </div>
+    </Container>
   );
 }
 

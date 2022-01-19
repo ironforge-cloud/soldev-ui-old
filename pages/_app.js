@@ -11,8 +11,6 @@ import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 // App Context
 import { AppWrapper } from "../context/AppContext";
 
-const Nav = dynamic(() => import("../components/nav"));
-
 const WalletConnectionProvider = dynamic(
   () => import("../components/wallet-connection-provider"),
   {
@@ -43,9 +41,7 @@ export default function App({ Component, pageProps }) {
         <WalletConnectionProvider>
           <WalletModalProvider logo="/logo-white.png">
             <AppWrapper>
-              <Nav>
-                <Component {...pageProps} />
-              </Nav>
+              <Component {...pageProps} />
             </AppWrapper>
           </WalletModalProvider>
         </WalletConnectionProvider>

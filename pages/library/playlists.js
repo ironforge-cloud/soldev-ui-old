@@ -1,6 +1,8 @@
-import Head from "next/head";
 import fetcher from "../../utils/fetcher";
-import Playlists from "../../components/videos/playlists";
+import dynamic from "next/dynamic";
+import { Container } from "../../components/layout";
+
+const Playlists = dynamic(() => import("../../components/videos/playlists"));
 
 export async function getStaticProps() {
   const playlists = await fetcher(
@@ -14,57 +16,17 @@ export async function getStaticProps() {
 }
 
 export default function Video({ playlists }) {
+  const metaTags = {
+    title: "SolDev - Playlists",
+    description:
+      "Watch Solana conferences, live streams and stay up to date with the latest Podcasts.",
+    url: "https://soldev.app/library/playlists",
+    image: "https://soldev.app/solanaLogoMark.png",
+    shouldIndex: true,
+  };
+
   return (
-    <div>
-      <Head>
-        <title>SolDev - Playlists</title>
-        <meta name="title" content="SolDev - Playlists" />
-        <meta
-          name="description"
-          content="Watch Solana conferences, live streams and stay up to date with the latest Podcasts"
-        />
-
-        {/* Google */}
-        <meta name="robots" content="index,follow,noodp" />
-        <meta name="googlebot" content="index,follow" />
-
-        {/* Open Graph */}
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content="https://www.soldev.app/library/playlists"
-        />
-        <meta property="og:title" content="SolDev - Playlists" />
-        <meta
-          name="og:description"
-          content="Watch Solana conferences, live streams and stay up to date with the latest Podcasts"
-        />
-        <meta
-          property="og:image"
-          content="https://www.soldev.app/solanaLogoMark.png"
-        />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@soldevapp" />
-        <meta name="twitter:creator" content="@italoacasas" />
-        <meta
-          name="twitter:url"
-          content="https://www.soldev.app/library/playlists"
-        />
-        <meta name="twitter:title" content="SolDev - Video Playlists" />
-        <meta
-          name="twitter:description"
-          content="Watch Solana conferences, live streams and stay up to date with the latest Podcasts"
-        />
-        <meta
-          name="twitter:image"
-          content="https://www.soldev.app/solanaLogoMark.png"
-        />
-
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <Container metaTags={metaTags}>
       <main className="flex-1 relative z-0 overflow-hidden focus:outline-none">
         <div className="flex justify-center mb-8">
           <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold tracking-tight text-gray-900 dark:text-stone-200 capitalize w-max">
@@ -75,6 +37,6 @@ export default function Video({ playlists }) {
         {/* Playlists */}
         <Playlists data={playlists} />
       </main>
-    </div>
+    </Container>
   );
 }

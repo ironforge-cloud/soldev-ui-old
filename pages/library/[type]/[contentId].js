@@ -1,10 +1,16 @@
-import Head from "next/head";
 import { useState } from "react";
 import fetcher from "../../../utils/fetcher";
 import findTags from "../../../utils/find-tags";
 import defineTitle from "../../../utils/define-title";
-import PublicationsComponent from "../../../components/publications";
-import CardModal from "../../../components/publications/card/card-modal";
+import { Container } from "../../../components/layout";
+import dynamic from "next/dynamic";
+
+const PublicationsComponent = dynamic(() =>
+  import("../../../components/publications")
+);
+const CardModal = dynamic(() =>
+  import("../../../components/publications/card/card-modal")
+);
 
 export async function getStaticPaths() {
   const contentTypes = await fetcher(
@@ -84,48 +90,16 @@ export default function LibraryContent({
 }) {
   const [open, setOpen] = useState(true);
 
+  const metaTags = {
+    title: `SolDev - ${pageTitle}`,
+    description: pageDescription,
+    url: `https://soldev.app/library/${contentType}/${selectedContent.ID}`,
+    image: "https://soldev.app/solanaLogoMark.png",
+    shouldIndex: true,
+  };
+
   return (
-    <div>
-      <Head>
-        <title>{`SolDev - ${pageTitle}`}</title>
-        <meta name="title" content={`SolDev - ${pageTitle}`} />
-        <meta name="description" content={pageDescription} />
-
-        {/* Google */}
-        <meta name="robots" content="index,follow,noodp" />
-        <meta name="googlebot" content="index,follow" />
-
-        {/* Open Graph */}
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content={`https://www.soldev.app/library/${contentType}/${selectedContent.ID}`}
-        />
-        <meta property="og:title" content={`SolDev - ${pageTitle}`} />
-        <meta property="og:description" content={pageDescription} />
-        <meta
-          property="og:image"
-          content="https://www.soldev.app/solanaLogoMark.png"
-        />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@soldevapp" />
-        <meta name="twitter:creator" content="@italoacasas" />
-        <meta
-          name="twitter:url"
-          content={`https://www.soldev.app/library/${contentType}/${selectedContent.SK}`}
-        />
-        <meta name="twitter:title" content={`SolDev - ${pageTitle}`} />
-        <meta name="twitter:description" content={pageDescription} />
-        <meta
-          name="twitter:image"
-          content="https://www.soldev.app/solanaLogoMark.png"
-        />
-
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <Container metaTags={metaTags}>
       <PublicationsComponent
         data={data}
         title={title}
@@ -136,6 +110,6 @@ export default function LibraryContent({
       {selectedContent && (
         <CardModal content={selectedContent} open={open} setOpen={setOpen} />
       )}
-    </div>
+    </Container>
   );
 }
