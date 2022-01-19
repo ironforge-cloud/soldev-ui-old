@@ -74,7 +74,7 @@ export default function Publications({ data, title, contentType, tags }) {
   if (contentType === "playlist") pageDescription = title;
 
   const metaTags = {
-    title: `SolDev: ${title}`,
+    title: `SolDev - ${title}`,
     description: pageDescription,
     url: `https://soldev.app/library/${contentType}`,
     shouldIndex: true,
