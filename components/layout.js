@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 export function Container({ children, metaTags }) {
   return (
-    <>
+    <div>
       <Head>
         <title>{metaTags.title}</title>
         <meta name="title" content={metaTags.title} />
@@ -34,7 +34,7 @@ export function Container({ children, metaTags }) {
       </Head>
 
       <Nav>{children}</Nav>
-    </>
+    </div>
   );
 }
 
