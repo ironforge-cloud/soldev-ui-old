@@ -1,8 +1,8 @@
-import Head from "next/head";
 import fetcher from "../../../utils/fetcher";
 import findTags from "../../../utils/find-tags";
 import defineTitle from "../../../utils/define-title";
 import dynamic from "next/dynamic";
+import { Container } from "../../../components/layout";
 
 const PublicationsComponent = dynamic(() =>
   import("../../../components/publications")
@@ -73,48 +73,16 @@ export default function Publications({ data, title, contentType, tags }) {
     "Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations";
   if (contentType === "playlist") pageDescription = title;
 
+  const metaTags = {
+    title: `SolDev: ${title}`,
+    description: pageDescription,
+    url: `https://soldev.app/library/${contentType}`,
+    image: "https://soldev.app/solanaLogoMark.png",
+    shouldIndex: true,
+  };
+
   return (
-    <div>
-      <Head>
-        <title>{`SolDev: ${title}`}</title>
-        <meta name="title" content={`SolDev - ${title}`} />
-        <meta name="description" content={pageDescription} />
-
-        {/* Google */}
-        <meta name="robots" content="index,follow,noodp" />
-        <meta name="googlebot" content="index,follow" />
-
-        {/* Open Graph */}
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content={`https://www.soldev.app/library/${contentType}`}
-        />
-        <meta property="og:title" content={`SolDev - ${title}`} />
-        <meta property="og:description" content={pageDescription} />
-        <meta
-          property="og:image"
-          content="https://www.soldev.app/solanaLogoMark.png"
-        />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@soldevapp" />
-        <meta name="twitter:creator" content="@italoacasas" />
-        <meta
-          name="twitter:url"
-          content={`https://www.soldev.app/library/${contentType}`}
-        />
-        <meta name="twitter:title" content={`SolDev - ${title}`} />
-        <meta name="twitter:description" content={pageDescription} />
-        <meta
-          name="twitter:image"
-          content="https://www.soldev.app/solanaLogoMark.png"
-        />
-
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <Container metaTags={metaTags}>
       <PublicationsComponent
         data={data}
         title={title}
@@ -122,6 +90,6 @@ export default function Publications({ data, title, contentType, tags }) {
         isLoading={false}
         tagsList={tags}
       />
-    </div>
+    </Container>
   );
 }

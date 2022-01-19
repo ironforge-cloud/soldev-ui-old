@@ -1,9 +1,9 @@
 import dynamic from "next/dynamic";
 import fetch from "../../utils/fetcher";
-import Tabs from "../../components/dashboard/tabs";
 import { Container } from "../../components/layout";
 
 const Sidebar = dynamic(() => import("../../components/sidebar"));
+const Tabs = dynamic(() => import("../../components/dashboard/tabs"));
 
 export async function getStaticProps() {
   const newContent = await fetch(
@@ -22,14 +22,16 @@ export async function getStaticProps() {
   };
 }
 
-const metaTags = {
-  title: "SolDev - Library",
-  description: "",
-  url: "https://soldev.app/library",
-  image: "https://soldev.app/solanaLogoMark.png",
-};
-
 export default function Library({ newContent, trendingContent, tweets }) {
+  const metaTags = {
+    title: "SolDev - Library",
+    description:
+      "Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations",
+    url: "https://soldev.app/library",
+    image: "https://soldev.app/solanaLogoMark.png",
+    shouldIndex: true,
+  };
+
   return (
     <Container metaTags={metaTags}>
       <div className="flex gap-6 px-2 md:pl-0 justify-center">

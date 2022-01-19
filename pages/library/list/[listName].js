@@ -1,8 +1,12 @@
-import Head from "next/head";
+import dynamic from "next/dynamic";
 import contentLists from "../../../utils/content-lists";
 import fetcher from "../../../utils/fetcher";
 import defineTitle from "../../../utils/define-title";
-import PublicationsComponent from "../../../components/publications";
+import { Container } from "../../../components/layout";
+
+const PublicationsComponent = dynamic(() =>
+  import("../../../components/publications")
+);
 
 export async function getStaticPaths() {
   const paths = contentLists.map((list) => {
@@ -30,63 +34,23 @@ export async function getStaticProps({ params }) {
 }
 
 export default function LibraryLists({ data, title, listName }) {
+  const metaTags = {
+    title: `SolDev - ${title}`,
+    description:
+      "Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations.",
+    url: `https://soldev.app/library/list/${listName}`,
+    image: "https://soldev.app/solanaLogoMark.png",
+    shouldIndex: true,
+  };
+
   return (
-    <div>
-      <Head>
-        <title>{`SolDev - ${title}`}</title>
-        <meta name="title" content={`SolDev - ${title}`} />
-        <meta
-          name="description"
-          content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
-        />
-
-        {/* Google */}
-        <meta name="robots" content="index,follow,noodp" />
-        <meta name="googlebot" content="index,follow" />
-
-        {/* Open Graph */}
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content={`https://www.soldev.app/library/list/${listName}`}
-        />
-        <meta property="og:title" content={`SolDev - ${title}`} />
-        <meta
-          property="og:description"
-          content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
-        />
-        <meta
-          property="og:image"
-          content="https://www.soldev.app/solanaLogoMark.png"
-        />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@soldevapp" />
-        <meta name="twitter:creator" content="@italoacasas" />
-        <meta
-          name="twitter:url"
-          content={`https://www.soldev.app/library/list/${listName}`}
-        />
-        <meta name="twitter:title" content={`SolDev - ${title}`} />
-        <meta
-          name="twitter:description"
-          content="Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations"
-        />
-        <meta
-          name="twitter:image"
-          content="https://www.soldev.app/solanaLogoMark.png"
-        />
-
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <Container metaTags={metaTags}>
       <PublicationsComponent
         data={data}
         title={title}
         type="list"
         isLoading={false}
       />
-    </div>
+    </Container>
   );
 }

@@ -11,8 +11,18 @@ export function Container({ children, metaTags }) {
         <meta name="description" content={metaTags.description} />
 
         {/* Google */}
-        <meta name="robots" content="index,follow,noodp" />
-        <meta name="googlebot" content="index,follow" />
+        {metaTags.shouldIndex ? (
+          <>
+            {" "}
+            <meta name="robots" content="index,follow,noodp" />
+            <meta name="googlebot" content="index,follow" />
+          </>
+        ) : (
+          <>
+            <meta name="robots" content="noindex" />
+            <meta name="googlebot" content="noindex" />
+          </>
+        )}
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
