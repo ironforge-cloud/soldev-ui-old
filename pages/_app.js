@@ -11,8 +11,6 @@ import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 // App Context
 import { AppWrapper } from "../context/AppContext";
 
-const Nav = dynamic(() => import("../components/nav"));
-
 const WalletConnectionProvider = dynamic(
   () => import("../components/wallet-connection-provider"),
   {
