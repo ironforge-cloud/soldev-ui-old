@@ -26,7 +26,6 @@ export default function Submit() {
     description:
       "Propose new content to the platform. Submissions will be manually reviewed before deciding to publish them to the site.",
     url: "https://soldev.app/submit",
-    image: "https://soldev.app/solanaLogoMark.png",
     shouldIndex: true,
   };
 

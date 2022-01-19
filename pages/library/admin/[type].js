@@ -13,7 +13,6 @@ export default function ContentAdmin({}) {
     title: "SolDev - Library Admin",
     description: "Library Admin",
     url: "https://soldev.app/admin",
-    image: "https://soldev.app/solanaLogoMark.png",
     shouldIndex: false,
   };
 

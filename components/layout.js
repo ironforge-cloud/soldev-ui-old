@@ -43,7 +43,10 @@ export function Container({ children, metaTags }) {
         <meta property="og:url" content={metaTags.url} />
         <meta property="og:title" content={metaTags.title} />
         <meta property="og:description" content={metaTags.description} />
-        <meta property="og:image" content={metaTags.image} />
+        <meta
+          property="og:image"
+          content="https://soldev.app/logo-circle.png"
+        />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary" />
@@ -52,7 +55,10 @@ export function Container({ children, metaTags }) {
         <meta name="twitter:url" content={metaTags.url} />
         <meta name="twitter:title" content={metaTags.title} />
         <meta name="twitter:description" content={metaTags.description} />
-        <meta name="twitter:image" content={metaTags.image} />
+        <meta
+          name="twitter:image"
+          content="https://soldev.app/logo-circle.png"
+        />
 
         <link rel="icon" href="/favicon.ico" />
       </Head>

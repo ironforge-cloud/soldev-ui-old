@@ -77,7 +77,6 @@ export default function Publications({ data, title, contentType, tags }) {
     title: `SolDev: ${title}`,
     description: pageDescription,
     url: `https://soldev.app/library/${contentType}`,
-    image: "https://soldev.app/solanaLogoMark.png",
     shouldIndex: true,
   };
 

@@ -94,7 +94,6 @@ export default function LibraryContent({
     title: `SolDev - ${pageTitle}`,
     description: pageDescription,
     url: `https://soldev.app/library/${contentType}/${selectedContent.ID}`,
-    image: "https://soldev.app/solanaLogoMark.png",
     shouldIndex: true,
   };
 

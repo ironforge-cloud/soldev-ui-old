@@ -21,7 +21,6 @@ export default function Video({ playlists }) {
     description:
       "Watch Solana conferences, live streams and stay up to date with the latest Podcasts.",
     url: "https://soldev.app/library/playlists",
-    image: "https://soldev.app/solanaLogoMark.png",
     shouldIndex: true,
   };
 

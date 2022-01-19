@@ -39,7 +39,6 @@ export default function Community({ tweets }) {
     description:
       "Stay up-to-date with the Solana ecosystem. Solana Projects and Developers in one place.",
     url: "https://soldev.app/community",
-    image: "https://soldev.app/solanaLogoMark.png",
     shouldIndex: true,
   };
 

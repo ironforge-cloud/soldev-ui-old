@@ -28,7 +28,6 @@ export default function Library({ newContent, trendingContent, tweets }) {
     description:
       "Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations",
     url: "https://soldev.app/library",
-    image: "https://soldev.app/solanaLogoMark.png",
     shouldIndex: true,
   };
 

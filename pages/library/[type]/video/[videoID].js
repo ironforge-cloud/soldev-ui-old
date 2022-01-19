@@ -51,7 +51,6 @@ function VideoID({ data }) {
     title: `SolDev - ${data.Title}`,
     description: data.Description,
     url: `https://www.soldev.app/library/${data.PlaylistID}/video/${data.SK}`,
-    image: "https://soldev.app/solanaLogoMark.png",
     shouldIndex: true,
   };
 

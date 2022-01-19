@@ -39,7 +39,6 @@ export default function LibraryLists({ data, title, listName }) {
     description:
       "Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations.",
     url: `https://soldev.app/library/list/${listName}`,
-    image: "https://soldev.app/solanaLogoMark.png",
     shouldIndex: true,
   };
 
