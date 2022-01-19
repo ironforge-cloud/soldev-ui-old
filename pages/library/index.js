@@ -2,6 +2,7 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import fetch from "../../utils/fetcher";
 import Tabs from "../../components/dashboard/tabs";
+import Nav from "../../components/nav";
 
 const Sidebar = dynamic(() => import("../../components/sidebar"));
 
@@ -67,16 +68,17 @@ export default function Library({ newContent, trendingContent, tweets }) {
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Nav>
+        <div className="flex gap-6 px-2 md:pl-0 justify-center">
+          <main className="max-w-2xl">
+            <Tabs newContent={newContent} trendingContent={trendingContent} />
+          </main>
 
-      <div className="flex gap-6 px-2 md:pl-0 justify-center">
-        <main className="max-w-2xl">
-          <Tabs newContent={newContent} trendingContent={trendingContent} />
-        </main>
-
-        <aside className="hidden xl:block max-w-sm">
-          <Sidebar tweets={tweets} />
-        </aside>
-      </div>
+          <aside className="hidden xl:block max-w-sm">
+            <Sidebar tweets={tweets} />
+          </aside>
+        </div>
+      </Nav>
     </div>
   );
 }

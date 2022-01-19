@@ -43,9 +43,7 @@ export default function App({ Component, pageProps }) {
         <WalletConnectionProvider>
           <WalletModalProvider logo="/logo-white.png">
             <AppWrapper>
-              <Nav>
-                <Component {...pageProps} />
-              </Nav>
+              <Component {...pageProps} />
             </AppWrapper>
           </WalletModalProvider>
         </WalletConnectionProvider>
