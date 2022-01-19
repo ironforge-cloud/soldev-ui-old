@@ -2,6 +2,20 @@ import Head from "next/head";
 import Nav from "./nav";
 import PropTypes from "prop-types";
 
+// Wallet Auth
+import "@solana/wallet-adapter-react-ui/styles.css";
+import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
+// App Context
+import { AppWrapper } from "../context/AppContext";
+import dynamic from "next/dynamic";
+
+const WalletConnectionProvider = dynamic(
+  () => import("../components/wallet-connection-provider"),
+  {
+    ssr: false,
+  }
+);
+
 export function Container({ children, metaTags }) {
   return (
     <div>
@@ -43,7 +57,13 @@ export function Container({ children, metaTags }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Nav>{children}</Nav>
+      <WalletConnectionProvider>
+        <WalletModalProvider logo="/logo-white.png">
+          <AppWrapper>
+            <Nav>{children}</Nav>
+          </AppWrapper>
+        </WalletModalProvider>
+      </WalletConnectionProvider>
     </div>
   );
 }

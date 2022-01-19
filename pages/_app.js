@@ -2,21 +2,9 @@ import "../style.css";
 import Script from "next/script";
 
 import PlausibleProvider from "next-plausible";
-import dynamic from "next/dynamic";
 
 // Wallet Auth
 import "@solana/wallet-adapter-react-ui/styles.css";
-import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
-
-// App Context
-import { AppWrapper } from "../context/AppContext";
-
-const WalletConnectionProvider = dynamic(
-  () => import("../components/wallet-connection-provider"),
-  {
-    ssr: false,
-  }
-);
 
 export default function App({ Component, pageProps }) {
   return (
@@ -38,13 +26,7 @@ export default function App({ Component, pageProps }) {
         }}
       />
       <PlausibleProvider domain="soldev.app" trackOutboundLinks={true}>
-        <WalletConnectionProvider>
-          <WalletModalProvider logo="/logo-white.png">
-            <AppWrapper>
-              <Component {...pageProps} />
-            </AppWrapper>
-          </WalletModalProvider>
-        </WalletConnectionProvider>
+        <Component {...pageProps} />
       </PlausibleProvider>
     </div>
   );
