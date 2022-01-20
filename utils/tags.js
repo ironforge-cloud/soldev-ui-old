@@ -9,6 +9,7 @@ export default {
     "Gaming",
     "Governance",
     "Mobile",
+    "Security",
   ],
   language: [
     "Rust",

@@ -90,7 +90,7 @@ const categories = [
   { name: "Security", href: "/library/security" },
   { name: "Program Library", href: "/library/spl" },
   { name: "Twitter Threads", href: "/library/threads" },
-  { name: "Playlists", href: "/library/playlists" },
+  { name: "Video Playlists", href: "/library/playlists" },
   { name: "Submitted", href: "/library/admin/submitted" },
   { name: "Inactive", href: "/library/admin/inactive" },
 ];
