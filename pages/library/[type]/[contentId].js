@@ -95,6 +95,7 @@ export default function LibraryContent({
     description: pageDescription,
     url: `https://soldev.app/library/${contentType}/${selectedContent.ID}`,
     shouldIndex: true,
+    img: selectedContent.Img,
   };
 
   return (

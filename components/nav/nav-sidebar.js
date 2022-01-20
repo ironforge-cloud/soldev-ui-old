@@ -174,7 +174,7 @@ function NavSidebar({ closeMobileMenu }) {
 
       <div className="pt-5 space-y-5">
         {/* Add new content*/}
-        <Link href="/submit">
+        <Link href="/submit" passHref>
           <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-stone-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-stone-300">
             <FolderAddIcon
               className="h-5 w-5 text-sky-500"
