@@ -1,16 +1,7 @@
 export default {
   level: ["Beginner", "Intermediate", "Expert"],
-  tech: [
-    "Anchor",
-    "Arweave",
-    "Metaplex",
-    "Web3.js",
-    "Serum",
-    "Gaming",
-    "Governance",
-    "Mobile",
-    "Security",
-  ],
+  industry: ["DeFi", "Gaming", "Governance", "Mobile", "Security"],
+  protocols: ["Serum", "Metaplex", "Arweave"],
   language: [
     "Rust",
     "JavaScript",
@@ -23,4 +14,5 @@ export default {
     "Kotlin",
   ],
   badge: ["New", "Hot", "Best", "Old"],
+  framework: ["Anchor", "Web3.js", "React.js", "Svelte", "Vue.js"],
 };
