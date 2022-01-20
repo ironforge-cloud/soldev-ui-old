@@ -56,7 +56,7 @@ function Search({ setSearch }) {
           ];
         },
       }),
-    []
+    [setSearch]
   );
 
   return (
