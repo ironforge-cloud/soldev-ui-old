@@ -53,7 +53,7 @@ function ContentTags({ data, setData, type }) {
 
   return (
     <>
-      <div className="divide-y divide-gray-200 sm:space-y-2 col-span-8">
+      <div className="divide-y divide-gray-200 sm:space-y-2 col-span-10">
         <div>
           <h3 className="text-xl leading-6 font-medium text-gray-900 dark:text-stone-200">
             Tags
@@ -69,7 +69,7 @@ function ContentTags({ data, setData, type }) {
       <fieldset
         className={classNames(
           "my-3",
-          type === "edit" ? "col-span-3" : "col-span-3"
+          type === "edit" ? "col-span-3" : "col-span-2"
         )}
       >
         <div>
@@ -107,21 +107,83 @@ function ContentTags({ data, setData, type }) {
       <fieldset
         className={classNames(
           "my-3",
-          type === "edit" ? "col-span-3" : "col-span-3"
+          type === "edit" ? "col-span-3" : "col-span-2"
         )}
       >
         <div>
           <legend className="text-base font-medium text-gray-900 dark:text-stone-300">
-            Technology
+            Industry
           </legend>
         </div>
         <div className="mt-4 space-y-4">
-          {tagList.tech.map((tag) => {
+          {tagList.industry.map((tag) => {
             return (
               <div key={tag} className="flex items-center">
                 <input
                   id={tag}
                   name="techTags"
+                  type="checkbox"
+                  checked={data.Tags.includes(tag)}
+                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                  onChange={() => checkboxOnClick(tag)}
+                />
+                <label
+                  htmlFor={tag}
+                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-stone-300"
+                >
+                  {tag}
+                </label>
+              </div>
+            );
+          })}
+        </div>
+      </fieldset>
+
+      {/* Protocol Tags */}
+      <fieldset className="my-3 col-span-2">
+        <div>
+          <legend className="text-base font-medium text-gray-900 dark:text-stone-300">
+            Protocol
+          </legend>
+        </div>
+        <div className="mt-4 space-y-4">
+          {tagList.protocols.map((tag) => {
+            return (
+              <div key={tag} className="flex items-center">
+                <input
+                  id={tag}
+                  name="languageTags"
+                  type="checkbox"
+                  checked={data.Tags.includes(tag)}
+                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                  onChange={() => checkboxOnClick(tag)}
+                />
+                <label
+                  htmlFor={tag}
+                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-stone-300"
+                >
+                  {tag}
+                </label>
+              </div>
+            );
+          })}
+        </div>
+      </fieldset>
+
+      {/* Framework Tags */}
+      <fieldset className="my-3 col-span-2">
+        <div>
+          <legend className="text-base font-medium text-gray-900 dark:text-stone-300">
+            Framework
+          </legend>
+        </div>
+        <div className="mt-4 space-y-4">
+          {tagList.framework.map((tag) => {
+            return (
+              <div key={tag} className="flex items-center">
+                <input
+                  id={tag}
+                  name="languageTags"
                   type="checkbox"
                   checked={data.Tags.includes(tag)}
                   className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
