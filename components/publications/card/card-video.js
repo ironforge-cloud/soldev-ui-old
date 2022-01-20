@@ -38,7 +38,7 @@ function Card({ content, closeSearch }) {
           </p>
         </div>
 
-        <div className="flex flex-row justify-between items-end pt-2 h-[40px] pb-3">
+        <div className="flex flex-row justify-between items-end h-[40px] pb-2">
           {/* Watch Btn*/}
           <div>
             <Link
