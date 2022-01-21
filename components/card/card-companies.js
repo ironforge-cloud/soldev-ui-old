@@ -22,18 +22,15 @@ export default function CardCompanies({
             bgColor
           )}
         >
-          <Image
-            src={logo}
-            height="34px"
-            width="205px"
-            className="text-gray-5"
-          />
+          <Image src={logo} height="34px" width="205px" />
         </div>
 
-        <div className="p-4 border-t-2">
-          <div className="text-2xl font-medium pb-2 text-gray-800">{name}</div>
+        <div className="p-4 border-t-2 dark:border-gray-800">
+          <div className="text-2xl font-medium pb-2 text-gray-800 dark:text-gray-200">
+            {name}
+          </div>
 
-          <div className="text-gray-600">{description}</div>
+          <div className="text-gray-600 dark:text-gray-300">{description}</div>
         </div>
       </div>
     </Link>
