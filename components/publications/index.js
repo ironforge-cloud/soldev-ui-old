@@ -3,8 +3,8 @@ import { useAppState } from "../../context/AppContext";
 import PropTypes from "prop-types";
 import dynamic from "next/dynamic";
 
-const CardVideo = dynamic(() => import("./card/card-video"));
-const CardRegular = dynamic(() => import("./card/card-regular"));
+const CardVideo = dynamic(() => import("../card/card-video"));
+const CardRegular = dynamic(() => import("../card/card-regular"));
 const TagsSelector = dynamic(() => import("../badges/tags-selector"));
 const Spinner = dynamic(() => import("../spinner"));
 const ContentFormModal = dynamic(() => import("./content-form/modal"));
@@ -46,9 +46,9 @@ function Publications({
   return (
     <div className="flex flex-col mx-auto">
       <div className="flex justify-center mb-8">
-        <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold tracking-tight text-gray-900 dark:text-stone-200 capitalize w-max">
+        <h1 className="text-2xl md:text-3xl 2xl:text-4xl font-bold tracking-tight text-gray-900 dark:text-stone-200 capitalize w-max">
           {title}
-        </h2>
+        </h1>
       </div>
 
       {tags && (

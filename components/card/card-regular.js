@@ -9,8 +9,8 @@ import {
 } from "@heroicons/react/solid";
 import Image from "next/image";
 
-const Share = dynamic(() => import("../../share"));
-const Badge = dynamic(() => import("../../badges/badge.js"));
+const Share = dynamic(() => import("../share"));
+const Badge = dynamic(() => import("../badges/badge.js"));
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");

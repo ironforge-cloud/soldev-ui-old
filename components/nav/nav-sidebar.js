@@ -26,9 +26,15 @@ const navigation = [
     disabled: false,
   },
   {
+    name: "Bounties",
+    href: "/bounties",
+    icon: ClipboardCheckIcon,
+    disabled: false,
+  },
+  {
     name: "Jobs",
     href: "https://jobs.solana.com?utm_source=soldev.app",
-    icon: ClipboardCheckIcon,
+    icon: ExternalLinkIcon,
     disabled: false,
   },
 ];
