@@ -30,7 +30,7 @@ const companies = [
   {
     name: "Drift Protocol",
     ID: "2",
-    logo: "/drift-logo.svg",
+    logo: "/drift.svg",
     bgColor: "bg-gray-900",
     description:
       "Drift brings on-chain, cross-margined perpetual futures to Solana. Making futures DEXs the best way to trade.",
@@ -98,7 +98,7 @@ export default function Community({ stats }) {
       </div>
 
       {/* Projects */}
-      <div className="flex gap-6 flex-wrap justify-center mt-20">
+      <div className="flex gap-6 xl:gap-10 flex-wrap justify-center mt-20">
         {companies.map((card) => (
           <CardCompanies
             key={card.name}
