@@ -27,7 +27,7 @@ function CardWide({ content, mode }) {
       className={classNames(
         "flex flex-col rounded-lg min-h-full bg-white dark:bg-gray-800",
         mode === "dashboard" &&
-          "border border-gray-300 dark:border-stone-700/60 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 hover:opacity-95"
+          "border border-gray-300 dark:border-gray-700/60 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 hover:opacity-95"
       )}
     >
       {imageUrl && (
@@ -48,7 +48,7 @@ function CardWide({ content, mode }) {
       )}
 
       <div className="px-5 pt-4 pb-5">
-        <div className="border-b-2 border-dashed border-gray-700 dark:border-stone-500">
+        <div className="border-b-2 border-dashed border-gray-700 dark:border-gray-500">
           <div className="flex justify-between">
             {/*  Title */}
             <a
@@ -57,7 +57,7 @@ function CardWide({ content, mode }) {
               target="_blank"
               rel="noreferrer"
             >
-              <p className="text-lg font-semibold text-gray-900 dark:text-stone-200 hover:text-sky-500 dark:hover:text-sky-600">
+              <p className="text-lg font-semibold text-gray-900 dark:text-gray-200 hover:text-sky-500 dark:hover:text-sky-600">
                 {content.Title}
               </p>
             </a>
@@ -79,7 +79,7 @@ function CardWide({ content, mode }) {
                 rel="noreferrer"
                 target="_blank"
               >
-                <p className="text-xs uppercase font-semibold tracking-wide text-gray-500 dark:text-stone-500">
+                <p className="text-xs uppercase font-semibold tracking-wide text-gray-500 dark:text-gray-500">
                   by {content.Author}
                 </p>
               </a>
@@ -107,7 +107,7 @@ function CardWide({ content, mode }) {
 
         {/*  Description */}
         <div className="flex-none min-h-[125px] text-ellipsis overflow-hidden prose">
-          <p className="text-gray-600 dark:text-stone-400">
+          <p className="text-gray-600 dark:text-gray-400">
             {content.Description}
           </p>
         </div>
@@ -119,7 +119,7 @@ function CardWide({ content, mode }) {
               href={content.Url}
               rel="noreferrer"
               target="_blank"
-              className="inline-flex space-x-2 text-gray-600 hover:text-gray-400 dark:text-stone-300 dark:hover:text-stone-500 items-center"
+              className="inline-flex space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500 items-center"
             >
               <ExternalLinkIcon className="h-5 w-5" aria-hidden="true" />
               <span className="font-medium">Open</span>
@@ -133,7 +133,7 @@ function CardWide({ content, mode }) {
             <div className="flex flex-row items-end">
               <button
                 type="button"
-                className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-stone-300 dark:hover:text-stone-500"
+                className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
                 onClick={() => setOpenShare(!openShare)}
               >
                 <ShareIcon className="h-5 w-5" aria-hidden="true" />

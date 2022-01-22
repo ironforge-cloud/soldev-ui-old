@@ -56,9 +56,9 @@ function TagsSelector({ tagsList, contentType, tags, badges }) {
             onClick={() => onClick(tag)}
             className={classNames(
               selectedTags.includes(tag)
-                ? "bg-green-500 dark:bg-green-800 dark:text-stone-200 shadow"
+                ? "bg-green-500 dark:bg-green-800 dark:text-gray-200 shadow"
                 : "bg-gray-400 dark:bg-gray-700",
-              "inline-flex items-center px-4 py-1 rounded-lg text-sm text-white dark:text-stone-300 font-medium transition transform-gpu duration-150 ease-in-out hover:-translate-y-0.5 hover:scale-105 cursor-pointer hover:bg-opacity-80 hover:shadow"
+              "inline-flex items-center px-4 py-1 rounded-lg text-sm text-white dark:text-gray-300 font-medium transition transform-gpu duration-150 ease-in-out hover:-translate-y-0.5 hover:scale-105 cursor-pointer hover:bg-opacity-80 hover:shadow"
             )}
           >
             {tag}

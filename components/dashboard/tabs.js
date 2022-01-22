@@ -21,7 +21,7 @@ export default function Tabs({ newContent, trendingContent }) {
           {contentAmount < content.length && (
             <button
               onClick={() => setContentAmount((contentAmount += 5))}
-              className="w-full block text-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-stone-300 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 hover:bg-opacity-80 hover:opacity-95 bg-white dark:bg-gray-800"
+              className="w-full block text-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-300 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 hover:bg-opacity-80 hover:opacity-95 bg-white dark:bg-gray-800"
             >
               View More
             </button>
@@ -49,7 +49,7 @@ export default function Tabs({ newContent, trendingContent }) {
               className={classNames(
                 tabIdx === 0 ? "rounded-l-lg" : "",
                 tabIdx === tabs.length - 1 ? "rounded-r-lg" : "",
-                "group relative min-w-0 flex-1 overflow-hidden bg-white dark:bg-gray-800 dark:text-stone-200 py-4 px-6 text-sm font-medium text-center  focus:z-10",
+                "group relative min-w-0 flex-1 overflow-hidden bg-white dark:bg-gray-800 dark:text-gray-200 py-4 px-6 text-sm font-medium text-center  focus:z-10",
                 tab !== "Releases" && "hover:bg-gray-50 dark:hover:bg-gray-700",
                 tab === "Releases" && "opacity-40 cursor-not-allowed"
               )}

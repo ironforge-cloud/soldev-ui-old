@@ -31,10 +31,18 @@ const companies = [
   {
     name: "Drift Protocol",
     ID: "2",
-    logo: "/drift.svg",
-    bgColor: "bg-gray-900",
+    logo: "/drift-logo.svg",
+    bgColor: "bg-black",
     description:
       "Drift brings on-chain, cross-margined perpetual futures to Solana. Making futures DEXs the best way to trade.",
+  },
+  {
+    name: "Zeta Markets",
+    ID: "3",
+    logo: "/zeta-logo.png",
+    bgColor: "bg-black",
+    description:
+      "Zeta’s mission is to democratise derivatives, allowing anyone and everyone to put their hard-earned money to work.",
   },
 ];
 
@@ -49,7 +57,7 @@ export default function Community({ stats }) {
   return (
     <Container metaTags={metaTags}>
       <div className="flex justify-center">
-        <h1 className="text-2xl md:text-3xl 2xl:text-4xl font-bold tracking-tight text-gray-900 dark:text-stone-200 capitalize">
+        <h1 className="text-2xl md:text-3xl 2xl:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-200 capitalize">
           Bounties
         </h1>
       </div>

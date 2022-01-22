@@ -32,10 +32,10 @@ export default function Player({ content }) {
       </div>
 
       <div className="self-start md:text-lg">
-        <h1 className="font-medium text-gray-800 dark:text-stone-200 sm:mt-4 xl:text-xl 3xl:text-2xl">
+        <h1 className="font-medium text-gray-800 dark:text-gray-200 sm:mt-4 xl:text-xl 3xl:text-2xl">
           {content.Title}
         </h1>
-        <p className="mt-2 text-gray-600 dark:text-stone-300 sm:mt-4">
+        <p className="mt-2 text-gray-600 dark:text-gray-300 sm:mt-4">
           {content.Description}
         </p>
       </div>

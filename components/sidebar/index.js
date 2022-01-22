@@ -52,7 +52,7 @@ function Sidebar({ tweets }) {
           <div className="flex justify-between">
             <h2
               id="trending-heading"
-              className="text-base font-medium text-gray-900 dark:text-stone-200"
+              className="text-base font-medium text-gray-900 dark:text-gray-200"
             >
               Announcements
             </h2>
@@ -69,7 +69,7 @@ function Sidebar({ tweets }) {
             <div className="mt-6">
               <button
                 onClick={() => setLoadMore(true)}
-                className="w-full block text-center px-4 py-2 border border-gray-300 dark:border-stone-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-stone-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                className="w-full block text-center px-4 py-2 border border-gray-300 dark:border-stone-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
               >
                 View all
               </button>

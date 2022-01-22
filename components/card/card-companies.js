@@ -15,17 +15,23 @@ export default function CardCompanies({
 }) {
   return (
     <Link href={`/bounties/${id}`}>
-      <div className="cursor-pointer flex flex-col rounded-lg border h-[400px] w-[330px] border-gray-300 dark:border-stone-700/60 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20hover:opacity-95 bg-white dark:bg-gray-800">
+      <div className="cursor-pointer flex flex-col rounded-lg border h-[400px] w-[330px] border-gray-300 dark:border-gray-700 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 hover:opacity-95 bg-white dark:bg-gray-800">
         <div
           className={classNames(
             "h-[225px] w-[328px] flex justify-center rounded-t-lg",
             bgColor
           )}
         >
-          <Image src={logo} height="34px" width="205px" />
+          <Image
+            placeholder="blur"
+            blurDataURL={logo}
+            src={logo}
+            height="100"
+            width="225px"
+          />
         </div>
 
-        <div className="p-4 border-t-2 dark:border-gray-800">
+        <div className="p-4 border-t dark:border-gray-900">
           <div className="text-2xl font-medium pb-2 text-gray-800 dark:text-gray-200">
             {name}
           </div>
