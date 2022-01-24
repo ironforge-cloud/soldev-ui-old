@@ -18,11 +18,11 @@ function BountyStats({ stats }) {
             <div className="ml-5 w-0 flex-1">
               <dl>
                 <dt className="text-sm font-medium text-gray-500 dark:text-gray-300 truncate">
-                  {stats[0].name}
+                  Total balance
                 </dt>
                 <dd>
                   <div className="text-lg font-medium text-gray-900 dark:text-gray-200">
-                    {stats[0].amount}
+                    ${stats.TotalBalance}
                   </div>
                 </dd>
               </dl>
@@ -44,11 +44,11 @@ function BountyStats({ stats }) {
             <div className="ml-5 w-0 flex-1">
               <dl>
                 <dt className="text-sm font-medium text-gray-500 dark:text-gray-300 truncate">
-                  {stats[1].name}
+                  Bounties available
                 </dt>
                 <dd>
                   <div className="text-lg font-medium text-gray-900 dark:text-gray-200">
-                    {stats[1].amount}
+                    {stats.TotalBounties}
                   </div>
                 </dd>
               </dl>
@@ -70,11 +70,11 @@ function BountyStats({ stats }) {
             <div className="ml-5 w-0 flex-1">
               <dl>
                 <dt className="text-sm font-medium text-gray-500 dark:text-gray-300 truncate">
-                  {stats[2].name}
+                  Paid balance
                 </dt>
                 <dd>
                   <div className="text-lg font-medium text-gray-900 dark:text-gray-200">
-                    {stats[2].amount}
+                    ${stats.PaidBalance}
                   </div>
                 </dd>
               </dl>

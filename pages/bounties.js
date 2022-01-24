@@ -1,52 +1,24 @@
 import { Container } from "../components/layout";
-import { CashIcon, CheckCircleIcon, ScaleIcon } from "@heroicons/react/outline";
 import CardCompanies from "../components/card/card-companies";
 import BountyStats from "../components/bounties/stats";
+import fetch from "../utils/fetcher";
 
-const cards = [
-  { name: "Total balance", icon: ScaleIcon, amount: "$120,659.45" },
-  {
-    name: "Bounties available",
+export async function getStaticProps() {
+  const companies = await fetch(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/companies`
+  );
 
-    icon: CheckCircleIcon,
-    amount: "47",
-  },
-  {
-    name: "Paid balance",
+  const stats = await fetch(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/bounties/stats`
+  );
 
-    icon: CashIcon,
-    amount: "$30,659.45",
-  },
-];
+  return {
+    props: { companies, stats },
+    revalidate: 60,
+  };
+}
 
-const companies = [
-  {
-    name: "Solana Foundation",
-    ID: "1",
-    logo: "/solana-foundation-logo.svg",
-    bgColor: "bg-white",
-    description:
-      "The Solana Foundation is a non-profit organization, dedicated to the decentralization, growth, and security of the Solana network.",
-  },
-  {
-    name: "Drift Protocol",
-    ID: "2",
-    logo: "/drift-logo.svg",
-    bgColor: "bg-black",
-    description:
-      "Drift brings on-chain, cross-margined perpetual futures to Solana. Making futures DEXs the best way to trade.",
-  },
-  {
-    name: "Zeta Markets",
-    ID: "3",
-    logo: "/zeta-logo.png",
-    bgColor: "bg-black",
-    description:
-      "Zeta’s mission is to democratise derivatives, allowing anyone and everyone to put their hard-earned money to work.",
-  },
-];
-
-export default function Community({ stats }) {
+export default function Bounties({ companies, stats }) {
   const metaTags = {
     title: "SolDev - Bounties",
     description: "Solana community bounties aggregator",
@@ -70,7 +42,7 @@ export default function Community({ stats }) {
             </h2>
 
             {/* Stats */}
-            <BountyStats stats={cards} />
+            <BountyStats stats={stats} />
           </div>
         </div>
       </div>
@@ -79,11 +51,11 @@ export default function Community({ stats }) {
       <div className="flex gap-6 xl:gap-10 flex-wrap justify-center mt-20">
         {companies.map((card) => (
           <CardCompanies
-            key={card.name}
-            name={card.name}
-            description={card.description}
-            bgColor={card.bgColor}
-            logo={card.logo}
+            key={card.ID}
+            name={card.Name}
+            description={card.Description}
+            bgColor={card.BgColor}
+            logo={card.Logo}
             id={card.ID}
           />
         ))}
