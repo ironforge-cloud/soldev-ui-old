@@ -81,12 +81,12 @@ function Search({ setSearch }) {
                 </div>
                 <div className="mt-1 flex items-center">
                   <input
-                    className="block w-full bg-white dark:bg-gray-900 border border-gray-300 dark:border-stone-700 rounded-md py-3 pl-10 pr-3 text-sm placeholder-gray-500 dark:placeholder-stone-300 focus:outline-none text-gray-900 dark:text-gray-300 focus:ring-1 focus:ring-rose-500 focus:border-rose-500"
+                    className="block w-full bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md py-3 pl-10 pr-3 text-sm placeholder-gray-500 dark:placeholder-gray-300 focus:outline-none text-gray-900 dark:text-gray-300 focus:ring-1 focus:ring-rose-500 focus:border-rose-500"
                     {...autocomplete.getInputProps({})}
                   />
                   {/* TODO: Add keyboard shortcut */}
                   {/*<div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">*/}
-                  {/*  <kbd className="inline-flex items-center border border-gray-200 dark:border-stone-600 rounded px-2 text-sm font-sans font-medium text-gray-400 dark:text-gray-500">*/}
+                  {/*  <kbd className="inline-flex items-center border border-gray-200 dark:border-gray-600 rounded px-2 text-sm font-sans font-medium text-gray-400 dark:text-gray-500">*/}
                   {/*    ⌘K*/}
                   {/*  </kbd>*/}
                   {/*</div>*/}

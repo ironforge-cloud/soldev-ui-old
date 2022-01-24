@@ -112,7 +112,7 @@ function NavSidebar({ closeMobileMenu }) {
   return (
     <nav
       aria-label="Sidebar"
-      className="top-4 divide-y divide-gray-300 dark:divide-stone-500"
+      className="top-4 divide-y divide-gray-300 dark:divide-gray-500"
     >
       <div className="pb-5 space-y-1">
         {navigation.map((item) => {

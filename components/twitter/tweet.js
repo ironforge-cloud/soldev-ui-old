@@ -114,7 +114,7 @@ function Tweet({
         </div>
       ) : null}
       {quoteTweet ? (
-        <div className="pl-5 pr-1 text-xs border-dashed border-2 rounded-lg my-4 border-gray-300 hover:bg-sky-50 dark:border-stone-600 hover:dark:bg-gray-900">
+        <div className="pl-5 pr-1 text-xs border-dashed border-2 rounded-lg my-4 border-gray-300 hover:bg-sky-50 dark:border-gray-600 hover:dark:bg-gray-900">
           <Tweet
             key={quoteTweet.id}
             text={quoteTweet.text}
@@ -129,7 +129,7 @@ function Tweet({
         </div>
       ) : null}
       {retweetedTweet ? (
-        <div className="pl-5 pr-1 text-xs border-dashed border-2 rounded-lg my-4 border-gray-300 hover:bg-sky-50 dark:border-stone-600 hover:dark:bg-gray-900">
+        <div className="pl-5 pr-1 text-xs border-dashed border-2 rounded-lg my-4 border-gray-300 hover:bg-sky-50 dark:border-gray-600 hover:dark:bg-gray-900">
           <Tweet
             key={retweetedTweet.id}
             text={retweetedTweet.text}

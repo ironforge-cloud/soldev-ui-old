@@ -73,7 +73,7 @@ export default function Community({ tweets }) {
         <main className="w-[700px]">
           <div className="px-4 sm:px-0">
             <nav
-              className="relative z-0 rounded-lg shadow flex divide-x divide-gray-200 dark:divide-stone-700"
+              className="relative z-0 rounded-lg shadow flex divide-x divide-gray-200 dark:divide-gray-700"
               aria-label="Tabs"
             >
               {tabs.map((tab, tabIdx) => (

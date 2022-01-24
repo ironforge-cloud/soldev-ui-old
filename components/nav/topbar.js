@@ -183,7 +183,7 @@ function TopBar({ setSearch }) {
                         leaveFrom="transform opacity-100 scale-100"
                         leaveTo="transform opacity-0 scale-95"
                       >
-                        <Menu.Items className="origin-top-right absolute z-10 right-0 mt-2 w-36 rounded-xl shadow-lg border border-gray-300 dark:border-stone-600 bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 pl-4 py-2 mx-auto focus:outline-none space-y-3">
+                        <Menu.Items className="origin-top-right absolute z-10 right-0 mt-2 w-36 rounded-xl shadow-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 pl-4 py-2 mx-auto focus:outline-none space-y-3">
                           <Menu.Item onClick={() => setSetting("light")}>
                             <button className="flex gap-2 text-gray-700 dark:text-gray-300 hover:opacity-70">
                               <SunIcon className=" h-6 w-6" />
@@ -233,7 +233,7 @@ function TopBar({ setSearch }) {
                           leaveTo="transform opacity-0 scale-95"
                         >
                           {/*  Desktop Profile Actions */}
-                          <Menu.Items className="origin-top-right absolute z-10 right-0 mt-2 w-60 border dark:border-stone-600 border-gray-300 rounded-xl shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 py-1 focus:outline-none">
+                          <Menu.Items className="origin-top-right absolute z-10 right-0 mt-2 w-60 border dark:border-gray-600 border-gray-300 rounded-xl shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 py-1 focus:outline-none">
                             {isAdmin && (
                               <Menu.Item>
                                 {({ active }) => (
