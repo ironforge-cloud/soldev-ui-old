@@ -8,7 +8,7 @@ function Radios({ data, setData, type }) {
   return (
     <>
       {/* Content Type */}
-      <fieldset className="my-3 col-span-3">
+      <fieldset className="my-3 col-span-4">
         <div>
           <legend className="text-base font-medium text-gray-900 dark:text-gray-300">
             Content Type
@@ -84,7 +84,7 @@ function Radios({ data, setData, type }) {
           </fieldset>
 
           {/* Lists */}
-          <fieldset className="my-3 col-span-2">
+          <fieldset className="my-3 col-span-3">
             <div>
               <legend className="text-base font-medium text-gray-900 dark:text-gray-300">
                 Lists

@@ -85,18 +85,20 @@ function ContentForm({
             <Position data={data} setData={setData} list={positions} />
           )}
         </div>
-        <div className="text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-200 sm:text-4xl">
-            {type === "submit" ? "Submit new content" : "Edit Content"}
-          </h2>
+        <div className="max-w-max prose prose dark:prose-invert mx-auto text-center prose-p:text-lg prose-h1:mb-2">
+          <h1>{type === "submit" ? "Submit new content" : "Edit Content"}</h1>
 
-          <p className="mt-4 text-lg leading-6 text-gray-500 dark:text-gray-300">
+          <p>
             {type === "submit" &&
               `Propose new content to the platform. Submissions will be manually
                             reviewed before deciding to publish them to the site.`}
           </p>
-          {type === "edit" && <Status data={data} setData={setData} />}
         </div>
+        {type === "edit" && (
+          <div className="mx-auto max-w-max">
+            <Status data={data} setData={setData} />
+          </div>
+        )}
 
         <div className="mt-12">
           <form

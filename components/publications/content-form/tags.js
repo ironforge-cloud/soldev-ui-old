@@ -66,12 +66,7 @@ function ContentTags({ data, setData, type }) {
       </div>
 
       {/* Level Tags */}
-      <fieldset
-        className={classNames(
-          "my-3",
-          type === "edit" ? "col-span-3" : "col-span-2"
-        )}
-      >
+      <fieldset className="col-span-2">
         <div>
           <legend className="text-base font-medium text-gray-900 dark:text-gray-300">
             Level
@@ -104,12 +99,7 @@ function ContentTags({ data, setData, type }) {
       </fieldset>
 
       {/* Tech Tags */}
-      <fieldset
-        className={classNames(
-          "my-3",
-          type === "edit" ? "col-span-3" : "col-span-2"
-        )}
-      >
+      <fieldset className="col-span-2">
         <div>
           <legend className="text-base font-medium text-gray-900 dark:text-gray-300">
             Industry

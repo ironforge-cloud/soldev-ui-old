@@ -27,7 +27,7 @@ function Inputs({ data, setData, type, contentExist, setContentExist }) {
   return (
     <>
       {/* Title */}
-      <div className="col-span-4">
+      <div className="col-span-6">
         <label
           htmlFor="title"
           className="block text-sm font-medium text-gray-700 dark:text-gray-300"
@@ -72,7 +72,7 @@ function Inputs({ data, setData, type, contentExist, setContentExist }) {
       </div>
 
       {/* Content Link */}
-      <div className="col-span-8">
+      <div className="col-span-10">
         <label
           htmlFor="url"
           className="block text-sm font-medium text-gray-700 dark:text-gray-300"
@@ -106,7 +106,7 @@ function Inputs({ data, setData, type, contentExist, setContentExist }) {
       </div>
 
       {/* Description */}
-      <div className="col-span-8">
+      <div className="col-span-10">
         <label
           htmlFor="description"
           className="block text-sm font-medium text-gray-700 dark:text-gray-300"

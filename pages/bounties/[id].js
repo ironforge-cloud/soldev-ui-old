@@ -1,29 +1,9 @@
 import { Container } from "../../components/layout";
 import { Disclosure } from "@headlessui/react";
-import {
-  CashIcon,
-  CheckCircleIcon,
-  ChevronDownIcon,
-  ScaleIcon,
-} from "@heroicons/react/outline";
+import { ChevronDownIcon } from "@heroicons/react/outline";
 import BountyStats from "../../components/bounties/stats";
 import fetch from "../../utils/fetcher";
-
-const cards = [
-  { name: "Total balance", icon: ScaleIcon, amount: "$120,659.45" },
-  {
-    name: "Bounties available",
-
-    icon: CheckCircleIcon,
-    amount: "47",
-  },
-  {
-    name: "Paid balance",
-
-    icon: CashIcon,
-    amount: "$30,659.45",
-  },
-];
+import Image from "next/image";
 
 export async function getStaticPaths() {
   const data = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/companies`);
@@ -81,11 +61,31 @@ export default function Community({ company, bounties, stats }) {
 
   return (
     <Container metaTags={metaTags}>
-      <div className="flex justify-center mx-auto prose dark:prose-invert flex flex-col">
-        <h1 className="capitalize mx-auto">{company.Name} Bounties</h1>
+      <div className="flex justify-center rounded-lg mx-auto flex flex-col">
+        <div
+          className={classNames(
+            "mx-auto h-[200px] w-[200px] rounded-full p-2 border-4 dark:border-gray-700",
+            company.BgColor === "bg-white"
+              ? "bg-white border-gray-300"
+              : "bg-black border-gray-500"
+          )}
+        >
+          <Image
+            placeholder="blur"
+            blurDataURL={company.Logo}
+            src={company.Logo}
+            width="250px"
+            height="250px"
+          />
+        </div>
+
+        <div className="prose dark:prose-invert mx-auto text-center prose-h1:mb-5 mt-6">
+          <h1>{company.Name} Bounties</h1>
+          <h5>{company.Description}</h5>
+        </div>
       </div>
 
-      <div className="mt-8">
+      <div className="mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-lg leading-6 font-medium text-gray-900 dark:text-gray-200">
@@ -115,7 +115,7 @@ export default function Community({ company, bounties, stats }) {
 
                         <div className="flex">
                           <span className="text-gray-600 dark:text-gray-200">
-                            {bounty.Reward}
+                            {bounty.Reward}&nbsp;{bounty.RewardAsset}
                           </span>
                           <span className="ml-6 h-7 flex items-center">
                             <ChevronDownIcon
@@ -144,7 +144,9 @@ export default function Community({ company, bounties, stats }) {
                           {/* Reward */}
                           <div className="sm:col-span-1">
                             <h3>Reward</h3>
-                            <span>{bounty.Reward}</span>
+                            <span>
+                              {bounty.Reward}&nbsp;{bounty.RewardAsset}
+                            </span>
                           </div>
 
                           {/* Delivery Date */}
