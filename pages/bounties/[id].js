@@ -8,6 +8,9 @@ import Image from "next/image";
 export async function getStaticPaths() {
   const data = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/companies`);
 
+  if (!Array.isArray(data)) {
+    return { paths: [], fallback: false };
+  }
   const paths = data.map((content) => {
     return {
       params: {
@@ -16,7 +19,6 @@ export async function getStaticPaths() {
     };
   });
 
-  // All missing paths are going to be server-side rendered and cached
   return { paths, fallback: false };
 }
 
