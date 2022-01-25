@@ -100,7 +100,7 @@ export default function Community({ company, bounties, stats }) {
         </div>
       </div>
 
-      <div className="flex justify-center mt-10 max-w-5xl mx-auto px-2">
+      <div className="flex justify-center my-10 max-w-5xl mx-auto px-2">
         <dl className="mt-6 space-y-5 w-full">
           {Array.isArray(bounties) &&
             bounties.map((bounty) => (

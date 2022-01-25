@@ -15,14 +15,15 @@ export default function CardCompanies({
   status,
 }) {
   return (
-    <Link href={`/bounties/${id}`}>
-      <div
+    <Link href={`/bounties/${id}`} passHref>
+      <button
         className={classNames(
           `flex flex-col rounded-lg border h-[400px] w-[330px] border-gray-300 dark:border-gray-700 shadow-lg bg-white dark:bg-gray-800`,
           status === "active"
             ? "cursor-pointer hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 hover:opacity-95 "
             : "cursor-not-allowed opacity-30"
         )}
+        disabled={status === "inactive"}
       >
         <div
           className={classNames(
@@ -46,7 +47,7 @@ export default function CardCompanies({
 
           <div className="text-gray-600 dark:text-gray-300">{description}</div>
         </div>
-      </div>
+      </button>
     </Link>
   );
 }
