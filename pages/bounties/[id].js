@@ -17,7 +17,7 @@ export async function getStaticPaths() {
   });
 
   // All missing paths are going to be server-side rendered and cached
-  return { paths, fallback: "blocking" };
+  return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
@@ -105,12 +105,23 @@ export default function Community({ company, bounties, stats }) {
               <Disclosure as="div" key={bounty.Title}>
                 {({ open }) => (
                   <>
-                    <dt className="text-lg shadow p-3 rounded-lg bg-white dark:bg-gray-800 hover:dark:bg-gray-700 hover:bg-gray-50 hover:shadow-md">
+                    <dt className="text-lg shadow p-1 rounded-lg bg-white dark:bg-gray-800 hover:dark:bg-gray-700 hover:bg-gray-50 hover:shadow-md">
                       <Disclosure.Button className="text-left w-full flex justify-between items-start text-gray-400 dark:text-gray-300 px-4 py-4 sm:px-6">
                         <div>
-                          <span className="text-gray-900 dark:text-gray-200">
+                          <h3 className="text-gray-900 dark:text-gray-200">
                             {bounty.Title}
-                          </span>
+                          </h3>
+                          <div className="flex gap-2 mt-2">
+                            {Array.isArray(bounty.Tags.names) &&
+                              bounty.Tags.names.map((tag) => (
+                                <span
+                                  key={tag}
+                                  className="text-white dark:text-gray-200 bg-green-500 dark:bg-green-800 items-center px-3 py-0.5 rounded-lg text-sm font-medium tracking-wide"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                          </div>
                         </div>
 
                         <div className="flex">

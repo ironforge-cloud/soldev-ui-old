@@ -49,16 +49,18 @@ export default function Bounties({ companies, stats }) {
 
       {/* Projects */}
       <div className="flex gap-6 xl:gap-10 flex-wrap justify-center mt-20">
-        {companies.map((card) => (
-          <CardCompanies
-            key={card.ID}
-            name={card.Name}
-            description={card.Description}
-            bgColor={card.BgColor}
-            logo={card.Logo}
-            id={card.ID}
-          />
-        ))}
+        {Array.isArray(companies) &&
+          companies.map((card) => (
+            <CardCompanies
+              key={card.ID}
+              name={card.Name}
+              description={card.Description}
+              bgColor={card.BgColor}
+              logo={card.Logo}
+              id={card.ID}
+              status={card.Status}
+            />
+          ))}
       </div>
     </Container>
   );
