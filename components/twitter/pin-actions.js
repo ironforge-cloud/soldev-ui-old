@@ -15,7 +15,7 @@ function PinActions({ pinned, tweetID }) {
     return (
       <button>
         <BookmarkSolid
-          className="h-6 w-6 dark:text-stone-200"
+          className="h-6 w-6 dark:text-gray-200"
           onClick={onClick}
         />
       </button>
@@ -24,7 +24,7 @@ function PinActions({ pinned, tweetID }) {
     return (
       <button>
         <BookmarkIcon
-          className="h-6 w-6 dark:text-stone-300"
+          className="h-6 w-6 dark:text-gray-300"
           onClick={onClick}
         />
       </button>

@@ -154,7 +154,7 @@ function TopBar({ setSearch }) {
                 {/*  Mobile Menu, only visible in small screens*/}
                 <div className="flex items-center lg:absolute lg:right-0 lg:inset-y-0 lg:hidden pl-2">
                   {/* Mobile menu button */}
-                  <Popover.Button className="-mx-2 rounded-md p-2 inline-flex items-center justify-center text-gray-400 dark:text-stone-300 hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500">
+                  <Popover.Button className="-mx-2 rounded-md p-2 inline-flex items-center justify-center text-gray-400 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500">
                     <span className="sr-only">Open menu</span>
                     {open ? (
                       <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -171,7 +171,7 @@ function TopBar({ setSearch }) {
                       <div>
                         <Menu.Button className="rounded-full flex hover:outline-none hover:ring-2 hover:ring-offset-2 hover:ring-green-500">
                           <span className="sr-only">Open Theme menu</span>
-                          <ColorSwatchIcon className="h-7 w-7 text-gray-600 dark:text-stone-300 hover:opacity-80" />
+                          <ColorSwatchIcon className="h-7 w-7 text-gray-600 dark:text-gray-300 hover:opacity-80" />
                         </Menu.Button>
                       </div>
                       <Transition
@@ -183,21 +183,21 @@ function TopBar({ setSearch }) {
                         leaveFrom="transform opacity-100 scale-100"
                         leaveTo="transform opacity-0 scale-95"
                       >
-                        <Menu.Items className="origin-top-right absolute z-10 right-0 mt-2 w-36 rounded-xl shadow-lg border border-gray-300 dark:border-stone-600 bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 pl-4 py-2 mx-auto focus:outline-none space-y-3">
+                        <Menu.Items className="origin-top-right absolute z-10 right-0 mt-2 w-36 rounded-xl shadow-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 pl-4 py-2 mx-auto focus:outline-none space-y-3">
                           <Menu.Item onClick={() => setSetting("light")}>
-                            <button className="flex gap-2 text-gray-700 dark:text-stone-300 hover:opacity-70">
+                            <button className="flex gap-2 text-gray-700 dark:text-gray-300 hover:opacity-70">
                               <SunIcon className=" h-6 w-6" />
                               <span>Light</span>
                             </button>
                           </Menu.Item>
                           <Menu.Item onClick={() => setSetting("dark")}>
-                            <button className="flex gap-2 text-gray-700 dark:text-stone-300 hover:opacity-70">
+                            <button className="flex gap-2 text-gray-700 dark:text-gray-300 hover:opacity-70">
                               <MoonIcon className="h-6 w-6" />
                               <span className="">Dark</span>
                             </button>
                           </Menu.Item>
                           <Menu.Item onClick={() => setSetting("system")}>
-                            <button className="flex gap-2 text-gray-700 dark:text-stone-300 hover:opacity-70">
+                            <button className="flex gap-2 text-gray-700 dark:text-gray-300 hover:opacity-70">
                               <DesktopComputerIcon className="h-6 w-6" />
                               <span>System</span>
                             </button>
@@ -233,7 +233,7 @@ function TopBar({ setSearch }) {
                           leaveTo="transform opacity-0 scale-95"
                         >
                           {/*  Desktop Profile Actions */}
-                          <Menu.Items className="origin-top-right absolute z-10 right-0 mt-2 w-60 border dark:border-stone-600 border-gray-300 rounded-xl shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 py-1 focus:outline-none">
+                          <Menu.Items className="origin-top-right absolute z-10 right-0 mt-2 w-60 border dark:border-gray-600 border-gray-300 rounded-xl shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 py-1 focus:outline-none">
                             {isAdmin && (
                               <Menu.Item>
                                 {({ active }) => (
@@ -242,11 +242,11 @@ function TopBar({ setSearch }) {
                                     className={classNames(
                                       active &&
                                         "bg-gray-100 dark:bg-gray-700 hover:opacity-80",
-                                      "block px-4 py-2 text-md text-gray-700 dark:text-stone-300 w-full flex"
+                                      "block px-4 py-2 text-md text-gray-700 dark:text-gray-300 w-full flex"
                                     )}
                                   >
                                     <CogIcon
-                                      className="block h-7 w-7 text-gray-700 dark:text-stone-300"
+                                      className="block h-7 w-7 text-gray-700 dark:text-gray-300"
                                       aria-hidden="true"
                                     />
                                     <span className="pl-2">

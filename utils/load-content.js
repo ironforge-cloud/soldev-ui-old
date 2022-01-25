@@ -1,4 +1,4 @@
-import CardWide from "../components/publications/card/card-wide";
+import CardWide from "../components/card/card-wide";
 
 // This helper function allow me to have infinity loading without having
 // to build pagination in the api

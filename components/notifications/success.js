@@ -44,16 +44,16 @@ function Success({ show, setShow, text, subText }) {
                     />
                   </div>
                   <div className="ml-3 w-0 flex-1 pt-0.5">
-                    <p className="text-sm font-medium text-gray-900 dark:text-stone-200">
+                    <p className="text-sm font-medium text-gray-900 dark:text-gray-200">
                       {text}
                     </p>
-                    <p className="mt-1 text-sm text-gray-500 dark:text-stone-300">
+                    <p className="mt-1 text-sm text-gray-500 dark:text-gray-300">
                       {subText}
                     </p>
                   </div>
                   <div className="ml-4 flex-shrink-0 flex">
                     <button
-                      className="bg-white dark:bg-gray-700 rounded-md inline-flex text-gray-400 dark:text-stone-200 hover:text-gray-500 dark:hover:text-stone-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      className="bg-white dark:bg-gray-700 rounded-md inline-flex text-gray-400 dark:text-gray-200 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                       onClick={() => {
                         setShow(false);
                       }}

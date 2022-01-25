@@ -28,7 +28,7 @@ export default function Video({ playlists }) {
     <Container metaTags={metaTags}>
       <main className="flex-1 relative z-0 overflow-hidden focus:outline-none">
         <div className="flex justify-center mb-8">
-          <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold tracking-tight text-gray-900 dark:text-stone-200 capitalize w-max">
+          <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-200 capitalize w-max">
             Playlists
           </h2>
         </div>

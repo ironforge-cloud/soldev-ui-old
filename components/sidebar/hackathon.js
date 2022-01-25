@@ -5,15 +5,15 @@ function Hackathon() {
   return (
     <section className="p-6 rounded-lg shadow ">
       <div className="flex-1 flex gap-2 mb-5">
-        <span className="flex p-2 rounded-lg text-gray-900 dark:text-stone-200">
+        <span className="flex p-2 rounded-lg text-gray-900 dark:text-gray-200">
           <SpeakerphoneIcon className="h-6 w-6" aria-hidden="true" />
         </span>
-        <p className="flex flex-col font-medium text-gray-900 dark:text-stone-200 prose">
+        <p className="flex flex-col font-medium text-gray-900 dark:text-gray-200 prose">
           <span className="text-xl">Convergence Hackathon!</span>
           <span className="text-base font-light">
             Hosted By{" "}
             <a
-              className="decoration-solid decoration-2 underline-offset-4 decoration-yellow-500 text-gray-900 dark:text-stone-200"
+              className="decoration-solid decoration-2 underline-offset-4 decoration-yellow-500 text-gray-900 dark:text-gray-200"
               href="https://www.projectserum.com/"
               target="_blank"
               rel="noreferrer"
@@ -22,7 +22,7 @@ function Hackathon() {
             </a>{" "}
             &{" "}
             <a
-              className="decoration-solid decoration-2 underline-offset-4 decoration-pink-500 text-gray-900 dark:text-stone-200"
+              className="decoration-solid decoration-2 underline-offset-4 decoration-pink-500 text-gray-900 dark:text-gray-200"
               href="https://wormholenetwork.com/en/"
               target="_blank"
               rel="noreferrer"

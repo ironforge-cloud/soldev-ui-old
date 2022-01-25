@@ -8,9 +8,7 @@ import dynamic from "next/dynamic";
 const PublicationsComponent = dynamic(() =>
   import("../../../components/publications")
 );
-const CardModal = dynamic(() =>
-  import("../../../components/publications/card/card-modal")
-);
+const CardModal = dynamic(() => import("../../../components/card/card-modal"));
 
 export async function getStaticPaths() {
   const contentTypes = await fetcher(
@@ -38,7 +36,7 @@ export async function getStaticPaths() {
   });
 
   // All missing paths are going to be server-side rendered and cached
-  return { paths, fallback: "blocking" };
+  return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {

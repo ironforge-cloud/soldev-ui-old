@@ -9,8 +9,8 @@ import {
 } from "@heroicons/react/solid";
 import Image from "next/image";
 
-const Share = dynamic(() => import("../../share"));
-const Badge = dynamic(() => import("../../badges/badge.js"));
+const Share = dynamic(() => import("../share"));
+const Badge = dynamic(() => import("../badges/badge.js"));
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -28,7 +28,7 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
       : `/library/${content.ContentType}/filter?badge=${content.SpecialTag}`;
 
   return (
-    <div className="flex flex-col rounded-lg border max-h-[540px] border-gray-300 dark:border-stone-700/60 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20hover:opacity-95 bg-white dark:bg-gray-800 w-[400px]">
+    <div className="flex flex-col rounded-lg border max-h-[540px] border-gray-300 dark:border-gray-700 shadow-lg hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 hover:opacity-95 bg-white dark:bg-gray-800 w-[400px]">
       <a href={content.Url} target="_blank" rel="noreferrer">
         <Image
           className="object-cover rounded-t-lg cursor-pointer hover:opacity-90"
@@ -44,7 +44,7 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
 
       <div className="px-5 pt-5">
         <div className="overflow-hidden h-[275px]">
-          <div className="border-b-2 border-dashed border-gray-700 dark:border-stone-500">
+          <div className="border-b-2 border-dashed border-gray-700 dark:border-gray-500">
             <div className="flex justify-between">
               {/*  Title */}
               <a
@@ -53,7 +53,7 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
                 target="_blank"
                 rel="noreferrer"
               >
-                <p className="text-lg font-semibold text-gray-900 dark:text-stone-200 hover:text-sky-500 dark:hover:text-sky-600">
+                <p className="text-lg font-semibold text-gray-900 dark:text-gray-200 hover:text-sky-500 dark:hover:text-sky-600">
                   {content.Title}
                 </p>
               </a>
@@ -86,7 +86,7 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
                   rel="noreferrer"
                   target="_blank"
                 >
-                  <p className="text-xs uppercase font-semibold tracking-wide text-gray-500 dark:text-stone-500">
+                  <p className="text-xs uppercase font-semibold tracking-wide text-gray-500 dark:text-gray-500">
                     by {content.Author}
                   </p>
                 </a>
@@ -116,7 +116,7 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
           )}
 
           {/*  Description */}
-          <p className="text-gray-600 dark:text-stone-400">
+          <p className="text-gray-600 dark:text-gray-400">
             {content.Description}
           </p>
         </div>
@@ -139,7 +139,7 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
                 href={content.Url}
                 rel="noreferrer"
                 target="_blank"
-                className="inline-flex space-x-2 text-gray-600 hover:text-gray-400 dark:text-stone-300 dark:hover:text-stone-500 items-center"
+                className="inline-flex space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500 items-center"
               >
                 <ExternalLinkIcon className="h-5 w-5" aria-hidden="true" />
                 <span className="font-medium">Open</span>
@@ -154,7 +154,7 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
             <div className="flex flex-row items-end">
               <button
                 type="button"
-                className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-stone-300 dark:hover:text-stone-500"
+                className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
                 onClick={() => setOpenShare(!openShare)}
               >
                 <ShareIcon className="h-5 w-5" aria-hidden="true" />
