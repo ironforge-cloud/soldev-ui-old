@@ -144,7 +144,7 @@ export default function Community({ company, bounties, stats }) {
                     </dt>
                     <Disclosure.Panel
                       as="dd"
-                      className="pr-12 mt-1 shadow rounded-lg p-5 bg-white dark:bg-gray-800 pb-14"
+                      className="mt-1 shadow rounded-lg sm:p-5 bg-white dark:bg-gray-800 pb-14"
                     >
                       <div className="px-10 sm:px-6">
                         <dl className="grid grid-cols-1 sm:grid-cols-3 prose dark:prose-invert max-w-5xl">
@@ -175,7 +175,7 @@ export default function Community({ company, bounties, stats }) {
                           </div>
 
                           {/* Apply */}
-                          <div className="sm:col-span-3 mx-auto content-center pt-10">
+                          <div className="sm:col-span-3 mx-auto content-center py-10">
                             <a
                               type="button"
                               href={bounty.URL}
