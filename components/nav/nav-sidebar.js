@@ -9,7 +9,7 @@ import {
   SparklesIcon,
 } from "@heroicons/react/outline";
 import useUser from "../../hooks/useUser";
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 const navigation = [
@@ -106,8 +106,16 @@ function classNames(...classes) {
 }
 
 function NavSidebar({ closeMobileMenu }) {
-  const [current, setCurrent] = useState("Library");
+  const [current, setCurrent] = useState("");
   const { user, isAdmin = false, connected, error } = useUser();
+
+  useEffect(() => {
+    if (window && window.sessionStorage.getItem("main-navigation")) {
+      setCurrent(window.sessionStorage.getItem("main-navigation"));
+    } else {
+      setCurrent("Library");
+    }
+  }, []);
 
   return (
     <nav
@@ -158,6 +166,7 @@ function NavSidebar({ closeMobileMenu }) {
                 )}
                 onClick={() => {
                   setCurrent(item.name);
+                  window.sessionStorage.setItem("main-navigation", item.name);
                   closeMobileMenu();
                 }}
                 aria-current={item.current ? "page" : undefined}
