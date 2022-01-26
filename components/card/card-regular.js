@@ -1,24 +1,14 @@
 import PropTypes from "prop-types";
-import { memo, useState } from "react";
+import { memo } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import {
-  DocumentTextIcon,
-  ExternalLinkIcon,
-  ShareIcon,
-} from "@heroicons/react/solid";
+import { DocumentTextIcon, ExternalLinkIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 
-const Share = dynamic(() => import("../share"));
 const Badge = dynamic(() => import("../badges/badge.js"));
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+const CopyLink = dynamic(() => import("./copy-link.js"));
 
 function CardRegular({ content, mode, editContent, closeSearch }) {
-  const [openShare, setOpenShare] = useState(false);
-
   let imageUrl = content.Img ? content.Img : "/placeholder.webp";
   if (content.ContentType === "threads") imageUrl = "/twitter-placeholder.webp";
 
@@ -147,19 +137,10 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
             )}
           </div>
 
-          <div>{openShare && <Share content={content} />}</div>
-
-          {/* Share Btn */}
+          {/* Copy Link Btn */}
           <div>
             <div className="flex flex-row items-end">
-              <button
-                type="button"
-                className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
-                onClick={() => setOpenShare(!openShare)}
-              >
-                <ShareIcon className="h-5 w-5" aria-hidden="true" />
-                <span className="font-medium">Share</span>
-              </button>
+              <CopyLink content={content} />
             </div>
           </div>
         </div>

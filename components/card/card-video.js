@@ -1,15 +1,13 @@
 import PropTypes from "prop-types";
-import { memo, useState } from "react";
+import { memo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FilmIcon, ShareIcon } from "@heroicons/react/solid";
+import { FilmIcon } from "@heroicons/react/solid";
 import dynamic from "next/dynamic";
 
-const Share = dynamic(() => import("../share"));
+const CopyLink = dynamic(() => import("./copy-link.js"));
 
 function Card({ content, closeSearch }) {
-  const [openShare, setOpenShare] = useState(false);
-
   return (
     <div className="relative flex flex-col rounded-lg max-h-[400px] w-[400px] hover:bg-opacity-80 overflow-visible hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 shadow-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700/60 min-h-full">
       <Link
@@ -55,19 +53,10 @@ function Card({ content, closeSearch }) {
             </Link>
           </div>
 
-          <div> {openShare && <Share content={content} />}</div>
-
-          {/* Share Btn */}
+          {/* Copy Link Btn */}
           <div>
             <div className="flex flex-row items-end">
-              <button
-                type="button"
-                className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
-                onClick={() => setOpenShare(!openShare)}
-              >
-                <ShareIcon className="h-5 w-5" aria-hidden="true" />
-                <span className="font-medium">Share</span>
-              </button>
+              <CopyLink content={content} />
             </div>
           </div>
         </div>

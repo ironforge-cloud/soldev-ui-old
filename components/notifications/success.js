@@ -1,10 +1,10 @@
-import { Fragment, useEffect, memo } from "react";
+import { Fragment, memo, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/outline";
-import { XIcon } from "@heroicons/react/solid";
+import { LinkIcon, XIcon } from "@heroicons/react/solid";
 import PropTypes from "prop-types";
 
-function Success({ show, setShow, text, subText }) {
+function Success({ type, show, setShow, text, subText }) {
   useEffect(() => {
     if (show) {
       let timer1 = setTimeout(() => setShow(false), 5000);
@@ -20,7 +20,7 @@ function Success({ show, setShow, text, subText }) {
       {/* Global notification live region, render this permanently at the end of the document */}
       <div
         aria-live="assertive"
-        className="fixed inset-0 flex items-end px-4 py-6 pointer-events-none sm:p-6 sm:items-start"
+        className="fixed z-50 inset-0 flex items-end px-4 py-6 pointer-events-none sm:p-6 sm:items-start"
       >
         <div className="w-full flex flex-col items-center space-y-4 sm:items-end">
           {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
@@ -38,10 +38,17 @@ function Success({ show, setShow, text, subText }) {
               <div className="p-4">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
-                    <CheckCircleIcon
-                      className="h-6 w-6 text-green-400"
-                      aria-hidden="true"
-                    />
+                    {type === "link" ? (
+                      <LinkIcon
+                        className="h-6 w-6 text-green-400"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <CheckCircleIcon
+                        className="h-6 w-6 text-green-400"
+                        aria-hidden="true"
+                      />
+                    )}
                   </div>
                   <div className="ml-3 w-0 flex-1 pt-0.5">
                     <p className="text-sm font-medium text-gray-900 dark:text-gray-200">
@@ -74,7 +81,12 @@ function Success({ show, setShow, text, subText }) {
 
 export default memo(Success);
 
+Success.defaultProps = {
+  type: "default",
+};
+
 Success.propTypes = {
+  type: PropTypes.string,
   show: PropTypes.bool.isRequired,
   setShow: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
