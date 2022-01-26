@@ -21,7 +21,7 @@ export default function CardModal({ content, open, setOpen }) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-gray-700 dark:bg-gray-500 dark:bg-opacity-90 bg-opacity-90 transition-opacity" />
+            <Dialog.Overlay className="fixed inset-0 bg-gray-900/90 dark:bg-gray-600/90 transition-opacity" />
           </Transition.Child>
 
           {/* This element is to trick the browser into centering the modal contents. */}
