@@ -59,7 +59,6 @@ export default function Community({ company, bounties, stats }) {
     description: company.Description,
     url: `https://soldev.app/bounties/${company.ID}`,
     shouldIndex: true,
-    img: `https://soldev.app/${company.Logo}`,
   };
 
   return (
