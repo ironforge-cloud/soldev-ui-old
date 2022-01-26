@@ -1,6 +1,10 @@
 import PropTypes from "prop-types";
 import { memo } from "react";
-import { ScaleIcon } from "@heroicons/react/outline";
+import {
+  CashIcon,
+  ClipboardCheckIcon,
+  ScaleIcon,
+} from "@heroicons/react/outline";
 
 function BountyStats({ stats }) {
   return (
@@ -22,7 +26,10 @@ function BountyStats({ stats }) {
                 </dt>
                 <dd>
                   <div className="text-lg font-medium text-gray-900 dark:text-gray-200">
-                    ${stats.TotalBalance}
+                    {new Intl.NumberFormat("en-US", {
+                      style: "currency",
+                      currency: "USD",
+                    }).format(stats.TotalBalance)}
                   </div>
                 </dd>
               </dl>
@@ -36,7 +43,7 @@ function BountyStats({ stats }) {
         <div className="p-5">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <ScaleIcon
+              <ClipboardCheckIcon
                 className="h-6 w-6 text-gray-400 dark:text-gray-200"
                 aria-hidden="true"
               />
@@ -62,7 +69,7 @@ function BountyStats({ stats }) {
         <div className="p-5">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <ScaleIcon
+              <CashIcon
                 className="h-6 w-6 text-gray-400 dark:text-gray-200"
                 aria-hidden="true"
               />
@@ -74,7 +81,10 @@ function BountyStats({ stats }) {
                 </dt>
                 <dd>
                   <div className="text-lg font-medium text-gray-900 dark:text-gray-200">
-                    ${stats.PaidBalance}
+                    {new Intl.NumberFormat("en-US", {
+                      style: "currency",
+                      currency: "USD",
+                    }).format(stats.PaidBalance)}
                   </div>
                 </dd>
               </dl>

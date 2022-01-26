@@ -128,7 +128,10 @@ export default function Community({ company, bounties, stats }) {
 
                         <div className="flex">
                           <span className="text-gray-600 dark:text-gray-200">
-                            {bounty.Reward}&nbsp;{bounty.RewardAsset}
+                            {new Intl.NumberFormat("en-US").format(
+                              bounty.Reward
+                            )}
+                            &nbsp;{bounty.RewardAsset}
                           </span>
                           <span className="ml-6 h-7 flex items-center">
                             <ChevronDownIcon

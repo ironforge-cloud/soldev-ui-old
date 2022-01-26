@@ -30,7 +30,7 @@ export default function Bounties({ companies, stats }) {
     <Container metaTags={metaTags}>
       <div className="flex justify-center">
         <h1 className="text-2xl md:text-3xl 2xl:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-200 capitalize">
-          Bounties
+          Bounty Board
         </h1>
       </div>
 

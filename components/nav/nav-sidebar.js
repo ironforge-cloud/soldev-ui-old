@@ -26,7 +26,7 @@ const navigation = [
     disabled: false,
   },
   {
-    name: "Bounties",
+    name: "Bounty Board",
     href: "/bounties",
     icon: ClipboardCheckIcon,
     disabled: false,
