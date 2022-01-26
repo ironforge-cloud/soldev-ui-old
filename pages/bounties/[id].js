@@ -161,7 +161,10 @@ export default function Community({ company, bounties, stats }) {
                           <div className="sm:col-span-1">
                             <h3>Reward</h3>
                             <span>
-                              {bounty.Reward}&nbsp;{bounty.RewardAsset}
+                              {new Intl.NumberFormat("en-US").format(
+                                bounty.Reward
+                              )}
+                              &nbsp;{bounty.RewardAsset}
                             </span>
                           </div>
 
