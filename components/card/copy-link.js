@@ -10,9 +10,9 @@ function CopyLink({ content }) {
 
   let url = "";
   if (content.ContentType === "Playlist") {
-    url = `soldev.app/library/${content.PlaylistID}/video/${content.SK}`;
+    url = `https://soldev.app/library/${content.PlaylistID}/video/${content.SK}`;
   } else {
-    url = `soldev.app/library/${content.ContentType}/${content.SK}`;
+    url = `https://soldev.app/library/${content.ContentType}/${content.SK}`;
   }
 
   return (
