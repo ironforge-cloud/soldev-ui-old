@@ -46,7 +46,7 @@ export function Container({ children, metaTags }) {
         <meta
           property="og:image"
           content={
-            metaTags.img ? metaTags.img : "https://soldev.app/logo-circle.png"
+            metaTags.img ? metaTags.img : "https://soldev.app/banner.png"
           }
         />
 
@@ -63,7 +63,7 @@ export function Container({ children, metaTags }) {
         <meta
           name="twitter:image"
           content={
-            metaTags.img ? metaTags.img : "https://soldev.app/logo-circle.png"
+            metaTags.img ? metaTags.img : "https://soldev.app/banner.png"
           }
         />
 
