@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import PropTypes from "prop-types";
 
@@ -13,9 +12,10 @@ export default function CardCompanies({
   bgColor,
   description,
   status,
+  url,
 }) {
   return (
-    <Link href={`/bounties/${id}`} passHref>
+    <a href={url} target="_blank" rel="noreferrer" key={id}>
       <button
         className={classNames(
           `flex flex-col rounded-lg border h-[400px] w-[330px] border-gray-300 dark:border-gray-700 shadow-lg bg-white dark:bg-gray-800`,
@@ -48,7 +48,7 @@ export default function CardCompanies({
           <div className="text-gray-600 dark:text-gray-300">{description}</div>
         </div>
       </button>
-    </Link>
+    </a>
   );
 }
 
@@ -59,4 +59,5 @@ CardCompanies.propTypes = {
   description: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 };

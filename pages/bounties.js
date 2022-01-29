@@ -36,7 +36,7 @@ export default function Bounties({ companies, stats }) {
 
       <div className="mt-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
+          <div className="mx-auto">
             <h2 className="text-lg leading-6 font-medium text-gray-900">
               Overview
             </h2>
@@ -59,6 +59,7 @@ export default function Bounties({ companies, stats }) {
               logo={card.Logo}
               id={card.ID}
               status={card.Status}
+              url={card.URL}
             />
           ))}
       </div>

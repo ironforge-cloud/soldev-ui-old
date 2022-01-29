@@ -77,7 +77,7 @@ function TopBar({ setSearch }) {
                         <Image
                           src="/logoblack.svg"
                           alt="SolDev Logo"
-                          height="40"
+                          height="50"
                           width="120"
                         />
                       )}
@@ -85,7 +85,7 @@ function TopBar({ setSearch }) {
                         <Image
                           src="/logowhite.svg"
                           alt="SolDev Logo"
-                          height="40"
+                          height="50"
                           width="120"
                         />
                       )}

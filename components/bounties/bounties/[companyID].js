@@ -1,11 +1,9 @@
-import { Container } from "../../components/layout";
-import fetch from "../../utils/fetcher";
+import { Container } from "../../layout";
+import fetch from "../../../utils/fetcher";
 import dynamic from "next/dynamic";
 
-const BountyCard = dynamic(() => import("../../components/card/card-bounty"));
-const CompanyHeader = dynamic(() =>
-  import("../../components/bounties/company-header")
-);
+const BountyCard = dynamic(() => import("../../card/card-bounty"));
+const CompanyHeader = dynamic(() => import("../company-header"));
 
 export async function getStaticPaths() {
   const data = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/companies`);

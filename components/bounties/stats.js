@@ -1,16 +1,12 @@
 import PropTypes from "prop-types";
 import { memo } from "react";
-import {
-  CashIcon,
-  ClipboardCheckIcon,
-  ScaleIcon,
-} from "@heroicons/react/outline";
+import { ClipboardCheckIcon, ScaleIcon } from "@heroicons/react/outline";
 
 function BountyStats({ stats }) {
   return (
-    <div className="mt-2 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="mt-2 flex flex-row flex-wrap gap-10 justify-center mx-auto">
       {/* Total Balance */}
-      <div className="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg">
+      <div className="bg-white w-64 dark:bg-gray-800 overflow-hidden shadow rounded-lg">
         <div className="p-5">
           <div className="flex items-center">
             <div className="flex-shrink-0">
@@ -29,7 +25,7 @@ function BountyStats({ stats }) {
                     {new Intl.NumberFormat("en-US", {
                       style: "currency",
                       currency: "USD",
-                    }).format(stats.TotalBalance)}
+                    }).format(286500)}
                   </div>
                 </dd>
               </dl>
@@ -39,7 +35,7 @@ function BountyStats({ stats }) {
       </div>
 
       {/* Bounties available */}
-      <div className="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg">
+      <div className="bg-white w-64 dark:bg-gray-800 overflow-hidden shadow rounded-lg">
         <div className="p-5">
           <div className="flex items-center">
             <div className="flex-shrink-0">
@@ -55,7 +51,7 @@ function BountyStats({ stats }) {
                 </dt>
                 <dd>
                   <div className="text-lg font-medium text-gray-900 dark:text-gray-200">
-                    {stats.TotalBounties}
+                    29
                   </div>
                 </dd>
               </dl>
@@ -64,34 +60,34 @@ function BountyStats({ stats }) {
         </div>
       </div>
 
-      {/* Paid balance */}
-      <div className="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg">
-        <div className="p-5">
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <CashIcon
-                className="h-6 w-6 text-gray-400 dark:text-gray-200"
-                aria-hidden="true"
-              />
-            </div>
-            <div className="ml-5 w-0 flex-1">
-              <dl>
-                <dt className="text-sm font-medium text-gray-500 dark:text-gray-300 truncate">
-                  Paid balance
-                </dt>
-                <dd>
-                  <div className="text-lg font-medium text-gray-900 dark:text-gray-200">
-                    {new Intl.NumberFormat("en-US", {
-                      style: "currency",
-                      currency: "USD",
-                    }).format(stats.PaidBalance)}
-                  </div>
-                </dd>
-              </dl>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/*/!* Paid balance *!/*/}
+      {/*<div className="bg-white dark:bg-gray-800 overflow-hidden shadow rounded-lg">*/}
+      {/*  <div className="p-5">*/}
+      {/*    <div className="flex items-center">*/}
+      {/*      <div className="flex-shrink-0">*/}
+      {/*        <CashIcon*/}
+      {/*          className="h-6 w-6 text-gray-400 dark:text-gray-200"*/}
+      {/*          aria-hidden="true"*/}
+      {/*        />*/}
+      {/*      </div>*/}
+      {/*      <div className="ml-5 w-0 flex-1">*/}
+      {/*        <dl>*/}
+      {/*          <dt className="text-sm font-medium text-gray-500 dark:text-gray-300 truncate">*/}
+      {/*            Paid balance*/}
+      {/*          </dt>*/}
+      {/*          <dd>*/}
+      {/*            <div className="text-lg font-medium text-gray-900 dark:text-gray-200">*/}
+      {/*              {new Intl.NumberFormat("en-US", {*/}
+      {/*                style: "currency",*/}
+      {/*                currency: "USD",*/}
+      {/*              }).format(stats.PaidBalance)}*/}
+      {/*            </div>*/}
+      {/*          </dd>*/}
+      {/*        </dl>*/}
+      {/*      </div>*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
     </div>
   );
 }
