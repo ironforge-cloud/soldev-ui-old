@@ -8,7 +8,7 @@ import {
   SunIcon,
   XIcon,
 } from "@heroicons/react/outline";
-import React, { Fragment, memo, useEffect, useRef, useState } from "react";
+import React, { Fragment, memo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useUser from "../../hooks/useUser";
@@ -17,76 +17,12 @@ import {
   WalletMultiButton,
 } from "@solana/wallet-adapter-react-ui";
 import { useAppDispatch, useAppState } from "../../context/AppContext";
-import { useIsomorphicLayoutEffect } from "../../hooks/useIsomorphicLayoutEffect";
+import useTheme from "../../hooks/useTheme";
 import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
 
 const Search = dynamic(() => import("./search"));
 const NavSidebar = dynamic(() => import("./nav-sidebar"));
-
-function update() {
-  if (
-    localStorage.theme === "dark" ||
-    (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    document.documentElement.classList.add("dark", "changing-theme");
-  } else {
-    document.documentElement.classList.remove("dark", "changing-theme");
-  }
-
-  window.setTimeout(() => {
-    document.documentElement.classList.remove("changing-theme");
-  });
-}
-
-function useTheme() {
-  let [setting, setSetting] = useState("system");
-  let initial = useRef(true);
-
-  useIsomorphicLayoutEffect(() => {
-    let theme = localStorage.theme;
-    if (theme === "light" || theme === "dark") {
-      setSetting(theme);
-    }
-  }, []);
-
-  useIsomorphicLayoutEffect(() => {
-    if (setting === "system") {
-      localStorage.removeItem("theme");
-    } else if (setting === "light" || setting === "dark") {
-      localStorage.theme = setting;
-    }
-    if (initial.current) {
-      initial.current = false;
-    } else {
-      update();
-    }
-  }, [setting]);
-
-  useEffect(() => {
-    let mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    mediaQuery.addEventListener("change", update);
-
-    function onStorage() {
-      update();
-      let theme = localStorage.theme;
-      if (theme === "light" || theme === "dark") {
-        setSetting(theme);
-      } else {
-        setSetting("system");
-      }
-    }
-    window.addEventListener("storage", onStorage);
-
-    return () => {
-      mediaQuery.removeEventListener("change", update);
-      window.removeEventListener("storage", onStorage);
-    };
-  }, []);
-
-  return [setting, setSetting];
-}
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -96,7 +32,7 @@ function TopBar({ setSearch }) {
   const { isAdmin = false, connected } = useUser();
   const [editModeNotificationOn, setEditModeNotificationOn] = useState(false);
   const [editModeNotificationOff, setEditModeNotificationOff] = useState(false);
-  let [setting, setSetting] = useTheme();
+  let { mode, setSetting } = useTheme();
   const appDispatch = useAppDispatch();
   const appState = useAppState();
 
@@ -134,16 +70,25 @@ function TopBar({ setSearch }) {
             <div className="mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between">
                 {/* Logo */}
-                <div className="hidden sm:inline-flex  md:left-0 md:inset-y-0 lg:static">
+                <div className="hidden sm:inline-flex">
                   <Link href="/" passHref>
-                    <a className="mt-1 -ml-2">
-                      {/* TODO: This Logo could use some improvements */}
-                      <Image
-                        src="/logo.png"
-                        alt="SolDev Logo"
-                        height="60"
-                        width="150"
-                      />
+                    <a className="flex content-center">
+                      {mode === "light" && (
+                        <Image
+                          src="/logoblack.svg"
+                          alt="SolDev Logo"
+                          height="40"
+                          width="150"
+                        />
+                      )}
+                      {mode === "dark" && (
+                        <Image
+                          src="/logowhite.svg"
+                          alt="SolDev Logo"
+                          height="40"
+                          width="150"
+                        />
+                      )}
                     </a>
                   </Link>
                 </div>
