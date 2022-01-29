@@ -78,7 +78,7 @@ function TopBar({ setSearch }) {
                           src="/logoblack.svg"
                           alt="SolDev Logo"
                           height="40"
-                          width="150"
+                          width="120"
                         />
                       )}
                       {mode === "dark" && (
@@ -86,7 +86,7 @@ function TopBar({ setSearch }) {
                           src="/logowhite.svg"
                           alt="SolDev Logo"
                           height="40"
-                          width="150"
+                          width="120"
                         />
                       )}
                     </a>
