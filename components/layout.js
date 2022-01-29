@@ -51,10 +51,7 @@ export function Container({ children, metaTags }) {
         />
 
         {/* Twitter */}
-        <meta
-          name="twitter:card"
-          content={metaTags.img ? "summary_large_image" : "summary"}
-        />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@soldevapp" />
         <meta name="twitter:creator" content="@italoacasas" />
         <meta name="twitter:url" content={metaTags.url} />
