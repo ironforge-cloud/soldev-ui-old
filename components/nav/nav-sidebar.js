@@ -122,7 +122,7 @@ function NavSidebar({ closeMobileMenu }) {
       aria-label="Sidebar"
       className="top-4 divide-y divide-gray-300 dark:divide-gray-500"
     >
-      <div className="pb-5 space-y-1">
+      <div className="pb-4">
         {navigation.map((item) => {
           if (item.name === "Jobs") {
             return (
@@ -187,7 +187,7 @@ function NavSidebar({ closeMobileMenu }) {
         })}
       </div>
 
-      <div className="pt-5 space-y-5">
+      <div className="pt-4 space-y-4">
         {/* Add new content*/}
         <Link href="/submit" passHref>
           <div className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-300">
@@ -208,7 +208,7 @@ function NavSidebar({ closeMobileMenu }) {
             Reference
           </p>
           <div
-            className="mt-3 space-y-1"
+            className="mt-2 space-y-1"
             aria-labelledby="communities-headline"
           >
             {special.map((item) => {
@@ -242,7 +242,7 @@ function NavSidebar({ closeMobileMenu }) {
             Lists
           </p>
           <div
-            className="mt-3 space-y-1"
+            className="mt-2 space-y-1"
             aria-labelledby="communities-headline"
           >
             {specialLists.map((item) => {
@@ -273,7 +273,7 @@ function NavSidebar({ closeMobileMenu }) {
             Series
           </p>
           <div
-            className="mt-3 space-y-1"
+            className="mt-2 space-y-1"
             aria-labelledby="communities-headline"
           >
             {series.map((item) => {
@@ -307,7 +307,7 @@ function NavSidebar({ closeMobileMenu }) {
             Categories
           </p>
           <div
-            className="mt-3 space-y-1"
+            className="mt-2 space-y-1"
             aria-labelledby="communities-headline"
           >
             {categories.map((item) => {

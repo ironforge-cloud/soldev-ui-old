@@ -18,7 +18,7 @@ function Nav({ children }) {
       </div>
 
       <div className="min-h-full">
-        <div className="flex sm:pl-6 lg:pl-8 lg:gap-8 py-10">
+        <div className="flex sm:pl-6 lg:pl-8 lg:gap-8 py-7">
           <div className="min-w-[190px] hidden lg:block content-between">
             <NavSidebar />
           </div>
