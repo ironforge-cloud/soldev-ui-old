@@ -54,7 +54,7 @@ export function Container({ children, metaTags }) {
         <meta name="twitter:description" content={metaTags.description} />
         <meta name="twitter:image" content="https://soldev.app/banner.png" />
 
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/solanaLogoMark.png" />
       </Head>
 
       <WalletConnectionProvider>
