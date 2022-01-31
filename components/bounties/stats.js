@@ -25,7 +25,7 @@ function BountyStats({ stats }) {
                     {new Intl.NumberFormat("en-US", {
                       style: "currency",
                       currency: "USD",
-                    }).format(286500)}
+                    }).format(3791500)}
                   </div>
                 </dd>
               </dl>
@@ -51,7 +51,7 @@ function BountyStats({ stats }) {
                 </dt>
                 <dd>
                   <div className="text-lg font-medium text-gray-900 dark:text-gray-200">
-                    29
+                    34
                   </div>
                 </dd>
               </dl>
