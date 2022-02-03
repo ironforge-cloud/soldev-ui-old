@@ -42,9 +42,9 @@ function Sidebar({ tweets }) {
 
   return (
     <div className="flex flex-col gap-6">
-      {/*<div className="bg-white dark:bg-gray-800 rounded-lg shadow">*/}
-      {/*  <Hackathon />*/}
-      {/*</div>*/}
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow">
+        <Hackathon />
+      </div>
 
       {/* Announcements */}
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow">
