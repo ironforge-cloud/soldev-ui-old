@@ -50,13 +50,13 @@ function CardWide({ content, mode }) {
         </a>
       )}
 
-      <div className="px-5 pt-4 pb-5">
-        <div className="border-b-2 border-dashed border-gray-700 dark:border-gray-500">
-          <div className="flex justify-between">
+      <div className="px-5 pt-4 pb-5 ">
+        <div className="border-b-2 border-dashed border-gray-700 dark:border-gray-500 ">
+          <div className="flex justify-between ">
             {/*  Title */}
             <a
               href={content.Url}
-              className="mr-2"
+              className="mr-2 focus:outline-none"
               target="_blank"
               rel="noreferrer"
             >
@@ -109,7 +109,7 @@ function CardWide({ content, mode }) {
         )}
 
         {/*  Description */}
-        <div className="flex-none min-h-[125px] text-ellipsis overflow-hidden prose">
+        <div className="flex-none min-h-[125px] text-ellipsis overflow-hidden prose ">
           <p className="text-gray-600 dark:text-gray-400">
             {content.Description}
           </p>
