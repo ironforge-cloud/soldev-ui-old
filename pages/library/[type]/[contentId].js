@@ -89,7 +89,7 @@ export default function LibraryContent({
   const [open, setOpen] = useState(true);
 
   const metaTags = {
-    title: `SolDev - ${pageTitle}`,
+    title: pageTitle,
     description: pageDescription,
     url: `https://soldev.app/library/${contentType}/${selectedContent.ID}`,
     shouldIndex: true,

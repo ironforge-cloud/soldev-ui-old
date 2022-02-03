@@ -48,7 +48,7 @@ export async function getStaticProps({ params }) {
 
 function VideoID({ data }) {
   const metaTags = {
-    title: `SolDev - ${data.Title}`,
+    title: data.Title,
     description: data.Description,
     url: `https://www.soldev.app/library/${data.PlaylistID}/video/${data.SK}`,
     shouldIndex: true,
