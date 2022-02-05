@@ -2,7 +2,10 @@ import PropTypes from "prop-types";
 import {  memo } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { ExternalLinkIcon } from "@heroicons/react/solid";
+import {
+  ExternalLinkIcon,
+  FilmIcon
+} from "@heroicons/react/solid";
 import Image from "next/image";
 import defineImage from "../../utils/content-imagen";
 
@@ -15,6 +18,38 @@ function classNames(...classes) {
 
 function CardWide({ content, mode }) {
   const imageUrl = defineImage(content)
+
+  function actionButton() {
+    if (content.Url.includes("youtube")) {
+      return (
+          <div>
+            <Link
+                href={`/library/${content.ContentType}/video/${content.SK}`}
+                passHref
+            >
+              <button
+                  className="inline-flex space-x-2 items-center text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
+              >
+                <FilmIcon className="h-5 w-5" aria-hidden="true" />
+                <span className="font-medium">Watch</span>
+              </button>
+            </Link>
+          </div>
+      )
+    } else {
+      return (
+          <a
+              href={content.Url}
+              rel="noreferrer"
+              target="_blank"
+              className="inline-flex space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500 items-center"
+          >
+            <ExternalLinkIcon className="h-5 w-5" aria-hidden="true" />
+            <span className="font-medium">Open</span>
+          </a>
+      )
+    }
+  }
 
   return (
     <div
@@ -114,15 +149,7 @@ function CardWide({ content, mode }) {
         {/*  Actions */}
         <div className="flex flex-row justify-between items-end pt-2 h-[40px]">
           <div>
-            <a
-              href={content.Url}
-              rel="noreferrer"
-              target="_blank"
-              className="inline-flex space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500 items-center"
-            >
-              <ExternalLinkIcon className="h-5 w-5" aria-hidden="true" />
-              <span className="font-medium">Open</span>
-            </a>
+            {actionButton()}
           </div>
 
           {/* Copy Link Btn */}

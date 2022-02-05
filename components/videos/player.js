@@ -7,14 +7,17 @@ export default function Player({ content }) {
     <div className="flex flex-col max-w-screen-3xl mx-auto px-5 xs:text-xs text-base">
       <div className="flex justify-between">
         <Link href={`/library/${content.PlaylistID}`} passHref>
-          <p className="text-md lg:text-lg pb-4 hover:underline text-sky-600 hover:text-sky-700 dark:text-sky-500 hover:dark:text-sky-400 cursor-pointer">
-            &larr; Back to Playlist
-          </p>
+            <p className="text-md lg:text-lg pb-4 hover:underline text-sky-600 hover:text-sky-700 cursor-pointer">
+                {content.PlaylistID && <>&larr; Back to Playlist</>}
+
+            </p>
         </Link>
 
+
+
         <a href={content.Url} target="_blank" rel="noreferrer">
-          <p className="text-md lg:text-lg pb-4 hover:underline text-sky-600 hover:text-sky-700 dark:text-sky-500 hover:dark:text-sky-400">
-            Watch in {content.Provider} &rarr;{" "}
+          <p className="text-md lg:text-lg pb-4 hover:underline text-sky-600 hover:text-sky-700">
+            Watch in Youtube &rarr;{" "}
           </p>
         </a>
       </div>

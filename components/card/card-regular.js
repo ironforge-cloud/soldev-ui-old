@@ -2,7 +2,11 @@ import PropTypes from "prop-types";
 import { memo } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { DocumentTextIcon,ExternalLinkIcon } from "@heroicons/react/solid";
+import {
+    DocumentTextIcon,
+    ExternalLinkIcon,
+    FilmIcon
+} from "@heroicons/react/solid";
 import Image from "next/image";
 import defineImage from "../../utils/content-imagen";
 
@@ -16,6 +20,42 @@ function CardRegular({content, mode, editContent, closeSearch}) {
         mode === "search"
             ? `/library/${content.ContentType}`
             : `/library/${content.ContentType}/filter?badge=${content.SpecialTag}`;
+
+    function actionButton() {
+        if (content.Url.includes("youtube")) {
+            return (
+                <div>
+                    <Link
+                        href={`/library/${content.ContentType}/video/${content.SK}`}
+                        passHref
+                    >
+                        <button
+                            onClick={() => closeSearch()}
+                            className="inline-flex space-x-2 items-center text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
+                        >
+                            <FilmIcon className="h-5 w-5" aria-hidden="true" />
+                            <span className="font-medium">Watch</span>
+                        </button>
+                    </Link>
+                </div>
+            )
+        } else {
+            return (
+                <a
+                    href={content.Url}
+                    rel="noreferrer"
+                    target="_blank"
+                    className="inline-flex space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500 items-center"
+                >
+                    <ExternalLinkIcon
+                        className="h-5 w-5"
+                        aria-hidden="true"/>
+                    <span
+                        className="font-medium">Open</span>
+                </a>
+            )
+        }
+    }
 
     return (
         <div
@@ -143,18 +183,7 @@ function CardRegular({content, mode, editContent, closeSearch}) {
                                     className="font-medium">Edit Data</span>
                             </button>
                         ) : (
-                            <a
-                                href={content.Url}
-                                rel="noreferrer"
-                                target="_blank"
-                                className="inline-flex space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500 items-center"
-                            >
-                                <ExternalLinkIcon
-                                    className="h-5 w-5"
-                                    aria-hidden="true"/>
-                                <span
-                                    className="font-medium">Open</span>
-                            </a>
+                           actionButton()
                         )}
                     </div>
 
