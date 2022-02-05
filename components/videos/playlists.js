@@ -18,7 +18,7 @@ export default function Playlists({ data }) {
         </div>
         <ul
           role="list"
-          className="mt-3 border-t border-gray-200 dark:border-gray-700 divide-y divide-gray-100 dark:divide:gray-600"
+          className="mt-3 border-t border-gray-200 dark:border-gray-700 divide-y divide-gray-100 dark:divide-gray-600"
         >
           <>
             {data.map((playlist) => (
@@ -44,7 +44,7 @@ export default function Playlists({ data }) {
       </div>
 
       {/* Tablet & Desktop */}
-      <div className="hidden mt-1 sm:block overflow-hidden">
+      <div className="hidden mt-1 sm:block overflow-hidden pr-5">
         <div className="align-middle inline-block min-w-full">
           <table className="min-w-full">
             <thead className="px-14">
