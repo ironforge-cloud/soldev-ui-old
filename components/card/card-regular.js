@@ -1,20 +1,10 @@
-import PropTypes
-    from "prop-types";
-import {
-    memo
-} from "react";
-import Link
-    from "next/link";
-import dynamic
-    from "next/dynamic";
-import {
-    DocumentTextIcon,
-    ExternalLinkIcon
-} from "@heroicons/react/solid";
-import Image
-    from "next/image";
-import defineImage
-    from "../../utils/content-imagen";
+import PropTypes from "prop-types";
+import { memo } from "react";
+import Link from "next/link";
+import dynamic from "next/dynamic";
+import { DocumentTextIcon,ExternalLinkIcon } from "@heroicons/react/solid";
+import Image from "next/image";
+import defineImage from "../../utils/content-imagen";
 
 const Badge = dynamic(() => import("../badges/badge.js"));
 const CopyLink = dynamic(() => import("./copy-link.js"));

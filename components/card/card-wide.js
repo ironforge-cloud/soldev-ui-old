@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
-import { memo } from "react";
+import {  memo } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { ExternalLinkIcon } from "@heroicons/react/solid";
 import Image from "next/image";
+import defineImage from "../../utils/content-imagen";
 
 const Badge = dynamic(() => import("../badges/badge.js"));
 const CopyLink = dynamic(() => import("./copy-link.js"));
@@ -13,12 +14,7 @@ function classNames(...classes) {
 }
 
 function CardWide({ content, mode }) {
-  let imageUrl = "";
-  if (content.Img) {
-    imageUrl = content.Img;
-  } else if (content.ContentType === "threads") {
-    imageUrl = "/twitter-placeholder.webp";
-  }
+  const imageUrl = defineImage(content)
 
   return (
     <div
