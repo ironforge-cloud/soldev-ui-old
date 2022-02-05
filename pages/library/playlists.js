@@ -17,7 +17,7 @@ export async function getStaticProps() {
 
 export default function Video({ playlists }) {
   const metaTags = {
-    title: "SolDev - Playlists",
+    title: "SolDev - Video Playlists",
     description:
       "Watch Solana conferences, live streams and stay up to date with the latest Podcasts.",
     url: "https://soldev.app/library/playlists",
