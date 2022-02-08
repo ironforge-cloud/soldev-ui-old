@@ -1,7 +1,7 @@
 export default {
   level: ["Beginner", "Intermediate", "Expert"],
   industry: ["DeFi", "Gaming", "Governance", "Mobile", "Security"],
-  protocols: ["Serum", "Metaplex", "Arweave"],
+  protocols: ["Serum", "Metaplex", "Arweave", "Solana Pay"],
   language: [
     "Rust",
     "JavaScript",
