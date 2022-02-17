@@ -1,23 +1,16 @@
-import Link
-  from "next/link";
 import {
-  ChatAlt2Icon,
-  ClipboardCheckIcon,
-  ExternalLinkIcon,
-  FolderAddIcon,
-  LibraryIcon,
-  PaperClipIcon,
-  SparklesIcon,
+    ChatAlt2Icon,
+    ClipboardCheckIcon,
+    ExternalLinkIcon,
+    FolderAddIcon,
+    LibraryIcon,
+    PaperClipIcon,
+    SparklesIcon,
 } from "@heroicons/react/outline";
-import useUser
-  from "../../hooks/useUser";
-import {
-  memo,
-  useEffect,
-  useState
-} from "react";
-import PropTypes
-  from "prop-types";
+import Link from "next/link";
+import PropTypes from "prop-types";
+import { memo, useEffect, useState } from "react";
+import useUser from "../../hooks/useUser";
 
 const navigation = [
     {
@@ -49,7 +42,7 @@ const navigation = [
 const special = [
     {
         name: "Solana Cookbook",
-        href: "https://solanacookbook.com/?utm_source=soldev.app",
+        href: "https://solanacookbook.com?utm_source=soldev.app",
         disabled: false,
     },
     {
