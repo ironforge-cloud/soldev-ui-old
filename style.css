@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.wallet-multi-btn {
+    margin-left: 6px;
+    background-color: #10B981 !important;
+    font-size: 15px;
+}
+
+.wallet-disconnect-btn {
+    background-color: inherit !important;
+    color: #6b7280 !important;
+    margin-left: -5px;
+}
