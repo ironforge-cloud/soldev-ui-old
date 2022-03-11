@@ -1,3 +1,4 @@
+import { DatabaseIcon } from "@heroicons/react/outline";
 import ProjectCard from "../../components/card/project";
 import { Container } from "../../components/layout";
 import fetch from "../../utils/fetcher";
@@ -47,10 +48,15 @@ export default function Directory({data}) {
       <div className="flex gap-32 m-10">
         {data.map((category) => (
           <div key={category.id}>
-            <h2>{category.name}</h2>
+            <div className="flex gap-4 text-gray-700">
+              <DatabaseIcon className="w-10"/>
+              <h3 className="text-xl font-semibold">{category.name}</h3>
+            </div>
 
-            <div className="">
+
+            <div className="ml-14">
               {category.projects.map(({Project}) => (
+                // TODO: Improve api response to include project id
                 <ProjectCard key={Project.ProjectName} project={Project}/>
               ))}
             </div>

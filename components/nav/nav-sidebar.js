@@ -232,16 +232,14 @@ function NavSidebar({closeMobileMenu}) {
                 aria-current={item.current ? "page" : undefined}
                 disabled={item.disabled}
               >
-                <item.icon
-                  className={classNames(
-                    item.name === current ? "text-gray-500" : "text-gray-400 ",
-                    "flex-shrink-0 -ml-1 mr-3 h-6 w-6",
-                    !item.disabled && "group-hover:text-gray-500"
-                  )}
-                  aria-hidden="true"
+                <item.icon className={classNames(
+                  item.name === current ? "text-gray-500" : "text-gray-400 ",
+                  "flex-shrink-0 -ml-1 mr-3 h-6 w-6",
+                  !item.disabled && "group-hover:text-gray-500"
+                )}
+                           aria-hidden="true"
                 />
-                <span
-                  className="truncate">{item.name}</span>
+                <span className="truncate">{item.name}</span>
               </button>
             </Link>
           );
