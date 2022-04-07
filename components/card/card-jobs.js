@@ -1,5 +1,6 @@
 import { Disclosure } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/outline";
+import { CashIcon, ChevronDownIcon, GlobeIcon } from "@heroicons/react/outline";
+
 import PropTypes from "prop-types";
 import { memo } from "react";
 import formatNumber from "../../utils/number-format"
@@ -33,6 +34,7 @@ function BountyCard({job, open}) {
                     {job.fields.Name}
                   </h3>
                   <div className="flex gap-2 mt-2">
+                    <CashIcon className="h-7 w-6 text-green-400"/>
                     {job.fields["Minimum Salary"] === job.fields["Maximum Salary"] ?
                       <div>{formatNumber(job.fields["Maximum Salary"])}</div> :
                       <div>{formatNumber(job.fields["Minimum Salary"])} - {formatNumber(job.fields["Maximum Salary"])}</div>
@@ -42,7 +44,8 @@ function BountyCard({job, open}) {
                 </div>
               </div>
 
-              <div className="flex">
+              <div className="flex gap-2">
+                <GlobeIcon className="h-7 w-7 text-sky-500"/>
                 <span className="text-gray-600 dark:text-gray-200">
                   {job.fields.Location[0]}
                 </span>

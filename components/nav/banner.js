@@ -21,7 +21,7 @@ function Banner() {
             </span>
           </p>
         </div>
-        
+
       </div>
     </div>
   )
