@@ -205,7 +205,14 @@ function NavSidebar({closeMobileMenu}) {
                   aria-hidden="true"
                 />
                 <span
-                  className="truncate">{item.name}</span>
+                  className="truncate">{item.name}
+                </span>
+                {item.name === "Jobs" &&
+                  <span
+                    className="inline-flex ml-1 items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+        New
+      </span>
+                }
               </button>
             </Link>
           );
