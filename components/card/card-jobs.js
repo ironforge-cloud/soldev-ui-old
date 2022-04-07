@@ -23,7 +23,7 @@ function BountyCard({job, open}) {
 
               <div className="flex gap-5">
                 <div
-                  className="inline-block h-14 w-14 rounded-full overflow-hidden bg-gray-100 relative">
+                  className="inline-block h-14 w-14 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-700 relative">
                   {job.fields["Logo Avatar"] ?
                     <Image src={job.fields["Logo Avatar"]} layout="fill"/> :
                     <svg className="h-full w-full text-gray-300" fill="currentColor"
