@@ -1,11 +1,11 @@
-import React, { memo, useState } from "react";
 import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
+import React, { memo, useState } from "react";
 
 const Tweet = dynamic(() => import("../twitter/tweet"));
 const Hackathon = dynamic(() => import("./hackathon"));
 
-function Sidebar({ tweets }) {
+function Sidebar({tweets}) {
   const [loadMore, setLoadMore] = useState(false);
 
   // This helper function allow me to have infinity loading without having
@@ -42,9 +42,9 @@ function Sidebar({ tweets }) {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow">
-        <Hackathon />
-      </div>
+      {/*<div className="bg-white dark:bg-gray-800 rounded-lg shadow">*/}
+      {/*  <Hackathon />*/}
+      {/*</div>*/}
 
       {/* Announcements */}
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow">
