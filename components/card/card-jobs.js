@@ -39,7 +39,7 @@ function BountyCard({job, open}) {
                     {job.fields.Name}
                   </h3>
                   <div className="flex gap-2 mt-2">
-                    <CashIcon className="h-7 w-6 text-green-400"/>
+                    {job.fields["Minimum Salary"] && <CashIcon className="h-7 w-6 text-green-400"/>}
                     {job.fields["Minimum Salary"] === job.fields["Maximum Salary"] ?
                       <div>{formatNumber(job.fields["Maximum Salary"])}</div> :
                       <div>{formatNumber(job.fields["Minimum Salary"])} - {formatNumber(job.fields["Maximum Salary"])}</div>
