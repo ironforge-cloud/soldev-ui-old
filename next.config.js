@@ -18,6 +18,8 @@ const moduleExports = withPlausibleProxy()(
     reactStrictMode: true,
     images: {
       domains: [
+        "pbs.twimg.com",
+        "cardea.imgix.net",
         "i.ytimg.com",
         "images.unsplash.com",
         "solana.com",
