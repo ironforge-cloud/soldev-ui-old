@@ -209,7 +209,7 @@ function NavSidebar({closeMobileMenu}) {
                 </span>
                 {item.name === "Jobs" &&
                   <span
-                    className="inline-flex ml-1 items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                    className="inline-flex ml-1 items-center px-2.5 py-0.5 rounded-full text-xs font-medium dark:bg-red-500 dark:text-red-50 bg-red-100 text-red-800">
         New
       </span>
                 }
