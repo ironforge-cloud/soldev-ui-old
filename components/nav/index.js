@@ -1,9 +1,10 @@
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 import { memo, useState } from "react";
-import Banner from "./banner";
 import TopBar from "./topbar";
 
 const NavSidebar = dynamic(() => import("./nav-sidebar"));
+const Banner = dynamic(() => import("./banner"));
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -11,12 +12,14 @@ function classNames(...classes) {
 
 function Nav({children}) {
   const [search, setSearch] = useState(false);
-
+  const {pathname} = useRouter();
+  
   return (
     <div className={classNames(search && "min-h-[5050px] xl:min-h-[3500px]")}>
       <div className="w-full z-50">
         <TopBar setSearch={setSearch}/>
-        <Banner/>
+        {pathname !== "/jobs" && <Banner/>}
+
       </div>
 
       <div className="min-h-full">
