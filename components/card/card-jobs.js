@@ -52,7 +52,7 @@ function BountyCard({job, open}) {
               <div className="flex gap-2">
                 <GlobeIcon className="h-7 w-7 text-sky-500"/>
                 <span className="text-gray-600 dark:text-gray-200">
-                  {job.fields.Location[0]}
+                  {job.fields.Location}
                 </span>
                 <span className="ml-6 h-7 flex items-center">
                   <ChevronDownIcon
