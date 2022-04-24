@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import React, { memo, useState } from 'react';
 
 const Tweet = dynamic(() => import('../twitter/tweet'));
+const LatestNewsletter = dynamic(() => import('./latestNewsletter'));
 
-function Sidebar({ tweets }) {
+function Sidebar({ tweets, latestNewsletter }) {
   const [loadMore, setLoadMore] = useState(false);
 
   // This helper function allow me to have infinity loading without having
@@ -45,6 +46,8 @@ function Sidebar({ tweets }) {
       {/*  <Hackathon />*/}
       {/*</div>*/}
 
+      <LatestNewsletter data={latestNewsletter} />
+
       {/* Announcements */}
       <div className="rounded-lg bg-white shadow dark:bg-gray-800">
         <div className="p-6">
@@ -78,7 +81,8 @@ function Sidebar({ tweets }) {
 }
 
 Sidebar.propTypes = {
-  tweets: PropTypes.array.isRequired
+  tweets: PropTypes.array.isRequired,
+  latestNewsletter: PropTypes.object.isRequired
 };
 
 export default memo(Sidebar);

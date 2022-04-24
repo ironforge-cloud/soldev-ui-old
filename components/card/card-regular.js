@@ -9,6 +9,10 @@ import defineImage from '../../utils/content-imagen';
 const Badge = dynamic(() => import('../badges/badge.js'));
 const CopyLink = dynamic(() => import('./copy-link.js'));
 
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ');
+}
+
 function CardRegular({ content, mode, editContent, closeSearch }) {
   const imageUrl = defineImage(content);
 
@@ -59,7 +63,7 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
   }
 
   return (
-    <div className="flex max-h-[540px] w-[400px] flex-col rounded-lg border border-gray-300 bg-white shadow-lg hover:opacity-95 hover:shadow-sky-500/30 dark:border-gray-700 dark:bg-gray-800 dark:hover:shadow-sky-400/20">
+    <div className="flex max-h-[540px] min-w-[360px] max-w-[400px] flex-col rounded-lg border border-gray-300 bg-white shadow-lg hover:opacity-95 hover:shadow-sky-500/30 dark:border-gray-700 dark:bg-gray-800 dark:hover:shadow-sky-400/20">
       {content.ContentType === 'newsletters' ? (
         <Link href={`/newsletters/${content.SK}`} rel="noreferrer" passHref>
           <a>
@@ -91,7 +95,12 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
       )}
 
       <div className="px-5 pt-5">
-        <div className="h-[275px] overflow-hidden">
+        <div
+          className={classNames(
+            content.ContentType === 'newsletters' ? 'h-[200px]' : 'h-[275px]',
+            ' overflow-hidden'
+          )}
+        >
           <div className="border-b-2 border-dashed border-gray-700 dark:border-gray-500">
             <div className="flex justify-between">
               {/*  Title */}
