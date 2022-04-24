@@ -1,13 +1,14 @@
-import { memo, useEffect, useState } from "react";
-import { useAppState } from "../../context/AppContext";
-import PropTypes from "prop-types";
-import dynamic from "next/dynamic";
+import { memo, useEffect, useState } from 'react';
+import { useAppState } from '../../context/AppContext';
+import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 
-const CardVideo = dynamic(() => import("../card/card-video"));
-const CardRegular = dynamic(() => import("../card/card-regular"));
-const TagsSelector = dynamic(() => import("../badges/tags-selector"));
-const Spinner = dynamic(() => import("../spinner"));
-const ContentFormModal = dynamic(() => import("./content-form/modal"));
+const CardWide = dynamic(() => import('../card/card-wide'));
+const CardVideo = dynamic(() => import('../card/card-video'));
+const CardRegular = dynamic(() => import('../card/card-regular'));
+const TagsSelector = dynamic(() => import('../badges/tags-selector'));
+const Spinner = dynamic(() => import('../spinner'));
+const ContentFormModal = dynamic(() => import('./content-form/modal'));
 
 function Publications({
   data,
@@ -19,6 +20,7 @@ function Publications({
   tagsList,
   closeSearch,
   cardMode,
+  lastNewsletter
 }) {
   const [open, setOpen] = useState(false);
   const appState = useAppState();
@@ -38,49 +40,51 @@ function Publications({
     setPositions(positionsDraft);
   }, [data]);
 
-  const editContent = (data) => {
+  const editContent = data => {
     setContent(data);
     setOpen(true);
   };
 
   return (
-    <div className="flex flex-col mx-auto">
-      <div className="flex justify-center mb-8">
-        <h1 className="text-2xl md:text-3xl 2xl:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-200 capitalize w-max">
+    <div className="mx-auto flex flex-col">
+      <div className="mb-8 flex justify-center">
+        <h1 className="mb-10 w-max text-2xl font-bold capitalize tracking-tight text-gray-900 dark:text-gray-200 md:text-3xl 2xl:text-4xl">
           {title}
         </h1>
       </div>
 
       {tags && (
         <div className="flex justify-center">
-          <TagsSelector
-            tagsList={tagsList}
-            contentType={contentType}
-            badges={badges}
-            tags={tags}
-          />
+          <TagsSelector tagsList={tagsList} contentType={contentType} badges={badges} tags={tags} />
         </div>
       )}
 
-      <div className="flex flex-wrap justify-center mt-1 py-4 px-2 md:px-6 place-content-start gap-5 xl:gap-10">
+      {contentType === 'newsletters' && (
+        <div className="mx-auto mb-20 flex max-w-3xl">
+          <CardWide mode="dashboard" content={lastNewsletter} />
+        </div>
+      )}
+
+      {contentType === 'newsletters' && (
+        <div className="prose mx-auto flex w-full justify-center text-xl dark:prose-invert">
+          Previous issues
+        </div>
+      )}
+
+      <div className="mt-1 flex flex-wrap place-content-start justify-center gap-5 py-4 px-2 md:px-6 xl:gap-10">
         {isLoading ? (
           <Spinner />
         ) : (
-          data.map((content) => {
+          data.map(content => {
             //  Initial Tags for content type "Playlists" is null
             if (!content.Tags) content.Tags = [];
 
-            // Everything else except playlist content
-            if (content.ContentType !== "Playlist") {
+            if (content.ContentType !== 'Playlist') {
               return (
                 <CardRegular
                   key={content.SK}
                   content={content}
-                  mode={
-                    appState.editMode && cardMode !== "search"
-                      ? "edit"
-                      : cardMode
-                  }
+                  mode={appState.editMode && cardMode !== 'search' ? 'edit' : cardMode}
                   editContent={editContent}
                   closeSearch={closeSearch}
                 />
@@ -96,12 +100,7 @@ function Publications({
           })
         )}
       </div>
-      <ContentFormModal
-        open={open}
-        setOpen={setOpen}
-        content={content}
-        positions={positions}
-      />
+      <ContentFormModal open={open} setOpen={setOpen} content={content} positions={positions} />
     </div>
   );
 }
@@ -110,9 +109,10 @@ Publications.defaultProps = {
   tags: [],
   badges: [],
   tagsList: [],
-  title: "",
-  contentType: "",
-  cardMode: "",
+  title: '',
+  contentType: '',
+  cardMode: '',
+  lastNewsletter: {}
 };
 
 Publications.propTypes = {
@@ -126,6 +126,7 @@ Publications.propTypes = {
   contentType: PropTypes.string,
   closeSearch: PropTypes.func,
   cardMode: PropTypes.string,
+  lastNewsletter: PropTypes.object
 };
 
 export default memo(Publications);

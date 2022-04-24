@@ -1,11 +1,10 @@
-import dynamic from "next/dynamic";
-import PropTypes from "prop-types";
-import React, { memo, useState } from "react";
+import dynamic from 'next/dynamic';
+import PropTypes from 'prop-types';
+import React, { memo, useState } from 'react';
 
-const Tweet = dynamic(() => import("../twitter/tweet"));
-const Hackathon = dynamic(() => import("./hackathon"));
+const Tweet = dynamic(() => import('../twitter/tweet'));
 
-function Sidebar({tweets}) {
+function Sidebar({ tweets }) {
   const [loadMore, setLoadMore] = useState(false);
 
   // This helper function allow me to have infinity loading without having
@@ -47,7 +46,7 @@ function Sidebar({tweets}) {
       {/*</div>*/}
 
       {/* Announcements */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow">
+      <div className="rounded-lg bg-white shadow dark:bg-gray-800">
         <div className="p-6">
           <div className="flex justify-between">
             <h2
@@ -58,10 +57,7 @@ function Sidebar({tweets}) {
             </h2>
           </div>
           <div className="mt-6 flow-root">
-            <div
-              role="list"
-              className="-my-4 divide-y divide-gray-200 dark:divide-gray-600"
-            >
+            <div role="list" className="-my-4 divide-y divide-gray-200 dark:divide-gray-600">
               {Array.isArray(tweets) && loadTweets(tweets)}
             </div>
           </div>
@@ -69,7 +65,7 @@ function Sidebar({tweets}) {
             <div className="mt-6">
               <button
                 onClick={() => setLoadMore(true)}
-                className="w-full block text-center px-4 py-2 border border-gray-300 dark:border-gray-700 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                className="block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-center text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
               >
                 View all
               </button>
@@ -82,7 +78,7 @@ function Sidebar({tweets}) {
 }
 
 Sidebar.propTypes = {
-  tweets: PropTypes.array.isRequired,
+  tweets: PropTypes.array.isRequired
 };
 
 export default memo(Sidebar);

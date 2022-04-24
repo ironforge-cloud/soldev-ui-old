@@ -1,16 +1,18 @@
-import { memo, useState } from "react";
-import { LinkIcon } from "@heroicons/react/solid";
-import dynamic from "next/dynamic";
-import PropTypes from "prop-types";
+import { memo, useState } from 'react';
+import { LinkIcon } from '@heroicons/react/solid';
+import dynamic from 'next/dynamic';
+import PropTypes from 'prop-types';
 
-const NotificationSuccess = dynamic(() => import("../notifications/success"));
+const NotificationSuccess = dynamic(() => import('../notifications/success'));
 
 function CopyLink({ content }) {
   const [showNotification, setShowNotification] = useState(false);
 
-  let url = "";
-  if (content.ContentType === "Playlist") {
+  let url = '';
+  if (content.ContentType === 'Playlist') {
     url = `https://soldev.app/library/${content.PlaylistID}/video/${content.SK}`;
+  } else if (content.ContentType === 'newsletters') {
+    url = `https://soldev.app/newsletters/${content.SK}`;
   } else {
     url = `https://soldev.app/library/${content.ContentType}/${content.SK}`;
   }
@@ -41,7 +43,7 @@ function CopyLink({ content }) {
 }
 
 CopyLink.propTypes = {
-  content: PropTypes.object.isRequired,
+  content: PropTypes.object.isRequired
 };
 
 export default memo(CopyLink);

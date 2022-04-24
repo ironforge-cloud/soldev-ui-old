@@ -6,249 +6,229 @@ import {
   FolderAddIcon,
   LibraryIcon,
   PaperClipIcon,
-  SparklesIcon
-} from "@heroicons/react/outline";
-import Link from "next/link";
-import PropTypes from "prop-types";
-import { memo, useEffect, useState } from "react";
-import useUser from "../../hooks/useUser";
+  SparklesIcon,
+  NewspaperIcon
+} from '@heroicons/react/outline';
+import Link from 'next/link';
+import PropTypes from 'prop-types';
+import { memo, useEffect, useState } from 'react';
+import useUser from '../../hooks/useUser';
 
 const navigation = [
   {
-    name: "Library",
-    href: "/library",
+    name: 'Library',
+    href: '/library',
     icon: LibraryIcon,
-    disabled: false,
+    disabled: false
   },
   {
-    name: "Community",
-    href: "/community",
+    name: 'Community',
+    href: '/community',
     icon: ChatAlt2Icon,
-    disabled: false,
+    disabled: false
+  },
+
+  {
+    name: 'Newsletters',
+    href: '/newsletters',
+    icon: NewspaperIcon,
+    disabled: false
   },
   {
-    name: "Bounty Board",
-    href: "/bounties",
+    name: 'Bounty Board',
+    href: '/bounties',
     icon: ClipboardCheckIcon,
-    disabled: false,
+    disabled: false
   },
   {
-    name: "Jobs",
-    href: "/jobs",
+    name: 'Jobs',
+    href: '/jobs',
     icon: BriefcaseIcon,
-    disabled: false,
-  },
+    disabled: false
+  }
 ];
 
 const special = [
   {
-    name: "Solana Cookbook",
-    href: "https://solanacookbook.com?utm_source=soldev.app",
-    disabled: false,
+    name: 'Solana Cookbook',
+    href: 'https://solanacookbook.com?utm_source=soldev.app',
+    disabled: false
   },
   {
-    name: "Anchor Book",
-    href: "https://book.anchor-lang.com/?utm_source=soldev.app",
-    disabled: false,
+    name: 'Anchor Book',
+    href: 'https://book.anchor-lang.com/?utm_source=soldev.app',
+    disabled: false
   },
   {
-    name: "Solana Docs",
-    href: "https://docs.solana.com/introduction?utm_source=soldev.app",
-    disabled: false,
+    name: 'Solana Docs',
+    href: 'https://docs.solana.com/introduction?utm_source=soldev.app',
+    disabled: false
   },
   {
-    name: "Metaplex Docs",
-    href: "https://docs.metaplex.com?utm_source=soldev.app",
-    disabled: false,
+    name: 'Metaplex Docs',
+    href: 'https://docs.metaplex.com?utm_source=soldev.app',
+    disabled: false
   },
   {
-    name: "DAO Docs",
-    href: "https://docs.realms.today/",
-    disabled: false,
-  },
+    name: 'DAO Docs',
+    href: 'https://docs.realms.today/',
+    disabled: false
+  }
 ];
 
 const specialLists = [
   {
-    name: "Getting Started",
-    href: "/library/list/started"
-  },
+    name: 'Getting Started',
+    href: '/library/list/started'
+  }
 ];
 
 const series = [
   {
-    name: "Figment",
-    href: "https://learn.figment.io/protocols/solana",
+    name: 'Figment',
+    href: 'https://learn.figment.io/protocols/solana'
   },
   {
-    name: "Questbook",
-    href: "https://www.startonsolana.com",
-  },
+    name: 'Questbook',
+    href: 'https://www.startonsolana.com'
+  }
 ];
 
 const categories = [
   {
-    name: "Tutorials",
-    href: "/library/tutorials"
+    name: 'Tutorials',
+    href: '/library/tutorials'
   },
   {
-    name: "Articles",
-    href: "/library/articles"
+    name: 'Articles',
+    href: '/library/articles'
   },
   {
-    name: "Podcasts",
-    href: "/library/podcasts"
+    name: 'Podcasts',
+    href: '/library/podcasts'
   },
   {
-    name: "Projects",
-    href: "/library/projects"
+    name: 'Projects',
+    href: '/library/projects'
   },
   {
-    name: "SDKs & Frameworks",
-    href: "/library/sdk"
+    name: 'SDKs & Frameworks',
+    href: '/library/sdk'
   },
   {
-    name: "Scaffolds",
-    href: "/library/scaffolds"
+    name: 'Scaffolds',
+    href: '/library/scaffolds'
   },
   {
-    name: "Tools",
-    href: "/library/tools"
+    name: 'Tools',
+    href: '/library/tools'
   },
   {
-    name: "Implementations",
-    href: "/library/implementations",
+    name: 'Implementations',
+    href: '/library/implementations'
   },
   {
-    name: "Security",
-    href: "/library/security"
+    name: 'Security',
+    href: '/library/security'
   },
   {
-    name: "Program Library",
-    href: "/library/spl"
+    name: 'Program Library',
+    href: '/library/spl'
   },
   {
-    name: "Twitter Threads",
-    href: "/library/threads"
+    name: 'Twitter Threads',
+    href: '/library/threads'
   },
   {
-    name: "Video Playlists",
-    href: "/library/playlists"
+    name: 'Video Playlists',
+    href: '/library/playlists'
   },
   {
-    name: "Submitted",
-    href: "/library/admin/submitted"
+    name: 'Submitted',
+    href: '/library/admin/submitted'
   },
   {
-    name: "Inactive",
-    href: "/library/admin/inactive"
-  },
+    name: 'Inactive',
+    href: '/library/admin/inactive'
+  }
 ];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
-function NavSidebar({closeMobileMenu}) {
-  const [current, setCurrent] = useState("");
-  const {
-    user,
-    isAdmin = false,
-    connected,
-    error
-  } = useUser();
+function NavSidebar({ closeMobileMenu }) {
+  const [current, setCurrent] = useState('');
+  const { user, isAdmin = false, connected, error } = useUser();
 
   useEffect(() => {
-    if (window && window.sessionStorage.getItem("main-navigation")) {
-      setCurrent(window.sessionStorage.getItem("main-navigation"));
+    if (window && window.sessionStorage.getItem('main-navigation')) {
+      setCurrent(window.sessionStorage.getItem('main-navigation'));
     } else {
-      setCurrent("Library");
+      setCurrent('Library');
     }
   }, []);
 
   return (
-    <nav
-      aria-label="Sidebar"
-      className="top-4 divide-y divide-gray-300 dark:divide-gray-500"
-    >
-      <div
-        className="pb-4">
-        {navigation.map((item) => {
-
-
+    <nav aria-label="Sidebar" className="top-4 divide-y divide-gray-300 dark:divide-gray-500">
+      <div className="pb-4">
+        {navigation.map(item => {
           return (
-            <Link
-              href={item.href}
-              passHref
-              key={item.name}>
+            <Link href={item.href} passHref key={item.name}>
               <button
                 className={classNames(
                   item.name === current
-                    ? "bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-200"
-                    : "text-gray-800 dark:text-gray-300",
-                  "min-w-full hover:bg-gray-50 dark:hover:bg-gray-700 group flex items-center px-3 py-2 text-lg lg:text-sm font-medium rounded-md max-w-[190px]"
+                    ? 'bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-200'
+                    : 'text-gray-800 dark:text-gray-300',
+                  'group flex min-w-full max-w-[190px] items-center rounded-md px-3 py-2 text-lg font-medium hover:bg-gray-50 dark:hover:bg-gray-700 lg:text-sm'
                 )}
                 onClick={() => {
                   setCurrent(item.name);
-                  window.sessionStorage.setItem("main-navigation", item.name);
+                  window.sessionStorage.setItem('main-navigation', item.name);
                   closeMobileMenu();
                 }}
-                aria-current={item.current ? "page" : undefined}
+                aria-current={item.current ? 'page' : undefined}
                 disabled={item.disabled}
               >
                 <item.icon
                   className={classNames(
-                    item.name === current ? "text-gray-500" : "text-gray-400 ",
-                    "flex-shrink-0 -ml-1 mr-3 h-6 w-6",
-                    !item.disabled && "group-hover:text-gray-500"
+                    item.name === current ? 'text-gray-500' : 'text-gray-400 ',
+                    '-ml-1 mr-3 h-6 w-6 flex-shrink-0',
+                    !item.disabled && 'group-hover:text-gray-500'
                   )}
                   aria-hidden="true"
                 />
-                <span
-                  className="truncate">{item.name}
-                </span>
-                {item.name === "Jobs" &&
-                  <span
-                    className="inline-flex ml-1 items-center px-2.5 py-0.5 rounded-full text-xs font-medium dark:bg-red-500 dark:text-red-50 bg-red-100 text-red-800">
-        New
-      </span>
-                }
+                <span className="truncate">{item.name}</span>
+                {item.name === 'Newsletters' && (
+                  <span className="ml-1 inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:bg-red-500 dark:text-red-50">
+                    New
+                  </span>
+                )}
               </button>
             </Link>
           );
         })}
       </div>
 
-      <div
-        className="pt-4 space-y-4">
+      <div className="space-y-4 pt-4">
         {/* Add new content*/}
-        <Link
-          href="/submit"
-          passHref>
-          <div
-            className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-300">
-            <FolderAddIcon
-              className="h-5 w-5 text-sky-500"
-              aria-hidden="true"
-            />
-            <span
-              className="truncate leading-6"> Submit content</span>
+        <Link href="/submit" passHref>
+          <div className="group flex cursor-pointer items-center gap-1 rounded-md px-3 py-2 text-lg font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300 lg:text-sm">
+            <FolderAddIcon className="h-5 w-5 text-sky-500" aria-hidden="true" />
+            <span className="truncate leading-6"> Submit content</span>
           </div>
         </Link>
 
         {/* Special */}
         <div>
           <p
-            className="px-3 text-md lg:text-xs font-semibold text-gray-500 uppercase tracking-wider"
+            className="text-md px-3 font-semibold uppercase tracking-wider text-gray-500 lg:text-xs"
             id="communities-headline"
           >
             Reference
           </p>
-          <div
-            className="mt-2 space-y-1"
-            aria-labelledby="communities-headline"
-          >
-            {special.map((item) => {
+          <div className="mt-2 space-y-1" aria-labelledby="communities-headline">
+            {special.map(item => {
               return (
                 <a
                   href={item.href}
@@ -257,14 +237,12 @@ function NavSidebar({closeMobileMenu}) {
                   rel="noreferrer"
                   onClick={() => closeMobileMenu()}
                 >
-                  <div
-                    className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-300">
+                  <div className="group flex cursor-pointer items-center gap-1 rounded-md px-3 py-2 text-lg font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300 lg:text-sm">
                     <ExternalLinkIcon
                       className="h-4 w-4 text-rose-400 dark:text-rose-500"
                       aria-hidden="true"
                     />
-                    <span
-                      className="truncate leading-6">{item.name}</span>
+                    <span className="truncate leading-6">{item.name}</span>
                   </div>
                 </a>
               );
@@ -275,31 +253,24 @@ function NavSidebar({closeMobileMenu}) {
         {/* Lists */}
         <div>
           <p
-            className="px-3 text-md lg:text-xs font-semibold text-gray-500 uppercase tracking-wider"
+            className="text-md px-3 font-semibold uppercase tracking-wider text-gray-500 lg:text-xs"
             id="communities-headline"
           >
             Lists
           </p>
-          <div
-            className="mt-2 space-y-1"
-            aria-labelledby="communities-headline"
-          >
-            {specialLists.map((item) => {
+          <div className="mt-2 space-y-1" aria-labelledby="communities-headline">
+            {specialLists.map(item => {
               return (
-                <Link
-                  href={item.href}
-                  passHref
-                  key={item.name}>
+                <Link href={item.href} passHref key={item.name}>
                   <button
                     onClick={() => closeMobileMenu()}
-                    className="min-w-full group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-300"
+                    className="group flex min-w-full cursor-pointer items-center gap-1 rounded-md px-3 py-2 text-lg font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300 lg:text-sm"
                   >
                     <SparklesIcon
                       className="h-4 w-4 text-rose-400 dark:text-rose-500"
                       aria-hidden="true"
                     />
-                    <span
-                      className="truncate leading-6">{item.name}</span>
+                    <span className="truncate leading-6">{item.name}</span>
                   </button>
                 </Link>
               );
@@ -310,16 +281,13 @@ function NavSidebar({closeMobileMenu}) {
         {/* Series */}
         <div>
           <p
-            className="px-3 text-md lg:text-xs font-semibold text-gray-500 uppercase tracking-wider"
+            className="text-md px-3 font-semibold uppercase tracking-wider text-gray-500 lg:text-xs"
             id="communities-headline"
           >
             Series
           </p>
-          <div
-            className="mt-2 space-y-1"
-            aria-labelledby="communities-headline"
-          >
-            {series.map((item) => {
+          <div className="mt-2 space-y-1" aria-labelledby="communities-headline">
+            {series.map(item => {
               return (
                 <a
                   href={item.href}
@@ -328,14 +296,12 @@ function NavSidebar({closeMobileMenu}) {
                   rel="noreferrer"
                   onClick={() => closeMobileMenu()}
                 >
-                  <div
-                    className="group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-300">
+                  <div className="group flex cursor-pointer items-center gap-1 rounded-md px-3 py-2 text-lg font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300 lg:text-sm">
                     <ExternalLinkIcon
                       className="h-4 w-4 text-rose-400 dark:text-rose-500"
                       aria-hidden="true"
                     />
-                    <span
-                      className="truncate leading-6">{item.name}</span>
+                    <span className="truncate leading-6">{item.name}</span>
                   </div>
                 </a>
               );
@@ -346,38 +312,28 @@ function NavSidebar({closeMobileMenu}) {
         {/* Categories */}
         <div>
           <p
-            className="px-3 text-md lg:text-xs font-semibold text-gray-500 uppercase tracking-wider"
+            className="text-md px-3 font-semibold uppercase tracking-wider text-gray-500 lg:text-xs"
             id="communities-headline"
           >
             Categories
           </p>
-          <div
-            className="mt-2 space-y-1"
-            aria-labelledby="communities-headline"
-          >
-            {categories.map((item) => {
-              if (
-                (item.name === "Submitted" || item.name === "Inactive") &&
-                !isAdmin
-              ) {
+          <div className="mt-2 space-y-1" aria-labelledby="communities-headline">
+            {categories.map(item => {
+              if ((item.name === 'Submitted' || item.name === 'Inactive') && !isAdmin) {
                 return;
               }
 
               return (
-                <Link
-                  href={item.href}
-                  passHref
-                  key={item.name}>
+                <Link href={item.href} passHref key={item.name}>
                   <button
                     onClick={() => closeMobileMenu()}
-                    className="min-w-full group gap-1 flex cursor-pointer items-center px-3 py-2 text-lg lg:text-sm font-medium text-gray-600 dark:text-gray-300 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-300"
+                    className="group flex min-w-full cursor-pointer items-center gap-1 rounded-md px-3 py-2 text-lg font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300 lg:text-sm"
                   >
                     <PaperClipIcon
                       className="h-4 w-4 text-rose-400 dark:text-rose-500"
                       aria-hidden="true"
                     />
-                    <span
-                      className="truncate leading-6">{item.name}</span>
+                    <span className="truncate leading-6">{item.name}</span>
                   </button>
                 </Link>
               );
@@ -390,12 +346,11 @@ function NavSidebar({closeMobileMenu}) {
 }
 
 NavSidebar.defaultProps = {
-  closeMobileMenu: () => {
-  },
+  closeMobileMenu: () => {}
 };
 
 NavSidebar.prototype = {
-  closeMobileMenu: PropTypes.func,
+  closeMobileMenu: PropTypes.func
 };
 
 export default memo(NavSidebar);
