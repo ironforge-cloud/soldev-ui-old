@@ -31,6 +31,10 @@ export async function getStaticProps({ params }) {
     // Save content and stop loop
     content = data[i];
     content.ContentMarkdown = await markdownToHtml(content.ContentMarkdown);
+
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    content.PublishedAt = new Date(content.PublishedAt).toLocaleDateString('en-US', options);
+
     break;
   }
 
@@ -55,7 +59,21 @@ export default function Article({ content }) {
     <Container metaTags={metaTags}>
       <div className="lg:mr-5">
         <div className="prose mx-auto max-w-6xl rounded-lg px-10 py-10 dark:prose-invert dark:border-none lg:border lg:bg-white dark:lg:bg-gray-800 xl:px-32">
-          <h1 className="mx-auto flex justify-center pb-10">{content.Title}</h1>
+          <div className="align-center flex flex-col content-center items-center pb-10">
+            <h1 className="mb-4">{content.Title}</h1>
+            <h3 className="mt-0 tracking-wide text-gray-500 dark:text-gray-400">
+              <a
+                className="tracking-wide text-gray-500 no-underline hover:text-blue-400 dark:text-gray-400 dark:hover:text-blue-500"
+                href="https://twitter.com/jacobvcreech"
+                target="_blank"
+                rel="noreferrer"
+              >
+                by Jacob Creech
+              </a>
+              {' · '}
+              <span>{content.PublishedAt}</span>
+            </h3>
+          </div>
           <p dangerouslySetInnerHTML={{ __html: content.ContentMarkdown }} />
         </div>
       </div>
