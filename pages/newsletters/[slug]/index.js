@@ -58,7 +58,7 @@ export default function Article({ content }) {
   return (
     <Container metaTags={metaTags}>
       <div className="lg:mr-5">
-        <div className="prose mx-auto max-w-6xl rounded-lg px-10 py-10 dark:prose-invert dark:border-none lg:border lg:bg-white dark:lg:bg-gray-800 xl:px-32">
+        <div className="prose mx-auto max-w-6xl rounded-lg px-10 py-20 dark:prose-invert dark:border-none lg:border lg:bg-white dark:lg:bg-gray-800 xl:px-32">
           <div className="align-center flex flex-col content-center items-center pb-10">
             <h1 className="mb-4">{content.Title}</h1>
             <h3 className="mt-0 tracking-wide text-gray-500 dark:text-gray-400">
