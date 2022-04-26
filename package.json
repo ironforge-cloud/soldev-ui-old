@@ -10,7 +10,7 @@
   "devDependencies": {
     "@algolia/autocomplete-core": "^1.6.2",
     "@algolia/autocomplete-preset-algolia": "^1.6.2",
-    "@headlessui/react": "^1.5.0",
+    "@headlessui/react": "^1.6.0",
     "@heroicons/react": "^1.0.6",
     "@solana/wallet-adapter-base": "^0.9.5",
     "@solana/wallet-adapter-react": "^0.15.4",

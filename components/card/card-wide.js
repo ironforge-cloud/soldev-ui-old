@@ -40,7 +40,7 @@ function CardWide({ content, mode }) {
             </Link>
           ) : (
             <a
-              href={content.SK}
+              href={content.Url}
               rel="noreferrer"
               target="_blank"
               className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"

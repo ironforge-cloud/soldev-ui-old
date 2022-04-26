@@ -48,7 +48,7 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
             </Link>
           ) : (
             <a
-              href={content.SK}
+              href={content.Url}
               rel="noreferrer"
               target="_blank"
               className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
@@ -97,7 +97,7 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
       <div className="px-5 pt-5">
         <div
           className={classNames(
-            content.ContentType === 'newsletters' ? 'h-[200px]' : 'h-[275px]',
+            content.ContentType === 'newsletters' ? 'h-[210px]' : 'h-[275px]',
             ' overflow-hidden'
           )}
         >

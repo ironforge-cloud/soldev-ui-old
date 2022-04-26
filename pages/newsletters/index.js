@@ -29,7 +29,7 @@ export default function Newsletter({ newsletters, lastNewsletter }) {
     <Container metaTags={metaTags}>
       <PublicationsComponent
         data={newsletters}
-        title="Newsletter"
+        title="Newsletters"
         contentType="newsletters"
         isLoading={false}
         lastNewsletter={lastNewsletter}

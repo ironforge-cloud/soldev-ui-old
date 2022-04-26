@@ -10,7 +10,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-function BountyCard({ job, open }) {
+function JobCard({ job, open }) {
   return (
     <Disclosure as="div" defaultOpen={open}>
       {({ open }) => (
@@ -35,24 +35,24 @@ function BountyCard({ job, open }) {
                 <div className="flex flex-col">
                   <h3 className="text-gray-900 dark:text-gray-200">{job.fields.Name}</h3>
                   <div className="mt-2 flex gap-2">
-                    {job.fields['Minimum Salary'] && (
-                      <CashIcon className="h-7 w-6 text-green-400" />
-                    )}
-                    {job.fields['Minimum Salary'] === job.fields['Maximum Salary'] ? (
-                      <div>{formatNumber(job.fields['Maximum Salary'])}</div>
-                    ) : (
-                      <div>
-                        {formatNumber(job.fields['Minimum Salary'])} -{' '}
-                        {formatNumber(job.fields['Maximum Salary'])}
-                      </div>
-                    )}
+                    <GlobeIcon className="h-7 w-7 text-sky-500" />
+                    <span className="text-gray-600 dark:text-gray-200">{job.fields.Location}</span>
                   </div>
                 </div>
               </div>
 
               <div className="flex gap-2">
-                <GlobeIcon className="h-7 w-7 text-sky-500" />
-                <span className="text-gray-600 dark:text-gray-200">{job.fields.Location}</span>
+                {/* <div className="mx-auto content-center pt-10 sm:col-span-3">
+                  <a
+                    type="button"
+                    href={job.fields['Application Link'] + '?utm_source=soldev.app'}
+                    target="_blank"
+                    className="content cursor-pointer rounded-lg bg-gradient-to-r from-green-400 to-blue-500 px-20 py-3 text-lg no-underline hover:from-pink-500 hover:to-yellow-500"
+                    rel="noreferrer"
+                  >
+                    Apply
+                  </a>
+                </div> */}
                 <span className="ml-6 flex h-7 items-center">
                   <ChevronDownIcon
                     className={classNames(open ? '-rotate-180' : 'rotate-0', 'h-6 w-6 transform')}
@@ -117,13 +117,13 @@ function BountyCard({ job, open }) {
   );
 }
 
-BountyCard.defaultProps = {
+JobCard.defaultProps = {
   open: false
 };
 
-BountyCard.propTypes = {
+JobCard.propTypes = {
   job: PropTypes.object.isRequired,
   open: PropTypes.bool
 };
 
-export default memo(BountyCard);
+export default memo(JobCard);
