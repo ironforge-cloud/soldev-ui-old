@@ -35,7 +35,8 @@ const moduleExports = withPlausibleProxy()({
       'api.typedream.com',
       'blog.neodyme.io',
       'lh4.googleusercontent.com',
-      'www.jpmti2016.com'
+      'www.jpmti2016.com',
+      'www.crossmint.io'
     ],
     formats: ['image/avif', 'image/webp']
   },

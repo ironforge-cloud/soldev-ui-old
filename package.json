@@ -2,10 +2,10 @@
   "name": "soldev-ui",
   "version": "0.1.0",
   "dependencies": {
-    "@sentry/nextjs": "^6.19.6",
+    "@sentry/nextjs": "^6.19.7",
     "next": "^12.1.5",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   },
   "devDependencies": {
     "@algolia/autocomplete-core": "^1.6.2",
@@ -16,7 +16,7 @@
     "@solana/wallet-adapter-react": "^0.15.4",
     "@solana/wallet-adapter-react-ui": "^0.9.6",
     "@solana/wallet-adapter-wallets": "^0.16.0",
-    "@solana/web3.js": "^1.39.1",
+    "@solana/web3.js": "^1.41.1",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.5.0",
     "@tailwindcss/typography": "^0.5.2",
