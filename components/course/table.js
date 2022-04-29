@@ -1,90 +1,7 @@
 import { memo, useId } from 'react';
 import TableHeader from './table-header';
 import TableRow from './table-row';
-
-const module1 = [
-  {
-    title: 'Read data from the network',
-    link: '/course/intro-to-reading-data'
-  },
-  {
-    title: 'Write data to the network',
-    link: '/course/intro-to-writing-data'
-  },
-  {
-    title: 'Interact with wallets',
-    link: '/course/interact-with-wallets'
-  },
-  {
-    title: 'Serialize custom instruction data',
-    link: '/course/serialize-instruction-data'
-  },
-  {
-    title: 'Deserialize custom account data',
-    link: '/course/deserialize-custom-data'
-  },
-  {
-    title: 'Page, Order, and Filter custom account data',
-    link: '/course/paging-ordering-filtering-data'
-  }
-];
-
-const module2 = [
-  {
-    title: 'Intro to SPL',
-    link: ''
-  },
-  {
-    title: 'Token Program',
-    link: ''
-  },
-  {
-    title: 'Token Swap Program',
-    link: ''
-  },
-  {
-    title: 'NFTs with Metaplex',
-    link: ''
-  }
-];
-
-const module3 = [
-  {
-    title: 'High-level view of the network',
-    link: ''
-  },
-  {
-    title: 'Hello World from scratch',
-    link: ''
-  },
-  {
-    title: 'Rust primer',
-    link: ''
-  },
-  {
-    title: 'Debugging',
-    link: ''
-  }
-];
-
-const module4 = [
-  {
-    title: 'A more advanced program...',
-    link: ''
-  },
-  {
-    title: 'PDAs',
-    link: ''
-  },
-  {
-    title: 'CPIs',
-    link: ''
-  },
-  {
-    title: 'Handling large transactions',
-    link: ''
-  }
-];
+import { modules } from '../../utils/course-map';
 
 function Table() {
   const id = useId();
@@ -93,7 +10,7 @@ function Table() {
       <div className="">
         <TableHeader title="Client interaction with the Solana Network" subTitle="Module 1" />
 
-        {module1.map((item, index) => {
+        {modules[0].map((item, index) => {
           return <TableRow ready={true} item={item} index={index} key={id} />;
         })}
       </div>
@@ -104,7 +21,7 @@ function Table() {
           subTitle="Module 2"
         />
 
-        {module2.map((item, index) => {
+        {modules[1].map((item, index) => {
           return <TableRow item={item} index={index} key={id} />;
         })}
       </div>
@@ -112,7 +29,7 @@ function Table() {
       <div>
         <TableHeader title="Basic Solana Program Development" subTitle="Module 3" />
 
-        {module3.map((item, index) => {
+        {modules[2].map((item, index) => {
           return <TableRow item={item} index={index} key={id} />;
         })}
       </div>
@@ -120,7 +37,7 @@ function Table() {
       <div>
         <TableHeader title="Advanced Solana Program Development" subTitle="Module 4" />
 
-        {module4.map((item, index) => {
+        {modules[3].map((item, index) => {
           return <TableRow item={item} index={index} key={id} />;
         })}
       </div>

@@ -1,4 +1,3 @@
-import { SpeakerphoneIcon, XIcon } from '@heroicons/react/outline';
 import { memo } from 'react';
 
 function CourseBanner() {
