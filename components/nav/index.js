@@ -4,7 +4,6 @@ import { memo, useState } from 'react';
 import TopBar from './topbar';
 
 const NavSidebar = dynamic(() => import('./nav-sidebar'));
-const Banner = dynamic(() => import('./banner'));
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');

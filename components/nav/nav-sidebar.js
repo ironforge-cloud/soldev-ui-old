@@ -7,6 +7,7 @@ import {
   LibraryIcon,
   PaperClipIcon,
   SparklesIcon,
+  AcademicCapIcon,
   NewspaperIcon
 } from '@heroicons/react/outline';
 import Link from 'next/link';
@@ -83,17 +84,6 @@ const specialLists = [
   }
 ];
 
-const series = [
-  {
-    name: 'Figment',
-    href: 'https://learn.figment.io/protocols/solana'
-  },
-  {
-    name: 'Questbook',
-    href: 'https://www.startonsolana.com'
-  }
-];
-
 const categories = [
   {
     name: 'Tutorials',
@@ -153,6 +143,13 @@ const categories = [
   }
 ];
 
+const courses = [
+  {
+    name: '"The" Course',
+    href: '/course'
+  }
+];
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
@@ -199,11 +196,6 @@ function NavSidebar({ closeMobileMenu }) {
                   aria-hidden="true"
                 />
                 <span className="truncate">{item.name}</span>
-                {item.name === 'Newsletters' && (
-                  <span className="ml-1 inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:bg-red-500 dark:text-red-50">
-                    New
-                  </span>
-                )}
               </button>
             </Link>
           );
@@ -218,6 +210,36 @@ function NavSidebar({ closeMobileMenu }) {
             <span className="truncate leading-6"> Submit content</span>
           </div>
         </Link>
+
+        {/* Courses */}
+        <div>
+          <p
+            className="text-md px-3 font-semibold uppercase tracking-wider text-gray-500 lg:text-xs"
+            id="communities-headline"
+          >
+            Courses
+          </p>
+          <div className="mt-2 space-y-1" aria-labelledby="communities-headline">
+            {courses.map(item => {
+              return (
+                <Link href={item.href} passHref key={item.name} onClick={() => closeMobileMenu()}>
+                  <div className="group flex cursor-pointer items-center gap-1 rounded-md px-3 py-2 text-lg font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300 lg:text-sm">
+                    <AcademicCapIcon
+                      className="h-4 w-4 text-rose-400 dark:text-rose-500"
+                      aria-hidden="true"
+                    />
+                    <span className="truncate leading-6">{item.name}</span>
+                    {item.name === '"The" Course' && (
+                      <span className="ml-1 inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:bg-red-500 dark:text-red-50">
+                        New
+                      </span>
+                    )}
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
 
         {/* Special */}
         <div>
@@ -273,37 +295,6 @@ function NavSidebar({ closeMobileMenu }) {
                     <span className="truncate leading-6">{item.name}</span>
                   </button>
                 </Link>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Series */}
-        <div>
-          <p
-            className="text-md px-3 font-semibold uppercase tracking-wider text-gray-500 lg:text-xs"
-            id="communities-headline"
-          >
-            Series
-          </p>
-          <div className="mt-2 space-y-1" aria-labelledby="communities-headline">
-            {series.map(item => {
-              return (
-                <a
-                  href={item.href}
-                  key={item.name}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={() => closeMobileMenu()}
-                >
-                  <div className="group flex cursor-pointer items-center gap-1 rounded-md px-3 py-2 text-lg font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300 lg:text-sm">
-                    <ExternalLinkIcon
-                      className="h-4 w-4 text-rose-400 dark:text-rose-500"
-                      aria-hidden="true"
-                    />
-                    <span className="truncate leading-6">{item.name}</span>
-                  </div>
-                </a>
               );
             })}
           </div>
