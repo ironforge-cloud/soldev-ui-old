@@ -18,7 +18,7 @@ function CourseBanner() {
                 {' '}
                 James
               </a>{' '}
-              and others. If you'd like to help out, have a look how you can
+              and others. If you&apos;d like to help out, have a look how you can
             </span>
             <span className="">
               <a
