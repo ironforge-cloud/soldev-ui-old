@@ -3,6 +3,9 @@ import markdownToHtml from '../../../utils/markdown';
 import fs from 'fs';
 import path from 'path';
 import Link from 'next/link';
+import { modules } from '../../../utils/course-map';
+
+const list = modules.flat();
 
 const directory = path.join(process.cwd(), 'course', 'content');
 export async function getStaticPaths() {
@@ -26,13 +29,26 @@ export async function getStaticProps({ params }) {
   const fullPath = path.join(directory, `${params.slug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
+  let title = '';
+  let description = '';
+
+  for (let i = 0; i < list.length; i++) {
+    const slug = list[i].link.split('/')[2];
+
+    if (params.slug !== slug) continue;
+
+    title = list[i].title;
+    description = list[i].title;
+  }
+
   const markdown = await markdownToHtml(fileContents);
-  console.log(markdown);
   return {
     props: {
       content: {
         markdown,
-        id: params.slug
+        id: params.slug,
+        title,
+        description
       }
     }
   };
@@ -40,8 +56,8 @@ export async function getStaticProps({ params }) {
 
 export default function CourseContent({ content }) {
   const metaTags = {
-    title: '',
-    description: '',
+    title: `SolDev - ${content.title}`,
+    description: content.description,
     url: `https://soldev.app/newsletters/${content.id}`,
     shouldIndex: true
   };
