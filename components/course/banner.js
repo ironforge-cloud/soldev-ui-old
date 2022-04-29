@@ -3,12 +3,12 @@ import { memo } from 'react';
 
 function CourseBanner() {
   return (
-    <div className=" mx-auto mt-10 max-w-2xl rounded-xl bg-teal-600">
+    <div className=" mx-auto mt-10 max-w-2xl rounded-xl bg-teal-600 dark:bg-teal-800">
       <div className="mx-auto py-3 px-3 sm:px-5 lg:px-6">
         <div className="pr-16 sm:px-16 sm:text-center">
           <p className="font-medium text-white">
             <span className="">
-              The course is being made publicly available by
+              The course is being created by
               <a
                 href="https://twitter.com/jamesrp13"
                 target="_blank"
@@ -28,7 +28,7 @@ function CourseBanner() {
                 className="font-bold text-white hover:underline"
               >
                 {' '}
-                Contribute <span aria-hidden="true">&rarr;</span>
+                contribute.
               </a>
             </span>
           </p>
