@@ -14,7 +14,7 @@ function Hackathon() {
         </p>
       </div>
       <Link href="/course">
-        <a className="text-md flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-yellow-500 to-pink-500 px-4 py-2 font-medium shadow-sm hover:from-green-400 hover:to-blue-500">
+        <a className="text-md flex items-center justify-center rounded-md border bg-gradient-to-r from-green-400 to-blue-500 px-4 py-2 font-medium shadow-sm hover:from-pink-500 ">
           Learn more
         </a>
       </Link>
