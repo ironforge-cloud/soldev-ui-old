@@ -2,7 +2,7 @@ import { Container } from '../../components/layout';
 import Table from '../../components/course/table';
 import Banner from '../../components/course/banner';
 
-export default function Bounties({ companies, stats }) {
+export default function Course() {
   const metaTags = {
     title: 'Solana Development Course',
     description:

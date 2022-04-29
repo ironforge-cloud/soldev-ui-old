@@ -8,10 +8,10 @@ function Table() {
   return (
     <div className="mx-auto my-20 flex max-w-4xl flex-col gap-10">
       <div className="">
-        <TableHeader title="Client interaction with the Solana Network" subTitle="Module 1" />
+        <TableHeader ready title="Client interaction with the Solana Network" subTitle="Module 1" />
 
         {modules[0].map((item, index) => {
-          return <TableRow ready={true} item={item} index={index} key={id} />;
+          return <TableRow ready item={item} index={index} key={id} />;
         })}
       </div>
 
