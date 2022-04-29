@@ -7,7 +7,7 @@ function Table() {
   const id = useId();
   return (
     <div className="mx-auto my-20 flex max-w-4xl flex-col gap-10">
-      <div className="">
+      <div>
         <TableHeader ready title="Client interaction with the Solana Network" subTitle="Module 1" />
 
         {modules[0].map((item, index) => {

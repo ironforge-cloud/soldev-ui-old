@@ -21,7 +21,7 @@ export default function Course() {
         </div>
 
         <div className="mx-auto mt-5 max-w-4xl">
-          <p className="mt-3 text-center text-lg text-gray-700 dark:text-gray-300">
+          <p className="prose mx-auto mt-3 text-center text-lg dark:prose-invert">
             This course is designed to be the absolute best starting point for Web Developers
             looking to learn Web3 Development. Solana is the ideal network for starting your Web3
             journey because of its high speed, low cost, energy efficiency, and more.
