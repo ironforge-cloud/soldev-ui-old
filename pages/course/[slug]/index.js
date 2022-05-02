@@ -1,9 +1,9 @@
-import { Container } from '../../../components/layout';
-import markdownToHtml from '../../../utils/markdown';
 import fs from 'fs';
-import path from 'path';
 import Link from 'next/link';
+import path from 'path';
+import { Container } from '../../../components/layout';
 import { modules } from '../../../utils/course-map';
+import markdownToHtml from '../../../utils/markdown';
 
 const list = modules.flat();
 

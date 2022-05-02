@@ -1,6 +1,6 @@
-import { memo } from 'react';
 import { SpeakerphoneIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
+import { memo } from 'react';
 
 function Hackathon() {
   return (
@@ -14,7 +14,7 @@ function Hackathon() {
         </p>
       </div>
       <Link href="/course">
-        <a className="text-md flex items-center justify-center rounded-md border bg-gradient-to-r from-green-400 to-blue-500 px-4 py-2 font-medium shadow-sm hover:from-pink-500 ">
+        <a className="text-md flex items-center justify-center rounded-md border bg-gradient-to-r from-pink-500 to-blue-500 px-4 py-2 font-medium shadow-sm hover:from-green-400">
           Learn more
         </a>
       </Link>
