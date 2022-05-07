@@ -26,6 +26,8 @@ function CardWide({ content, mode }) {
   const [isS3Audio, setIsS3Audio] = useState(false);
   const imageUrl = defineImage(content);
 
+  const audioPlayer = content.Url.includes('solanalabs-twitter-spaces');
+
   function actionButton() {
     if (content.Url.includes('youtube')) {
       return (
@@ -193,7 +195,9 @@ function CardWide({ content, mode }) {
           <p className="text-gray-600 dark:text-gray-400">{content.Description}</p>
         </div>
 
-        <div className="mb-5 h-[35px]">{isS3Audio && <Audio url={content.Url} />}</div>
+        {audioPlayer && (
+          <div className="mb-5 h-[35px]">{isS3Audio && <Audio url={content.Url} />}</div>
+        )}
 
         {/*  Actions */}
         <div className="flex h-[40px] flex-row items-end justify-between pt-2">
