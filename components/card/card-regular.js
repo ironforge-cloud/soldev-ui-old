@@ -2,9 +2,18 @@ import PropTypes from 'prop-types';
 import { memo } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { DocumentTextIcon, ExternalLinkIcon, FilmIcon, InboxInIcon } from '@heroicons/react/solid';
+import {
+  DocumentTextIcon,
+  PlayIcon,
+  ExternalLinkIcon,
+  FilmIcon,
+  EyeOffIcon,
+  InboxInIcon
+} from '@heroicons/react/solid';
 import Image from 'next/image';
 import defineImage from '../../utils/content-imagen';
+import Audio from '../audio';
+import { useState } from 'react';
 
 const Badge = dynamic(() => import('../badges/badge.js'));
 const CopyLink = dynamic(() => import('./copy-link.js'));
@@ -14,6 +23,7 @@ function classNames(...classes) {
 }
 
 function CardRegular({ content, mode, editContent, closeSearch }) {
+  const [isS3Audio, setIsS3Audio] = useState(false);
   const imageUrl = defineImage(content);
 
   const badgeUrl =
@@ -34,6 +44,27 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
               <span className="font-medium">Watch</span>
             </button>
           </Link>
+        </div>
+      );
+    } else if (content.Url.includes('solanalabs-twitter-spaces')) {
+      return (
+        <div>
+          <button
+            onClick={() => setIsS3Audio(!isS3Audio)}
+            className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
+          >
+            {isS3Audio ? (
+              <>
+                <EyeOffIcon className="h-5 w-5" aria-hidden="true" />
+                <span className="font-medium">Hidde Player</span>
+              </>
+            ) : (
+              <>
+                <PlayIcon className="h-5 w-5" aria-hidden="true" />
+                <span className="font-medium">Show Player</span>
+              </>
+            )}
+          </button>
         </div>
       );
     } else {
@@ -98,7 +129,8 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
         <div
           className={classNames(
             content.ContentType === 'newsletters' ? 'h-[210px]' : 'h-[275px]',
-            ' overflow-hidden'
+            isS3Audio && 'h-[205px]',
+            'overflow-hidden'
           )}
         >
           <div className="border-b-2 border-dashed border-gray-700 dark:border-gray-500">
@@ -169,6 +201,13 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
           {/*  Description */}
           <p className="text-gray-600 dark:text-gray-400">{content.Description}</p>
         </div>
+
+        {isS3Audio && (
+          <div className="mb-5">
+            <Audio url={content.Url} />
+          </div>
+        )}
+
         {/*  Actions */}
         <div className="flex h-[40px] flex-row items-end justify-between pt-2 pb-5">
           <div>

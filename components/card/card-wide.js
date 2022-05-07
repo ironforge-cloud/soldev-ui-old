@@ -1,10 +1,19 @@
-import { ExternalLinkIcon, FilmIcon, InboxInIcon } from '@heroicons/react/solid';
+import {
+  DocumentTextIcon,
+  PlayIcon,
+  ExternalLinkIcon,
+  FilmIcon,
+  EyeOffIcon,
+  InboxInIcon
+} from '@heroicons/react/solid';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { memo } from 'react';
 import defineImage from '../../utils/content-imagen';
+import Audio from '../audio';
+import { useState } from 'react';
 
 const Badge = dynamic(() => import('../badges/badge.js'));
 const CopyLink = dynamic(() => import('./copy-link.js'));
@@ -14,6 +23,7 @@ function classNames(...classes) {
 }
 
 function CardWide({ content, mode }) {
+  const [isS3Audio, setIsS3Audio] = useState(false);
   const imageUrl = defineImage(content);
 
   function actionButton() {
@@ -26,6 +36,27 @@ function CardWide({ content, mode }) {
               <span className="font-medium">Watch</span>
             </button>
           </Link>
+        </div>
+      );
+    } else if (content.Url.includes('solanalabs-twitter-spaces')) {
+      return (
+        <div>
+          <button
+            onClick={() => setIsS3Audio(!isS3Audio)}
+            className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
+          >
+            {isS3Audio ? (
+              <>
+                <EyeOffIcon className="h-5 w-5" aria-hidden="true" />
+                <span className="font-medium">Hidde Player</span>
+              </>
+            ) : (
+              <>
+                <PlayIcon className="h-5 w-5" aria-hidden="true" />
+                <span className="font-medium">Show Player</span>
+              </>
+            )}
+          </button>
         </div>
       );
     } else {
@@ -158,9 +189,11 @@ function CardWide({ content, mode }) {
         )}
 
         {/*  Description */}
-        <div className="prose min-h-[125px] flex-none overflow-hidden text-ellipsis ">
+        <div className="prose min-h-[125px] flex-none overflow-hidden text-ellipsis">
           <p className="text-gray-600 dark:text-gray-400">{content.Description}</p>
         </div>
+
+        <div className="mb-5 h-[35px]">{isS3Audio && <Audio url={content.Url} />}</div>
 
         {/*  Actions */}
         <div className="flex h-[40px] flex-row items-end justify-between pt-2">

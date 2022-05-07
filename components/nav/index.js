@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router';
 import { memo, useState } from 'react';
 import TopBar from './topbar';
 
@@ -11,10 +10,9 @@ function classNames(...classes) {
 
 function Nav({ children }) {
   const [search, setSearch] = useState(false);
-  const { pathname } = useRouter();
 
   return (
-    <div className={classNames(search && 'min-h-[5050px] xl:min-h-[3500px]')}>
+    <div className={classNames(search && 'min-h-[5050px] xl:min-h-[3500px]', 'min-h-screen')}>
       <div className="z-50 w-full">
         <TopBar setSearch={setSearch} />
       </div>
@@ -25,7 +23,9 @@ function Nav({ children }) {
             <NavSidebar />
           </div>
 
-          <div className="w-full overflow-hidden">{!search && children}</div>
+          <div className="min-h-screen w-full overflow-x-hidden overflow-y-visible">
+            {!search && children}
+          </div>
         </div>
       </div>
     </div>

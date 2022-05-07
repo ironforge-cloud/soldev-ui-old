@@ -1,10 +1,10 @@
-import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
-import { ConnectionProvider, WalletProvider, } from "@solana/wallet-adapter-react";
+import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
+import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
 import { clusterApiUrl } from '@solana/web3.js';
-import { memo, useMemo } from "react";
+import { memo, useMemo } from 'react';
 
-function WalletConnectionProvider({children}) {
+function WalletConnectionProvider({ children }) {
   const network = WalletAdapterNetwork.Mainnet;
 
   // You can also provide a custom RPC endpoint
