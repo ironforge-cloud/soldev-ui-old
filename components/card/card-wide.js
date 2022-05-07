@@ -191,7 +191,12 @@ function CardWide({ content, mode }) {
         )}
 
         {/*  Description */}
-        <div className="prose min-h-[125px] flex-none overflow-hidden text-ellipsis">
+        <div
+          className={classNames(
+            'prose flex-none overflow-hidden text-ellipsis',
+            audioPlayer ? 'min-h-[85px]' : 'min-h-[125px]'
+          )}
+        >
           <p className="text-gray-600 dark:text-gray-400">{content.Description}</p>
         </div>
 
