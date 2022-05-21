@@ -1,30 +1,23 @@
 import '../style.css';
-import Script from 'next/script';
-
 import PlausibleProvider from 'next-plausible';
 
-// Wallet Auth
+import { AppWrapper } from '../context/AppContext';
+import WalletConnectionProvider from '../components/wallet-connection-provider';
+import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
+
 import '@solana/wallet-adapter-react-ui/styles.css';
 
 export default function App({ Component, pageProps }) {
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
-      <Script id="1" src="https://www.googletagmanager.com/gtag/js?id=G-HT8DFYDG03" />
-      <Script
-        id="2"
-        dangerouslySetInnerHTML={{
-          __html: `
-          if (window.location.hostname === "localhost") window['ga-disable-G-HT8DFYDG03'] = true;
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-HT8DFYDG03');
-          `
-        }}
-      />
-
       <PlausibleProvider domain="soldev.app" trackOutboundLinks={true}>
-        <Component {...pageProps} />
+        <WalletConnectionProvider>
+          <WalletModalProvider logo="/logo-white.png">
+            <AppWrapper>
+              <Component {...pageProps} />
+            </AppWrapper>
+          </WalletModalProvider>
+        </WalletConnectionProvider>
       </PlausibleProvider>
     </div>
   );

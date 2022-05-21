@@ -1,17 +1,7 @@
-import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
-
-// Wallet Auth
-import '@solana/wallet-adapter-react-ui/styles.css';
-import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-// App Context
-import { AppWrapper } from '../context/AppContext';
-import Nav from './nav';
 
-const WalletConnectionProvider = dynamic(() => import('../components/wallet-connection-provider'), {
-  ssr: false
-});
+import Nav from './nav';
 
 export function Container({ children, metaTags }) {
   return (
@@ -54,13 +44,7 @@ export function Container({ children, metaTags }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <WalletConnectionProvider>
-        <WalletModalProvider logo="/logo-white.png">
-          <AppWrapper>
-            <Nav>{children}</Nav>
-          </AppWrapper>
-        </WalletModalProvider>
-      </WalletConnectionProvider>
+      <Nav>{children}</Nav>
     </div>
   );
 }

@@ -1,21 +1,21 @@
-import { createContext, useContext, useMemo, useReducer } from "react";
+import { createContext, useContext, useMemo, useReducer } from 'react';
 
 const AppStateContext = createContext();
 const AppDispatchContext = createContext();
 
 function AppReducer(state, action) {
   switch (action.type) {
-    case "editMode":
-      if (window) window.localStorage.setItem("editMode", action.payload);
+    case 'editMode':
+      if (window) window.localStorage.setItem('editMode', action.payload);
       return {
         ...state,
-        editMode: action.payload,
+        editMode: action.payload
       };
-    case "vertical":
-      if (window) window.localStorage.setItem("vertical", action.payload);
+    case 'vertical':
+      if (window) window.localStorage.setItem('vertical', action.payload);
       return {
         ...state,
-        vertical: action.payload,
+        vertical: action.payload
       };
     default:
       throw new Error(`Unknown action: ${action.type}`);
@@ -24,8 +24,8 @@ function AppReducer(state, action) {
 
 export function AppWrapper({ children }) {
   const [state, dispatch] = useReducer(AppReducer, {
-    editMode: window.localStorage.getItem("editMode") === "true" ? true : false,
-    vertical: "Solana",
+    editMode: false,
+    vertical: 'Solana'
   });
 
   const contextValue = useMemo(() => {
@@ -34,9 +34,7 @@ export function AppWrapper({ children }) {
 
   return (
     <AppDispatchContext.Provider value={dispatch}>
-      <AppStateContext.Provider value={state}>
-        {children}
-      </AppStateContext.Provider>
+      <AppStateContext.Provider value={state}>{children}</AppStateContext.Provider>
     </AppDispatchContext.Provider>
   );
 }
