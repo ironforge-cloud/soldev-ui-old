@@ -10,7 +10,7 @@ function Hackathon() {
           <SpeakerphoneIcon className="h-6 w-6" aria-hidden="true" />
         </span>
         <p className="prose flex flex-col font-medium text-gray-900 dark:text-gray-200">
-          <span className="text-xl">Check out &quot;The&quot; Solana Development Course</span>
+          <span className="text-xl">Check out the new Solana Development Course</span>
         </p>
       </div>
       <Link href="/course">

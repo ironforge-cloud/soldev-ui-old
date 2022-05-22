@@ -145,7 +145,7 @@ const categories = [
 
 const courses = [
   {
-    name: '"The" Course',
+    name: 'Intro to Solana',
     href: '/course'
   }
 ];
@@ -222,8 +222,11 @@ function NavSidebar({ closeMobileMenu }) {
           <div className="mt-2 space-y-1" aria-labelledby="communities-headline">
             {courses.map(item => {
               return (
-                <Link href={item.href} passHref key={item.name} onClick={() => closeMobileMenu()}>
-                  <div className="group flex cursor-pointer items-center gap-1 rounded-md px-3 py-2 text-lg font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300 lg:text-sm">
+                <Link href={item.href} passHref key={item.name}>
+                  <div
+                    onClick={() => closeMobileMenu()}
+                    className="group flex cursor-pointer items-center gap-1 rounded-md px-3 py-2 text-lg font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300 lg:text-sm"
+                  >
                     <AcademicCapIcon
                       className="h-4 w-4 text-rose-400 dark:text-rose-500"
                       aria-hidden="true"
