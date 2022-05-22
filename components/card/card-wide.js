@@ -26,10 +26,11 @@ function CardWide({ content, mode }) {
   const [isS3Audio, setIsS3Audio] = useState(false);
   const imageUrl = defineImage(content);
 
-  const audioPlayer = content.Url.includes('solanalabs-twitter-spaces');
+  let audioPlayer = '';
+  if (content.Url) audioPlayer = content.Url.includes('solanalabs-twitter-spaces');
 
   function actionButton() {
-    if (content.Url.includes('youtube')) {
+    if (content.Url && content.Url.includes('youtube')) {
       return (
         <div>
           <Link href={`/library/${content.ContentType}/video/${content.SK}`} passHref>
@@ -40,7 +41,7 @@ function CardWide({ content, mode }) {
           </Link>
         </div>
       );
-    } else if (content.Url.includes('solanalabs-twitter-spaces')) {
+    } else if (content.Url && content.Url.includes('solanalabs-twitter-spaces')) {
       return (
         <div>
           <button
