@@ -2,7 +2,7 @@
 
 # Lesson Objectives
 
-*By the end of this lesson, you will be able to:*
+_By the end of this lesson, you will be able to:_
 
 - Explain Wallets
 - Install Phantom extension
@@ -57,9 +57,9 @@ When adding wallet support to an existing react app, you start by installing the
 
 ```
 npm install @solana/wallet-adapter-base \
-         @solana/wallet-adapter-react \
-         @solana/wallet-adapter-phantom \
-         @solana/wallet-adapter-react-ui
+    @solana/wallet-adapter-react \
+    @solana/wallet-adapter-phantom \
+    @solana/wallet-adapter-react-ui
 ```
 
 ### Connect To Wallets
@@ -75,23 +75,23 @@ For these to work properly, any use of `useWallet` and `useConnection` should be
 
 ```tsx
 import { NextPage } from 'next';
-import { FC, ReactNode } from "react";
+import { FC, ReactNode } from 'react';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
 import web3 from '@solana/web3.js';
 
-export const Home: NextPage = (props) => {
-		const endpoint = web3.clusterApiUrl('devnet');
-		const wallet = new PhantomWalletAdapter();
+export const Home: NextPage = props => {
+  const endpoint = web3.clusterApiUrl('devnet');
+  const wallet = new PhantomWalletAdapter();
 
-    return (
-        <ConnectionProvider endpoint={endpoint}>
-            <WalletProvider wallets={[wallet]}>
-                <p>Put the rest of your app here</p>
-            </WalletProvider>
-        </ConnectionProvider>
-    );
-}
+  return (
+    <ConnectionProvider endpoint={endpoint}>
+      <WalletProvider wallets={[wallet]}>
+        <p>Put the rest of your app here</p>
+      </WalletProvider>
+    </ConnectionProvider>
+  );
+};
 ```
 
 Note that `ConnectionProvider` requires an `endpoint` property and that `WalletProvider` requires a `wallets` property. We’re continuing to use the endpoint for the Devnet cluster, and for now we’re only using the `PhantomWalletAdapter` for `wallets`.
@@ -108,26 +108,26 @@ You can create custom components for this, or you can leverage components provid
 
 ```tsx
 import { NextPage } from 'next';
-import { FC, ReactNode } from "react";
+import { FC, ReactNode } from 'react';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
 import web3 from '@solana/web3.js';
 
-const Home: NextPage = (props) => {
-		const endpoint = web3.clusterApiUrl('devnet');
-		const wallet = new PhantomWalletAdapter();
+const Home: NextPage = props => {
+  const endpoint = web3.clusterApiUrl('devnet');
+  const wallet = new PhantomWalletAdapter();
 
-    return (
-        <ConnectionProvider endpoint={endpoint}>
-            <WalletProvider wallets={[wallet]}>
-                <WalletModalProvider>
-                    <WalletMultiButton />
-                    <p>Put the rest of your app here</p>
-                </WalletModalProvider>
-            </WalletProvider>
-        </ConnectionProvider>
-    );
-}
+  return (
+    <ConnectionProvider endpoint={endpoint}>
+      <WalletProvider wallets={[wallet]}>
+        <WalletModalProvider>
+          <WalletMultiButton />
+          <p>Put the rest of your app here</p>
+        </WalletModalProvider>
+      </WalletProvider>
+    </ConnectionProvider>
+  );
+};
 
 export default Home;
 ```
@@ -152,7 +152,7 @@ You can also use more granular components if you need more specific functionalit
 
 ### Access Account Info
 
-Once your site is connected to a wallet, `useConnection` will retrieve a `Connection` object and  `useWallet` will get the `WalletContextState`. `WalletContextState` has a property `publicKey` that is `null` when not connected to a wallet and has the public key of the user’s account when a wallet is connected. With a public key and a connection, you can fetch account info and more.
+Once your site is connected to a wallet, `useConnection` will retrieve a `Connection` object and `useWallet` will get the `WalletContextState`. `WalletContextState` has a property `publicKey` that is `null` when not connected to a wallet and has the public key of the user’s account when a wallet is connected. With a public key and a connection, you can fetch account info and more.
 
 ```tsx
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
@@ -160,24 +160,26 @@ import { LAMPORTS_PER_SOL } from '@solana/web3.js';
 import { FC, useEffect, useState } from 'react';
 
 export const BalanceDisplay: FC = () => {
-    const [balance, setBalance] = useState(0);
-    const { connection } = useConnection();
-    const { publicKey } = useWallet();
+  const [balance, setBalance] = useState(0);
+  const { connection } = useConnection();
+  const { publicKey } = useWallet();
 
-    useEffect(() => {
-        if (!connection || !publicKey) { return }
+  useEffect(() => {
+    if (!connection || !publicKey) {
+      return;
+    }
 
-        connection.getAccountInfo(publicKey).then(info => {
-            setBalance(info.lamports);
-        })
-    }, [connection, publicKey]);
+    connection.getAccountInfo(publicKey).then(info => {
+      setBalance(info.lamports);
+    });
+  }, [connection, publicKey]);
 
-    return (
-        <div>
-            <p>{publicKey ? `Balance: ${balance / LAMPORTS_PER_SOL} SOL` : ''}</p>
-        </div>
-    );
-}
+  return (
+    <div>
+      <p>{publicKey ? `Balance: ${balance / LAMPORTS_PER_SOL} SOL` : ''}</p>
+    </div>
+  );
+};
 ```
 
 ### Send Transactions
@@ -189,22 +191,22 @@ const { publicKey, sendTransaction } = useWallet();
 const { connection } = useConnection();
 
 const sendSol = event => {
-    event.preventDefault();
+  event.preventDefault();
 
-    const transaction = new web3.Transaction();
-    const recipientPubKey = new web3.PublicKey(event.target.recipient.value);
+  const transaction = new web3.Transaction();
+  const recipientPubKey = new web3.PublicKey(event.target.recipient.value);
 
-    const sendSolInstruction = web3.SystemProgram.transfer({
-        fromPubkey: publicKey,
-        toPubkey: recipientPubKey,
-        lamports: LAMPORTS_PER_SOL * 0.1
-    });
+  const sendSolInstruction = web3.SystemProgram.transfer({
+    fromPubkey: publicKey,
+    toPubkey: recipientPubKey,
+    lamports: LAMPORTS_PER_SOL * 0.1
+  });
 
-    transaction.add(sendSolInstruction);
-    sendTransaction(transaction, connection).then(sig => {
-        console.log(sig)
-    });
-}
+  transaction.add(sendSolInstruction);
+  sendTransaction(transaction, connection).then(sig => {
+    console.log(sig);
+  });
+};
 ```
 
 When this function is called, the connected wallet will display the transaction for the user’s approval. If approved, then the transaction will be sent.
@@ -236,7 +238,7 @@ To start, we’re going to create a new component to contain the various Wallet-
 Let’s start with some of the boilerplate for a functional component:
 
 ```tsx
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react'
 
 const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
@@ -252,23 +254,20 @@ To properly connect to the user’s wallet, we’ll need a `ConnectionProvider`,
 
 ```tsx
 import { FC, ReactNode } from 'react';
-import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react'
-import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
+import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
+import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 
 const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
+  return (
+    <ConnectionProvider endpoint={''}>
+      <WalletProvider wallets={[]}>
+        <WalletModalProvider>{children}</WalletModalProvider>
+      </WalletProvider>
+    </ConnectionProvider>
+  );
+};
 
-    return (
-        <ConnectionProvider endpoint={''}>
-            <WalletProvider wallets={[]}>
-                <WalletModalProvider>
-                    { children }
-                </WalletModalProvider>
-            </WalletProvider>
-        </ConnectionProvider>
-    )
-}
-
-export default WalletContextProvider
+export default WalletContextProvider;
 ```
 
 The last things we need are an actual endpoint for `ConnectionProvider` and the supported wallets for `WalletProvider`.
@@ -281,64 +280,58 @@ To complete this component, add `require('@solana/wallet-adapter-react-ui/styles
 
 ```tsx
 import { FC, ReactNode } from 'react';
-import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react'
-import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
-import * as web3 from '@solana/web3.js'
+import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
+import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
+import * as web3 from '@solana/web3.js';
 import * as walletAdapterWallets from '@solana/wallet-adapter-wallets';
 require('@solana/wallet-adapter-react-ui/styles.css');
 
 const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
-    const endpoint = web3.clusterApiUrl('devnet')
-    const wallets = [new walletAdapterWallets.PhantomWalletAdapter()]
+  const endpoint = web3.clusterApiUrl('devnet');
+  const wallets = [new walletAdapterWallets.PhantomWalletAdapter()];
 
-    return (
-        <ConnectionProvider endpoint={endpoint}>
-            <WalletProvider wallets={wallets}>
-                <WalletModalProvider>
-                    { children }
-                </WalletModalProvider>
-            </WalletProvider>
-        </ConnectionProvider>
-    )
-}
+  return (
+    <ConnectionProvider endpoint={endpoint}>
+      <WalletProvider wallets={wallets}>
+        <WalletModalProvider>{children}</WalletModalProvider>
+      </WalletProvider>
+    </ConnectionProvider>
+  );
+};
 
-export default WalletContextProvider
+export default WalletContextProvider;
 ```
 
-### 4. Add Wallet Multi-Button
+### 4. Add wallet multi-button
 
-Next let’s set up the Connect button. The current button is just a placeholder because rather than using a standard button or creating a custom component, we’ll be using Wallet-Adapter’s “multi-button.” This button interfaces with the providers we set up in `WalletContextProvider`  and let’s users choose a wallet, connect to a wallet, and disconnect from a wallet. If you ever need more custom functionality, you can create a custom component to handle this.
+Next let’s set up the Connect button. The current button is just a placeholder because rather than using a standard button or creating a custom component, we’ll be using Wallet-Adapter’s “multi-button.” This button interfaces with the providers we set up in `WalletContextProvider` and let’s users choose a wallet, connect to a wallet, and disconnect from a wallet. If you ever need more custom functionality, you can create a custom component to handle this.
 
 Before we add the “multi-button,” we need to wrap the app in the `WalletContextProvider`. Do this by importing it in `index.tsx` and adding it after the closing `</Head>` tag:
 
 ```tsx
-import { NextPage } from 'next'
-import styles from '../styles/Home.module.css'
-import WalletContextProvider from '../components/WalletContextProvider'
-import { AppBar } from '../components/AppBar'
-import Head from 'next/head'
-import { PingButton } from '../components/PingButton'
+import { NextPage } from 'next';
+import styles from '../styles/Home.module.css';
+import WalletContextProvider from '../components/WalletContextProvider';
+import { AppBar } from '../components/AppBar';
+import Head from 'next/head';
+import { PingButton } from '../components/PingButton';
 
-const Home: NextPage = (props) => {
-
-    return (
-        <div className={styles.App}>
-            <Head>
-                <title>Wallet-Adapter Example</title>
-                <meta
-                    name="description"
-                    content="Wallet-Adapter Example"
-                />
-            </Head>
-            <WalletContextProvider>
-                <AppBar />
-                <div className={styles.AppBody}>
-                    <PingButton/>
-                </div>
-            </WalletContextProvider >
+const Home: NextPage = props => {
+  return (
+    <div className={styles.App}>
+      <Head>
+        <title>Wallet-Adapter Example</title>
+        <meta name="description" content="Wallet-Adapter Example" />
+      </Head>
+      <WalletContextProvider>
+        <AppBar />
+        <div className={styles.AppBody}>
+          <PingButton />
         </div>
-    );
-}
+      </WalletContextProvider>
+    </div>
+  );
+};
 
 export default Home;
 ```
@@ -346,20 +339,20 @@ export default Home;
 If you run the app, everything should still look the same since the current button on the top right is still just a placeholder. To remedy this, open `AppBar.tsx` and replace `<button>Connect</button>` with `<WalletMultiButton/>`. You’ll need to import `WalletMultiButton` from `@solana/wallet-adapter-react-ui`.
 
 ```tsx
-import { FC } from 'react'
-import styles from '../styles/Home.module.css'
-import Image from 'next/image'
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
+import { FC } from 'react';
+import styles from '../styles/Home.module.css';
+import Image from 'next/image';
+import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 
 export const AppBar: FC = () => {
-    return (
-        <div className={styles.AppHeader}>
-            <Image src="/solanaLogo.png" height={30} width={200} />
-            <span>Wallet-Adapter Example</span>
-            <WalletMultiButton/>
-        </div>
-    )
-}
+  return (
+    <div className={styles.AppHeader}>
+      <Image src="/solanaLogo.png" height={30} width={200} />
+      <span>Wallet-Adapter Example</span>
+      <WalletMultiButton />
+    </div>
+  );
+};
 ```
 
 At this point, you should be able to run the app and interact with the multi-button at the top-right of the screen. It should now read, "Select Wallet." If you have the Phantom extension and are signed in, you should be able to connect your Phantom wallet to the site using this new button.
@@ -374,46 +367,45 @@ First, we need a connection, the wallet’s public key, and Wallet-Adapter’s `
 
 ```tsx
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import * as web3 from '@solana/web3.js'
-import { FC, useState } from 'react'
-import styles from '../styles/PingButton.module.css'
+import * as web3 from '@solana/web3.js';
+import { FC, useState } from 'react';
+import styles from '../styles/PingButton.module.css';
 
 export const PingButton: FC = () => {
+  const onClick = () => {
+    console.log('Ping!');
+  };
 
-	const onClick = () => {
-		console.log('Ping!')
-	}
-
-	return (
-		<div className={styles.buttonContainer} onClick={onClick}>
-			<button className={styles.button}>Ping!</button>
-		</div>
-	)
-}
+  return (
+    <div className={styles.buttonContainer} onClick={onClick}>
+      <button className={styles.button}>Ping!</button>
+    </div>
+  );
+};
 ```
 
 Now use the `useConnection` hook to create a `connection` constant and the `useWallet` hook to create `publicKey` and `sendTransaction` constants.
 
 ```tsx
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import * as web3 from '@solana/web3.js'
-import { FC, useState } from 'react'
-import styles from '../styles/PingButton.module.css'
+import * as web3 from '@solana/web3.js';
+import { FC, useState } from 'react';
+import styles from '../styles/PingButton.module.css';
 
 export const PingButton: FC = () => {
-    const { connection } = useConnection();
-    const { publicKey, sendTransaction } = useWallet();
+  const { connection } = useConnection();
+  const { publicKey, sendTransaction } = useWallet();
 
-    const onClick = () => {
-        console.log('Ping!')
-    }
+  const onClick = () => {
+    console.log('Ping!');
+  };
 
-    return (
-        <div className={styles.buttonContainer} onClick={onClick}>
-            <button className={styles.button}>Ping!</button>
-        </div>
-    )
-}
+  return (
+    <div className={styles.buttonContainer} onClick={onClick}>
+      <button className={styles.button}>Ping!</button>
+    </div>
+  );
+};
 ```
 
 With that, we can fill in the body of `onClick`.
@@ -430,28 +422,30 @@ Finally, call `sendTransaction`.
 
 ```tsx
 const onClick = () => {
-    if (!connection || !publicKey) { return }
+  if (!connection || !publicKey) {
+    return;
+  }
 
-    const programId = new web3.PublicKey(PROGRAM_ID)
-    const programDataAccount = new web3.PublicKey(DATA_ACCOUNT_PUBKEY)
-    const transaction = new web3.Transaction()
+  const programId = new web3.PublicKey(PROGRAM_ID);
+  const programDataAccount = new web3.PublicKey(DATA_ACCOUNT_PUBKEY);
+  const transaction = new web3.Transaction();
 
-    const instruction = new web3.TransactionInstruction({
-        keys: [
-            {
-                pubkey: programDataAccount,
-                isSigner: false,
-                isWritable: true
-            },
-        ],
-        programId
-    });
+  const instruction = new web3.TransactionInstruction({
+    keys: [
+      {
+        pubkey: programDataAccount,
+        isSigner: false,
+        isWritable: true
+      }
+    ],
+    programId
+  });
 
-    transaction.add(instruction)
-    sendTransaction(transaction, connection).then(sig => {
-        console.log(sig)
-    })
-}
+  transaction.add(instruction);
+  sendTransaction(transaction, connection).then(sig => {
+    console.log(sig);
+  });
+};
 ```
 
 And that’s it! If you refresh the page, connect your wallet, and click the ping button, Phantom should present you with a popup for confirming the transaction.

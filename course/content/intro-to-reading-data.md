@@ -50,7 +50,7 @@ Public keys are 256-bit and they are often shown as base-58 encoded strings like
 
 ## The Solana JSON RPC API
 
-![Illustration depicting how client-side interaction with the Solana network happens through the JSON RPC API](/assets/json-rpc-illustration.png)
+![Illustration depicting how client-side interaction with the Solana network happens through the JSON RPC API](../assets/json-rpc-illustration.png)
 
 All client interaction with the Solana network happens through Solana’s [JSON RPC API](https://docs.solana.com/developing/clients/jsonrpc-api).
 
@@ -140,7 +140,7 @@ Let’s create a simple website that lets users check the balance at a particula
 
 It’ll look something like this:
 
-![Screenshot of demo solution](/assets/intro-frontend-demo.png)
+![Screenshot of demo solution](../assets/intro-frontend-demo.png)
 
 In the interest of staying on topic, we won’t be working entirely from scratch. You can find the starter code [here](https://github.com/Unboxed-Software/solana-intro-frontend/tree/starter). The starter project uses Next.js and Typescript. If you’re used to a different stack, don’t worry! The web3 and Solana principles you’ll learn throughout these lessons are applicable to whichever frontend stack you’re most comfortable with.
 
@@ -150,7 +150,7 @@ Once you’ve got the starter code, take a look around. Run the app with `npm ru
 
 Structurally, the app is composed of `index.tsx` and `AddressForm.tsx`. When a user submits the form, the `addressSubmittedHandler` in `index.tsx` gets called. That’s where we’ll be adding the logic to update the rest of the UI.
 
-### 2. Install Dependencies
+### 2. Install dependencies
 
 Use `npm install @solana/web3.js` to install our dependency on Solana’s Web3 library.
 
@@ -222,6 +222,6 @@ Since this is the first challenge, we’ll keep it simple. Go ahead and add on t
 
 Your standard wallet address will _not_ be executable, so if you want an address that _will_ be executable for testing, use `CenYq6bDRB7p73EjsPEpiYN7uveyPUTdXkDkgUduboaN`.
 
-![Screenshot of final challenge solution](/assets/intro-frontend-challenge.png)
+![Screenshot of final challenge solution](../assets/intro-frontend-challenge.png)
 
 If you get stuck feel free to take a look at the [solution code](https://github.com/Unboxed-Software/solana-intro-frontend/tree/challenge-solution).

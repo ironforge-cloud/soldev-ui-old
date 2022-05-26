@@ -2,9 +2,9 @@
 
 # Lesson Objectives
 
-*By the end of this lesson, you will be able to:*
+_By the end of this lesson, you will be able to:_
 
-- Page, Order, and Filter accounts
+- Page, order, and filter accounts
 - Prefetch accounts without data
 - Determine where in an account’s buffer layout specific data is stored
 - Prefetch accounts with a subset of data that can be used to order accounts
@@ -14,7 +14,7 @@
 # TL;DR
 
 - This lesson delves into some functionality of the RPC calls that we used in the deserializing account data lesson
-- You can fetch a large number of accounts without their data to save on compute time if you’d like to filter them, this returns an array of public keys
+- To save on compute time, you can fetch a large number of accounts without their data by filtering them to return just an array of public keys
 - Once you have a filtered list of public keys, you can order them and fetch the account data they belong to
 
 # Overview
@@ -23,38 +23,35 @@ You may have noticed in the last lesson that while we could fetch and display a 
 
 ## Use `dataSlice` to only fetch data you need
 
-Imagine the Movie Review app we worked on in past lessons having 4million movie reviews. And imagine that the average review is 500 bytes. That would make the total download for all review accounts over 2Gb. Definitely not something you want to have your frontend download every time the page refreshes.
+Imagine the Movie Review app we worked on in past lessons having four million movie reviews and that the average review is 500 bytes. That would make the total download for all review accounts over 2GB. Definitely not something you want to have your frontend download every time the page refreshes.
 
-Fortunately, the `getProgramAccounts` function that you use to get all of the accounts takes a configuration object as argument, and one of the configuration options is `dataSlice`. `dataSlice` lets you provide two things:
+Fortunately, the `getProgramAccounts` function that you use to get all of the accounts takes a configuration object as argument. One of the configuration options is `dataSlice` which lets you provide two things:
 
 - `offset` - the offset from the beginning of the data buffer to start the slice
 - `length` - the number of bytes to return, starting from the provided offset
 
-When you include a `dataSlice` in the configuration object, the function will only return the subset of the data buffer that you specified. 
+When you include a `dataSlice` in the configuration object, the function will only return the subset of the data buffer that you specified.
 
 ### Paging Accounts
 
 One area this becomes helpful is with paging. If you want to have a list that displays all accounts but there are so many accounts that you don’t want to pull all the data at once, you can fetch all of the accounts with no data. You can then map the result to a list of account keys whose data you can fetch only when needed.
 
 ```tsx
-const accountsWithoutData = await connection.getProgramAccounts(
-	programId,
-	{
-		dataSlice: { offset: 0, length: 0 }
-	}
-)
+const accountsWithoutData = await connection.getProgramAccounts(programId, {
+  dataSlice: { offset: 0, length: 0 }
+});
 
-const accountKeys = accountsWithoutData.map(account => account.pubkey)
+const accountKeys = accountsWithoutData.map(account => account.pubkey);
 ```
 
 With this list of keys, you can then fetch account data in “pages” using the `getMultipleAccountsInfo` method:
 
 ```tsx
-const paginatedKeys = accountKeys.slice(0, 10)
-const accountInfos = await connection.getMultipleAccountsInfo(paginatedKeys)
-const deserializedObjects = accountInfos.map((accountInfo) => {
-	// put logic to deserialize accountInfo.data here
-})
+const paginatedKeys = accountKeys.slice(0, 10);
+const accountInfos = await connection.getMultipleAccountsInfo(paginatedKeys);
+const deserializedObjects = accountInfos.map(accountInfo => {
+  // put logic to deserialize accountInfo.data here
+});
 ```
 
 ### Ordering Accounts
@@ -70,27 +67,24 @@ For example, you might have an account that stores contact information like so:
 
 If you want to order all of the account keys alphabetically based on the user’s first name, you need to find out the offset where the name starts. The first field, `initialized`, takes the first byte, then `phoneNumber` takes another 8, so the `firstName` field starts at offset `1 + 8 = 9`.
 
-You then need to determine the length to make the data slice. Since the length is variable, we can’t know for sure, but you can choose a length that is large enough to cover most cases and short enough to not be too much of a burden to fetch. 15 bytes is plenty for most first names, but would result in a small enough download even with a million users. 
+You then need to determine the length to make the data slice. Since the length is variable, we can’t know for sure, but you can choose a length that is large enough to cover most cases and short enough to not be too much of a burden to fetch. 15 bytes is plenty for most first names, but would result in a small enough download even with a million users.
 
 Once you’ve fetched accounts with the given data slice, you can use the `sort` method to sort the array before mapping it to an array of public keys.
 
 ```tsx
-const accounts = await connection.getProgramAccounts(
-	programId,
-	{
-		dataSlice: { offset: 9, length: 15 }
-	}
-)
+const accounts = await connection.getProgramAccounts(programId, {
+  dataSlice: { offset: 9, length: 15 }
+});
 
-	accounts.sort( (a, b) => {
-		const lengthA = a.account.data.readUInt32LE(0)
-		const lengthB = b.account.data.readUInt32LE(0)
-		const dataA = a.account.data.slice(4, 4 + lengthA)
-		const dataB = b.account.data.slice(4, 4 + lengthB)
-		return dataA.compare(dataB)
-	})
+accounts.sort((a, b) => {
+  const lengthA = a.account.data.readUInt32LE(0);
+  const lengthB = b.account.data.readUInt32LE(0);
+  const dataA = a.account.data.slice(4, 4 + lengthA);
+  const dataB = b.account.data.slice(4, 4 + lengthB);
+  return dataA.compare(dataB);
+});
 
-const accountKeys = accounts.map(account => account.pubkey)
+const accountKeys = accounts.map(account => account.pubkey);
 ```
 
 Note that in the snippet above we don’t compare the data as given. This is because for dynamically sized types like strings, Borsh places an unsigned, 32-bit integer at the start to indicate the length of the data representing that field. So to compare the first names directly, we need to get the length for each, then create a data slice with a 4 byte offset and the proper length.
@@ -100,31 +94,30 @@ Note that in the snippet above we don’t compare the data as given. This is bec
 Limiting the data received per account is great, but what if you only want to return accounts that match a specific criteria rather than all of them? That’s where the `filters` configuration option comes in. This option is an array that can have objects matching the following:
 
 - `memcmp` - compares a provided series of bytes with program account data at a particular offset. Fields:
-    - `offset` - the number to offset into program account data before comparing data
-    - `bytes` - a base-58 encoded string representing the data to match; limited to less than 129 bytes
+  - `offset` - the number to offset into program account data before comparing data
+  - `bytes` - a base-58 encoded string representing the data to match; limited to less than 129 bytes
 - `dataSize` - compares the program account data length with the provided data size
 
-These let you filter based on matching data and/or total data size. 
+These let you filter based on matching data and/or total data size.
 
 For example, you could search through a list of contacts by including a `memcmp` filter:
 
 ```tsx
-async function fetchMatchingContactAccounts(connection: web3.Connection, search: string): Promise<(web3.AccountInfo<Buffer> | null)[]> {
-	const accounts = await connection.getProgramAccounts(
-		programId,
-		{
-			dataSlice: { offset: 0, length: 0 },
-			filters: [
-				{ 
-					memcmp:
-						{
-							offset: 9,
-							bytes: bs58.encode(Buffer.from(search))
-						}
-				}
-			]
-		}
-	)
+async function fetchMatchingContactAccounts(
+  connection: web3.Connection,
+  search: string
+): Promise<(web3.AccountInfo<Buffer> | null)[]> {
+  const accounts = await connection.getProgramAccounts(programId, {
+    dataSlice: { offset: 0, length: 0 },
+    filters: [
+      {
+        memcmp: {
+          offset: 9,
+          bytes: bs58.encode(Buffer.from(search))
+        }
+      }
+    ]
+  });
 }
 ```
 
@@ -150,9 +143,9 @@ The project is a fairly simple Next.js application. It includes the `WalletConte
 First things first, let’s create a space to encapsulate the code for fetching account data. Create a new file `MovieCoordinator.ts` and declare a `MovieCoordinator` class. Then let’s move the `MOVIE_REVIEW_PROGRAM_ID` constant from `MovieList` into this new file since we’ll be moving all references to it
 
 ```tsx
-const MOVIE_REVIEW_PROGRAM_ID = 'CenYq6bDRB7p73EjsPEpiYN7uveyPUTdXkDkgUduboaN'
+const MOVIE_REVIEW_PROGRAM_ID = 'CenYq6bDRB7p73EjsPEpiYN7uveyPUTdXkDkgUduboaN';
 
-export class MovieCoordinator { }
+export class MovieCoordinator {}
 ```
 
 Now we can use `MovieCoordinator` to create a paging implementation. A quick note before we dive in: this will be as simple a paging implementation as possible so that we can focus on the complex part of interacting with Solana accounts. You can, and should, do better for a production application.
@@ -160,21 +153,21 @@ Now we can use `MovieCoordinator` to create a paging implementation. A quick not
 With that out of the way, let’s create a static property `accounts` of type `web3.PublicKey[]`, a static function `prefetchAccounts(connection: web3.Connection)`, and a static function `fetchPage(connection: web3.Connection, page: number, perPage: number): Promise<Movie[]>`. You’ll also need to import `@solana/web3.js` and `Movie`.
 
 ```tsx
-import * as web3 from '@solana/web3.js'
-import { Movie } from '../models/Movie'
+import * as web3 from '@solana/web3.js';
+import { Movie } from '../models/Movie';
 
-const MOVIE_REVIEW_PROGRAM_ID = 'CenYq6bDRB7p73EjsPEpiYN7uveyPUTdXkDkgUduboaN'
+const MOVIE_REVIEW_PROGRAM_ID = 'CenYq6bDRB7p73EjsPEpiYN7uveyPUTdXkDkgUduboaN';
 
-export class MovieCoordinator { 
-	static accounts: web3.PublicKey[] = []
-	
-	static async prefetchAccounts(connection: web3.Connection) {
+export class MovieCoordinator {
+  static accounts: web3.PublicKey[] = [];
 
-	}
+  static async prefetchAccounts(connection: web3.Connection) {}
 
-	static async fetchPage(connection: web3.Connection, page: number, perPage: number): Promise<Movie[]> {
-
-	}
+  static async fetchPage(
+    connection: web3.Connection,
+    page: number,
+    perPage: number
+  ): Promise<Movie[]> {}
 }
 ```
 
@@ -193,7 +186,7 @@ static async prefetchAccounts(connection: web3.Connection) {
 }
 ```
 
-Now, let’s fill in the `fetchPage` method. First, if the accounts haven’t been prefetched yet, we’ll need to do that. Then, we can get the account public keys that correspond to the requested page and call `connection.getMultipleAccountsInfo`. Finally, we deserialize the account data and return the corresponding `Movie` objects. 
+Now, let’s fill in the `fetchPage` method. First, if the accounts haven’t been prefetched yet, we’ll need to do that. Then, we can get the account public keys that correspond to the requested page and call `connection.getMultipleAccountsInfo`. Finally, we deserialize the account data and return the corresponding `Movie` objects.
 
 ```tsx
 static async fetchPage(connection: web3.Connection, page: number, perPage: number): Promise<Movie[]> {
@@ -228,41 +221,34 @@ static async fetchPage(connection: web3.Connection, page: number, perPage: numbe
 With that done, we can reconfigure `MovieList` to use these methods. In `MovieList.tsx`, add `const [page, setPage] = useState(1)` near the existing `useState` calls. Then, update `useEffect` to call `MovieCoordinator.fetchPage` instead of fetching the accounts inline.
 
 ```tsx
-const connection = new web3.Connection(web3.clusterApiUrl('devnet'))
-const [movies, setMovies] = useState<Movie[]>([])
-const [page, setPage] = useState(1)
+const connection = new web3.Connection(web3.clusterApiUrl('devnet'));
+const [movies, setMovies] = useState<Movie[]>([]);
+const [page, setPage] = useState(1);
 
 useEffect(() => {
-	MovieCoordinator.fetchPage(
-		connection, 
-		page, 
-		10
-	).then(setMovies)
-}, [page, search])
+  MovieCoordinator.fetchPage(connection, page, 10).then(setMovies);
+}, [page, search]);
 ```
 
 Lastly, we need to add buttons to the bottom of the list for navigating to different pages:
 
 ```tsx
 return (
-	<div>
-		{
-			movies.map((movie, i) => <Card key={i} movie={movie} /> )
-		}
-		<Center>
-			<HStack w='full' mt={2} mb={8} ml={4} mr={4}>
-				{
-					page > 1 && <Button onClick={() => setPage(page - 1)}>Previous</Button>
-				}
-				<Spacer />
-				{
-					MovieCoordinator.accounts.length > page * 2 &&
-						<Button onClick={() => setPage(page + 1)}>Next</Button>
-				}
-			</HStack>
-		</Center>
-	</div>
-)
+  <div>
+    {movies.map((movie, i) => (
+      <Card key={i} movie={movie} />
+    ))}
+    <Center>
+      <HStack w="full" mt={2} mb={8} ml={4} mr={4}>
+        {page > 1 && <Button onClick={() => setPage(page - 1)}>Previous</Button>}
+        <Spacer />
+        {MovieCoordinator.accounts.length > page * 2 && (
+          <Button onClick={() => setPage(page + 1)}>Next</Button>
+        )}
+      </HStack>
+    </Center>
+  </div>
+);
 ```
 
 At this point, you should be able to run the project and click between pages!
@@ -278,7 +264,7 @@ If you look at the reviews, you might notice they aren’t in any specific order
 
 Based on this, the offset we need to provide to the data slice to access `title` is 2. The length, however, is indeterminate, so we can just provide what seems to be a reasonable length. I’ll stick with 18 as that will cover the length of most titles without fetching too much data every time.
 
-Once we’ve modified the data slice in `getProgramAccounts`, we then need to actually sort the returned array. To do this, we need to compare the part of the data buffer that actually corresponds to `title`. The first 4 bytes of a dynamic field in Borsh are used to store the length of the field in bytes. So in any given buffer `data` that is sliced the way we discussed above, the string portion is `data.slice(4, 4 + data[0])`. 
+Once we’ve modified the data slice in `getProgramAccounts`, we then need to actually sort the returned array. To do this, we need to compare the part of the data buffer that actually corresponds to `title`. The first 4 bytes of a dynamic field in Borsh are used to store the length of the field in bytes. So in any given buffer `data` that is sliced the way we discussed above, the string portion is `data.slice(4, 4 + data[0])`.
 
 Now that we’ve thought through this, let’s modify the implementation of `prefetchAccounts` in `MovieCoordinator`:
 
@@ -303,7 +289,7 @@ static async prefetchAccounts(connection: web3.Connection, filters: AccountFilte
 }
 ```
 
-And just like that, you should be able to run the app and see the list of movie reviews order alphabetically.
+And just like that, you should be able to run the app and see the list of movie reviews ordered alphabetically.
 
 ### 4. Add search
 
@@ -322,10 +308,10 @@ static async prefetchAccounts(connection: web3.Connection, search: string) {
 		{
 			dataSlice: { offset: 2, length: 18 },
 			filters: search === '' ? [] : [
-				{ 
-					memcmp: 
-						{ 
-							offset: 6, 
+				{
+					memcmp:
+						{
+							offset: 6,
 							bytes: bs58.encode(Buffer.from(search))
 						}
 				}
@@ -382,56 +368,48 @@ With that in place, let’s update the code in `MovieList` to call this properly
 First, add `const [search, setSearch] = useState('')` near the other `useState` calls. Then update the call to `MovieCoordinator.fetchPage` in the `useEffect` to pass the `search` parameter and to reload when `search !== ''`.
 
 ```tsx
-const connection = new web3.Connection(web3.clusterApiUrl('devnet'))
-const [movies, setMovies] = useState<Movie[]>([])
-const [page, setPage] = useState(1)
-const [search, setSearch] = useState('')
+const connection = new web3.Connection(web3.clusterApiUrl('devnet'));
+const [movies, setMovies] = useState<Movie[]>([]);
+const [page, setPage] = useState(1);
+const [search, setSearch] = useState('');
 
 useEffect(() => {
-	MovieCoordinator.fetchPage(
-		connection, 
-		page, 
-		2,
-		search,
-		search !== ''
-	).then(setMovies)
-}, [page, search])
+  MovieCoordinator.fetchPage(connection, page, 2, search, search !== '').then(setMovies);
+}, [page, search]);
 ```
 
 Finally, add a search bar that will set the value of `search`:
 
 ```tsx
 return (
-	<div>
-		<Center>
-			<Input
-				id='search'
-				color='gray.400'
-				onChange={event => setSearch(event.currentTarget.value)}
-				placeholder='Search'
-				w='97%'
-				mt={2}
-				mb={2}
-			/>
-		</Center>
-
-...
-
-	</div>
-)
+  <div>
+    <Center>
+      <Input
+        id="search"
+        color="gray.400"
+        onChange={event => setSearch(event.currentTarget.value)}
+        placeholder="Search"
+        w="97%"
+        mt={2}
+        mb={2}
+      />
+    </Center>
+    ...
+  </div>
+);
 ```
 
-And that’s it! The app now has ordered reviews, paging, and search. 
+And that’s it! The app now has ordered reviews, paging, and search.
 
 That was a lot to digest, but you made it through. If you need to spend some more time with the concepts, feel free to reread the sections that were most challenging for you and/or have a look at the [solution code](https://github.com/Unboxed-Software/solana-movie-frontend/tree/solution-paging-account-data).
 
 # Challenge
 
-Now it’s your turn to try and do this on your own. Using the Student Intros app from last lesson, add paging, ordering alphabetically by name, and search by name.
+Now it’s your turn to try and do this on your own. Using the Student Intros app from last lesson, add paging, ordering alphabetically by name, and searching by name.
 
 ![Screenshot of Student Intros frontend](../assets/student-intros-frontend.png)
 
-1. You can build this from scratch or you can download the [starter code](https://github.com/Unboxed-Software/solana-student-intros-frontend/tree/solution-deserialize-account-data) 
+1. You can build this from scratch or you can download the [starter code](https://github.com/Unboxed-Software/solana-student-intros-frontend/tree/solution-deserialize-account-data)
 2. Add paging to the project by prefetching accounts without data, then only fetching the account data for each account when it’s needed.
 3. Order the accounts displayed in the app alphabetically by name.
 4. Add the ability to search through introductions by a student’s name.

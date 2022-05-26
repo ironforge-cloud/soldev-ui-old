@@ -2,7 +2,7 @@
 
 # Lesson Objectives
 
-*By the end of this lesson, you will be able to:*
+_By the end of this lesson, you will be able to:_
 
 - Explain keypair
 - Use `@solana/web3.js` to generate a keypair
@@ -15,25 +15,22 @@
 
 # TL;DR
 
-- **Keypair** refers to a pairing of public and secret keys. The public key is used as an “address” that points to an account on the Solana network. The secret key is used to verify identity or authority. As the name suggests, you should always keep secret keys *private*. `@solana/web3.js` provides helper functions for creating a brand new keypair, or for constructing a keypair using an existing secret key.
+- **Keypair** refers to a pairing of public and secret keys. The public key is used as an “address” that points to an account on the Solana network. The secret key is used to verify identity or authority. As the name suggests, you should always keep secret keys _private_. `@solana/web3.js` provides helper functions for creating a brand new keypair, or for constructing a keypair using an existing secret key.
 - **Transactions** are effectively a bundle of instructions that invoke Solana programs. The result of each transaction depends on the program being called. All modifications to on-chain data happen through transactions. Example:
-    ```tsx
-    const transaction = new Transaction()
 
-    const sendSolInstruction = SystemProgram.transfer({
-        fromPubkey: sender,
-        toPubkey: recipient,
-        lamports: LAMPORTS_PER_SOL * amount
-    })
+  ```tsx
+  const transaction = new Transaction();
 
-    transaction.add(sendSolInstruction)
+  const sendSolInstruction = SystemProgram.transfer({
+    fromPubkey: sender,
+    toPubkey: recipient,
+    lamports: LAMPORTS_PER_SOL * amount
+  });
 
-    const signature = sendAndConfirmTransaction(
-        connection,
-        transaction,
-        [senderKeypair]
-    )
-    ```
+  transaction.add(sendSolInstruction);
+
+  const signature = sendAndConfirmTransaction(connection, transaction, [senderKeypair]);
+  ```
 
 # Overview
 
@@ -42,32 +39,32 @@
 As the name suggests, a keypair is a pair of keys: a public key and a secret key.
 
 - The public key is used as an “address” that points to an account on the Solana network.
-- The secret key is used to verify identity or authority. As the name suggests, you should always keep secret keys *private*.
+- The secret key is used to verify identity or authority. As the name suggests, you should always keep secret keys _private_.
 
-A keypair is *required* for the vast majority of interactions within the Solana network. If you don’t already have a keypair, or if you want to generate a new one for a specific purpose, `@solana/web3.js` provides a helper function for creating a brand new keypair.
+A keypair is _required_ for the vast majority of interactions within the Solana network. If you don’t already have a keypair, or if you want to generate a new one for a specific purpose, `@solana/web3.js` provides a helper function for creating a brand new keypair.
 
 ```tsx
-const ownerKeypair = Keypair.generate()
+const ownerKeypair = Keypair.generate();
 ```
 
 A keypair is of the data type `Keypair` and can be deconstructed into a public key:
 
 ```tsx
-const publicKey = ownerKeypair.publicKey
+const publicKey = ownerKeypair.publicKey;
 ```
 
 ... or the secret key:
 
 ```tsx
-const secretKey = ownerKeypair.secretKey
+const secretKey = ownerKeypair.secretKey;
 ```
 
 If you already have a keypair you’d like to use, you can create a `Keypair` from the secret key using the `Keypair.fromSecretKey()` function. To ensure that your secret key stays secure, we recommend injecting it through an environment variable and not committing your `.env` file.
 
 ```tsx
-const secret = JSON.parse(process.env.PRIVATE_KEY ?? "") as number[]
-const secretKey = Uint8Array.from(secret)
-const keypairFromSecretKey = Keypair.fromSecretKey(secretKey)
+const secret = JSON.parse(process.env.PRIVATE_KEY ?? '') as number[];
+const secretKey = Uint8Array.from(secret);
+const keypairFromSecretKey = Keypair.fromSecretKey(secretKey);
 ```
 
 ## Transactions
@@ -87,15 +84,15 @@ As you might expect, `@solana/web3.js` provides helper functions for creating tr
 Instructions can get complicated when working with custom programs. Fortunately, `@solana/web3.js` has convenience functions for some of Solana’s native programs and basic operations, like transferring SOL:
 
 ```tsx
-const transaction = new Transaction()
+const transaction = new Transaction();
 
 const sendSolInstruction = SystemProgram.transfer({
-    fromPubkey: sender,
-    toPubkey: recipient,
-    lamports: LAMPORTS_PER_SOL * amount
-})
+  fromPubkey: sender,
+  toPubkey: recipient,
+  lamports: LAMPORTS_PER_SOL * amount
+});
 
-transaction.add(sendSolInstruction)
+transaction.add(sendSolInstruction);
 ```
 
 The `SystemProgram.transfer()` function requires that you pass as parameters:
@@ -109,11 +106,7 @@ This function then returns the instruction for sending SOL from the sender to th
 Once created, a transaction needs to be sent to the cluster and confirmed:
 
 ```tsx
-const signature = sendAndConfirmTransaction(
-    connection,
-    transaction,
-    [senderKeypair]
-)
+const signature = sendAndConfirmTransaction(connection, transaction, [senderKeypair]);
 ```
 
 The `sendAndConfirmTransaction()` functions takes as parameters
@@ -149,6 +142,7 @@ The `programId` field is fairly self explanatory: it’s the public key associat
 The `keys` array requires a bit more explanation. Each object in this array represents an account that will be read from or written to during a transaction's execution. This means you need to know the behavior of the program you are calling and ensure that you provide all of the necessary accounts in the array.
 
 Each object in the `keys` array must include the following:
+
 - `pubkey` - the public key of the account
 - `isSigner` - a boolean representing whether or not the account is a signer on the transaction
 - `isWritable` - a boolean representing whether or not the account is written to during the transaction's execution
@@ -157,29 +151,29 @@ Putting this all together, we might end up with something like the following:
 
 ```tsx
 async function callProgram(
-    connection: web3.Connection,
-    payer: web3.Keypair,
-    programId: web3.PublicKey,
-    programDataAccount: web3.PublicKey
+  connection: web3.Connection,
+  payer: web3.Keypair,
+  programId: web3.PublicKey,
+  programDataAccount: web3.PublicKey
 ) {
-    const instruction = new web3.TransactionInstruction({
-        keys: [
-            {
-                pubkey: programDataAccount,
-                isSigner: false,
-                isWritable: true
-            },
-        ],
-        programId
-    })
+  const instruction = new web3.TransactionInstruction({
+    keys: [
+      {
+        pubkey: programDataAccount,
+        isSigner: false,
+        isWritable: true
+      }
+    ],
+    programId
+  });
 
-    const sig = await web3.sendAndConfirmTransaction(
-        connection,
-        new web3.Transaction().add(instruction),
-        [payer]
-    )
+  const sig = await web3.sendAndConfirmTransaction(
+    connection,
+    new web3.Transaction().add(instruction),
+    [payer]
+  );
 
-    console.log(sig)
+  console.log(sig);
 }
 ```
 
@@ -208,7 +202,7 @@ All transactions on the blockchain are publicly viewable on the [Solana Explorer
 
 We’re going to create a script to ping a simple program that increments a counter each time it has been pinged. This program exists on the Solana Devnet at address `ChT1B39WKLS8qUrkLvFDXMhEJ4F1XZzwUNHUt4AU9aVa`. The program stores the count data in a specific account at the address `Ah9K7dQ8EHaZqcAsgBW8w37yN2eAy3koFmUn4x3CJtod`.
 
-### 1. Basic Scaffolding
+### 1. Basic scaffolding
 
 Let’s start with some basic scaffolding. You’re welcome to set up your project however feels most appropriate, but we’ll be using a simple TypeScript project with a dependency on the @solana/web3.js package. If you want to use our scaffolding, you can use the following commands in the command line:
 
@@ -219,7 +213,7 @@ mkdir -p solana-ping-client/src && \
 	git init && touch .gitignore && \
 	npm init -y && \
 	npm install --save-dev typescript && \
-    npm install --save-dev ts-node && \
+  npm install --save-dev ts-node && \
 	npx tsc --init && \
 	npm install @solana/web3.js && \
 	npm install dotenv && \
@@ -253,7 +247,7 @@ If you want to match our code exactly, replace the contents of `tsconfig.json` w
     "forceConsistentCasingInFileNames": true,
     "outDir": "dist"
   },
-  "include": [ "./src/**/*" ]
+  "include": ["./src/**/*"]
 }
 ```
 
@@ -271,25 +265,27 @@ And finally, add the following to the `scripts` object in `package.json`:
 "start": "ts-node src/index.ts"
 ```
 
-### 2. Generate a New Keypair
+### 2. Generate a new keypair
 
 Before you can do anything, you’ll need a keypair. Let’s jump into the `index.ts` file and generate one:
 
 ```tsx
-import web3 = require('@solana/web3.js')
-import Dotenv from 'Dotenv'
-Dotenv.config()
+import web3 = require('@solana/web3.js');
+import Dotenv from 'dotenv';
+Dotenv.config();
 
 async function main() {
-    const newKeypair = await web3.Keypair.generate()
-    console.log(newKeypair.secretKey.toString())
+  const newKeypair = await web3.Keypair.generate();
+  console.log(newKeypair.secretKey.toString());
 }
 
-main().then(() => {
-    console.log("Finished successfully")
-}).catch((error) => {
-    console.error(error)
-})
+main()
+  .then(() => {
+    console.log('Finished successfully');
+  })
+  .catch(error => {
+    console.error(error);
+  });
 ```
 
 Most of this code is just boilerplate to run the file properly. The lines inside of the `main()` function generate a new keypair and log the secret key to the console.
@@ -302,7 +298,7 @@ Copy the secret key array from the console log and paste it into the `.env` file
 PRIVATE_KEY="[56,83,31,62,66,154,33,74,106,59,111,224,176,237,89,224,10,220,28,222,128,36,138,89,30,252,100,209,206,155,154,65,98,194,97,182,98,162,107,238,61,183,163,215,44,6,10,49,218,156,5,131,125,253,247,190,181,196,0,249,40,149,119,246]"
 ```
 
-### 3. Initialize Keypair From Secret
+### 3. Initialize Keypair from secret
 
 Now that we’ve successfully generated a keypair and copied it to the `.env` file, we can remove the code inside of the `main()` function.
 
@@ -314,28 +310,28 @@ We’ll return to the `main()` function soon, but for now let’s create a new f
 
 ```tsx
 function initializeKeypair(): web3.Keypair {
-    const secret = JSON.parse(process.env.PRIVATE_KEY ?? "") as number[]
-    const secretKey = Uint8Array.from(secret)
-    const keypairFromSecretKey = web3.Keypair.fromSecretKey(secretKey)
-    return keypairFromSecretKey
+  const secret = JSON.parse(process.env.PRIVATE_KEY ?? '') as number[];
+  const secretKey = Uint8Array.from(secret);
+  const keypairFromSecretKey = web3.Keypair.fromSecretKey(secretKey);
+  return keypairFromSecretKey;
 }
 ```
 
-### 4. Ping Program
+### 4. Ping program
 
 Now that we have a way of initializing our keypair, we need to establish a connection with Solana’s Devnet. In `main()`, let’s invoke `initializeKeypair()` and create a connection:
 
 ```tsx
 async function main() {
-    const payer = initializeKeypair()
-    const connection = new web3.Connection(web3.clusterApiUrl('devnet'))
+  const payer = initializeKeypair();
+  const connection = new web3.Connection(web3.clusterApiUrl('devnet'));
 }
 ```
 
 Now create an async function outside of `main()` called `pingProgram()` with two parameters requiring a connection and a payer’s keypair as arguments:
 
 ```tsx
-async function pingProgram(connection: web3.Connection, payer: web3.Keypair) { }
+async function pingProgram(connection: web3.Connection, payer: web3.Keypair) {}
 ```
 
 Inside this function, we need to:
@@ -348,18 +344,18 @@ Inside this function, we need to:
 Remember, the most challenging piece here is including the right information in the instruction. We know the address of the program that we are calling. We also know that the program writes data to a separate account whose address we also have. Let’s add the string versions of both of those as constants at the top of the `index.ts` file:
 
 ```tsx
-const PROGRAM_ADDRESS = 'ChT1B39WKLS8qUrkLvFDXMhEJ4F1XZzwUNHUt4AU9aVa'
-const PROGRAM_DATA_ADDRESS = 'Ah9K7dQ8EHaZqcAsgBW8w37yN2eAy3koFmUn4x3CJtod'
+const PROGRAM_ADDRESS = 'ChT1B39WKLS8qUrkLvFDXMhEJ4F1XZzwUNHUt4AU9aVa';
+const PROGRAM_DATA_ADDRESS = 'Ah9K7dQ8EHaZqcAsgBW8w37yN2eAy3koFmUn4x3CJtod';
 ```
 
 Now, in the `pingProgram()` function, let’s create a new transaction, then initialize a `PublicKey` for the program account, and another for the data account.
 
 ```tsx
 async function pingProgram(connection: web3.Connection, payer: web3.Keypair) {
-    const transaction = new web3.Transaction()
+  const transaction = new web3.Transaction();
 
-    const programId = new web3.PublicKey(PROGRAM_ADDRESS)
-    const programDataPubkey = new web3.PublicKey(PROGRAM_DATA_ADDRESS)
+  const programId = new web3.PublicKey(PROGRAM_ADDRESS);
+  const programDataPubkey = new web3.PublicKey(PROGRAM_DATA_ADDRESS);
 }
 ```
 
@@ -367,21 +363,21 @@ Next, let’s create the instruction. Remember, the instruction needs to include
 
 ```tsx
 async function pingProgram(connection: web3.Connection, payer: web3.Keypair) {
-    const transaction = new web3.Transaction()
+  const transaction = new web3.Transaction();
 
-    const programId = new web3.PublicKey(PROGRAM_ADDRESS)
-    const programDataPubkey = new web3.PublicKey(PROGRAM_DATA_ADDRESS)
+  const programId = new web3.PublicKey(PROGRAM_ADDRESS);
+  const programDataPubkey = new web3.PublicKey(PROGRAM_DATA_ADDRESS);
 
-    const instruction = new web3.TransactionInstruction({
-        keys: [
-            {
-                pubkey: programDataPubkey,
-                isSigner: false,
-                isWritable: true
-            },
-        ],
-        programId
-    })
+  const instruction = new web3.TransactionInstruction({
+    keys: [
+      {
+        pubkey: programDataPubkey,
+        isSigner: false,
+        isWritable: true
+      }
+    ],
+    programId
+  });
 }
 ```
 
@@ -389,40 +385,37 @@ Next, let’s add the instruction to the transaction we created at the start of 
 
 ```tsx
 async function pingProgram(connection: web3.Connection, payer: web3.Keypair) {
-    const transaction = new web3.Transaction()
+  const transaction = new web3.Transaction();
 
-    const programId = new web3.PublicKey(PROGRAM_ADDRESS)
-    const programDataPubkey = new web3.PublicKey(PROGRAM_DATA_ADDRESS)
+  const programId = new web3.PublicKey(PROGRAM_ADDRESS);
+  const programDataPubkey = new web3.PublicKey(PROGRAM_DATA_ADDRESS);
 
-    const instruction = new web3.TransactionInstruction({
-        keys: [
-            {
-                pubkey: programDataPubkey,
-                isSigner: false,
-                isWritable: true
-            },
-        ],
-        programId
-    })
+  const instruction = new web3.TransactionInstruction({
+    keys: [
+      {
+        pubkey: programDataPubkey,
+        isSigner: false,
+        isWritable: true
+      }
+    ],
+    programId
+  });
 
-    transaction.add(instruction)
+  transaction.add(instruction);
 
-    const sig = await web3.sendAndConfirmTransaction(
-        connection,
-        transaction,
-        [payer]
-    )
+  const sig = await web3.sendAndConfirmTransaction(connection, transaction, [payer]);
 
-    console.log(sig)
+  console.log(sig);
 }
 ```
+
 Finally, let's invoke `pingProgram()` within `main()` using `connection` and `payer`:
 
 ```tsx
 async function main() {
-    const payer = initializeKeypair()
-    const connection = new web3.Connection(web3.clusterApiUrl('devnet'))
-    await pingProgram(connection, payer)
+  const payer = initializeKeypair();
+  const connection = new web3.Connection(web3.clusterApiUrl('devnet'));
+  await pingProgram(connection, payer);
 }
 ```
 
@@ -435,12 +428,12 @@ Now run the code with `npm start` and see if it works. You may end up with the f
 If you get this error, it’s because your keypair is brand new and doesn’t have any SOL to cover the transaction fees. Let’s fix this by adding the following line in `main()` before the call to `pingProgram()`:
 
 ```tsx
-await connection.requestAirdrop(payer.publicKey, web3.LAMPORTS_PER_SOL*1)
+await connection.requestAirdrop(payer.publicKey, web3.LAMPORTS_PER_SOL * 1);
 ```
 
 This will deposit 1 SOL into your account which you can use for testing. This won’t work on Mainnet where it would actually have value. But it's incredibly convenient for testing locally and on Devnet.
 
-### 6. Check the Solana Explorer
+### 6. Check the Solana explorer
 
 Now run the code again. It may take a moment or two, but now the code should work and you should see a long string printed to the console, like the following:
 
@@ -455,7 +448,9 @@ Copy this confirmation signature. Open a browser and go to [https://explorer.sol
 If you want to make it easier to look at Solana Explorer for transactions in the future, simply change your `console.log` in `pingProgram()` to the following:
 
 ```tsx
-console.log(`You can view your transaction on the Solana Explorer at:\nhttps://explorer.solana.com/tx/${sig}?cluster=devnet`)
+console.log(
+  `You can view your transaction on the Solana Explorer at:\nhttps://explorer.solana.com/tx/${sig}?cluster=devnet`
+);
 ```
 
 And just like that you’re calling programs on the Solana network and writing data to chain!
