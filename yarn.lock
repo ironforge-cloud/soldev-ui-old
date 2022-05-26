@@ -191,10 +191,10 @@
     "@ethersproject/logger" "^5.6.0"
     hash.js "1.1.7"
 
-"@headlessui/react@^1.6.2":
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.6.2.tgz#0ba779a648e822d7478ac58b9bcb112a08a7565b"
-  integrity sha512-x+kbTjJ+ixgsignqUU9MluoZYBJAlIYMeya4w7dk/Mo13vIdI/mSnzJAVgHhHKzE/hX//+rXylr4jUVThuQq/A==
+"@headlessui/react@^1.6.3":
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.6.3.tgz#6e52477ea3aee7d99f153b98c1b41765ed77db3d"
+  integrity sha512-WNu/ypGzl0JmJ+sD34KtdycEu2n7EZjKFx2rq6fivsszPdoEyOVZ/GYQMJ437dfAJI0/ZxoRYfrOVduZHjlokQ==
 
 "@heroicons/react@^1.0.6":
   version "1.0.6"
@@ -3784,10 +3784,10 @@ next-plausible@^3.1.9:
   resolved "https://registry.yarnpkg.com/next-plausible/-/next-plausible-3.1.9.tgz#4795df2e83a6ca14495d2fa0d31a92649c42425f"
   integrity sha512-6Ro6lVnuXAtqbbBQfuKuu0cpZHWWvJWbOE1G+Rx6i42T6lLYtbQzbu09Cutv3vc/wD/4ySHzJkuTnxsqnlArGA==
 
-next-sitemap@^v2.5.21:
-  version "2.5.21"
-  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-2.5.21.tgz#ab3be9c99a7ce4687c331cef9e207130cb3af04c"
-  integrity sha512-YlqoGd8Ej3EUgxWYOwvKr84uzstgGurFiLXyZgvi9mdSlRwJW++odwlCPco5qdthX806jzasJwcNPIW45AnXRg==
+next-sitemap@^v2.5.25:
+  version "2.5.25"
+  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-2.5.25.tgz#63cecd19b85657109bc6420d75e2cbdbab029a6d"
+  integrity sha512-0YB6VnawGxXu9B/pppJ35vwGUQb6T004zVtAsfxb/KrDPXo/BM6QtuZO25WDmCL56HSlSvgPOderPKdsgLYqZg==
   dependencies:
     "@corex/deepmerge" "^2.6.148"
     minimist "^1.2.6"

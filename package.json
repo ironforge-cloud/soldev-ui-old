@@ -10,7 +10,7 @@
   "devDependencies": {
     "@algolia/autocomplete-core": "^1.6.3",
     "@algolia/autocomplete-preset-algolia": "^1.6.3",
-    "@headlessui/react": "^1.6.2",
+    "@headlessui/react": "^1.6.3",
     "@heroicons/react": "^1.0.6",
     "@solana/wallet-adapter-base": "^0.9.5",
     "@solana/wallet-adapter-react": "^0.15.5",
@@ -29,7 +29,7 @@
     "fixpack": "^4.0.0",
     "isomorphic-unfetch": "^3.1.0",
     "next-plausible": "^3.1.9",
-    "next-sitemap": "^v2.5.21",
+    "next-sitemap": "^v2.5.25",
     "next-transpile-modules": "^9.0.0",
     "postcss": "^8.4.14",
     "prettier": "^2.6.2",
