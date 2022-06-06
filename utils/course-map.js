@@ -27,20 +27,16 @@ export const modules = [
   ],
   [
     {
-      title: 'Intro to SPL',
-      link: ''
+      title: 'Create tokens with the Token Program',
+      link: '/course/token-program'
     },
     {
-      title: 'Token Program',
-      link: ''
+      title: 'Swap tokens with the Token Swap Program',
+      link: '/course/token-swap'
     },
     {
-      title: 'Token Swap Program',
-      link: ''
-    },
-    {
-      title: 'NFTs with Metaplex',
-      link: ''
+      title: 'Create Solana NFTs With Metaplex',
+      link: '/course/nfts-with-metaplex.md'
     }
   ],
   [

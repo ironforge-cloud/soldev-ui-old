@@ -17,12 +17,13 @@ function Table() {
 
       <div>
         <TableHeader
-          title="Client interaction with the Solana Program Library"
+          ready
+          title="Client interaction with common Solana programs"
           subTitle="Module 2"
         />
 
         {modules[1].map((item, index) => {
-          return <TableRow item={item} index={index} key={id} />;
+          return <TableRow ready item={item} index={index} key={id} />;
         })}
       </div>
 
