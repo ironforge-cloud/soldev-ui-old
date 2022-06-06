@@ -5,7 +5,7 @@ import CardRegular from '../card/card-regular';
 function LatestNewsletter({ data }) {
   return (
     <div>
-      <CardRegular key={data.SK} content={data} mode="search" />
+      <CardRegular key={data.SK} content={data} mode="search" editContent={() => {}} />
     </div>
   );
 }

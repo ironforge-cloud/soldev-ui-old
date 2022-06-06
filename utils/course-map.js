@@ -36,7 +36,7 @@ export const modules = [
     },
     {
       title: 'Create Solana NFTs With Metaplex',
-      link: '/course/nfts-with-metaplex.md'
+      link: '/course/nfts-with-metaplex'
     }
   ],
   [
