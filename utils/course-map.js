@@ -41,20 +41,16 @@ export const modules = [
   ],
   [
     {
-      title: 'High-level view of the network',
-      link: ''
+      title: 'Hello World',
+      link: '/course/hello-world-program'
     },
     {
-      title: 'Hello World from scratch',
-      link: ''
+      title: 'Create a Basic Program, Part 1 - Handle Instruction Data',
+      link: '/course/deserialize-instruction-data'
     },
     {
-      title: 'Rust primer',
-      link: ''
-    },
-    {
-      title: 'Debugging',
-      link: ''
+      title: 'Create a Basic Program, Part 2 - State Management',
+      link: '/course/program-state-management'
     }
   ],
   [

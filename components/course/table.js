@@ -27,15 +27,15 @@ function Table() {
       </div>
 
       <div>
-        <TableHeader title="Basic Solana Program Development" subTitle="Module 3" />
+        <TableHeader ready title="Basic Solana Program Development" subTitle="Module 3" />
 
         {modules[2].map((item, index) => {
-          return <TableRow item={item} index={index} key={index} />;
+          return <TableRow ready item={item} index={index} key={index} />;
         })}
       </div>
 
       <div>
-        <TableHeader title="Advanced Solana Program Development" subTitle="Module 4" />
+        <TableHeader title="Intermediate Solana Program Development" subTitle="Module 4" />
 
         {modules[3].map((item, index) => {
           return <TableRow item={item} index={index} key={index} />;
