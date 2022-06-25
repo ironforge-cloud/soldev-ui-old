@@ -56,8 +56,8 @@ const special = [
     disabled: false
   },
   {
-    name: 'Anchor Book',
-    href: 'https://book.anchor-lang.com/?utm_source=soldev.app',
+    name: 'Anchor Docs',
+    href: 'https://www.anchor-lang.com?utm_source=soldev.app',
     disabled: false
   },
   {
