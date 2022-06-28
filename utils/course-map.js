@@ -51,6 +51,10 @@ export const modules = [
     {
       title: 'Create a Basic Program, Part 2 - State Management',
       link: '/course/program-state-management'
+    },
+    {
+      title: 'Create a Basic Program, Part 3 - Basic Security and Validation',
+      link: '/course/program-security'
     }
   ],
   [
