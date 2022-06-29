@@ -8,7 +8,7 @@ function Table() {
     <div className="mx-auto my-20 flex max-w-4xl flex-col gap-10">
       {modules.map((module, index) => {
         <div>
-          <TableHeader ready title={module.title} subTitle={`Module ${index + 1}`} />
+          <TableHeader ready title={module.title} subTitle={`Module ${index + 1}`} index={index} />
 
           {module.lessons.map((item, index) => {
             return <TableRow ready item={item} index={index} key={index} />;
