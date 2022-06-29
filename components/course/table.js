@@ -10,7 +10,7 @@ function Table() {
         <div>
           <TableHeader ready title={module.title} subTitle={`Module ${index + 1}`} />
 
-          {modules.lessons.map((item, index) => {
+          {module.lessons.map((item, index) => {
             return <TableRow ready item={item} index={index} key={index} />;
           })}
         </div>;
