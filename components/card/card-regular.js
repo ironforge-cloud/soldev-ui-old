@@ -1,19 +1,18 @@
-import PropTypes from 'prop-types';
-import { memo } from 'react';
-import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import {
   DocumentTextIcon,
-  PlayIcon,
   ExternalLinkIcon,
-  FilmIcon,
   EyeOffIcon,
-  InboxInIcon
+  FilmIcon,
+  InboxInIcon,
+  PlayIcon
 } from '@heroicons/react/solid';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import Link from 'next/link';
+import PropTypes from 'prop-types';
+import { memo, useState } from 'react';
 import defineImage from '../../utils/content-imagen';
 import Audio from '../audio';
-import { useState } from 'react';
 
 const Badge = dynamic(() => import('../badges/badge.js'));
 const CopyLink = dynamic(() => import('./copy-link.js'));
@@ -209,7 +208,12 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
         )}
 
         {/*  Actions */}
-        <div className="flex h-[40px] flex-row items-end justify-between pt-2 pb-5">
+        <div
+          className={classNames(
+            'flex  flex-row items-end justify-between pt-2 pb-5',
+            content.ContentType === 'newsletters' ? 'h-[60px]' : 'h-[40px]'
+          )}
+        >
           <div>
             {mode === 'edit' ? (
               <button
