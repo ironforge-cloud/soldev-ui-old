@@ -60,15 +60,15 @@ export const modules = [
   [
     {
       title: 'Local Program Development',
-      link: 'course/local-setup'
+      link: '/course/local-setup'
     },
     {
       title: 'Program Derived Addresses',
-      link: 'course/pda'
+      link: '/course/pda'
     },
     {
       title: 'Cross Program Invocations',
-      link: 'course/cpi'
+      link: '/course/cpi'
     },
     {
       title: 'Program Testing',
