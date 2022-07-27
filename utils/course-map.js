@@ -59,19 +59,19 @@ export const modules = [
   ],
   [
     {
-      title: 'A more advanced program...',
-      link: ''
+      title: 'Local Program Development',
+      link: '/course/local-setup'
     },
     {
-      title: 'PDAs',
-      link: ''
+      title: 'Program Derived Addresses',
+      link: '/course/pda'
     },
     {
-      title: 'CPIs',
-      link: ''
+      title: 'Cross Program Invocations',
+      link: '/course/cpi'
     },
     {
-      title: 'Handling large transactions',
+      title: 'Program Testing - COMING SOON',
       link: ''
     }
   ]
