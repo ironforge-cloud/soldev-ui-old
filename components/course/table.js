@@ -38,7 +38,7 @@ function Table() {
         <TableHeader title="Intermediate Solana Program Development" subTitle="Module 4" />
 
         {modules[3].map((item, index) => {
-          return <TableRow item={item} index={index} key={index} />;
+          return <TableRow ready item={item} index={index} key={index} />;
         })}
       </div>
     </div>
