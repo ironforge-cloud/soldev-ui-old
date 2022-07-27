@@ -71,7 +71,7 @@ export const modules = [
       link: '/course/cpi'
     },
     {
-      title: 'Program Testing',
+      title: 'Program Testing - COMING SOON',
       link: ''
     }
   ]
