@@ -1,9 +1,9 @@
-import useTweets from '../hooks/useTweets';
-import { useState } from 'react';
-import loadTweets from '../utils/loadTweets';
 import dynamic from 'next/dynamic';
-import fetch from '../utils/fetcher';
+import { useState } from 'react';
 import { Container } from '../components/layout';
+import useTweets from '../hooks/useTweets';
+import fetch from '../utils/fetcher';
+import loadTweets from '../utils/loadTweets';
 
 const Sidebar = dynamic(() => import('../components/sidebar'));
 const Spinner = dynamic(() => import('../components/spinner'));
@@ -21,7 +21,7 @@ export async function getStaticProps() {
   );
 
   return {
-    props: { tweets, latestNewsletter: latestNewsletter[0] },
+    props: { tweets, latestNewsletter: latestNewsletter[1] },
     revalidate: 60
   };
 }

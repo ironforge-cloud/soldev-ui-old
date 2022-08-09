@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
-import fetch from '../../utils/fetcher';
 import { Container } from '../../components/layout';
+import fetch from '../../utils/fetcher';
 
 const Sidebar = dynamic(() => import('../../components/sidebar'));
 const Tabs = dynamic(() => import('../../components/dashboard/tabs'));
@@ -17,7 +17,7 @@ export async function getStaticProps() {
   );
 
   return {
-    props: { newContent, trendingContent, tweets, latestNewsletter: latestNewsletter[0] },
+    props: { newContent, trendingContent, tweets, latestNewsletter: latestNewsletter[1] },
     revalidate: 60
   };
 }

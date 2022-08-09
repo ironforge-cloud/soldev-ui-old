@@ -1,6 +1,6 @@
+import dynamic from 'next/dynamic';
 import { Container } from '../../components/layout';
 import fetcher from '../../utils/fetcher';
-import dynamic from 'next/dynamic';
 
 const PublicationsComponent = dynamic(() => import('../../components/publications'));
 
@@ -9,7 +9,7 @@ export async function getStaticProps() {
     `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/newsletters`
   );
 
-  const lastNewsletter = response[0];
+  const lastNewsletter = response[1];
 
   return {
     props: { newsletters: response, lastNewsletter },
