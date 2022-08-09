@@ -198,7 +198,7 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
           )}
 
           {/*  Description */}
-          <p className="text-gray-600 dark:text-gray-400">{content.Description}</p>
+          <p className="mt-1 text-gray-600 dark:text-gray-400">{content.Description}</p>
         </div>
 
         {isS3Audio && (

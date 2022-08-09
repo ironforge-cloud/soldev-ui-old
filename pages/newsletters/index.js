@@ -9,7 +9,7 @@ export async function getStaticProps() {
     `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/newsletters`
   );
 
-  const lastNewsletter = response.shift();
+  const lastNewsletter = response[0];
 
   return {
     props: { newsletters: response, lastNewsletter },
