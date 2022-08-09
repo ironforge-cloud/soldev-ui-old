@@ -13,8 +13,8 @@ function NavPromotion() {
             <p className="ml-3 truncate font-medium text-sky-50">
               <span className="lg:hidden">We announced a new product!</span>
               <span className="hidden lg:inline">
-                Big news! We're excited to announce Ironforge, a new product that will simplify your
-                Solana development experience
+                Big news! We&apos;re excited to announce Ironforge, a new product that will simplify
+                your Solana development experience
               </span>
             </p>
           </div>
