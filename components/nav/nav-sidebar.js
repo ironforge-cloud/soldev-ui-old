@@ -66,13 +66,8 @@ const special = [
     disabled: false
   },
   {
-    name: 'Metaplex Docs',
-    href: 'https://docs.metaplex.com?utm_source=soldev.app',
-    disabled: false
-  },
-  {
-    name: 'DAO Docs',
-    href: 'https://docs.realms.today/',
+    name: 'Solana Stack Exchange',
+    href: 'https://solana.stackexchange.com/',
     disabled: false
   }
 ];
