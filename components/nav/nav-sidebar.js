@@ -66,7 +66,7 @@ const special = [
     disabled: false
   },
   {
-    name: 'Solana Stack Exchange',
+    name: 'Stack Exchange',
     href: 'https://solana.stackexchange.com/',
     disabled: false
   }
