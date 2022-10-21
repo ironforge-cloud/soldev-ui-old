@@ -43,7 +43,7 @@ function Table() {
       </div>
 
       <div>
-        <TableHeader ready title="Anchor Program Development" subTitle="Module 4" />
+        <TableHeader ready title="Anchor Program Development" subTitle="Module 5" />
 
         {modules[4].map((item, index) => {
           return <TableRow ready item={item} index={index} key={index} />;
