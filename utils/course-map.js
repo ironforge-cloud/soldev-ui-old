@@ -74,5 +74,23 @@ export const modules = [
       title: 'Program Testing - COMING SOON',
       link: ''
     }
+  ],
+  [
+    {
+      title: 'Intro to Anchor development',
+      link: '/course/intro-to-anchor'
+    },
+    {
+      title: 'Intro to client - side Anchor development',
+      link: '/course/intro-to-anchor-frontend'
+    },
+    {
+      title: 'Anchor PDAs - COMING SOON',
+      link: ''
+    },
+    {
+      title: 'Anchor CPIs - COMING SOON',
+      link: ''
+    }
   ]
 ];

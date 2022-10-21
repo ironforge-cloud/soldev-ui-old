@@ -41,6 +41,14 @@ function Table() {
           return <TableRow ready item={item} index={index} key={index} />;
         })}
       </div>
+
+      <div>
+        <TableHeader ready title="Anchor Program Development" subTitle="Module 5" />
+
+        {modules[4].map((item, index) => {
+          return <TableRow ready item={item} index={index} key={index} />;
+        })}
+      </div>
     </div>
   );
 }
