@@ -81,7 +81,7 @@ export const modules = [
       link: '/course/intro-to-anchor'
     },
     {
-      title: 'Intro to client - side Anchor development',
+      title: 'Intro to client-side Anchor development',
       link: '/course/intro-to-anchor-frontend'
     },
     {
