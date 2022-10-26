@@ -1,5 +1,6 @@
 import '../style.css';
 import PlausibleProvider from 'next-plausible';
+import { Analytics } from '@vercel/analytics/react';
 
 import { AppWrapper } from '../context/AppContext';
 import WalletConnectionProvider from '../components/wallet-connection-provider';
@@ -15,6 +16,7 @@ export default function App({ Component, pageProps }) {
           <WalletModalProvider logo="/logo-white.png">
             <AppWrapper>
               <Component {...pageProps} />
+              <Analytics />
             </AppWrapper>
           </WalletModalProvider>
         </WalletConnectionProvider>
