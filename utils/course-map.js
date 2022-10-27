@@ -85,8 +85,8 @@ export const modules = [
       link: '/course/intro-to-anchor-frontend'
     },
     {
-      title: 'Anchor PDAs - COMING SOON',
-      link: ''
+      title: 'Anchor PDAs and accounts',
+      link: '/course/anchor-pdas'
     },
     {
       title: 'Anchor CPIs - COMING SOON',
