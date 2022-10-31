@@ -89,8 +89,8 @@ export const modules = [
       link: '/course/anchor-pdas'
     },
     {
-      title: 'Anchor CPIs - COMING SOON',
-      link: ''
+      title: 'Anchor CPIs and errors',
+      link: '/course/anchor-cpi'
     }
   ]
 ];
