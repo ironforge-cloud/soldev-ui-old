@@ -49,22 +49,6 @@ function Table() {
           return <TableRow ready item={item} index={index} key={index} />;
         })}
       </div>
-      {/* 
-      <div>
-        <TableHeader ready title="Advanced Solana Development - COMING SOON" subTitle="Module 5" />
-
-        {modules[5].map((item, index) => {
-          return <TableRow ready={false} item={item} index={index} key={index} />;
-        })}
-      </div>
-
-      <div>
-        <TableHeader ready title="Advanced Solana Development" subTitle="Module 5" />
-
-        {modules[6].map((item, index) => {
-          return <TableRow ready item={item} index={index} key={index} />;
-        })}
-      </div> */}
     </div>
   );
 }
