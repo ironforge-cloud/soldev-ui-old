@@ -49,7 +49,7 @@ function Table() {
           return <TableRow ready item={item} index={index} key={index} />;
         })}
       </div>
-
+      {/* 
       <div>
         <TableHeader ready title="Advanced Solana Development - COMING SOON" subTitle="Module 5" />
 
@@ -64,7 +64,7 @@ function Table() {
         {modules[6].map((item, index) => {
           return <TableRow ready item={item} index={index} key={index} />;
         })}
-      </div>
+      </div> */}
     </div>
   );
 }
