@@ -6,10 +6,10 @@ import prism from 'remark-prism';
 export default async function markdownToHtml(markdown) {
   const result = await remark()
     .use(remarkGfm)
-    .use(html, { sanitize: false })
     .use(prism, {
       transformInlineCode: true
     })
+    .use(html, { sanitize: true })
     .process(markdown);
 
   return result.toString();
