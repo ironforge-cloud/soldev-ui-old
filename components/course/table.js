@@ -59,7 +59,7 @@ function Table() {
       </div>
 
       <div>
-        <TableHeader ready title="Advanced Solana Development" subTitle="Module 7" />
+        <TableHeader ready title="Solana Program Security" subTitle="Module 7" />
 
         {modules[6].map((item, index) => {
           return <TableRow ready={item.ready ?? true} item={item} index={index} key={index} />;
