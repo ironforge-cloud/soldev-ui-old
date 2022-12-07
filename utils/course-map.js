@@ -92,5 +92,81 @@ export const modules = [
       title: 'Anchor CPIs and errors',
       link: '/course/anchor-cpi'
     }
+  ],
+  [
+    {
+      title: 'Lesson 1',
+      link: ''
+    },
+    {
+      title: 'Lesson 2',
+      link: ''
+    },
+    {
+      title: 'Lesson 3',
+      link: ''
+    },
+    {
+      title: 'Lesson 4',
+      link: ''
+    }
+  ],
+  [
+    {
+      title: 'How to approach the Program Security module',
+      link: '/course/security-intro'
+    },
+    {
+      title: 'Signer authorization',
+      link: '/course/signer-auth'
+    },
+    {
+      title: 'Owner checks',
+      link: '/course/owner-checks'
+    },
+    {
+      title: 'Account data matching',
+      link: '/course/account-data-matching'
+    },
+    {
+      title: 'Reinitialization attacks - COMING SOON',
+      link: '',
+      ready: false
+    },
+    {
+      title: 'Duplicate mutable accounts - COMING SOON',
+      link: '',
+      ready: false
+    },
+    {
+      title: 'PDA sharing - COMING SOON',
+      link: '',
+      ready: false
+    },
+    {
+      title: 'Type cosplay - COMING SOON',
+      link: '',
+      ready: false
+    },
+    {
+      title: 'Bump seed canonicalization - COMING SOON',
+      link: '',
+      ready: false
+    },
+    {
+      title: 'Arbitrary CPIs - COMING SOON',
+      link: '',
+      ready: false
+    },
+    {
+      title: 'Closing accounts - COMING SOON',
+      link: '',
+      ready: false
+    },
+    {
+      title: 'Sysvar address checking - COMING SOON',
+      link: '',
+      ready: false
+    }
   ]
 ];
