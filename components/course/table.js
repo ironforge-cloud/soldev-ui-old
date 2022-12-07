@@ -51,7 +51,7 @@ function Table() {
       </div>
 
       <div>
-        <TableHeader ready title="Advanced Solana Development - COMING SOON" subTitle="Module 5" />
+        <TableHeader ready title="Advanced Solana Development - COMING SOON" subTitle="Module 6" />
 
         {modules[5].map((item, index) => {
           return <TableRow ready={false} item={item} index={index} key={index} />;
@@ -59,10 +59,10 @@ function Table() {
       </div>
 
       <div>
-        <TableHeader ready title="Advanced Solana Development" subTitle="Module 5" />
+        <TableHeader ready title="Advanced Solana Development" subTitle="Module 7" />
 
         {modules[6].map((item, index) => {
-          return <TableRow ready item={item} index={index} key={index} />;
+          return <TableRow ready={item.ready ?? true} item={item} index={index} key={index} />;
         })}
       </div>
     </div>

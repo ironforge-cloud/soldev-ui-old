@@ -117,52 +117,56 @@ export const modules = [
       link: '/course/security-intro'
     },
     {
-      title: 'How to approach the Program Security module',
-      link: ''
-    },
-    {
       title: 'Signer authorization',
       link: '/course/signer-auth'
     },
     {
       title: 'Owner checks',
-      link: '/course/owner-checks.md'
+      link: '/course/owner-checks'
     },
     {
       title: 'Account data matching',
-      link: '/course/account-data-matching.md'
+      link: '/course/account-data-matching'
     },
     {
       title: 'Reinitialization attacks - COMING SOON',
-      link: ''
+      link: '',
+      ready: false
     },
     {
       title: 'Duplicate mutable accounts - COMING SOON',
-      link: ''
+      link: '',
+      ready: false
     },
     {
       title: 'PDA sharing - COMING SOON',
-      link: ''
+      link: '',
+      ready: false
     },
     {
       title: 'Type cosplay - COMING SOON',
-      link: ''
+      link: '',
+      ready: false
     },
     {
       title: 'Bump seed canonicalization - COMING SOON',
-      link: ''
+      link: '',
+      ready: false
     },
     {
       title: 'Arbitrary CPIs - COMING SOON',
-      link: ''
+      link: '',
+      ready: false
     },
     {
       title: 'Closing accounts - COMING SOON',
-      link: ''
+      link: '',
+      ready: false
     },
     {
       title: 'Sysvar address checking - COMING SOON',
-      link: ''
+      link: '',
+      ready: false
     }
   ]
 ];
