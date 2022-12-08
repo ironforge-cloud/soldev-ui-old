@@ -3,7 +3,7 @@ import Link from 'next/link';
 import path from 'path';
 import { Container } from '../../../components/layout';
 import { modules } from '../../../utils/course-map';
-import markdownToHtml from '../../../utils/markdown';
+import ArticleContent from '../../../components/course/articleContent';
 
 const list = modules.flat();
 
@@ -41,11 +41,10 @@ export async function getStaticProps({ params }) {
     description = list[i].title;
   }
 
-  const markdown = await markdownToHtml(fileContents);
   return {
     props: {
       content: {
-        markdown,
+        markdown: fileContents,
         id: params.slug,
         title,
         description
@@ -71,9 +70,9 @@ export default function CourseContent({ content }) {
               Table of Content
             </div>
           </Link>
-          <div className="py-5">
-            <p dangerouslySetInnerHTML={{ __html: content.markdown }} />
-          </div>
+
+          <ArticleContent markdown={content.markdown} className="py-5" />
+
           <Link href="/course" passHref>
             <div className="text-md flex cursor-pointer justify-center text-sky-600 hover:text-sky-700 hover:underline lg:text-lg">
               Table of Content
