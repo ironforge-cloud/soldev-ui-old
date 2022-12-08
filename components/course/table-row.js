@@ -10,7 +10,7 @@ function TableRow({ item, index, ready }) {
   return (
     <div
       className={classNames(
-        'flex justify-between border-x border-b border-gray-300 py-3 pl-8  dark:border-gray-600 dark:bg-gray-900',
+        'dark:bg-gray- flex items-center justify-between space-x-2 border-x border-b border-gray-300  py-3 px-3 dark:border-gray-600',
         ready
           ? 'cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700'
           : 'cursor-not-allowed blur-sm'
