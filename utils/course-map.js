@@ -72,7 +72,8 @@ export const modules = [
     },
     {
       title: 'Program Testing - COMING SOON',
-      link: ''
+      link: '',
+      ready: false
     }
   ],
   [
@@ -129,14 +130,12 @@ export const modules = [
       link: '/course/account-data-matching'
     },
     {
-      title: 'Reinitialization attacks - COMING SOON',
-      link: '',
-      ready: false
+      title: 'Reinitialization attacks',
+      link: '/course/reinitialization-attacks',
     },
     {
-      title: 'Duplicate mutable accounts - COMING SOON',
-      link: '',
-      ready: false
+      title: 'Duplicate mutable accounts',
+      link: '/course/duplicate-mutable-accounts',
     },
     {
       title: 'PDA sharing - COMING SOON',
@@ -160,11 +159,6 @@ export const modules = [
     },
     {
       title: 'Closing accounts - COMING SOON',
-      link: '',
-      ready: false
-    },
-    {
-      title: 'Sysvar address checking - COMING SOON',
       link: '',
       ready: false
     }

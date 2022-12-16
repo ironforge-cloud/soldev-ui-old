@@ -10,7 +10,7 @@ function Table() {
         <TableHeader ready title="Client interaction with the Solana Network" subTitle="Module 1" />
 
         {modules[0].map((item, index) => {
-          return <TableRow ready item={item} index={index} key={index} />;
+          return <TableRow ready={item.ready ?? true} item={item} index={index} key={index} />;
         })}
       </div>
 
@@ -22,7 +22,7 @@ function Table() {
         />
 
         {modules[1].map((item, index) => {
-          return <TableRow ready item={item} index={index} key={index} />;
+          return <TableRow ready={item.ready ?? true} item={item} index={index} key={index} />;
         })}
       </div>
 
@@ -30,7 +30,7 @@ function Table() {
         <TableHeader ready title="Basic Solana Program Development" subTitle="Module 3" />
 
         {modules[2].map((item, index) => {
-          return <TableRow ready item={item} index={index} key={index} />;
+          return <TableRow ready={item.ready ?? true} item={item} index={index} key={index} />;
         })}
       </div>
 
@@ -38,7 +38,7 @@ function Table() {
         <TableHeader ready title="Intermediate Solana Program Development" subTitle="Module 4" />
 
         {modules[3].map((item, index) => {
-          return <TableRow ready item={item} index={index} key={index} />;
+          return <TableRow ready={item.ready ?? true} item={item} index={index} key={index} />;
         })}
       </div>
 
@@ -46,7 +46,7 @@ function Table() {
         <TableHeader ready title="Anchor Program Development" subTitle="Module 5" />
 
         {modules[4].map((item, index) => {
-          return <TableRow ready item={item} index={index} key={index} />;
+          return <TableRow ready={item.ready ?? true} item={item} index={index} key={index} />;
         })}
       </div>
 
