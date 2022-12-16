@@ -131,7 +131,7 @@ export const modules = [
     },
     {
       title: 'Reinitialization attacks',
-      link: 'reinitialization-attacks',
+      link: '/course/reinitialization-attacks',
     },
     {
       title: 'Duplicate mutable accounts',
