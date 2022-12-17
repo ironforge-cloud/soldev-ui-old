@@ -1,16 +1,16 @@
-import tagList from "../../../utils/tags";
-import PropTypes from "prop-types";
-import { memo } from "react";
+import tagList from '../../../utils/tags';
+import PropTypes from 'prop-types';
+import { memo } from 'react';
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
 function ContentTags({ data, setData, type }) {
   function tagsOnLick(e, array) {
     if (data.Tags.includes(e.target.value)) {
       // If I click the selected element we need to deleted
-      const newTags = data.Tags.filter((item) => item !== e.target.value);
+      const newTags = data.Tags.filter(item => item !== e.target.value);
 
       setData({ ...data, Tags: newTags });
     } else {
@@ -25,7 +25,7 @@ function ContentTags({ data, setData, type }) {
         if (!data.Tags.includes(array[i])) continue;
 
         // If the item exist we will delete it and finish our execution
-        newTags = data.Tags.filter((item) => item !== array[i]);
+        newTags = data.Tags.filter(item => item !== array[i]);
         break;
       }
 
@@ -39,7 +39,7 @@ function ContentTags({ data, setData, type }) {
   function checkboxOnClick(value) {
     if (data.Tags.includes(value)) {
       // If I click the selected element we need to deleted
-      const newTags = data.Tags.filter((item) => item !== value);
+      const newTags = data.Tags.filter(item => item !== value);
 
       setData({ ...data, Tags: newTags });
     } else {
@@ -53,12 +53,10 @@ function ContentTags({ data, setData, type }) {
 
   return (
     <>
-      <div className="divide-y divide-gray-200 sm:space-y-2 col-span-10">
+      <div className="col-span-10 space-y-2 divide-y divide-gray-200 dark:divide-gray-600">
         <div>
-          <h3 className="text-xl leading-6 font-medium text-gray-900 dark:text-gray-200">
-            Tags
-          </h3>
-          <p className="mt-1 max-w-2xl text-sm text-gray-500 dark:text-gray-300">
+          <h3 className="text-xl font-medium leading-6 text-gray-900 dark:text-gray-200">Tags</h3>
+          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
             Tags will improve content discovery
           </p>
         </div>
@@ -66,14 +64,12 @@ function ContentTags({ data, setData, type }) {
       </div>
 
       {/* Level Tags */}
-      <fieldset className="col-span-2">
+      <fieldset className="col-span-5 md:col-span-2">
         <div>
-          <legend className="text-base font-medium text-gray-900 dark:text-gray-300">
-            Level
-          </legend>
+          <legend className="text-base font-medium text-gray-900 dark:text-gray-300">Level</legend>
         </div>
         <div className="mt-4 space-y-4">
-          {tagList.level.map((tag) => {
+          {tagList.level.map(tag => {
             return (
               <div key={tag} className="flex items-center">
                 <input
@@ -83,12 +79,12 @@ function ContentTags({ data, setData, type }) {
                   value={tag}
                   checked={data.Tags.includes(tag)}
                   onChange={() => {}}
-                  onClick={(e) => tagsOnLick(e, tagList.level)}
-                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 "
+                  onClick={e => tagsOnLick(e, tagList.level)}
+                  className="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500"
                 />
                 <label
                   htmlFor={tag}
-                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  className="block ml-3 text-sm font-medium text-gray-700 dark:text-gray-300"
                 >
                   {tag}
                 </label>
@@ -99,14 +95,14 @@ function ContentTags({ data, setData, type }) {
       </fieldset>
 
       {/* Tech Tags */}
-      <fieldset className="col-span-2">
+      <fieldset className="col-span-5 md:col-span-2">
         <div>
           <legend className="text-base font-medium text-gray-900 dark:text-gray-300">
             Industry
           </legend>
         </div>
         <div className="mt-4 space-y-4">
-          {tagList.industry.map((tag) => {
+          {tagList.industry.map(tag => {
             return (
               <div key={tag} className="flex items-center">
                 <input
@@ -114,12 +110,12 @@ function ContentTags({ data, setData, type }) {
                   name="techTags"
                   type="checkbox"
                   checked={data.Tags.includes(tag)}
-                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                  className="w-4 h-4 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500"
                   onChange={() => checkboxOnClick(tag)}
                 />
                 <label
                   htmlFor={tag}
-                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  className="block ml-3 text-sm font-medium text-gray-700 dark:text-gray-300"
                 >
                   {tag}
                 </label>
@@ -130,14 +126,14 @@ function ContentTags({ data, setData, type }) {
       </fieldset>
 
       {/* Protocol Tags */}
-      <fieldset className="my-3 col-span-2">
+      <fieldset className="col-span-5 my-3 md:col-span-2">
         <div>
           <legend className="text-base font-medium text-gray-900 dark:text-gray-300">
             Protocol
           </legend>
         </div>
         <div className="mt-4 space-y-4">
-          {tagList.protocols.map((tag) => {
+          {tagList.protocols.map(tag => {
             return (
               <div key={tag} className="flex items-center">
                 <input
@@ -145,12 +141,12 @@ function ContentTags({ data, setData, type }) {
                   name="languageTags"
                   type="checkbox"
                   checked={data.Tags.includes(tag)}
-                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                  className="w-4 h-4 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500"
                   onChange={() => checkboxOnClick(tag)}
                 />
                 <label
                   htmlFor={tag}
-                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  className="block ml-3 text-sm font-medium text-gray-700 dark:text-gray-300"
                 >
                   {tag}
                 </label>
@@ -161,14 +157,14 @@ function ContentTags({ data, setData, type }) {
       </fieldset>
 
       {/* Framework Tags */}
-      <fieldset className="my-3 col-span-2">
+      <fieldset className="col-span-5 my-3 md:col-span-2">
         <div>
           <legend className="text-base font-medium text-gray-900 dark:text-gray-300">
             Framework
           </legend>
         </div>
         <div className="mt-4 space-y-4">
-          {tagList.framework.map((tag) => {
+          {tagList.framework.map(tag => {
             return (
               <div key={tag} className="flex items-center">
                 <input
@@ -176,12 +172,12 @@ function ContentTags({ data, setData, type }) {
                   name="languageTags"
                   type="checkbox"
                   checked={data.Tags.includes(tag)}
-                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                  className="w-4 h-4 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500"
                   onChange={() => checkboxOnClick(tag)}
                 />
                 <label
                   htmlFor={tag}
-                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  className="block ml-3 text-sm font-medium text-gray-700 dark:text-gray-300"
                 >
                   {tag}
                 </label>
@@ -192,14 +188,14 @@ function ContentTags({ data, setData, type }) {
       </fieldset>
 
       {/* Language Tags */}
-      <fieldset className="my-3 col-span-2">
+      <fieldset className="col-span-5 my-3 md:col-span-2">
         <div>
           <legend className="text-base font-medium text-gray-900 dark:text-gray-300">
             Language
           </legend>
         </div>
         <div className="mt-4 space-y-4">
-          {tagList.language.map((tag) => {
+          {tagList.language.map(tag => {
             return (
               <div key={tag} className="flex items-center">
                 <input
@@ -207,12 +203,12 @@ function ContentTags({ data, setData, type }) {
                   name="languageTags"
                   type="checkbox"
                   checked={data.Tags.includes(tag)}
-                  className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                  className="w-4 h-4 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500"
                   onChange={() => checkboxOnClick(tag)}
                 />
                 <label
                   htmlFor={tag}
-                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-300"
+                  className="block ml-3 text-sm font-medium text-gray-700 dark:text-gray-300"
                 >
                   {tag}
                 </label>
@@ -228,7 +224,7 @@ function ContentTags({ data, setData, type }) {
 ContentTags.propTypes = {
   data: PropTypes.object.isRequired,
   setData: PropTypes.func.isRequired,
-  type: PropTypes.oneOf(["submit", "edit"]),
+  type: PropTypes.oneOf(['submit', 'edit'])
 };
 
 export default memo(ContentTags);
