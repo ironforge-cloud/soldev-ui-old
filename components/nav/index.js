@@ -16,7 +16,6 @@ function Nav({ children }) {
     <div className={classNames(search && 'min-h-[5050px] xl:min-h-[3500px]', 'min-h-screen')}>
       <div className="z-50 w-full">
         <TopBar setSearch={setSearch} />
-        <NavPromotion />
       </div>
 
       <div className="min-h-full">
