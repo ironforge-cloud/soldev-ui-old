@@ -4,6 +4,9 @@ import fetch from "../utils/fetcher";
 import markdownToHtml from "../utils/markdown";
 
 export async function getStaticProps() {
+  if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'production') {
+    return { notFound: true };
+  }
   const response = await fetch(
     `${process.env.NEXT_AIRTABLE_URL}`
   );

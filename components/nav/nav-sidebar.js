@@ -35,18 +35,6 @@ const navigation = [
     icon: NewspaperIcon,
     disabled: false
   },
-  {
-    name: 'Bounty Board',
-    href: '/bounties',
-    icon: ClipboardCheckIcon,
-    disabled: false
-  },
-  {
-    name: 'Jobs',
-    href: '/jobs',
-    icon: BriefcaseIcon,
-    disabled: false
-  }
 ];
 
 const special = [
