@@ -138,11 +138,11 @@ export const modules = [
       link: '/course/duplicate-mutable-accounts',
     },
     {
-      title: 'Type cosplay - COMING SOON',
+      title: 'Type cosplay',
       link: '/course/type-cosplay'
     },
     {
-      title: 'Arbitrary CPIs - COMING SOON',
+      title: 'Arbitrary CPIs',
       link: '/course/arbitrary-cpi'
     },
     {
