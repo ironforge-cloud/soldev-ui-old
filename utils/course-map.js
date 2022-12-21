@@ -138,22 +138,20 @@ export const modules = [
       link: '/course/duplicate-mutable-accounts',
     },
     {
+      title: 'Type cosplay - COMING SOON',
+      link: '/course/type-cosplay'
+    },
+    {
+      title: 'Arbitrary CPIs - COMING SOON',
+      link: '/course/arbitrary-cpi'
+    },
+    {
       title: 'PDA sharing - COMING SOON',
       link: '',
       ready: false
     },
     {
-      title: 'Type cosplay - COMING SOON',
-      link: '',
-      ready: false
-    },
-    {
       title: 'Bump seed canonicalization - COMING SOON',
-      link: '',
-      ready: false
-    },
-    {
-      title: 'Arbitrary CPIs - COMING SOON',
       link: '',
       ready: false
     },
