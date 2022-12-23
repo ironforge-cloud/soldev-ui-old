@@ -155,7 +155,7 @@ export const modules = [
     },
     {
       title: 'PDA sharing',
-      link: '/content/pda-sharing'
+      link: '/course/pda-sharing'
     }
   ]
 ];
