@@ -146,19 +146,16 @@ export const modules = [
       link: '/course/arbitrary-cpi'
     },
     {
-      title: 'PDA sharing - COMING SOON',
-      link: '',
-      ready: false
+      title: 'Bump seed canonicalization',
+      link: '/course/bump-seed-canonicalization'
     },
     {
-      title: 'Bump seed canonicalization - COMING SOON',
-      link: '',
-      ready: false
+      title: 'Closing accounts and revival attacks',
+      link: '/course/closing-accounts'
     },
     {
-      title: 'Closing accounts - COMING SOON',
-      link: '',
-      ready: false
+      title: 'PDA sharing',
+      link: '/content/pda-sharing'
     }
   ]
 ];
