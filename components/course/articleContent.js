@@ -38,6 +38,7 @@ const CodeBlock = ({ className = 'not-prose ', inline = false, children }) => {
 
   let [copyButtonText, setCopyButtonText] = useState('Copy');
 
+  // changes the text back to `copy` after 1 second
   const changeText = text => {
     setCopyButtonText(text);
     setTimeout(() => setCopyButtonText('Copy'), 1000);
