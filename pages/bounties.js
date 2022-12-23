@@ -4,7 +4,10 @@ import BountyStats from "../components/bounties/stats";
 import fetch from "../utils/fetcher";
 
 export async function getStaticProps() {
-  const companies = await fetch(
+    if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'production') {
+        return { notFound: true };
+    }
+    const companies = await fetch(
     `${process.env.NEXT_PUBLIC_API_ENDPOINT}/companies`
   );
 

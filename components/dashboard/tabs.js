@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import loadContent from '../../utils/load-content';
 
-const tabs = ['New', 'Trending', 'Releases'];
+const tabs = ['New'];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
