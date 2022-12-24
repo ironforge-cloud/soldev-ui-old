@@ -36,6 +36,7 @@
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "prop-types": "^15.8.1",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-markdown": "^8.0.4",
     "react-player": "^2.10.1",
     "react-syntax-highlighter": "^15.5.0",
