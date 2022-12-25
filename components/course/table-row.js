@@ -15,10 +15,8 @@ function TableRow({ item, index, ready }) {
       )}
     >
       <Link href={item.link}>
-        <a className="">
-          <span className="mr-3 text-xl text-gray-400 dark:text-gray-500">{++index}.</span>
-          <span className=" tracking-wide text-gray-700 dark:text-gray-300">{item.title}</span>
-        </a>
+        <span className="mr-3 text-xl text-gray-400 dark:text-gray-500">{++index}.</span>
+        <span className=" tracking-wide text-gray-700 dark:text-gray-300">{item.title}</span>
       </Link>
 
       <CheckMark item={item.link} />

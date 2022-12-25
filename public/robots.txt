@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://soldev.app
-
-# Sitemaps
-Sitemap: https://soldev.app/sitemap.xml

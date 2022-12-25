@@ -66,11 +66,14 @@ function CardWide({ content, mode }) {
       return (
         <>
           {content.ContentType === 'newsletters' ? (
-            <Link href={`/newsletters/${content.SK}`} rel="noreferrer" passHref>
-              <a className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500">
-                <InboxInIcon className="h-5 w-5" aria-hidden="true" />
-                <span className="font-medium">Read</span>
-              </a>
+            <Link
+              href={`/newsletters/${content.SK}`}
+              rel="noreferrer"
+              passHref
+              className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
+            >
+              <InboxInIcon className="h-5 w-5" aria-hidden="true" />
+              <span className="font-medium">Read</span>
             </Link>
           ) : (
             <a
@@ -97,21 +100,24 @@ function CardWide({ content, mode }) {
       )}
     >
       {imageUrl && content.ContentType === 'newsletters' ? (
-        <Link href={`/newsletters/${content.SK}`} rel="noreferrer" passHref>
-          <a className="focus:outline-none">
-            <div>
-              <Image
-                className="cursor-pointer rounded-t-lg object-cover hover:opacity-90"
-                src={imageUrl}
-                alt=""
-                height="350"
-                width="700"
-                quality="100"
-                placeholder="blur"
-                blurDataURL={imageUrl}
-              />
-            </div>
-          </a>
+        <Link
+          href={`/newsletters/${content.SK}`}
+          rel="noreferrer"
+          passHref
+          className="focus:outline-none"
+        >
+          <div>
+            <Image
+              className="cursor-pointer rounded-t-lg object-cover hover:opacity-90"
+              src={imageUrl}
+              alt=""
+              height="350"
+              width="700"
+              quality="100"
+              placeholder="blur"
+              blurDataURL={imageUrl}
+            />
+          </div>
         </Link>
       ) : (
         <a href={content.Url} className="focus:outline-none" target="_blank" rel="noreferrer">
@@ -135,12 +141,15 @@ function CardWide({ content, mode }) {
           <div className="flex justify-between ">
             {/*  Title */}
             {content.ContentType === 'newsletters' ? (
-              <Link href={`/newsletters/${content.SK}`} rel="noreferrer" passHref>
-                <a className="mr-2 focus:outline-none">
-                  <p className="text-lg font-semibold text-gray-900 hover:text-sky-500 dark:text-gray-200 dark:hover:text-sky-600">
-                    {content.Title}
-                  </p>
-                </a>
+              <Link
+                href={`/newsletters/${content.SK}`}
+                rel="noreferrer"
+                passHref
+                className="mr-2 focus:outline-none"
+              >
+                <p className="text-lg font-semibold text-gray-900 hover:text-sky-500 dark:text-gray-200 dark:hover:text-sky-600">
+                  {content.Title}
+                </p>
               </Link>
             ) : (
               <a
