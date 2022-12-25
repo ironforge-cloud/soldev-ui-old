@@ -1,11 +1,9 @@
 const { withSentryConfig } = require('@sentry/nextjs');
-const { withPlausibleProxy } = require('next-plausible');
 
-const moduleExports = withPlausibleProxy()({
+const moduleExports = {
   experimental: {
     scrollRestoration: true,
-    legacyBrowsers: false,
-    images: { allowFutureImage: true }
+    legacyBrowsers: false
   },
   swcMinify: true,
   reactStrictMode: true,
@@ -50,7 +48,7 @@ const moduleExports = withPlausibleProxy()({
       }
     ];
   }
-});
+};
 
 const SentryWebpackPluginOptions = {
   // Additional config options for the Sentry Webpack plugin. Keep in mind that

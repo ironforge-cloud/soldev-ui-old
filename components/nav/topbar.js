@@ -70,15 +70,13 @@ function TopBar({ setSearch }) {
               <div className="flex justify-between">
                 {/* Logo */}
                 <div className="hidden sm:inline-flex">
-                  <Link href="/" passHref>
-                    <a className="flex content-center">
-                      {mode === 'light' && (
-                        <Image src="/logoblack.svg" alt="SolDev Logo" height="50" width="120" />
-                      )}
-                      {mode === 'dark' && (
-                        <Image src="/logowhite.svg" alt="SolDev Logo" height="50" width="120" />
-                      )}
-                    </a>
+                  <Link href="/" passHref className="flex content-center">
+                    {mode === 'light' && (
+                      <Image src="/logoblack.svg" alt="SolDev Logo" height="50" width="120" />
+                    )}
+                    {mode === 'dark' && (
+                      <Image src="/logowhite.svg" alt="SolDev Logo" height="50" width="120" />
+                    )}
                   </Link>
                 </div>
 
