@@ -99,12 +99,11 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
       {content.ContentType === 'newsletters' ? (
         <Link href={`/newsletters/${content.SK}`} rel="noreferrer" passHref>
           <Image
-            className="cursor-pointer rounded-t-lg object-cover hover:opacity-90"
+            className="cursor-pointer h-48 rounded-t-lg object-cover hover:opacity-90"
             src={imageUrl}
             alt=""
             height="200"
             width="400"
-            quality="100"
             placeholder="blur"
             blurDataURL={imageUrl}
           />
@@ -112,12 +111,11 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
       ) : (
         <a href={content.Url} target="_blank" rel="noreferrer">
           <Image
-            className="cursor-pointer rounded-t-lg object-cover hover:opacity-90"
+            className="cursor-pointer h-48 rounded-t-lg object-cover hover:opacity-90"
             src={imageUrl}
             alt=""
             height="200"
             width="400"
-            quality="100"
             placeholder="blur"
             blurDataURL={imageUrl}
           />

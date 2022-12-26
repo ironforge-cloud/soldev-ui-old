@@ -1,38 +1,28 @@
-import Image from "next/image";
-import PropTypes from "prop-types";
+import Image from 'next/image';
+import PropTypes from 'prop-types';
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
-export default function CardCompanies({
-  id,
-  name,
-  logo,
-  bgColor,
-  description,
-  status,
-  url,
-}) {
+export default function CardCompanies({ id, name, logo, bgColor, description, status, url }) {
   return (
     <a href={url} target="_blank" rel="noreferrer" key={id}>
       <button
         className={classNames(
-          `flex flex-col rounded-lg border h-[400px] w-[330px] border-gray-300 dark:border-gray-700 shadow-lg bg-white dark:bg-gray-800`,
-          status === "active"
-            ? "cursor-pointer hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 hover:opacity-95 "
-            : "cursor-not-allowed opacity-30"
+          `flex h-[400px] w-[330px] flex-col rounded-lg border border-gray-300 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800`,
+          status === 'active'
+            ? 'cursor-pointer hover:opacity-95 hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 '
+            : 'cursor-not-allowed opacity-30'
         )}
-        disabled={status === "inactive"}
+        disabled={status === 'inactive'}
       >
         <div
-          className={classNames(
-            "h-[225px] w-[328px] flex justify-center rounded-t-lg",
-            bgColor
-          )}
+          className={classNames('flex h-[225px] w-[328px] justify-center rounded-t-lg', bgColor)}
         >
           <Image
             placeholder="blur"
+            alt="company logo"
             blurDataURL={logo}
             src={logo}
             height="100"
@@ -40,10 +30,8 @@ export default function CardCompanies({
           />
         </div>
 
-        <div className="p-4 border-t dark:border-gray-900">
-          <div className="text-2xl font-medium pb-2 text-gray-800 dark:text-gray-200">
-            {name}
-          </div>
+        <div className="border-t p-4 dark:border-gray-900">
+          <div className="pb-2 text-2xl font-medium text-gray-800 dark:text-gray-200">{name}</div>
 
           <div className="text-gray-600 dark:text-gray-300">{description}</div>
         </div>
@@ -59,5 +47,5 @@ CardCompanies.propTypes = {
   description: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired
 };

@@ -1,19 +1,17 @@
 import {
-  DocumentTextIcon,
-  PlayIcon,
   ExternalLinkIcon,
-  FilmIcon,
   EyeOffIcon,
-  InboxInIcon
+  FilmIcon,
+  InboxInIcon,
+  PlayIcon
 } from '@heroicons/react/solid';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import defineImage from '../../utils/content-imagen';
 import Audio from '../audio';
-import { useState } from 'react';
 
 const Badge = dynamic(() => import('../badges/badge.js'));
 const CopyLink = dynamic(() => import('./copy-link.js'));
@@ -123,12 +121,11 @@ function CardWide({ content, mode }) {
         <a href={content.Url} className="focus:outline-none" target="_blank" rel="noreferrer">
           <div>
             <Image
-              className="cursor-pointer rounded-t-lg object-cover hover:opacity-90"
+              className="cursor-pointer h-80 rounded-t-lg hover:opacity-90"
               src={imageUrl}
               alt=""
               height="350"
               width="700"
-              quality="100"
               placeholder="blur"
               blurDataURL={imageUrl}
             />

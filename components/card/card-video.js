@@ -1,24 +1,24 @@
-import PropTypes from 'prop-types';
-import { memo } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
 import { FilmIcon } from '@heroicons/react/solid';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
+import Link from 'next/link';
+import PropTypes from 'prop-types';
+import { memo } from 'react';
 
 const CopyLink = dynamic(() => import('./copy-link.js'));
 
-function Card({ content, closeSearch }) {
+function Card({content, closeSearch}) {
   return (
-    <div className="relative flex max-h-[400px] min-h-full w-[400px] flex-col overflow-visible rounded-lg border border-gray-200 bg-white shadow-lg hover:bg-opacity-80 hover:shadow-sky-500/30 dark:border-gray-700/60 dark:bg-gray-800 dark:hover:shadow-sky-400/20">
+    <div
+      className="relative flex max-h-[400px] min-h-full w-[400px] flex-col overflow-visible rounded-lg border border-gray-200 bg-white shadow-lg hover:bg-opacity-80 hover:shadow-sky-500/30 dark:border-gray-700/60 dark:bg-gray-800 dark:hover:shadow-sky-400/20">
       <Link href={`/library/${content.PlaylistID}/video/${content.SK}`} passHref>
         <div>
           <Image
-            className="cursor-pointer rounded-t-lg object-cover hover:opacity-90"
+            className="cursor-pointer h-52 rounded-t-lg object-cover hover:opacity-90"
             src={content.Img}
             alt=""
             height="200"
             width="400"
-            quality="100"
             placeholder="blur"
             blurDataURL={content.Img}
           />
@@ -41,7 +41,7 @@ function Card({ content, closeSearch }) {
                 onClick={() => closeSearch()}
                 className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
               >
-                <FilmIcon className="h-5 w-5" aria-hidden="true" />
+                <FilmIcon className="h-5 w-5" aria-hidden="true"/>
                 <span className="font-medium">Watch</span>
               </button>
             </Link>
@@ -50,7 +50,7 @@ function Card({ content, closeSearch }) {
           {/* Copy Link Btn */}
           <div>
             <div className="flex flex-row items-end">
-              <CopyLink content={content} />
+              <CopyLink content={content}/>
             </div>
           </div>
         </div>
@@ -60,7 +60,8 @@ function Card({ content, closeSearch }) {
 }
 
 Card.defaultProps = {
-  closeSearch: () => {}
+  closeSearch: () => {
+  }
 };
 
 Card.propTypes = {

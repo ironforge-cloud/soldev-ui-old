@@ -147,10 +147,10 @@ function TopBar({ setSearch }) {
                           <Menu.Button className="flex rounded-full hover:outline-none hover:ring-2 hover:ring-green-500 hover:ring-offset-2">
                             <span className="sr-only">Open user menu</span>
                             <Image
-                              className="rounded-full"
+                              className="h-7 w-7 rounded-full"
                               src="/avatar.svg"
-                              height="32px"
-                              width="32px"
+                              height="32"
+                              width="32"
                               alt="avatar"
                             />
                           </Menu.Button>
