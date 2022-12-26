@@ -64,14 +64,37 @@ export default function CourseContent({ content }) {
   return (
     <Container metaTags={metaTags}>
       <div className="lg:mr-5">
-        <div className="prose mx-auto max-w-6xl rounded-lg px-10 py-8 dark:prose-invert dark:border-none lg:border lg:bg-white dark:lg:bg-gray-800 xl:px-32">
-          <Link href="/course" passHref>
-            <div className="text-md flex cursor-pointer justify-center text-sky-600 hover:text-sky-700 hover:underline lg:text-lg">
-              Table of Contents
-            </div>
-          </Link>
+        <div className="mx-auto max-w-6xl rounded-lg px-10 py-8 dark:border-none lg:border lg:bg-white dark:lg:bg-gray-800 xl:px-32">
+          <div className="flex justify-between">
+            <Link href="/course" passHref>
+              <p className="cursor-pointer pb-4 text-base text-sky-600 hover:text-sky-700 hover:underline lg:text-lg">
+                <>&larr; Table of Contents</>
+              </p>
+            </Link>
 
-          <ArticleContent markdown={content.markdown} className="py-5" />
+            <a
+              href={`https://twitter.com/share?url=https://soldev.app/newsletters/${content.id}&text=Check out this lesson "${content.title}" from the Solana Development Course on @soldevapp%0A%0A`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <p className="inline-flex cursor-pointer items-center pb-4 text-[0] text-sky-600 hover:text-sky-700 hover:underline sm:text-base lg:text-lg">
+                Share on Twitter
+                {/*<!-- Made by https://github.com/gilbarbara/logos -->*/}
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 -2.203 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="xMidYMid"
+                  className="ml-1 fill-sky-600"
+                >
+                  <path d="M24 2.386a9.848 9.848 0 0 1 -2.828 0.775c1.017 -0.609 1.797 -1.574 2.165 -2.724a9.861 9.861 0 0 1 -3.127 1.195C19.312 0.675 18.032 0.077 16.616 0.077c-2.719 0 -4.924 2.205 -4.924 4.924 0 0.386 0.044 0.762 0.128 1.122 -4.092 -0.205 -7.72 -2.166 -10.149 -5.145 -0.424 0.727 -0.667 1.573 -0.667 2.475 0 1.708 0.869 3.215 2.19 4.098a4.904 4.904 0 0 1 -2.23 -0.616c0 0.021 0 0.041 0 0.062 0 2.386 1.697 4.376 3.95 4.828a4.931 4.931 0 0 1 -2.224 0.084c0.627 1.956 2.445 3.38 4.6 3.42 -1.685 1.321 -3.808 2.108 -6.115 2.108 -0.398 0 -0.789 -0.023 -1.175 -0.069 2.179 1.397 4.767 2.212 7.548 2.212 9.057 0 14.009 -7.503 14.009 -14.01 0 -0.214 -0.005 -0.426 -0.014 -0.637A10.008 10.008 0 0 0 24 2.386" />
+                </svg>
+              </p>
+            </a>
+          </div>
+
+          <ArticleContent markdown={content.markdown} className="prose py-5 dark:prose-invert" />
 
           <Link href="/course" passHref>
             <div className="text-md flex cursor-pointer justify-center text-sky-600 hover:text-sky-700 hover:underline lg:text-lg">
