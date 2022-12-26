@@ -1,9 +1,9 @@
-import { Container } from "../../layout";
-import fetch from "../../../utils/fetcher";
-import dynamic from "next/dynamic";
+import { Container } from '../../layout';
+import fetch from '../../../utils/fetcher';
+import dynamic from 'next/dynamic';
 
-const BountyCard = dynamic(() => import("../../card/card-bounty"));
-const CompanyHeader = dynamic(() => import("../company-header"));
+const BountyCard = dynamic(() => import('../../card/card-bounty'));
+const CompanyHeader = dynamic(() => import('../company-header'));
 
 export async function getStaticPaths() {
   const data = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/companies`);
@@ -19,7 +19,7 @@ export async function getStaticPaths() {
     };
   });
 
-  return { paths, fallback: "blocking" };
+  return { paths, fallback: 'blocking' };
 }
 
 export async function getStaticProps({ params }) {
@@ -59,13 +59,19 @@ export default function BountyPage({ company, bounties, stats }) {
 
   return (
     <Container metaTags={metaTags}>
-      <CompanyHeader company={company} stats={stats} />
+      <CompanyHeader
+company={company}
+stats={stats}
+      />
 
       <div className="flex justify-center my-10 max-w-5xl mx-auto px-2">
         <dl className="mt-6 space-y-5 w-full">
           {Array.isArray(bounties) &&
             bounties.map((bounty) => (
-              <BountyCard key={bounty.ID} bounty={bounty} />
+              <BountyCard
+key={bounty.ID}
+bounty={bounty}
+              />
             ))}
         </dl>
       </div>

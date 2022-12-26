@@ -1,11 +1,11 @@
-import algoliasearch from "algoliasearch/lite";
-import { createAutocomplete } from "@algolia/autocomplete-core";
-import { getAlgoliaResults } from "@algolia/autocomplete-preset-algolia";
-import { memo, useMemo, useState } from "react";
-import { SearchIcon } from "@heroicons/react/outline";
-import { Popover } from "@headlessui/react";
-import PublicationsComponent from "../publications";
-import PropTypes from "prop-types";
+import algoliasearch from 'algoliasearch/lite';
+import { createAutocomplete } from '@algolia/autocomplete-core';
+import { getAlgoliaResults } from '@algolia/autocomplete-preset-algolia';
+import { memo, useMemo, useState } from 'react';
+import { SearchIcon } from '@heroicons/react/outline';
+import { Popover } from '@headlessui/react';
+import PublicationsComponent from '../publications';
+import PropTypes from 'prop-types';
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -25,7 +25,7 @@ function Search({ setSearch }) {
             setSearch(false);
           }
         },
-        placeholder: "Quick search...",
+        placeholder: 'Quick search...',
         getSources() {
           return [
             {
@@ -42,8 +42,8 @@ function Search({ setSearch }) {
                       query,
                       params: {
                         hitsPerPage: 10,
-                        highlightPreTag: "<mark>",
-                        highlightPostTag: "</mark>",
+                        highlightPreTag: '<mark>',
+                        highlightPostTag: '</mark>',
                       },
                     },
                   ],
@@ -69,7 +69,10 @@ function Search({ setSearch }) {
           {/* Search Bar*/}
           <div className="flex items-center px-2 sm:px-6 py-3 xl:px-0">
             <div className="w-full">
-              <label htmlFor="search" className="sr-only">
+              <label
+htmlFor="search"
+className="sr-only"
+              >
                 Search
               </label>
               <div className="relative">

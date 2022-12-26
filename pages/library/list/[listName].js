@@ -1,11 +1,11 @@
-import dynamic from "next/dynamic";
-import contentLists from "../../../utils/content-lists";
-import fetcher from "../../../utils/fetcher";
-import defineTitle from "../../../utils/define-title";
-import { Container } from "../../../components/layout";
+import dynamic from 'next/dynamic';
+import contentLists from '../../../utils/content-lists';
+import fetcher from '../../../utils/fetcher';
+import defineTitle from '../../../utils/define-title';
+import { Container } from '../../../components/layout';
 
 const PublicationsComponent = dynamic(() =>
-  import("../../../components/publications")
+  import('../../../components/publications')
 );
 
 export async function getStaticPaths() {
@@ -37,7 +37,7 @@ export default function LibraryLists({ data, title, listName }) {
   const metaTags = {
     title: `SolDev - ${title}`,
     description:
-      "Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations.",
+      'Learn to Develop using Solana. Tutorials, SDK\'s, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations.',
     url: `https://soldev.app/library/list/${listName}`,
     shouldIndex: true,
   };

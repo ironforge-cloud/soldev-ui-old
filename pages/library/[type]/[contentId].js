@@ -1,14 +1,14 @@
-import { useState } from "react";
-import fetcher from "../../../utils/fetcher";
-import findTags from "../../../utils/find-tags";
-import defineTitle from "../../../utils/define-title";
-import { Container } from "../../../components/layout";
-import dynamic from "next/dynamic";
+import { useState } from 'react';
+import fetcher from '../../../utils/fetcher';
+import findTags from '../../../utils/find-tags';
+import defineTitle from '../../../utils/define-title';
+import { Container } from '../../../components/layout';
+import dynamic from 'next/dynamic';
 
 const PublicationsComponent = dynamic(() =>
-  import("../../../components/publications")
+  import('../../../components/publications')
 );
-const CardModal = dynamic(() => import("../../../components/card/card-modal"));
+const CardModal = dynamic(() => import('../../../components/card/card-modal'));
 
 export async function getStaticPaths() {
   const contentTypes = await fetcher(
@@ -36,7 +36,7 @@ export async function getStaticPaths() {
   });
 
   // All missing paths are going to be server-side rendered and cached
-  return { paths, fallback: "blocking" };
+  return { paths, fallback: 'blocking' };
 }
 
 export async function getStaticProps({ params }) {
@@ -45,8 +45,8 @@ export async function getStaticProps({ params }) {
   );
 
   const title = defineTitle(params.type);
-  let pageTitle = "";
-  let pageDescription = "";
+  let pageTitle = '';
+  let pageDescription = '';
   let selectedContent = {};
   let contentType = params.type;
 
@@ -106,7 +106,11 @@ export default function LibraryContent({
         tagsList={tags}
       />
       {selectedContent && (
-        <CardModal content={selectedContent} open={open} setOpen={setOpen} />
+        <CardModal
+content={selectedContent}
+open={open}
+setOpen={setOpen}
+        />
       )}
     </Container>
   );

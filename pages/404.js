@@ -1,11 +1,11 @@
-import { Container } from "../components/layout";
-import Link from "next/link";
+import { Container } from '../components/layout';
+import Link from 'next/link';
 
 export default function Custom404() {
   const metaTags = {
-    title: "SolDev - 404",
-    description: "SolDev - 404",
-    url: "https://soldev.app",
+    title: 'SolDev - 404',
+    description: 'SolDev - 404',
+    url: 'https://soldev.app',
     shouldIndex: true,
   };
 
@@ -23,7 +23,10 @@ export default function Custom404() {
                 <p>Please check the URL in the address bar and try again.</p>
               </div>
               <div className="mt-10 flex space-x-3 sm:border-l sm:border-transparent sm:pl-6">
-                <Link href="/" passHref>
+                <Link
+href="/"
+passHref
+                >
                   <button
                     type="button"
                     className="rounded-xl px-10 py-4 text-lg bg-green-500 dark:bg-green-400 text-gray-900 dark:text-gray-900"

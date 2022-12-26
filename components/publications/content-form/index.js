@@ -74,7 +74,11 @@ function ContentForm({ type, setOpen, data, setData, setNotifySuccess, positions
     <div className="overflow-hidden relative px-4 py-16 h-full bg-white dark:bg-gray-800 sm:px-6 lg:px-8 lg:py-14">
       <div className="mx-auto max-w-3xl">
         <div className="absolute top-0 right-1">
-          {type === 'edit' && <Position data={data} setData={setData} list={positions} />}
+          {type === 'edit' && <Position
+data={data}
+setData={setData}
+list={positions}
+          />}
         </div>
         <div className="mx-auto max-w-max text-center prose prose-h1:mb-2 prose-p:text-lg dark:prose-invert">
           <h1>{type === 'submit' ? 'Submit new content' : 'Edit Content'}</h1>
@@ -87,7 +91,10 @@ function ContentForm({ type, setOpen, data, setData, setNotifySuccess, positions
         </div>
         {type === 'edit' && (
           <div className="mx-auto max-w-max">
-            <Status data={data} setData={setData} />
+            <Status
+data={data}
+setData={setData}
+            />
           </div>
         )}
 
@@ -108,10 +115,16 @@ function ContentForm({ type, setOpen, data, setData, setNotifySuccess, positions
             />
 
             {/*Radios components*/}
-            <Radios data={data} setData={setData} type={type} />
+            <Radios
+data={data}
+setData={setData}
+type={type} />
 
             {/* Tags */}
-            <ContentTags data={data} setData={setData} type={type} />
+            <ContentTags
+data={data}
+setData={setData}
+type={type} />
 
             {/* Buttons */}
             <div className="flex col-span-full justify-end mx-auto max-w-3xl">

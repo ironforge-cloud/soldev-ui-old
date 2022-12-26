@@ -69,7 +69,10 @@ function Inputs({ data, setData, type, contentExist, setContentExist }) {
 
       {/* Content Link */}
       <div className="col-span-full">
-        <label htmlFor="url" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        <label
+htmlFor="url"
+className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+        >
           Content URL
         </label>
         <div className="mt-1">
@@ -91,7 +94,10 @@ function Inputs({ data, setData, type, contentExist, setContentExist }) {
           />
         </div>
         {contentExist && (
-          <p className="mt-2 text-sm text-red-600" id="url">
+          <p
+className="mt-2 text-sm text-red-600"
+id="url"
+          >
             Content already included in the Library.
           </p>
         )}

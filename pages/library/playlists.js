@@ -1,8 +1,8 @@
-import fetcher from "../../utils/fetcher";
-import dynamic from "next/dynamic";
-import { Container } from "../../components/layout";
+import fetcher from '../../utils/fetcher';
+import dynamic from 'next/dynamic';
+import { Container } from '../../components/layout';
 
-const Playlists = dynamic(() => import("../../components/videos/playlists"));
+const Playlists = dynamic(() => import('../../components/videos/playlists'));
 
 export async function getStaticProps() {
   const playlists = await fetcher(
@@ -17,10 +17,10 @@ export async function getStaticProps() {
 
 export default function Video({ playlists }) {
   const metaTags = {
-    title: "SolDev - Video Playlists",
+    title: 'SolDev - Video Playlists',
     description:
-      "Watch Solana conferences, live streams and stay up to date with the latest Podcasts.",
-    url: "https://soldev.app/library/playlists",
+      'Watch Solana conferences, live streams and stay up to date with the latest Podcasts.',
+    url: 'https://soldev.app/library/playlists',
     shouldIndex: true,
   };
 

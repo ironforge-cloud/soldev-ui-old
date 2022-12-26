@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
-import { memo } from "react";
-import router from "next/router";
-import listOfTags from "../../utils/tags";
+import PropTypes from 'prop-types';
+import { memo } from 'react';
+import router from 'next/router';
+import listOfTags from '../../utils/tags';
 
 // There are 4 variables with confusing names in this component. Amazing.
 // - listOfTags: all possible tags
@@ -10,7 +10,7 @@ import listOfTags from "../../utils/tags";
 // - badges: more tags in the url
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
 // This component "state" is managed by the data stored in the URL
@@ -56,9 +56,9 @@ function TagsSelector({ tagsList, contentType, tags, badges }) {
             onClick={() => onClick(tag)}
             className={classNames(
               selectedTags.includes(tag)
-                ? "bg-green-500 dark:bg-green-800 dark:text-gray-200 shadow"
-                : "bg-gray-400 dark:bg-gray-700",
-              "inline-flex items-center px-4 py-1 rounded-lg text-sm text-white dark:text-gray-300 font-medium transition transform-gpu duration-150 ease-in-out hover:-translate-y-0.5 hover:scale-105 cursor-pointer hover:bg-opacity-80 hover:shadow"
+                ? 'bg-green-500 dark:bg-green-800 dark:text-gray-200 shadow'
+                : 'bg-gray-400 dark:bg-gray-700',
+              'inline-flex items-center px-4 py-1 rounded-lg text-sm text-white dark:text-gray-300 font-medium transition transform-gpu duration-150 ease-in-out hover:-translate-y-0.5 hover:scale-105 cursor-pointer hover:bg-opacity-80 hover:shadow'
             )}
           >
             {tag}

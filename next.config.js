@@ -10,6 +10,7 @@ const moduleExports = {
   images: {
     domains: [
       'cdn.hashnode.com',
+      'abs.twimg.com',
       'pbs.twimg.com',
       'cardea.imgix.net',
       'i.ytimg.com',

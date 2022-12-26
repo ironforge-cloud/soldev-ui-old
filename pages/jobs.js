@@ -1,7 +1,7 @@
-import JobsCard from "../components/card/card-jobs";
-import { Container } from "../components/layout";
-import fetch from "../utils/fetcher";
-import markdownToHtml from "../utils/markdown";
+import JobsCard from '../components/card/card-jobs';
+import { Container } from '../components/layout';
+import fetch from '../utils/fetcher';
+import markdownToHtml from '../utils/markdown';
 
 export async function getStaticProps() {
   if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'production') {
@@ -11,10 +11,10 @@ export async function getStaticProps() {
     `${process.env.NEXT_AIRTABLE_URL}`
   );
 
-  const data = response.records
+  const data = response.records;
 
   for await (const job of data) {
-    job.description = await markdownToHtml(job.fields["Job Description"]);
+    job.description = await markdownToHtml(job.fields['Job Description']);
   }
 
 
@@ -26,9 +26,9 @@ export async function getStaticProps() {
 
 export default function Jobs({jobs}) {
   const metaTags = {
-    title: "SolDev - Jobs",
-    description: "Solana community jobs aggregator",
-    url: "https://soldev.app/jobs",
+    title: 'SolDev - Jobs',
+    description: 'Solana community jobs aggregator',
+    url: 'https://soldev.app/jobs',
     shouldIndex: true,
   };
 
@@ -36,7 +36,8 @@ export default function Jobs({jobs}) {
     <Container metaTags={metaTags}>
       <div className="flex justify-center">
         <h1
-          className="text-2xl md:text-3xl 2xl:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-200 capitalize">
+          className="text-2xl md:text-3xl 2xl:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-200 capitalize"
+        >
           Jobs Board
         </h1>
       </div>
@@ -45,10 +46,13 @@ export default function Jobs({jobs}) {
         <dl className="mt-6 space-y-5 w-full">
           {Array.isArray(jobs) &&
             jobs.map((job) => (
-              <JobsCard key={job.id} job={job}/>
+              <JobsCard
+key={job.id}
+job={job}
+              />
             ))}
         </dl>
       </div>
     </Container>
-  )
+  );
 }

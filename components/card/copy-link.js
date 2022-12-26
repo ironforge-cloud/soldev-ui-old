@@ -27,7 +27,10 @@ function CopyLink({ content }) {
           setShowNotification(true);
         }}
       >
-        <LinkIcon className="h-5 w-5" aria-hidden="true" />
+        <LinkIcon
+className="h-5 w-5"
+aria-hidden="true"
+        />
         <span className="font-medium">Link</span>
       </button>
 

@@ -12,7 +12,10 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 function ArticleContent({ markdown = null, className = '' }) {
   return (
     <article className={className}>
-      <ReactMarkdown rehypePlugins={[remarkGfm]} components={{ code: CodeBlock }}>
+      <ReactMarkdown
+rehypePlugins={[remarkGfm]}
+components={{ code: CodeBlock }}
+      >
         {markdown}
       </ReactMarkdown>
     </article>
@@ -59,7 +62,10 @@ const CodeBlock = ({ className = 'not-prose ', inline = false, children }) => {
                 changeText('Copied!');
               }}
             >
-              <ClipboardIcon className="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+              <ClipboardIcon
+className="-ml-0.5 mr-2 h-4 w-4"
+aria-hidden="true"
+              />
               {copyButtonText}
             </button>
           </CopyToClipboard>

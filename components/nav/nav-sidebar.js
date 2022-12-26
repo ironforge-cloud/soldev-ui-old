@@ -150,11 +150,18 @@ function NavSidebar({ closeMobileMenu }) {
   }, []);
 
   return (
-    <nav aria-label="Sidebar" className="top-4 divide-y divide-gray-300 dark:divide-gray-500">
+    <nav
+aria-label="Sidebar"
+className="top-4 divide-y divide-gray-300 dark:divide-gray-500"
+    >
       <div className="pb-4">
         {navigation.map(item => {
           return (
-            <Link href={item.href} passHref key={item.name}>
+            <Link
+href={item.href}
+passHref
+key={item.name}
+            >
               <button
                 className={classNames(
                   item.name === current
@@ -187,9 +194,14 @@ function NavSidebar({ closeMobileMenu }) {
 
       <div className="space-y-4 pt-4">
         {/* Add new content*/}
-        <Link href="/submit" passHref>
+        <Link
+href="/submit"
+passHref>
           <div className="group flex cursor-pointer items-center gap-1 rounded-md px-3 py-2 text-lg font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300 lg:text-sm">
-            <FolderAddIcon className="h-5 w-5 text-sky-500" aria-hidden="true" />
+            <FolderAddIcon
+className="h-5 w-5 text-sky-500"
+aria-hidden="true"
+            />
             <span className="truncate leading-6"> Submit content</span>
           </div>
         </Link>
@@ -202,10 +214,17 @@ function NavSidebar({ closeMobileMenu }) {
           >
             Courses
           </p>
-          <div className="mt-2 space-y-1" aria-labelledby="communities-headline">
+          <div
+className="mt-2 space-y-1"
+aria-labelledby="communities-headline"
+          >
             {courses.map(item => {
               return (
-                <Link href={item.href} passHref key={item.name}>
+                <Link
+href={item.href}
+passHref
+key={item.name}
+                >
                   <div
                     onClick={() => closeMobileMenu()}
                     className="group flex cursor-pointer items-center gap-1 rounded-md px-3 py-2 text-lg font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300 lg:text-sm"
@@ -235,7 +254,10 @@ function NavSidebar({ closeMobileMenu }) {
           >
             Reference
           </p>
-          <div className="mt-2 space-y-1" aria-labelledby="communities-headline">
+          <div
+className="mt-2 space-y-1"
+aria-labelledby="communities-headline"
+          >
             {special.map(item => {
               return (
                 <a
@@ -266,10 +288,17 @@ function NavSidebar({ closeMobileMenu }) {
           >
             Lists
           </p>
-          <div className="mt-2 space-y-1" aria-labelledby="communities-headline">
+          <div
+className="mt-2 space-y-1"
+aria-labelledby="communities-headline"
+          >
             {specialLists.map(item => {
               return (
-                <Link href={item.href} passHref key={item.name}>
+                <Link
+href={item.href}
+passHref
+key={item.name}
+                >
                   <button
                     onClick={() => closeMobileMenu()}
                     className="group flex min-w-full cursor-pointer items-center gap-1 rounded-md px-3 py-2 text-lg font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300 lg:text-sm"
@@ -294,14 +323,21 @@ function NavSidebar({ closeMobileMenu }) {
           >
             Categories
           </p>
-          <div className="mt-2 space-y-1" aria-labelledby="communities-headline">
+          <div
+className="mt-2 space-y-1"
+aria-labelledby="communities-headline"
+          >
             {categories.map(item => {
               if ((item.name === 'Submitted' || item.name === 'Inactive') && !isAdmin) {
                 return;
               }
 
               return (
-                <Link href={item.href} passHref key={item.name}>
+                <Link
+href={item.href}
+passHref
+key={item.name}
+                >
                   <button
                     onClick={() => closeMobileMenu()}
                     className="group flex min-w-full cursor-pointer items-center gap-1 rounded-md px-3 py-2 text-lg font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300 lg:text-sm"

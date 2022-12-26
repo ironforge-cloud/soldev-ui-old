@@ -1,6 +1,6 @@
-import PropTypes from "prop-types";
-import { memo } from "react";
-import { ClipboardCheckIcon, ScaleIcon } from "@heroicons/react/outline";
+import PropTypes from 'prop-types';
+import { memo } from 'react';
+import { ClipboardCheckIcon, ScaleIcon } from '@heroicons/react/outline';
 
 function BountyStats({ stats }) {
   return (
@@ -22,9 +22,9 @@ function BountyStats({ stats }) {
                 </dt>
                 <dd>
                   <div className="text-lg font-medium text-gray-900 dark:text-gray-200">
-                    {new Intl.NumberFormat("en-US", {
-                      style: "currency",
-                      currency: "USD",
+                    {new Intl.NumberFormat('en-US', {
+                      style: 'currency',
+                      currency: 'USD',
                     }).format(3791500)}
                   </div>
                 </dd>

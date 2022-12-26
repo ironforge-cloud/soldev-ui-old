@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
-import { memo, useEffect, useState } from "react";
+import PropTypes from 'prop-types';
+import { memo, useEffect, useState } from 'react';
 
 function Position({ data, setData, list }) {
   const [position, setPosition] = useState(0);
@@ -24,7 +24,10 @@ function Position({ data, setData, list }) {
       >
         Move to Front
       </button>
-      <label htmlFor="position" className="block mt-4">
+      <label
+htmlFor="position"
+className="block mt-4"
+      >
         Position weight
       </label>
       <select

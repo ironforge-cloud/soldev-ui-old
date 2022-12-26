@@ -1,15 +1,18 @@
-import { Disclosure } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/outline";
-import { memo } from "react";
-import PropTypes from "prop-types";
+import { Disclosure } from '@headlessui/react';
+import { ChevronDownIcon } from '@heroicons/react/outline';
+import { memo } from 'react';
+import PropTypes from 'prop-types';
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
 function BountyCard({ bounty, open }) {
   return (
-    <Disclosure as="div" defaultOpen={open}>
+    <Disclosure
+as="div"
+defaultOpen={open}
+    >
       {({ open }) => (
         <>
           <dt className="text-lg shadow p-1 rounded-lg bg-white dark:bg-gray-800 hover:dark:bg-gray-700 hover:bg-gray-50 hover:shadow-md">
@@ -33,14 +36,14 @@ function BountyCard({ bounty, open }) {
 
               <div className="flex">
                 <span className="text-gray-600 dark:text-gray-200">
-                  {new Intl.NumberFormat("en-US").format(bounty.Reward)}
+                  {new Intl.NumberFormat('en-US').format(bounty.Reward)}
                   &nbsp;{bounty.RewardAsset}
                 </span>
                 <span className="ml-6 h-7 flex items-center">
                   <ChevronDownIcon
                     className={classNames(
-                      open ? "-rotate-180" : "rotate-0",
-                      "h-6 w-6 transform"
+                      open ? '-rotate-180' : 'rotate-0',
+                      'h-6 w-6 transform'
                     )}
                     aria-hidden="true"
                   />
@@ -64,7 +67,7 @@ function BountyCard({ bounty, open }) {
                 <div className="sm:col-span-1">
                   <h3>Reward</h3>
                   <span>
-                    {new Intl.NumberFormat("en-US").format(bounty.Reward)}
+                    {new Intl.NumberFormat('en-US').format(bounty.Reward)}
                     &nbsp;{bounty.RewardAsset}
                   </span>
                 </div>

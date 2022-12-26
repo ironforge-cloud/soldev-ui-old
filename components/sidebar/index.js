@@ -61,7 +61,10 @@ function Sidebar({ tweets, latestNewsletter }) {
             </h2>
           </div>
           <div className="mt-6 flow-root">
-            <div role="list" className="-my-4 divide-y divide-gray-200 dark:divide-gray-600">
+            <div
+role="list"
+className="-my-4 divide-y divide-gray-200 dark:divide-gray-600"
+            >
               {Array.isArray(tweets) && loadTweets(tweets)}
             </div>
           </div>
