@@ -65,15 +65,24 @@ export default function CourseContent({ content }) {
     <Container metaTags={metaTags}>
       <div className="lg:mr-5">
         <div className="prose mx-auto max-w-6xl rounded-lg px-10 py-8 dark:prose-invert dark:border-none lg:border lg:bg-white dark:lg:bg-gray-800 xl:px-32">
-          <Link href="/course" passHref>
+          <Link
+href="/course"
+passHref
+          >
             <div className="text-md flex cursor-pointer justify-center text-sky-600 hover:text-sky-700 hover:underline lg:text-lg">
               Table of Contents
             </div>
           </Link>
 
-          <ArticleContent markdown={content.markdown} className="py-5" />
+          <ArticleContent
+markdown={content.markdown}
+className="py-5"
+          />
 
-          <Link href="/course" passHref>
+          <Link
+href="/course"
+passHref
+          >
             <div className="text-md flex cursor-pointer justify-center text-sky-600 hover:text-sky-700 hover:underline lg:text-lg">
               Table of Contents
             </div>

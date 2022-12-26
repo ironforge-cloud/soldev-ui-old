@@ -1,7 +1,7 @@
-import { Container } from "../components/layout";
-import CardCompanies from "../components/card/card-companies";
-import BountyStats from "../components/bounties/stats";
-import fetch from "../utils/fetcher";
+import { Container } from '../components/layout';
+import CardCompanies from '../components/card/card-companies';
+import BountyStats from '../components/bounties/stats';
+import fetch from '../utils/fetcher';
 
 export async function getStaticProps() {
     if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'production') {
@@ -23,9 +23,9 @@ export async function getStaticProps() {
 
 export default function Bounties({ companies, stats }) {
   const metaTags = {
-    title: "SolDev - Bounties",
-    description: "Solana community bounties aggregator",
-    url: "https://soldev.app/bounties",
+    title: 'SolDev - Bounties',
+    description: 'Solana community bounties aggregator',
+    url: 'https://soldev.app/bounties',
     shouldIndex: true,
   };
 

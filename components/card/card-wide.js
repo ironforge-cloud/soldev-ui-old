@@ -31,9 +31,15 @@ function CardWide({ content, mode }) {
     if (content.Url && content.Url.includes('youtube')) {
       return (
         <div>
-          <Link href={`/library/${content.ContentType}/video/${content.SK}`} passHref>
+          <Link
+href={`/library/${content.ContentType}/video/${content.SK}`}
+passHref
+          >
             <button className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500">
-              <FilmIcon className="h-5 w-5" aria-hidden="true" />
+              <FilmIcon
+className="h-5 w-5"
+aria-hidden="true"
+              />
               <span className="font-medium">Watch</span>
             </button>
           </Link>
@@ -48,12 +54,18 @@ function CardWide({ content, mode }) {
           >
             {isS3Audio ? (
               <>
-                <EyeOffIcon className="h-5 w-5" aria-hidden="true" />
+                <EyeOffIcon
+className="h-5 w-5"
+aria-hidden="true"
+                />
                 <span className="font-medium">Hidde Player</span>
               </>
             ) : (
               <>
-                <PlayIcon className="h-5 w-5" aria-hidden="true" />
+                <PlayIcon
+className="h-5 w-5"
+aria-hidden="true"
+                />
                 <span className="font-medium">Show Player</span>
               </>
             )}
@@ -70,7 +82,10 @@ function CardWide({ content, mode }) {
               passHref
               className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
             >
-              <InboxInIcon className="h-5 w-5" aria-hidden="true" />
+              <InboxInIcon
+className="h-5 w-5"
+aria-hidden="true"
+              />
               <span className="font-medium">Read</span>
             </Link>
           ) : (
@@ -80,7 +95,10 @@ function CardWide({ content, mode }) {
               target="_blank"
               className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
             >
-              <ExternalLinkIcon className="h-5 w-5" aria-hidden="true" />
+              <ExternalLinkIcon
+className="h-5 w-5"
+aria-hidden="true"
+              />
               <span className="font-medium">Open</span>
             </a>
           )}
@@ -118,7 +136,12 @@ function CardWide({ content, mode }) {
           </div>
         </Link>
       ) : (
-        <a href={content.Url} className="focus:outline-none" target="_blank" rel="noreferrer">
+        <a
+href={content.Url}
+className="focus:outline-none"
+target="_blank"
+rel="noreferrer"
+        >
           <div>
             <Image
               className="cursor-pointer h-80 rounded-t-lg hover:opacity-90"
@@ -163,7 +186,10 @@ function CardWide({ content, mode }) {
 
             {/*  Content Type */}
             {content.ContentType !== 'newsletters' && (
-              <Link href={`/library/${content.ContentType}`} passHref>
+              <Link
+href={`/library/${content.ContentType}`}
+passHref
+              >
                 <div className="cursor-pointer hover:opacity-80">
                   <Badge text={content.ContentType} />
                 </div>
@@ -174,7 +200,12 @@ function CardWide({ content, mode }) {
           {/*  Author */}
           <div className="mb-2">
             {content.Author && (
-              <a href={content.Url} className="" rel="noreferrer" target="_blank">
+              <a
+href={content.Url}
+className=""
+rel="noreferrer"
+target="_blank"
+              >
                 <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-500">
                   by {content.Author}
                 </p>
@@ -187,7 +218,11 @@ function CardWide({ content, mode }) {
         {Array.isArray(content.Tags) && (
           <div className="mb-1 mt-2 cursor-pointer text-sky-500 dark:text-sky-600">
             {content.Tags.map((tag, index) => (
-              <Link key={tag} href={`/library/${content.ContentType}/filter/?tag=${tag}`} passHref>
+              <Link
+key={tag}
+href={`/library/${content.ContentType}/filter/?tag=${tag}`}
+passHref
+              >
                 <button className="lowercase decoration-rose-500 hover:underline">
                   #{tag}
                   {index < content.Tags.length - 1 && <span>,&nbsp;</span>}

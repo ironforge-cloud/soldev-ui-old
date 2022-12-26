@@ -7,7 +7,10 @@ function Hackathon() {
     <section className="rounded-lg p-6 shadow ">
       <div className="mb-5 flex flex-1 gap-2">
         <span className="flex rounded-lg p-2 text-gray-900 dark:text-gray-200">
-          <SpeakerphoneIcon className="h-6 w-6" aria-hidden="true" />
+          <SpeakerphoneIcon
+className="h-6 w-6"
+aria-hidden="true"
+          />
         </span>
         <p className="prose flex flex-col font-medium text-gray-900 dark:text-gray-200">
           <span className="text-xl">Check out the Solana Development Course</span>

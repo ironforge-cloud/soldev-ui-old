@@ -3,7 +3,14 @@ import { memo } from 'react';
 import ReactPlayer from 'react-player';
 
 function Audio({ url }) {
-  return <ReactPlayer height="50px" width="100%" url={url} controls pip stopOnUnmount={false} />;
+  return <ReactPlayer
+height="50px"
+width="100%"
+url={url}
+controls
+pip
+stopOnUnmount={false}
+  />;
 }
 
 Audio.propTypes = {

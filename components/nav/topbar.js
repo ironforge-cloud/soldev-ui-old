@@ -70,12 +70,26 @@ function TopBar({ setSearch }) {
               <div className="flex justify-between">
                 {/* Logo */}
                 <div className="hidden sm:inline-flex">
-                  <Link href="/" passHref className="flex content-center">
+                  <Link
+href="/"
+passHref
+className="flex content-center"
+                  >
                     {mode === 'light' && (
-                      <Image src="/logoblack.svg" alt="SolDev Logo" height="50" width="120" />
+                      <Image
+src="/logoblack.svg"
+alt="SolDev Logo"
+height="50"
+width="120"
+                      />
                     )}
                     {mode === 'dark' && (
-                      <Image src="/logowhite.svg" alt="SolDev Logo" height="50" width="120" />
+                      <Image
+src="/logowhite.svg"
+alt="SolDev Logo"
+height="50"
+width="120"
+                      />
                     )}
                   </Link>
                 </div>
@@ -89,9 +103,15 @@ function TopBar({ setSearch }) {
                   <Popover.Button className="-mx-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 dark:text-gray-300 dark:hover:bg-gray-600">
                     <span className="sr-only">Open menu</span>
                     {open ? (
-                      <XIcon className="block h-6 w-6" aria-hidden="true" />
+                      <XIcon
+className="block h-6 w-6"
+aria-hidden="true"
+                      />
                     ) : (
-                      <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                      <MenuIcon
+className="block h-6 w-6"
+aria-hidden="true"
+                      />
                     )}
                   </Popover.Button>
                 </div>
@@ -99,7 +119,10 @@ function TopBar({ setSearch }) {
                 <div className="flex items-center gap-6">
                   {/* Theme Settings*/}
                   <div className="hidden md:flex">
-                    <Menu as="div" className="relative ml-5 flex-shrink-0">
+                    <Menu
+as="div"
+className="relative ml-5 flex-shrink-0"
+                    >
                       <div>
                         <Menu.Button className="flex rounded-full hover:outline-none hover:ring-2 hover:ring-green-500 hover:ring-offset-2">
                           <span className="sr-only">Open Theme menu</span>
@@ -142,7 +165,10 @@ function TopBar({ setSearch }) {
                   {/*  Profile Button */}
                   <div className="hidden lg:flex">
                     {connected ? (
-                      <Menu as="div" className="relative flex-shrink-0">
+                      <Menu
+as="div"
+className="relative flex-shrink-0"
+                      >
                         <div>
                           <Menu.Button className="flex rounded-full hover:outline-none hover:ring-2 hover:ring-green-500 hover:ring-offset-2">
                             <span className="sr-only">Open user menu</span>
@@ -208,7 +234,11 @@ function TopBar({ setSearch }) {
             </div>
 
             {/* Mobile Menu*/}
-            <Popover.Panel as="nav" className="lg:hidden" aria-label="Global">
+            <Popover.Panel
+as="nav"
+className="lg:hidden"
+aria-label="Global"
+            >
               {({ close }) => (
                 <div className="mx-auto max-w-3xl space-y-1 px-2 pt-2 pb-3 sm:px-4">
                   <NavSidebar closeMobileMenu={close} />

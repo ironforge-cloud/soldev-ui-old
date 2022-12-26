@@ -1,8 +1,8 @@
-import { Fragment } from "react";
-import { Transition } from "@headlessui/react";
-import { ExternalLinkIcon } from "@heroicons/react/outline";
-import { XIcon } from "@heroicons/react/solid";
-import PropTypes from "prop-types";
+import { Fragment } from 'react';
+import { Transition } from '@headlessui/react';
+import { ExternalLinkIcon } from '@heroicons/react/outline';
+import { XIcon } from '@heroicons/react/solid';
+import PropTypes from 'prop-types';
 
 export default function Error({ show, setShow, text }) {
   return (
@@ -44,7 +44,10 @@ export default function Error({ show, setShow, text }) {
                       }}
                     >
                       <span className="sr-only">Close</span>
-                      <XIcon className="h-5 w-5" aria-hidden="true" />
+                      <XIcon
+className="h-5 w-5"
+aria-hidden="true"
+                      />
                     </button>
                   </div>
                 </div>

@@ -1,9 +1,9 @@
-import dynamic from "next/dynamic";
-import useContent from "../../../hooks/useContent";
-import { Container } from "../../../components/layout";
+import dynamic from 'next/dynamic';
+import useContent from '../../../hooks/useContent';
+import { Container } from '../../../components/layout';
 
 const PublicationsComponent = dynamic(() =>
-  import("../../../components/publications")
+  import('../../../components/publications')
 );
 
 export default function PublicationsFilter({}) {
@@ -18,10 +18,10 @@ export default function PublicationsFilter({}) {
   } = useContent();
 
   const metaTags = {
-    title: "SolDev - Filter",
+    title: 'SolDev - Filter',
     description:
-      "Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations",
-    url: "https://soldev.app/library",
+      'Learn to Develop using Solana. Tutorials, SDK\'s, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations',
+    url: 'https://soldev.app/library',
     shouldIndex: false,
   };
 

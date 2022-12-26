@@ -1,8 +1,8 @@
-import { Fragment, memo, useEffect } from "react";
-import { Transition } from "@headlessui/react";
-import { CheckCircleIcon } from "@heroicons/react/outline";
-import { LinkIcon, XIcon } from "@heroicons/react/solid";
-import PropTypes from "prop-types";
+import { Fragment, memo, useEffect } from 'react';
+import { Transition } from '@headlessui/react';
+import { CheckCircleIcon } from '@heroicons/react/outline';
+import { LinkIcon, XIcon } from '@heroicons/react/solid';
+import PropTypes from 'prop-types';
 
 function Success({ type, show, setShow, text, subText }) {
   useEffect(() => {
@@ -38,7 +38,7 @@ function Success({ type, show, setShow, text, subText }) {
               <div className="p-4">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
-                    {type === "link" ? (
+                    {type === 'link' ? (
                       <LinkIcon
                         className="h-6 w-6 text-green-400"
                         aria-hidden="true"
@@ -66,7 +66,10 @@ function Success({ type, show, setShow, text, subText }) {
                       }}
                     >
                       <span className="sr-only">Close</span>
-                      <XIcon className="h-5 w-5" aria-hidden="true" />
+                      <XIcon
+className="h-5 w-5"
+aria-hidden="true"
+                      />
                     </button>
                   </div>
                 </div>
@@ -82,7 +85,7 @@ function Success({ type, show, setShow, text, subText }) {
 export default memo(Success);
 
 Success.defaultProps = {
-  type: "default",
+  type: 'default',
 };
 
 Success.propTypes = {
@@ -94,5 +97,5 @@ Success.propTypes = {
 };
 
 Success.defaultProps = {
-  subText: "",
+  subText: '',
 };

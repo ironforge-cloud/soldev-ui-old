@@ -71,7 +71,10 @@ function ContentTags({ data, setData, type }) {
         <div className="mt-4 space-y-4">
           {tagList.level.map(tag => {
             return (
-              <div key={tag} className="flex items-center">
+              <div
+key={tag}
+className="flex items-center"
+              >
                 <input
                   id={tag}
                   name="levelTags"
@@ -104,7 +107,10 @@ function ContentTags({ data, setData, type }) {
         <div className="mt-4 space-y-4">
           {tagList.industry.map(tag => {
             return (
-              <div key={tag} className="flex items-center">
+              <div
+key={tag}
+className="flex items-center"
+              >
                 <input
                   id={tag}
                   name="techTags"
@@ -135,7 +141,10 @@ function ContentTags({ data, setData, type }) {
         <div className="mt-4 space-y-4">
           {tagList.protocols.map(tag => {
             return (
-              <div key={tag} className="flex items-center">
+              <div
+key={tag}
+className="flex items-center"
+              >
                 <input
                   id={tag}
                   name="languageTags"
@@ -166,7 +175,10 @@ function ContentTags({ data, setData, type }) {
         <div className="mt-4 space-y-4">
           {tagList.framework.map(tag => {
             return (
-              <div key={tag} className="flex items-center">
+              <div
+key={tag}
+className="flex items-center"
+              >
                 <input
                   id={tag}
                   name="languageTags"
@@ -197,7 +209,10 @@ function ContentTags({ data, setData, type }) {
         <div className="mt-4 space-y-4">
           {tagList.language.map(tag => {
             return (
-              <div key={tag} className="flex items-center">
+              <div
+key={tag}
+className="flex items-center"
+              >
                 <input
                   id={tag}
                   name="languageTags"

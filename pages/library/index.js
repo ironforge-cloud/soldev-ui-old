@@ -23,7 +23,7 @@ export default function Library({ newContent, tweets, latestNewsletter }) {
   const metaTags = {
     title: 'SolDev - Library',
     description:
-      "Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations",
+      'Learn to Develop using Solana. Tutorials, SDK\'s, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations',
     url: 'https://soldev.app/library',
     shouldIndex: true
   };
@@ -36,7 +36,10 @@ export default function Library({ newContent, tweets, latestNewsletter }) {
         </main>
 
         <aside className="hidden max-w-sm xl:block">
-          <Sidebar tweets={tweets} latestNewsletter={latestNewsletter} />
+          <Sidebar
+tweets={tweets}
+latestNewsletter={latestNewsletter}
+          />
         </aside>
       </div>
     </Container>

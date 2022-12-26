@@ -1,8 +1,8 @@
-import fetcher from "../../../../utils/fetcher";
-import { Container } from "../../../../components/layout";
-import dynamic from "next/dynamic";
+import fetcher from '../../../../utils/fetcher';
+import { Container } from '../../../../components/layout';
+import dynamic from 'next/dynamic';
 
-const Player = dynamic(() => import("../../../../components/videos/player"));
+const Player = dynamic(() => import('../../../../components/videos/player'));
 
 export async function getStaticPaths() {
   const data = await fetcher(
@@ -32,7 +32,7 @@ export async function getStaticPaths() {
   });
 
   // All missing paths are going to be server-side rendered and cached
-  return { paths, fallback: "blocking" };
+  return { paths, fallback: 'blocking' };
 }
 
 export async function getStaticProps({ params }) {

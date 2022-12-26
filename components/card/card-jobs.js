@@ -12,7 +12,10 @@ function classNames(...classes) {
 
 function JobCard({ job, open }) {
   return (
-    <Disclosure as="div" defaultOpen={open}>
+    <Disclosure
+as="div"
+defaultOpen={open}
+    >
       {({ open }) => (
         <>
           <dt className="rounded-lg bg-white p-1 text-lg shadow hover:bg-gray-50 hover:shadow-md dark:bg-gray-800 hover:dark:bg-gray-700">
@@ -20,7 +23,11 @@ function JobCard({ job, open }) {
               <div className="flex gap-5">
                 <div className="relative inline-block h-14 w-14 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-700">
                   {job.fields['Logo Avatar'] ? (
-                    <Image src={job.fields['Logo Avatar']} layout="fill" alt="" />
+                    <Image
+src={job.fields['Logo Avatar']}
+layout="fill"
+alt=""
+                    />
                   ) : (
                     <svg
                       className="h-full w-full text-gray-300"

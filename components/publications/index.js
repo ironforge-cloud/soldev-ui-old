@@ -55,13 +55,21 @@ function Publications({
 
       {tags && (
         <div className="flex justify-center">
-          <TagsSelector tagsList={tagsList} contentType={contentType} badges={badges} tags={tags} />
+          <TagsSelector
+tagsList={tagsList}
+contentType={contentType}
+badges={badges}
+tags={tags}
+          />
         </div>
       )}
 
       {contentType === 'newsletters' && (
         <div className="mx-auto mb-20 flex max-w-3xl">
-          <CardWide mode="dashboard" content={lastNewsletter} />
+          <CardWide
+mode="dashboard"
+content={lastNewsletter}
+          />
         </div>
       )}
 
@@ -94,13 +102,21 @@ function Publications({
             // Playlist Content
             return (
               <div key={content.SK}>
-                <CardVideo content={content} closeSearch={closeSearch} />
+                <CardVideo
+content={content}
+closeSearch={closeSearch}
+                />
               </div>
             );
           })
         )}
       </div>
-      <ContentFormModal open={open} setOpen={setOpen} content={content} positions={positions} />
+      <ContentFormModal
+open={open}
+setOpen={setOpen}
+content={content}
+positions={positions}
+      />
     </div>
   );
 }

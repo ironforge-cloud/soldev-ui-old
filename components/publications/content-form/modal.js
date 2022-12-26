@@ -1,7 +1,7 @@
-import { Fragment, useEffect, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import PropTypes from "prop-types";
-import ContentForm from "./index";
+import { Fragment, useEffect, useState } from 'react';
+import { Dialog, Transition } from '@headlessui/react';
+import PropTypes from 'prop-types';
+import ContentForm from './index';
 
 export default function Modal({ open, setOpen, content, positions }) {
   const [data, setData] = useState({});
@@ -25,7 +25,10 @@ export default function Modal({ open, setOpen, content, positions }) {
   }, [content]);
 
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition.Root
+show={open}
+as={Fragment}
+    >
       <Dialog
         as="div"
         className="fixed z-10 inset-0 overflow-y-auto"

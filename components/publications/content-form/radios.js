@@ -15,7 +15,10 @@ function Radios({ data, setData, type }) {
         <div className="grid grid-cols-2 gap-3 mt-4 w-full md:grid-cols-3">
           {contentType.map(type => {
             return (
-              <div key={type} className="flex items-center">
+              <div
+key={type}
+className="flex items-center"
+              >
                 <input
                   id={type}
                   name="content-type"
@@ -50,7 +53,10 @@ function Radios({ data, setData, type }) {
             <div className="mt-4 space-y-4">
               {tagList.badge.map(tag => {
                 return (
-                  <div key={tag} className="flex items-center">
+                  <div
+key={tag}
+className="flex items-center"
+                  >
                     <input
                       id={tag}
                       name="badge"
@@ -89,7 +95,10 @@ function Radios({ data, setData, type }) {
             <div className="mt-4 space-y-4">
               {contentList.map(tag => {
                 return (
-                  <div key={tag} className="flex items-center">
+                  <div
+key={tag}
+className="flex items-center"
+                  >
                     <input
                       id={tag}
                       name="lists"

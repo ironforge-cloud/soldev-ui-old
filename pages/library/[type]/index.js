@@ -1,11 +1,11 @@
-import fetcher from "../../../utils/fetcher";
-import findTags from "../../../utils/find-tags";
-import defineTitle from "../../../utils/define-title";
-import dynamic from "next/dynamic";
-import { Container } from "../../../components/layout";
+import fetcher from '../../../utils/fetcher';
+import findTags from '../../../utils/find-tags';
+import defineTitle from '../../../utils/define-title';
+import dynamic from 'next/dynamic';
+import { Container } from '../../../components/layout';
 
 const PublicationsComponent = dynamic(() =>
-  import("../../../components/publications")
+  import('../../../components/publications')
 );
 
 export async function getStaticPaths() {
@@ -35,7 +35,7 @@ export async function getStaticPaths() {
   });
 
   // All missing paths are going to be server-side rendered and cached
-  return { paths, fallback: "blocking" };
+  return { paths, fallback: 'blocking' };
 }
 
 export async function getStaticProps(context) {
@@ -46,7 +46,7 @@ export async function getStaticProps(context) {
     `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/types`
   );
 
-  let contentType = "";
+  let contentType = '';
 
   // Content Type definition
   for (let i = 0; i < contentTypes.length; i++) {
@@ -55,7 +55,7 @@ export async function getStaticProps(context) {
       break;
     }
 
-    contentType = "playlist";
+    contentType = 'playlist';
   }
 
   const title = defineTitle(contentType, data);
@@ -70,8 +70,8 @@ export async function getStaticProps(context) {
 export default function Publications({ data, title, contentType, tags }) {
   // Page description definition
   let pageDescription =
-    "Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations";
-  if (contentType === "playlist") pageDescription = title;
+    'Learn to Develop using Solana. Tutorials, SDK\'s, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations';
+  if (contentType === 'playlist') pageDescription = title;
 
   const metaTags = {
     title: `SolDev - ${title}`,

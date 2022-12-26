@@ -1,13 +1,13 @@
-import { BookmarkIcon as BookmarkSolid } from "@heroicons/react/solid";
-import { BookmarkIcon } from "@heroicons/react/outline";
-import PropTypes from "prop-types";
-import { memo } from "react";
-import fetch from "isomorphic-unfetch";
+import { BookmarkIcon as BookmarkSolid } from '@heroicons/react/solid';
+import { BookmarkIcon } from '@heroicons/react/outline';
+import PropTypes from 'prop-types';
+import { memo } from 'react';
+import fetch from 'isomorphic-unfetch';
 
 function PinActions({ pinned, tweetID }) {
   const onClick = () => {
     fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/tweets/pin/${tweetID}`, {
-      method: "PATCH",
+      method: 'PATCH',
     });
   };
 

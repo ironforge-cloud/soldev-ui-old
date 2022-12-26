@@ -130,7 +130,10 @@ export default function Community({ tweets, latestNewsletter }) {
         </main>
 
         <aside className="hidden max-w-sm xl:block">
-          <Sidebar tweets={tweets} latestNewsletter={latestNewsletter} />
+          <Sidebar
+tweets={tweets}
+latestNewsletter={latestNewsletter}
+          />
         </aside>
       </div>
     </Container>

@@ -7,10 +7,15 @@ function classNames(...classes) {
 
 export default function CardCompanies({ id, name, logo, bgColor, description, status, url }) {
   return (
-    <a href={url} target="_blank" rel="noreferrer" key={id}>
+    <a
+href={url}
+target="_blank"
+rel="noreferrer"
+key={id}
+    >
       <button
         className={classNames(
-          `flex h-[400px] w-[330px] flex-col rounded-lg border border-gray-300 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800`,
+          'flex h-[400px] w-[330px] flex-col rounded-lg border border-gray-300 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800',
           status === 'active'
             ? 'cursor-pointer hover:opacity-95 hover:shadow-sky-500/30 dark:hover:shadow-sky-400/20 '
             : 'cursor-not-allowed opacity-30'

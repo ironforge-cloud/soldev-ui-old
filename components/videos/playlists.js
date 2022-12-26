@@ -2,9 +2,9 @@ import {
   ChevronRightIcon,
   FolderIcon,
   VideoCameraIcon,
-} from "@heroicons/react/solid";
-import Link from "next/link";
-import PropTypes from "prop-types";
+} from '@heroicons/react/solid';
+import Link from 'next/link';
+import PropTypes from 'prop-types';
 
 export default function Playlists({ data }) {
   return (
@@ -23,14 +23,17 @@ export default function Playlists({ data }) {
           <>
             {data.map((playlist) => (
               <li key={playlist.ID}>
-                <Link href={`/library/${playlist.ID}`} passHref>
+                <Link
+href={`/library/${playlist.ID}`}
+passHref
+                >
                   <div className="flex items-center space-x-2 pl-2 h-12">
                     <ChevronRightIcon
                       className="h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-500"
                       aria-hidden="true"
                     />
                     <span className="truncate hover:text-gray-600 dark:hover:text-gray-500  dark:text-gray-200 cursor-pointer text-sm">
-                      {playlist.Title}{" "}
+                      {playlist.Title}{' '}
                       <span className="text-gray-500 dark:text-gray-500 font-normal">
                         by {playlist.Author}
                       </span>
@@ -67,9 +70,12 @@ export default function Playlists({ data }) {
                         className="h-8 w-8 text-gray-700 dark:text-gray-500"
                         aria-hidden="true"
                       />
-                      <Link href={`/library/${playlist.ID}`} passHref>
+                      <Link
+href={`/library/${playlist.ID}`}
+passHref
+                      >
                         <span className="truncate hover:text-gray-600 dark:text-gray-200 tracking-wide font-medium">
-                          {playlist.Title}{" "}
+                          {playlist.Title}{' '}
                           <span className="text-gray-500 dark:text-gray-400 font-normal">
                             by {playlist.Author}
                           </span>
@@ -80,13 +86,13 @@ export default function Playlists({ data }) {
 
                   <td className="hidden md:table-cell px-3 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
                     <div className="flex items-center space-x-2">
-                      {playlist.Provider === "Youtube" && (
+                      {playlist.Provider === 'Youtube' && (
                         <VideoCameraIcon
                           className="h-6 w-6 text-red-500"
                           aria-hidden="true"
                         />
                       )}
-                      {playlist.Provider === "Twitch" && (
+                      {playlist.Provider === 'Twitch' && (
                         <VideoCameraIcon
                           className="h-6 w-6 text-purple-500"
                           aria-hidden="true"

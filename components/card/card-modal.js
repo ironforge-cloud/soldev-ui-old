@@ -1,11 +1,14 @@
-import { Fragment } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import PropTypes from "prop-types";
-import Card from "./card-wide";
+import { Fragment } from 'react';
+import { Dialog, Transition } from '@headlessui/react';
+import PropTypes from 'prop-types';
+import Card from './card-wide';
 
 export default function CardModal({ content, open, setOpen }) {
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition.Root
+show={open}
+as={Fragment}
+    >
       <Dialog
         as="div"
         className="fixed z-10 inset-0 overflow-y-auto"
@@ -42,7 +45,11 @@ export default function CardModal({ content, open, setOpen }) {
           >
             <div className="inline-block align-bottom bg-white dark:bg-gray-800 rounded-xl text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-2xl">
               <div className="sm:flex sm:items-start">
-                <Card content={content} mode="modal" editContent={() => {}} />
+                <Card
+content={content}
+mode="modal"
+editContent={() => {}}
+                />
               </div>
             </div>
           </Transition.Child>

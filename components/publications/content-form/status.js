@@ -1,25 +1,25 @@
-import { Fragment, useState, useEffect, memo } from "react";
-import { Listbox, Transition } from "@headlessui/react";
-import { CheckIcon, ChevronDownIcon } from "@heroicons/react/solid";
-import PropTypes from "prop-types";
+import { Fragment, useState, useEffect, memo } from 'react';
+import { Listbox, Transition } from '@headlessui/react';
+import { CheckIcon, ChevronDownIcon } from '@heroicons/react/solid';
+import PropTypes from 'prop-types';
 
 const publishingOptions = [
   {
-    title: "active",
-    description: "Approved content and visible by everyone",
+    title: 'active',
+    description: 'Approved content and visible by everyone',
   },
   {
-    title: "submitted",
-    description: "Submitted content, waiting for an Admin approval",
+    title: 'submitted',
+    description: 'Submitted content, waiting for an Admin approval',
   },
   {
-    title: "inactive",
-    description: "Inactive content, only visible by Admins (soft-delete)",
+    title: 'inactive',
+    description: 'Inactive content, only visible by Admins (soft-delete)',
   },
 ];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
 function Status({ data, setData }) {
@@ -27,9 +27,9 @@ function Status({ data, setData }) {
 
   useEffect(() => {
     if (data) {
-      if (data.ContentStatus === "active") {
+      if (data.ContentStatus === 'active') {
         setSelected(publishingOptions[0]);
-      } else if (data.ContentStatus === "submitted") {
+      } else if (data.ContentStatus === 'submitted') {
         setSelected(publishingOptions[1]);
       } else {
         setSelected(publishingOptions[2]);
@@ -43,7 +43,10 @@ function Status({ data, setData }) {
   }
 
   return (
-    <Listbox value={selected} onChange={onChange}>
+    <Listbox
+value={selected}
+onChange={onChange}
+    >
       {({ open }) => (
         <>
           <Listbox.Label className="sr-only">
@@ -53,7 +56,10 @@ function Status({ data, setData }) {
             <div className="inline-flex shadow-sm rounded-md divide-x divide-indigo-600">
               <div className="relative z-0 inline-flex shadow-sm rounded-md divide-x divide-indigo-600">
                 <div className="relative inline-flex items-center bg-indigo-500 py-2 pl-3 pr-4 border border-transparent rounded-l-md shadow-sm text-white">
-                  <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                  <CheckIcon
+className="h-5 w-5"
+aria-hidden="true"
+                  />
                   <p className="ml-2.5 text-sm font-medium capitalize">
                     {selected.title}
                   </p>
@@ -81,8 +87,8 @@ function Status({ data, setData }) {
                     key={option.title}
                     className={({ active }) =>
                       classNames(
-                        active ? "text-white bg-indigo-500" : "text-gray-900",
-                        "cursor-default select-none relative p-4 text-sm capitalize"
+                        active ? 'text-white bg-indigo-500' : 'text-gray-900',
+                        'cursor-default select-none relative p-4 text-sm capitalize'
                       )
                     }
                     value={option}
@@ -92,7 +98,7 @@ function Status({ data, setData }) {
                         <div className="flex justify-between">
                           <p
                             className={
-                              selected ? "font-semibold" : "font-normal"
+                              selected ? 'font-semibold' : 'font-normal'
                             }
                           >
                             {option.title}
@@ -100,7 +106,7 @@ function Status({ data, setData }) {
                           {selected ? (
                             <span
                               className={
-                                active ? "text-white" : "text-indigo-500"
+                                active ? 'text-white' : 'text-indigo-500'
                               }
                             >
                               <CheckIcon
@@ -112,8 +118,8 @@ function Status({ data, setData }) {
                         </div>
                         <p
                           className={classNames(
-                            active ? "text-indigo-200" : "text-gray-500",
-                            "mt-2"
+                            active ? 'text-indigo-200' : 'text-gray-500',
+                            'mt-2'
                           )}
                         >
                           {option.description}

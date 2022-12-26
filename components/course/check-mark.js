@@ -47,9 +47,15 @@ function CheckMark({ item }) {
       onMouseEnter={() => setCheckMarkHover(true)}
     >
       {checkMarkHover || checkMark ? (
-        <CheckIcon className="h-6 w-6" aria-hidden="true" />
+        <CheckIcon
+className="h-6 w-6"
+aria-hidden="true"
+        />
       ) : (
-        <div className="h-6 w-6" onMouseEnter={() => setCheckMarkHover(true)} />
+        <div
+className="h-6 w-6"
+onMouseEnter={() => setCheckMarkHover(true)}
+        />
       )}
     </button>
   );

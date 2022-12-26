@@ -1,31 +1,31 @@
-import { useState } from "react";
-import dynamic from "next/dynamic";
-import ContentForm from "../components/publications/content-form";
-import { Container } from "../components/layout";
+import { useState } from 'react';
+import dynamic from 'next/dynamic';
+import ContentForm from '../components/publications/content-form';
+import { Container } from '../components/layout';
 
 const NotificationSuccess = dynamic(() =>
-  import("../components/notifications/success")
+  import('../components/notifications/success')
 );
 
 export default function Submit() {
   const [data, setData] = useState({
-    Title: "",
-    Author: "",
-    Description: "",
-    Url: "",
-    Vertical: "Solana",
+    Title: '',
+    Author: '',
+    Description: '',
+    Url: '',
+    Vertical: 'Solana',
     Tags: [],
-    ContentType: "",
-    SpecialTag: "New",
-    ContentStatus: "submitted",
+    ContentType: '',
+    SpecialTag: 'New',
+    ContentStatus: 'submitted',
   });
   const [notifySuccess, setNotifySuccess] = useState(false);
 
   const metaTags = {
-    title: "SolDev - Submit",
+    title: 'SolDev - Submit',
     description:
-      "Propose new content to the platform. Submissions will be manually reviewed before deciding to publish them to the site.",
-    url: "https://soldev.app/submit",
+      'Propose new content to the platform. Submissions will be manually reviewed before deciding to publish them to the site.',
+    url: 'https://soldev.app/submit',
     shouldIndex: true,
   };
 
