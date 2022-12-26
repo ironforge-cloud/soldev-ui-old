@@ -11,7 +11,7 @@
     "@algolia/autocomplete-core": "^1.7.4",
     "@algolia/autocomplete-preset-algolia": "^1.7.4",
     "@headlessui/react": "^1.7.7",
-    "@heroicons/react": "1.0.6",
+    "@heroicons/react": "2.0.13",
     "@solana/wallet-adapter-base": "^0.9.20",
     "@solana/wallet-adapter-react": "^0.15.27",
     "@solana/wallet-adapter-react-ui": "^0.9.26",
