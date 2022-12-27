@@ -96,8 +96,8 @@ export default function CourseContent({ content }) {
           </div>
 
           <ArticleContent
-markdown={content.markdown}
-className="prose py-5 dark:prose-invert"
+            markdown={content.markdown}
+            className="prose mx-auto max-w-6xl py-5 dark:prose-invert"
           />
 
           <Link
