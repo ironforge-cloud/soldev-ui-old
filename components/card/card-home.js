@@ -8,7 +8,7 @@ const CopyLink = dynamic(() => import('./copy-link.js'));
 
 function CardHome({ title, url, contentType, author, tags, description }) {
   function actionButton() {
-    if (!url.includes('https://')) {
+    if (!url.includes('https://') || url.includes('soldev')) {
       return (
         <Link
           href={url}

@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import React, { memo, useState } from 'react';
-import Hackathon from './hackathon';
 
 const Tweet = dynamic(() => import('../twitter/tweet'));
 const LatestNewsletter = dynamic(() => import('./latestNewsletter'));
@@ -43,9 +42,9 @@ function Sidebar({ tweets, latestNewsletter }) {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="rounded-lg bg-white shadow dark:bg-gray-800">
-        <Hackathon />
-      </div>
+      {/*<div className="rounded-lg bg-white shadow dark:bg-gray-800">*/}
+      {/*  <Hackathon />*/}
+      {/*</div>*/}
 
       <LatestNewsletter data={latestNewsletter} />
 
@@ -61,10 +60,7 @@ function Sidebar({ tweets, latestNewsletter }) {
             </h2>
           </div>
           <div className="mt-6 flow-root">
-            <div
-role="list"
-className="-my-4 divide-y divide-gray-200 dark:divide-gray-600"
-            >
+            <div role="list" className="-my-4 divide-y divide-gray-200 dark:divide-gray-600">
               {Array.isArray(tweets) && loadTweets(tweets)}
             </div>
           </div>

@@ -41,7 +41,7 @@ const blocks = [
       },
       {
         title: 'Solana Bootmcap',
-        url: '/library/PLilwLeBwGuK7Z2dXft_pmLZ675fuPgkA0',
+        url: 'https://soldev.app/library/PLilwLeBwGuK7Z2dXft_pmLZ675fuPgkA0',
         tags: ['advance', 'rust'],
         author: 'Solana Foundation',
         description: 'A bootcamp for building on Solana with Jarry Xiao'
@@ -59,7 +59,7 @@ const blocks = [
       },
       {
         title: 'Changelog',
-        url: '/library/PLilwLeBwGuK5-Qri7Pg9zd-Vvhz9kX2-R',
+        url: 'https://soldev.app/library/PLilwLeBwGuK5-Qri7Pg9zd-Vvhz9kX2-R',
         author: 'Solana Foundation',
         description: 'Weekly updates on the Solana ecosystem'
       },
