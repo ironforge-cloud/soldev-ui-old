@@ -1,10 +1,11 @@
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import Banner from '../components/course/banner';
 import { Container } from '../components/layout';
 import fetch from '../utils/fetcher';
 
 const Sidebar = dynamic(() => import('../components/sidebar'));
-const CardHome = dynamic(() => import('../components/card/card-home2'));
+const CardHome = dynamic(() => import('../components/card/card-home'));
 
 export async function getStaticProps() {
   const newContent = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/specialtag/New`);
@@ -26,21 +27,21 @@ const blocks = [
     item: [
       {
         title: 'Solana Cookbook',
-        url: 'https://solanacookbook.com/?utm_source=soldev.app',
+        url: 'https://solanacookbook.com',
         tags: ['beginner', 'javascript'],
         author: 'Solana Foundation',
         description: 'A collection of recipes for building on Solana'
       },
       {
         title: 'buildspace\n Solana Core',
-        url: 'https://buildspace.so/solana-core?utm_source=soldev.app',
+        url: 'https://buildspace.so/solana-core',
         tags: ['intermediate', 'anchor'],
         author: 'Buildspace',
         description: 'A 6-week course on building on Solana'
       },
       {
         title: 'Solana Bootmcap',
-        url: 'https://www.anchor-lang.com/?utm_source=soldev.app',
+        url: '/library/PLilwLeBwGuK7Z2dXft_pmLZ675fuPgkA0',
         tags: ['advance', 'rust'],
         author: 'Solana Foundation',
         description: 'A bootcamp for building on Solana with Jarry Xiao'
@@ -52,19 +53,19 @@ const blocks = [
     item: [
       {
         title: 'Newsletter',
-        url: 'https://soldev.app/newsletters',
+        url: '/newsletters',
         author: 'Solana Foundation',
         description: 'The latest news and updates from the Solana Foundation'
       },
       {
         title: 'Changelog',
-        url: 'https://soldev.app/changelogs',
+        url: '/library/PLilwLeBwGuK5-Qri7Pg9zd-Vvhz9kX2-R',
         author: 'Solana Foundation',
         description: 'Weekly updates on the Solana ecosystem'
       },
       {
         title: 'Core Dev Call',
-        url: 'https://soldev.app/core-dev-calls',
+        url: 'https://www.youtube.com/@SolanaFndn',
         author: 'Solana Foundation',
         description: 'Solana protocol core contributors weekly call'
       }
@@ -75,19 +76,19 @@ const blocks = [
     item: [
       {
         title: 'Jobs',
-        url: 'https://earn.superteam.fun/opportunities/category/jobs?utm_source=soldev.app',
+        url: 'https://earn.superteam.fun/opportunities/category/jobs',
         author: 'Supterteam',
         description: 'Find a job in the Solana ecosystem'
       },
       {
         title: 'Bounties',
-        url: 'https://earn.superteam.fun/opportunities/category/bounties?utm_source=soldev.app',
+        url: 'https://earn.superteam.fun/opportunities/category/bounties',
         author: 'Supterteam',
         description: 'Find a bounty in the Solana ecosystem'
       },
       {
         title: 'Grants',
-        url: 'https://earn.superteam.fun/opportunities/category/grants?utm_source=soldev.app',
+        url: 'https://earn.superteam.fun/opportunities/category/grants',
         author: 'Supterteam',
         description: 'Find a grant in the Solana ecosystem'
       }
@@ -111,10 +112,15 @@ export default function Home({ tweets, latestNewsletter }) {
           {/* Main Card */}
           <div className="flex h-80 flex-col justify-center rounded-lg bg-white shadow-lg hover:shadow-sky-500/30 dark:bg-gray-800 dark:hover:shadow-sky-400/20">
             <div className="px-6 text-center text-gray-900 dark:text-gray-100 md:px-10 ">
-              <p className="text-2xl font-bold md:text-3xl 2xl:text-4xl">
-                Solana Development Course
-              </p>
-              <p className="mt-1 text-gray-600">by James Pacheco</p>
+              <div className="flex flex-col items-center">
+                <Link href="/course">
+                  <h2 className="text-2xl font-bold capitalize text-gray-900 dark:text-gray-200 md:text-3xl 2xl:text-4xl">
+                    Solana Development Course
+                  </h2>
+                </Link>
+                <Banner />
+              </div>
+
               <p className="mt-5 text-gray-600 dark:text-gray-200">
                 This course is designed to be the absolute best starting point for Web Developers
                 looking to learn Web3 Development. Solana is the ideal network for starting your
@@ -123,8 +129,8 @@ export default function Home({ tweets, latestNewsletter }) {
             </div>
           </div>
           <div className="relative">
-            <Link href="/course" passHref>
-              <p className="absolute bottom-0 right-0 mb-4 mr-4 cursor-pointer text-sm text-sky-600 hover:text-sky-800 lg:text-base">
+            <Link href="/course">
+              <p className="absolute bottom-0 right-0 mb-4 mr-4 cursor-pointer text-sky-600 decoration-rose-500 hover:underline">
                 <>Start learning &rarr;</>
               </p>
             </Link>
