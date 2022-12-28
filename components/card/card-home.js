@@ -5,7 +5,7 @@ function CardHome({ card }) {
   return (
     <div
       key={card.title}
-      className="flex h-48 flex-col justify-center overflow-hidden rounded-lg bg-white shadow-lg dark:bg-gray-800"
+      className="flex h-48 flex-col justify-center overflow-hidden rounded-lg bg-white shadow-lg hover:shadow-sky-500/30 dark:bg-gray-800 dark:hover:shadow-sky-400/20"
     >
       <div
         key={card.title}

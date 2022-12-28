@@ -88,12 +88,13 @@ export default function Home({ tweets, latestNewsletter }) {
     <Container metaTags={metaTags}>
       <div className="flex justify-center gap-6 px-2 md:pl-0">
         <main className="max-w-4xl">
-          <div className="flex h-80 flex-col justify-center rounded-lg bg-white shadow-lg dark:bg-gray-800">
-            <div className="px-6 text-center text-gray-900 dark:text-gray-100 md:px-10">
+          {/* Main Card */}
+          <div className="flex h-80 flex-col justify-center rounded-lg bg-white shadow-lg hover:shadow-sky-500/30 dark:bg-gray-800 dark:hover:shadow-sky-400/20">
+            <div className="px-6 text-center text-gray-900 dark:text-gray-100 md:px-10 ">
               <p className="text-2xl font-bold md:text-3xl 2xl:text-4xl">
                 Solana Development Course
               </p>
-              <p className="my-4 text-gray-600 dark:text-gray-200 sm:text-lg">
+              <p className="my-4 text-gray-600 dark:text-gray-200">
                 This course is designed to be the absolute best starting point for Web Developers
                 looking to learn Web3 Development. Solana is the ideal network for starting your
                 Web3 journey because of its high speed, low cost, energy efficiency, and more.
@@ -110,6 +111,7 @@ export default function Home({ tweets, latestNewsletter }) {
 
           <div className="mx-auto mt-12 lg:max-w-none">
             {blocks.map(card => (
+              // Smaller cards
               <div key={card.heading}>
                 <p className="mx-2 mt-10 mb-2 text-center text-xl font-bold text-gray-900 dark:text-gray-200 sm:text-left">
                   {card.heading}
