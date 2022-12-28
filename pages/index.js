@@ -66,7 +66,7 @@ const blocks = [
         title: 'Core Dev Call',
         url: 'https://soldev.app/core-dev-calls',
         author: 'Solana Foundation',
-        description: 'Monthly core dev calls'
+        description: 'Solana protocol core contributors weekly call'
       }
     ]
   },
@@ -114,7 +114,8 @@ export default function Home({ tweets, latestNewsletter }) {
               <p className="text-2xl font-bold md:text-3xl 2xl:text-4xl">
                 Solana Development Course
               </p>
-              <p className="my-4 text-gray-600 dark:text-gray-200">
+              <p className="mt-1 text-gray-600">by James Pacheco</p>
+              <p className="mt-5 text-gray-600 dark:text-gray-200">
                 This course is designed to be the absolute best starting point for Web Developers
                 looking to learn Web3 Development. Solana is the ideal network for starting your
                 Web3 journey because of its high speed, low cost, energy efficiency, and more.

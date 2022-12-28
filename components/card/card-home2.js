@@ -38,7 +38,7 @@ function CardHome({ title, url, contentType, author, tags, description }) {
   }
 
   return (
-    <div className=" flex flex-col rounded-lg border border-gray-300 bg-white shadow-lg hover:opacity-95 hover:shadow-sky-500/30 dark:border-gray-700 dark:bg-gray-800 dark:hover:shadow-sky-400/20">
+    <div className="mb-10 flex flex-col rounded-lg border border-gray-300 bg-white shadow-lg hover:opacity-95 hover:shadow-sky-500/30 dark:border-gray-700 dark:bg-gray-800 dark:hover:shadow-sky-400/20">
       <div className="px-5 pt-5">
         <div className="overflow-hidden">
           <div className="border-b-2 border-dashed border-gray-700 dark:border-gray-500">
@@ -81,13 +81,15 @@ function CardHome({ title, url, contentType, author, tags, description }) {
         </div>
 
         {/*  Actions */}
-        <div className="mt-10 flex flex-row items-end justify-between pt-2 pb-5">
-          <div>{actionButton()}</div>
+        <div className="relative mt-32">
+          <div className="absolute bottom-5 flex w-full flex-row justify-between">
+            <div className="">{actionButton()}</div>
 
-          {/* Copy Link Btn */}
-          <div>
-            <div className="flex flex-row items-end">
-              <CopyLink title={title} url={url} />
+            {/* Copy Link Btn */}
+            <div>
+              <div className="flex flex-row items-end">
+                <CopyLink title={title} url={url} />
+              </div>
             </div>
           </div>
         </div>
