@@ -150,7 +150,7 @@ function NavSidebar({ closeMobileMenu }) {
     if (window && window.sessionStorage.getItem('main-navigation')) {
       setCurrent(window.sessionStorage.getItem('main-navigation'));
     } else {
-      setCurrent('Library');
+      setCurrent('Home');
     }
   }, []);
 
