@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { Container } from '../components/layout';
 import fetch from '../utils/fetcher';
-import Link from 'next/link';
 
 const Sidebar = dynamic(() => import('../components/sidebar'));
 const CardHome = dynamic(() => import('../components/card/card-home'));
@@ -75,7 +75,7 @@ const blocks = [
   }
 ];
 
-export default function Home({tweets, latestNewsletter }) {
+export default function Home({ tweets, latestNewsletter }) {
   const metaTags = {
     title: 'SolDev - Home',
     description:
@@ -88,12 +88,12 @@ export default function Home({tweets, latestNewsletter }) {
     <Container metaTags={metaTags}>
       <div className="flex justify-center gap-6 px-2 md:pl-0">
         <main className="max-w-4xl">
-          <div className="mt-6 flex h-80 flex-col justify-center rounded-lg bg-white shadow-lg dark:bg-gray-800">
-            <div className="px-6 text-center text-gray-900 dark:text-gray-200 md:px-10">
+          <div className="flex h-80 flex-col justify-center rounded-lg bg-white shadow-lg dark:bg-gray-800">
+            <div className="px-6 text-center text-gray-900 dark:text-gray-100 md:px-10">
               <p className="text-2xl font-bold md:text-3xl 2xl:text-4xl">
                 Solana Development Course
               </p>
-              <p className="my-4 sm:text-lg">
+              <p className="my-4 text-gray-600 dark:text-gray-200 sm:text-lg">
                 This course is designed to be the absolute best starting point for Web Developers
                 looking to learn Web3 Development. Solana is the ideal network for starting your
                 Web3 journey because of its high speed, low cost, energy efficiency, and more.
@@ -102,7 +102,7 @@ export default function Home({tweets, latestNewsletter }) {
           </div>
           <div className="relative">
             <Link href="/course" passHref>
-              <p className="absolute bottom-0 right-0 mb-4 mr-4 cursor-pointer text-sm text-sky-600 hover:text-sky-700 hover:underline lg:text-base">
+              <p className="absolute bottom-0 right-0 mb-4 mr-4 cursor-pointer text-sm text-sky-600 hover:text-sky-800 lg:text-base">
                 <>Start learning &rarr;</>
               </p>
             </Link>

@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic';
 import { memo, useState } from 'react';
-import NavPromotion from './nav-promotion';
 import TopBar from './topbar';
 
 const NavSidebar = dynamic(() => import('./nav-sidebar'));
