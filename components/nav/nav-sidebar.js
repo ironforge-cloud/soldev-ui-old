@@ -8,7 +8,8 @@ import {
   PaperClipIcon,
   SparklesIcon,
   AcademicCapIcon,
-  NewspaperIcon
+  NewspaperIcon,
+  HomeIcon
 } from '@heroicons/react/outline';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
@@ -16,6 +17,12 @@ import { memo, useEffect, useState } from 'react';
 import useUser from '../../hooks/useUser';
 
 const navigation = [
+  {
+    name: 'Home',
+    href: '/',
+    icon: HomeIcon,
+    disabled: false
+  },
   {
     name: 'Library',
     href: '/library',
