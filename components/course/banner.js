@@ -4,14 +4,14 @@ function CourseBanner() {
   return (
     <p className="prose flex justify-center pt-1 pb-2 text-gray-700 dark:text-gray-300">
       <span className="">
-        created by
+        created by{' '}
         <a
           href="https://twitter.com/jamesrp13"
           target="_blank"
           rel="noreferrer"
-          className=" no-underline hover:underline"
+          className="no-underline hover:underline"
         >
-          {' '}
+
           James Pacheco
         </a>{' '}
         and{' '}

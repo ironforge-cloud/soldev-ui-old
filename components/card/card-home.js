@@ -61,7 +61,7 @@ function CardHome({ title, url, contentType, author, tags, description }) {
 
           {/*Tags*/}
           {Array.isArray(tags) && (
-            <div className="mb-1 mt-2 cursor-pointer text-sky-500 dark:text-sky-600">
+            <div className="mb-1 mt-2 text-sky-500 dark:text-sky-600">
               {Array.isArray(tags) &&
                 tags.map((tag, index) => (
                   <span key={index} className="lowercase decoration-rose-500 hover:underline">
