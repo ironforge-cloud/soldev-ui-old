@@ -4,7 +4,7 @@ import { Container } from '../components/layout';
 import fetch from '../utils/fetcher';
 
 const Sidebar = dynamic(() => import('../components/sidebar'));
-const CardHome = dynamic(() => import('../components/card/card-home'));
+const CardHome = dynamic(() => import('../components/card/card-home2'));
 
 export async function getStaticProps() {
   const newContent = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/specialtag/New`);
@@ -26,15 +26,24 @@ const blocks = [
     item: [
       {
         title: 'Solana Cookbook',
-        url: 'https://solanacookbook.com/?utm_source=soldev.app'
-      },
-      {
-        title: 'Anchor Docs',
-        url: 'https://www.anchor-lang.com/?utm_source=soldev.app'
+        url: 'https://solanacookbook.com/?utm_source=soldev.app',
+        tags: ['beginner', 'javascript'],
+        author: 'Solana Foundation',
+        description: 'A collection of recipes for building on Solana'
       },
       {
         title: 'buildspace\n Solana Core',
-        url: 'https://buildspace.so/solana-core?utm_source=soldev.app'
+        url: 'https://buildspace.so/solana-core?utm_source=soldev.app',
+        tags: ['intermediate', 'anchor'],
+        author: 'Buildspace',
+        description: 'A 6-week course on building on Solana'
+      },
+      {
+        title: 'Solana Bootmcap',
+        url: 'https://www.anchor-lang.com/?utm_source=soldev.app',
+        tags: ['advance', 'rust'],
+        author: 'Solana Foundation',
+        description: 'A bootcamp for building on Solana with Jarry Xiao'
       }
     ]
   },
@@ -43,16 +52,21 @@ const blocks = [
     item: [
       {
         title: 'Newsletter',
-        url: 'https://soldev.app/newsletters'
+        url: 'https://soldev.app/newsletters',
+        author: 'Solana Foundation',
+        description: 'The latest news and updates from the Solana Foundation'
       },
       {
         title: 'Changelog',
-        url: 'https://soldev.app/changelogs'
+        url: 'https://soldev.app/changelogs',
+        author: 'Solana Foundation',
+        description: 'Weekly updates on the Solana ecosystem'
       },
       {
         title: 'Core Dev Call',
-        url: 'https://soldev.app/core-dev-calls'
-        // url: 'https://soldev.app/sync'
+        url: 'https://soldev.app/core-dev-calls',
+        author: 'Solana Foundation',
+        description: 'Monthly core dev calls'
       }
     ]
   },
@@ -61,15 +75,21 @@ const blocks = [
     item: [
       {
         title: 'Jobs',
-        url: 'https://earn.superteam.fun/opportunities/category/jobs?utm_source=soldev.app'
+        url: 'https://earn.superteam.fun/opportunities/category/jobs?utm_source=soldev.app',
+        author: 'Supterteam',
+        description: 'Find a job in the Solana ecosystem'
       },
       {
         title: 'Bounties',
-        url: 'https://earn.superteam.fun/opportunities/category/bounties?utm_source=soldev.app'
+        url: 'https://earn.superteam.fun/opportunities/category/bounties?utm_source=soldev.app',
+        author: 'Supterteam',
+        description: 'Find a bounty in the Solana ecosystem'
       },
       {
         title: 'Grants',
-        url: 'https://earn.superteam.fun/opportunities/category/grants?utm_source=soldev.app'
+        url: 'https://earn.superteam.fun/opportunities/category/grants?utm_source=soldev.app',
+        author: 'Supterteam',
+        description: 'Find a grant in the Solana ecosystem'
       }
     ]
   }
@@ -117,8 +137,15 @@ export default function Home({ tweets, latestNewsletter }) {
                   {card.heading}
                 </p>
                 <div className="grid gap-5 sm:grid-cols-3">
-                  {card.item.map(item => (
-                    <CardHome key={item.title} card={item} />
+                  {card.item.map((item, index) => (
+                    <CardHome
+                      key={index}
+                      title={item.title}
+                      url={item.url}
+                      tags={item.tags}
+                      author={item.author}
+                      description={item.description}
+                    />
                   ))}
                 </div>
               </div>
@@ -126,7 +153,7 @@ export default function Home({ tweets, latestNewsletter }) {
           </div>
         </main>
 
-        <aside className="hidden max-w-sm xl:block">
+        <aside className="hidden max-w-sm 2xl:block">
           <Sidebar tweets={tweets} latestNewsletter={latestNewsletter} />
         </aside>
       </div>
