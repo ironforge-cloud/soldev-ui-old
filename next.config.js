@@ -1,10 +1,6 @@
 const { withSentryConfig } = require('@sentry/nextjs');
 
 const moduleExports = {
-  experimental: {
-    scrollRestoration: true,
-    legacyBrowsers: false
-  },
   swcMinify: true,
   reactStrictMode: true,
   images: {
@@ -40,14 +36,6 @@ const moduleExports = {
       'www.crossmint.io'
     ],
     formats: ['image/avif', 'image/webp']
-  },
-  async rewrites() {
-    return [
-      {
-        source: '/',
-        destination: '/library'
-      }
-    ];
   }
 };
 

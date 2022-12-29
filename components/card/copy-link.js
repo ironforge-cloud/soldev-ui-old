@@ -1,21 +1,12 @@
-import { memo, useState } from 'react';
 import { LinkIcon } from '@heroicons/react/solid';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
+import { memo, useState } from 'react';
 
 const NotificationSuccess = dynamic(() => import('../notifications/success'));
 
-function CopyLink({ content }) {
+function CopyLink({ title, url }) {
   const [showNotification, setShowNotification] = useState(false);
-
-  let url = '';
-  if (content.ContentType === 'Playlist') {
-    url = `https://soldev.app/library/${content.PlaylistID}/video/${content.SK}`;
-  } else if (content.ContentType === 'newsletters') {
-    url = `https://soldev.app/newsletters/${content.SK}`;
-  } else {
-    url = `https://soldev.app/library/${content.ContentType}/${content.SK}`;
-  }
 
   return (
     <>
@@ -27,10 +18,7 @@ function CopyLink({ content }) {
           setShowNotification(true);
         }}
       >
-        <LinkIcon
-className="h-5 w-5"
-aria-hidden="true"
-        />
+        <LinkIcon className="h-5 w-5" aria-hidden="true" />
         <span className="font-medium">Link</span>
       </button>
 
@@ -39,14 +27,15 @@ aria-hidden="true"
         show={showNotification}
         setShow={setShowNotification}
         text="Link copied successfully"
-        subText={`The link to: ${content.Title} was copied to the clipboard.`}
+        subText={`The link to: ${title} was copied to the clipboard.`}
       />
     </>
   );
 }
 
 CopyLink.propTypes = {
-  content: PropTypes.object.isRequired
+  title: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired
 };
 
 export default memo(CopyLink);
