@@ -1,7 +1,7 @@
+import dynamic from 'next/dynamic';
+import PropTypes from 'prop-types';
 import { memo, useEffect, useState } from 'react';
 import { useAppState } from '../../context/AppContext';
-import PropTypes from 'prop-types';
-import dynamic from 'next/dynamic';
 
 const CardWide = dynamic(() => import('../card/card-wide'));
 const CardVideo = dynamic(() => import('../card/card-video'));
@@ -47,7 +47,7 @@ function Publications({
 
   return (
     <div className="mx-auto flex flex-col">
-      <div className="mb-8 flex justify-center">
+      <div className=" flex justify-center">
         <h1 className="mb-10 w-max text-2xl font-bold capitalize tracking-tight text-gray-900 dark:text-gray-200 md:text-3xl 2xl:text-4xl">
           {title}
         </h1>
@@ -55,21 +55,13 @@ function Publications({
 
       {tags && (
         <div className="flex justify-center">
-          <TagsSelector
-tagsList={tagsList}
-contentType={contentType}
-badges={badges}
-tags={tags}
-          />
+          <TagsSelector tagsList={tagsList} contentType={contentType} badges={badges} tags={tags} />
         </div>
       )}
 
       {contentType === 'newsletters' && (
         <div className="mx-auto mb-20 flex max-w-3xl">
-          <CardWide
-mode="dashboard"
-content={lastNewsletter}
-          />
+          <CardWide mode="dashboard" content={lastNewsletter} />
         </div>
       )}
 
@@ -102,21 +94,13 @@ content={lastNewsletter}
             // Playlist Content
             return (
               <div key={content.SK}>
-                <CardVideo
-content={content}
-closeSearch={closeSearch}
-                />
+                <CardVideo content={content} closeSearch={closeSearch} />
               </div>
             );
           })
         )}
       </div>
-      <ContentFormModal
-open={open}
-setOpen={setOpen}
-content={content}
-positions={positions}
-      />
+      <ContentFormModal open={open} setOpen={setOpen} content={content} positions={positions} />
     </div>
   );
 }

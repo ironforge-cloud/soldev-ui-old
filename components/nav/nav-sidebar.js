@@ -4,7 +4,6 @@ import {
   ExternalLinkIcon,
   FolderAddIcon,
   HomeIcon,
-  LibraryIcon,
   NewspaperIcon,
   PaperClipIcon,
   SparklesIcon
@@ -19,12 +18,6 @@ const navigation = [
     name: 'Home',
     href: '/',
     icon: HomeIcon,
-    disabled: false
-  },
-  {
-    name: 'Library',
-    href: '/library',
-    icon: LibraryIcon,
     disabled: false
   },
   {

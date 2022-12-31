@@ -7,6 +7,10 @@ const moduleExports = {
   },
   images: {
     domains: [
+      'rotatingcanvas.com',
+      'arweave.net',
+      'nick.af',
+      'hashnode.com',
       'cdn.hashnode.com',
       'abs.twimg.com',
       'pbs.twimg.com',
