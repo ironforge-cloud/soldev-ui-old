@@ -136,7 +136,7 @@ export default function Home({ tweets, latestNewsletter }) {
             </Link>
           </div>
 
-          <div className="mx-auto mt-12 lg:max-w-none">
+          <div className="mx-auto ml-2 mt-12 lg:max-w-none">
             {blocks.map(card => (
               // Smaller cards
               <div key={card.heading}>
