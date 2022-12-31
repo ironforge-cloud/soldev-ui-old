@@ -1,45 +1,11 @@
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
-import React, { memo, useState } from 'react';
+import React, { memo } from 'react';
 
 const LatestChangelog = dynamic(() => import('./latestChangelog'));
 const LatestNewsletter = dynamic(() => import('./latestNewsletter'));
 
 function Sidebar({ latestChangelog, latestNewsletter }) {
-  const [loadMore, setLoadMore] = useState(false);
-
-  // This helper function allow me to have infinity loading without having
-  // to build pagination in the api
-  function loadTweets(tweets) {
-    let size = 0;
-    // If there are enough tweets we load 10, if not we load array.length
-    if (Array.isArray(tweets) && tweets.length > 0) {
-      tweets.length >= 10 ? (size = 10) : (size = tweets.length);
-    }
-
-    // if loadMore then we want to render all the tweets
-    if (loadMore) size = tweets.length;
-
-    let component = [];
-    for (let i = 0; i < size; i++) {
-      component.push(
-        <Tweet
-          key={tweets[i].id}
-          text={tweets[i].text}
-          author={tweets[i].Author}
-          id={tweets[i].id}
-          media={tweets[i].Media}
-          created_at={tweets[i].created_at}
-          public_metrics={tweets[i].public_metrics}
-          referenced_tweets={tweets[i].ReferencedTweets}
-          pinned={tweets[i].Pinned}
-        />
-      );
-    }
-
-    return component;
-  }
-
   return (
     <div className="flex flex-col gap-6">
       {/*<div className="rounded-lg bg-white shadow dark:bg-gray-800">*/}
