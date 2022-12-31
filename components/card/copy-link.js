@@ -5,8 +5,17 @@ import { memo, useState } from 'react';
 
 const NotificationSuccess = dynamic(() => import('../notifications/success'));
 
-function CopyLink({ title, url }) {
+function CopyLink({ content }) {
   const [showNotification, setShowNotification] = useState(false);
+
+  let url = '';
+  if (content.ContentType === 'Playlist') {
+    url = `https://soldev.app/library/${content.PlaylistID}/video/${content.SK}`;
+  } else if (content.ContentType === 'newsletters') {
+    url = `https://soldev.app/newsletters/${content.SK}`;
+  } else {
+    url = `https://soldev.app/library/${content.ContentType}/${content.SK}`;
+  }
 
   return (
     <>
@@ -27,15 +36,14 @@ function CopyLink({ title, url }) {
         show={showNotification}
         setShow={setShowNotification}
         text="Link copied successfully"
-        subText={`The link to: ${title} was copied to the clipboard.`}
+        subText={`The link to: ${content.Title} was copied to the clipboard.`}
       />
     </>
   );
 }
 
 CopyLink.propTypes = {
-  title: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired
+  content: PropTypes.object.isRequired
 };
 
 export default memo(CopyLink);

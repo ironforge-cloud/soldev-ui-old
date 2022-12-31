@@ -33,7 +33,6 @@ export default function Player({ content }) {
 
       <div className="prose mt-5 max-w-none">
         <h1 className="text-2xl font-medium">{content.Title}</h1>
-        <p>{content.Description}</p>
       </div>
     </div>
   );

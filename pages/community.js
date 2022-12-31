@@ -15,18 +15,27 @@ function classNames(...classes) {
 }
 
 export async function getStaticProps() {
-  const tweets = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/tweets/pinned`);
+  const newContent = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/specialtag/New`);
+
   const latestNewsletter = await fetch(
     `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/newsletters`
   );
 
+  const latestChangelog = await fetch(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/PLilwLeBwGuK5-Qri7Pg9zd-Vvhz9kX2-R`
+  );
+
   return {
-    props: { tweets, latestNewsletter: latestNewsletter[1] },
+    props: {
+      newContent,
+      latestNewsletter: latestNewsletter[1],
+      latestChangelog: latestChangelog[0]
+    },
     revalidate: 60
   };
 }
 
-export default function Community({ tweets, latestNewsletter }) {
+export default function Community({ latestChangelog, latestNewsletter }) {
   const [selectedTab, setSelectedTab] = useState('developers');
   const { data: developersTweets = [], isLoading: developersTweetsLoading } =
     useTweets('1452853465210933252');
@@ -129,11 +138,8 @@ export default function Community({ tweets, latestNewsletter }) {
           </div>
         </main>
 
-        <aside className="hidden max-w-sm xl:block">
-          <Sidebar
-tweets={tweets}
-latestNewsletter={latestNewsletter}
-          />
+        <aside className="hidden max-w-sm 2xl:block">
+          <Sidebar latestChangelog={latestChangelog} latestNewsletter={latestNewsletter} />
         </aside>
       </div>
     </Container>

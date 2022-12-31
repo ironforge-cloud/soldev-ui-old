@@ -1,6 +1,6 @@
-import tagList from '../../../utils/tags';
 import PropTypes from 'prop-types';
 import { memo } from 'react';
+import tagList from '../../../utils/tags';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -71,10 +71,7 @@ function ContentTags({ data, setData, type }) {
         <div className="mt-4 space-y-4">
           {tagList.level.map(tag => {
             return (
-              <div
-key={tag}
-className="flex items-center"
-              >
+              <div key={tag} className="flex items-center">
                 <input
                   id={tag}
                   name="levelTags"
@@ -83,11 +80,11 @@ className="flex items-center"
                   checked={data.Tags.includes(tag)}
                   onChange={() => {}}
                   onClick={e => tagsOnLick(e, tagList.level)}
-                  className="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500"
+                  className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
                 />
                 <label
                   htmlFor={tag}
-                  className="block ml-3 text-sm font-medium text-gray-700 dark:text-gray-300"
+                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-300"
                 >
                   {tag}
                 </label>
@@ -107,21 +104,18 @@ className="flex items-center"
         <div className="mt-4 space-y-4">
           {tagList.industry.map(tag => {
             return (
-              <div
-key={tag}
-className="flex items-center"
-              >
+              <div key={tag} className="flex items-center">
                 <input
                   id={tag}
                   name="techTags"
                   type="checkbox"
                   checked={data.Tags.includes(tag)}
-                  className="w-4 h-4 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500"
+                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                   onChange={() => checkboxOnClick(tag)}
                 />
                 <label
                   htmlFor={tag}
-                  className="block ml-3 text-sm font-medium text-gray-700 dark:text-gray-300"
+                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-300"
                 >
                   {tag}
                 </label>
@@ -141,21 +135,18 @@ className="flex items-center"
         <div className="mt-4 space-y-4">
           {tagList.protocols.map(tag => {
             return (
-              <div
-key={tag}
-className="flex items-center"
-              >
+              <div key={tag} className="flex items-center">
                 <input
                   id={tag}
                   name="languageTags"
                   type="checkbox"
                   checked={data.Tags.includes(tag)}
-                  className="w-4 h-4 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500"
+                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                   onChange={() => checkboxOnClick(tag)}
                 />
                 <label
                   htmlFor={tag}
-                  className="block ml-3 text-sm font-medium text-gray-700 dark:text-gray-300"
+                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-300"
                 >
                   {tag}
                 </label>
@@ -175,21 +166,18 @@ className="flex items-center"
         <div className="mt-4 space-y-4">
           {tagList.framework.map(tag => {
             return (
-              <div
-key={tag}
-className="flex items-center"
-              >
+              <div key={tag} className="flex items-center">
                 <input
                   id={tag}
                   name="languageTags"
                   type="checkbox"
                   checked={data.Tags.includes(tag)}
-                  className="w-4 h-4 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500"
+                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                   onChange={() => checkboxOnClick(tag)}
                 />
                 <label
                   htmlFor={tag}
-                  className="block ml-3 text-sm font-medium text-gray-700 dark:text-gray-300"
+                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-300"
                 >
                   {tag}
                 </label>
@@ -209,21 +197,18 @@ className="flex items-center"
         <div className="mt-4 space-y-4">
           {tagList.language.map(tag => {
             return (
-              <div
-key={tag}
-className="flex items-center"
-              >
+              <div key={tag} className="flex items-center">
                 <input
                   id={tag}
                   name="languageTags"
                   type="checkbox"
                   checked={data.Tags.includes(tag)}
-                  className="w-4 h-4 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500"
+                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                   onChange={() => checkboxOnClick(tag)}
                 />
                 <label
                   htmlFor={tag}
-                  className="block ml-3 text-sm font-medium text-gray-700 dark:text-gray-300"
+                  className="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-300"
                 >
                   {tag}
                 </label>

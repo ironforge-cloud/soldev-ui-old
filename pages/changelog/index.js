@@ -6,18 +6,18 @@ const PublicationsComponent = dynamic(() => import('../../components/publication
 
 export async function getStaticProps() {
   const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/newsletters`
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/PLilwLeBwGuK5-Qri7Pg9zd-Vvhz9kX2-R`
   );
 
-  const lastNewsletter = response[1];
+  const latestChangelog = response[0];
 
   return {
-    props: { newsletters: response, lastNewsletter },
+    props: { changelog: response, latestChangelog },
     revalidate: 60
   };
 }
 
-export default function Newsletter({ newsletters, lastNewsletter }) {
+export default function Newsletter({ changelog, latestChangelog }) {
   const metaTags = {
     title: 'SolDev - Newsletter',
     description: 'Solana community newsletter',
@@ -28,11 +28,11 @@ export default function Newsletter({ newsletters, lastNewsletter }) {
   return (
     <Container metaTags={metaTags}>
       <PublicationsComponent
-        data={newsletters}
-        title="Newsletter"
-        contentType="newsletter"
+        data={changelog}
+        title="Changelog"
+        contentType="changelog"
         isLoading={false}
-        latest={lastNewsletter}
+        latest={latestChangelog}
       />
     </Container>
   );

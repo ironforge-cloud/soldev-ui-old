@@ -25,6 +25,8 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
   const [isS3Audio, setIsS3Audio] = useState(false);
   const imageUrl = defineImage(content);
 
+  console.log(content);
+
   const badgeUrl =
     mode === 'search'
       ? `/library/${content.ContentType}`
@@ -96,9 +98,10 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
 
   return (
     <div
-      className="flex max-h-[540px] min-w-[360px] max-w-[400px] flex-col rounded border-2
-    border-gray-400 bg-white shadow-lg hover:opacity-95 hover:shadow-sky-500/30 dark:border-gray-700
-    dark:bg-gray-800 dark:hover:shadow-sky-400/20"
+      className={classNames(
+        'lex max-h-[540px] min-w-[360px] max-w-[400px] flex-col rounded border-2 border-gray-400 bg-white shadow-lg shadow-sky-500/30 hover:opacity-95 dark:border-gray-700 dark:bg-gray-800 dark:shadow-sky-400/20',
+        mode !== 'sidebar' && 'transition ease-in-out hover:-translate-y-0.5 hover:scale-105'
+      )}
     >
       {content.ContentType === 'newsletters' ? (
         <Link href={`/newsletters/${content.SK}`} rel="noreferrer" passHref>
@@ -210,8 +213,8 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
         {/*  Actions */}
         <div
           className={classNames(
-            'flex  flex-row items-end justify-between pt-2 pb-5',
-            content.ContentType === 'newsletters' ? 'h-[60px]' : 'h-[40px]'
+            'flex  flex-row items-end justify-between pt-2 pb-3',
+            content.ContentType === 'newsletters' ? 'h-[56px]' : 'h-[40px]'
           )}
         >
           <div>

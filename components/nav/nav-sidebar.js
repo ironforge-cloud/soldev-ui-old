@@ -6,7 +6,7 @@ import {
   HomeIcon,
   NewspaperIcon,
   PaperClipIcon,
-  SparklesIcon
+  VideoCameraIcon
 } from '@heroicons/react/outline';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
@@ -21,16 +21,21 @@ const navigation = [
     disabled: false
   },
   {
-    name: 'Community',
-    href: '/community',
-    icon: ChatAlt2Icon,
-    disabled: false
-  },
-
-  {
     name: 'Newsletters',
     href: '/newsletters',
     icon: NewspaperIcon,
+    disabled: false
+  },
+  {
+    name: 'Changelog',
+    href: '/changelog',
+    icon: VideoCameraIcon,
+    disabled: false
+  },
+  {
+    name: 'Community',
+    href: '/community',
+    icon: ChatAlt2Icon,
     disabled: false
   }
 ];
@@ -52,18 +57,18 @@ const special = [
     disabled: false
   },
   {
+    name: 'Metaplex Docs',
+    href: 'https://docs.metaplex.com/?utm_source=soldev.app',
+    disabled: false
+  },
+  {
     name: 'Stack Exchange',
     href: 'https://solana.stackexchange.com/',
     disabled: false
   }
 ];
 
-const specialLists = [
-  {
-    name: 'Getting Started',
-    href: '/library/list/started'
-  }
-];
+const specialLists = [];
 
 const categories = [
   {
@@ -257,32 +262,32 @@ function NavSidebar({ closeMobileMenu }) {
         </div>
 
         {/* Lists */}
-        <div>
-          <p
-            className="text-md px-3 font-semibold uppercase tracking-wider text-gray-500 lg:text-xs"
-            id="communities-headline"
-          >
-            Lists
-          </p>
-          <div className="mt-2 space-y-1" aria-labelledby="communities-headline">
-            {specialLists.map(item => {
-              return (
-                <Link href={item.href} passHref key={item.name}>
-                  <button
-                    onClick={() => closeMobileMenu()}
-                    className="group flex min-w-full cursor-pointer items-center gap-1 rounded-md px-3 py-2 text-lg font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300 lg:text-sm"
-                  >
-                    <SparklesIcon
-                      className="h-4 w-4 text-rose-400 dark:text-rose-500"
-                      aria-hidden="true"
-                    />
-                    <span className="truncate leading-6">{item.name}</span>
-                  </button>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
+        {/*<div>*/}
+        {/*  <p*/}
+        {/*    className="text-md px-3 font-semibold uppercase tracking-wider text-gray-500 lg:text-xs"*/}
+        {/*    id="communities-headline"*/}
+        {/*  >*/}
+        {/*    Lists*/}
+        {/*  </p>*/}
+        {/*  <div className="mt-2 space-y-1" aria-labelledby="communities-headline">*/}
+        {/*    {specialLists.map(item => {*/}
+        {/*      return (*/}
+        {/*        <Link href={item.href} passHref key={item.name}>*/}
+        {/*          <button*/}
+        {/*            onClick={() => closeMobileMenu()}*/}
+        {/*            className="group flex min-w-full cursor-pointer items-center gap-1 rounded-md px-3 py-2 text-lg font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300 lg:text-sm"*/}
+        {/*          >*/}
+        {/*            <SparklesIcon*/}
+        {/*              className="h-4 w-4 text-rose-400 dark:text-rose-500"*/}
+        {/*              aria-hidden="true"*/}
+        {/*            />*/}
+        {/*            <span className="truncate leading-6">{item.name}</span>*/}
+        {/*          </button>*/}
+        {/*        </Link>*/}
+        {/*      );*/}
+        {/*    })}*/}
+        {/*  </div>*/}
+        {/*</div>*/}
 
         {/* Categories */}
         <div>

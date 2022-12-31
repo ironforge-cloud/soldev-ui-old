@@ -7,16 +7,27 @@ import { memo } from 'react';
 
 const CopyLink = dynamic(() => import('./copy-link.js'));
 
-function Card({ content, closeSearch }) {
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ');
+}
+
+function CardVideo({ content, closeSearch, mode }) {
   return (
-    <div className="relative flex max-w-sm flex-col overflow-visible rounded rounded border-2 border-gray-400 bg-white shadow-lg hover:bg-opacity-80 hover:shadow-sky-500/30 dark:border-gray-700/60 dark:bg-gray-800 dark:hover:shadow-sky-400/20">
+    <div
+      className={classNames(
+        'relative flex max-w-sm flex-col overflow-visible rounded ' +
+          'border-2 border-gray-400 bg-white shadow-lg shadow-sky-500/30 hover:bg-opacity-80 ' +
+          'dark:border-gray-700/60 dark:bg-gray-800 dark:shadow-sky-400/20',
+        mode !== 'sidebar' && 'transition ease-in-out hover:-translate-y-0.5 hover:scale-105'
+      )}
+    >
       <Link href={`/library/${content.PlaylistID}/video/${content.SK}`} passHref>
         <div>
           <Image
-            className="h-64 cursor-pointer object-fill hover:opacity-90"
+            className="h-52 cursor-pointer object-cover hover:opacity-90"
             src={content.Img}
             alt=""
-            height="200"
+            height="150"
             width="400"
             placeholder="blur"
             blurDataURL={content.Img}
@@ -32,7 +43,7 @@ function Card({ content, closeSearch }) {
           </p>
         </div>
 
-        <div className="relative mt-10">
+        <div className="relative mt-5">
           {/* Watch Btn*/}
           <div className="absolute bottom-0 flex w-full flex-row justify-between">
             <Link href={`/library/${content.PlaylistID}/video/${content.SK}`} passHref>
@@ -57,13 +68,14 @@ function Card({ content, closeSearch }) {
   );
 }
 
-Card.defaultProps = {
+CardVideo.defaultProps = {
   closeSearch: () => {}
 };
 
-Card.propTypes = {
+CardVideo.propTypes = {
   content: PropTypes.object.isRequired,
-  closeSearch: PropTypes.func
+  closeSearch: PropTypes.func,
+  mode: PropTypes.string
 };
 
-export default memo(Card);
+export default memo(CardVideo);

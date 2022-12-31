@@ -36,8 +36,8 @@ function CardHome({ title, url, author, tags, description }) {
   return (
     <div
       className="mb-10 flex flex-col rounded border-2 border-gray-400 bg-white
-     shadow-lg transition ease-in-out hover:-translate-y-0.5 hover:scale-105 hover:opacity-95
-      hover:shadow-sky-500/30 dark:border-gray-600 dark:bg-gray-800 dark:hover:shadow-sky-400/20"
+     shadow-lg shadow-sky-500/30 transition ease-in-out hover:-translate-y-0.5 hover:scale-105
+      hover:opacity-95 dark:border-gray-600 dark:bg-gray-800 dark:shadow-sky-400/20"
     >
       <div className=" px-5 pt-5">
         <div className="overflow-hidden">
@@ -88,7 +88,7 @@ function CardHome({ title, url, author, tags, description }) {
             {/* Copy Link Btn */}
             <div>
               <div className="flex flex-row items-end">
-                <CopyLink title={title} url={url} />
+                <CopyLink content={{ title, url }} />
               </div>
             </div>
           </div>

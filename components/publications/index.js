@@ -1,9 +1,11 @@
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { memo, useEffect, useState } from 'react';
 import { useAppState } from '../../context/AppContext';
 
 const CardWide = dynamic(() => import('../card/card-wide'));
+const CardWidev2 = dynamic(() => import('../card/card-widev2'));
 const CardVideo = dynamic(() => import('../card/card-video'));
 const CardRegular = dynamic(() => import('../card/card-regular'));
 const TagsSelector = dynamic(() => import('../badges/tags-selector'));
@@ -20,7 +22,7 @@ function Publications({
   tagsList,
   closeSearch,
   cardMode,
-  lastNewsletter
+  latest
 }) {
   const [open, setOpen] = useState(false);
   const appState = useAppState();
@@ -46,11 +48,27 @@ function Publications({
   };
 
   return (
-    <div className="mx-auto flex flex-col">
-      <div className=" flex justify-center">
-        <h1 className="mb-10 w-max text-2xl font-bold capitalize tracking-tight text-gray-900 dark:text-gray-200 md:text-3xl 2xl:text-4xl">
+    <div className="mx-auto mt-2 flex flex-col">
+      <div className=" flex flex-col items-center justify-center">
+        <h1 className=" w-max text-2xl font-bold capitalize tracking-tight text-gray-900 dark:text-gray-200 md:text-3xl 2xl:text-4xl">
           {title}
         </h1>
+
+        {(title === 'Newsletter' || title === 'Changelog') && (
+          <p className="prose flex justify-center pt-1 pb-2 text-gray-700 dark:text-gray-300">
+            <span className="">
+              created by the{' '}
+              <Link
+                href="https://solana.org/"
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold no-underline hover:underline dark:text-gray-200"
+              >
+                Solana Foundation
+              </Link>
+            </span>
+          </p>
+        )}
       </div>
 
       {tags && (
@@ -59,19 +77,25 @@ function Publications({
         </div>
       )}
 
-      {contentType === 'newsletters' && (
-        <div className="mx-auto mb-20 flex max-w-3xl">
-          <CardWide mode="dashboard" content={lastNewsletter} />
+      {title === 'Newsletter' && (
+        <div className="mx-auto mb-20 mt-10 flex max-w-3xl">
+          <CardWide mode="dashboard" content={latest} />
         </div>
       )}
 
-      {contentType === 'newsletters' && (
-        <div className="prose mx-auto flex w-full justify-center text-xl dark:prose-invert">
+      {title === 'Changelog' && (
+        <div className="mx-auto mb-20 mt-10 flex max-w-3xl">
+          <CardWidev2 mode="changelog" content={latest} />
+        </div>
+      )}
+
+      {(title === 'Newsletter' || title === 'Changelog') && (
+        <div className="prose mx-auto -mb-10 flex w-full justify-center text-xl dark:prose-invert">
           Previous issues
         </div>
       )}
 
-      <div className="mt-1 flex flex-wrap place-content-start justify-center gap-5 py-4 px-2 md:px-6 xl:gap-10">
+      <div className="mt-10 flex flex-wrap place-content-start justify-center gap-5 py-4 px-2 md:px-6 xl:gap-10">
         {isLoading ? (
           <Spinner />
         ) : (
@@ -112,7 +136,7 @@ Publications.defaultProps = {
   title: '',
   contentType: '',
   cardMode: '',
-  lastNewsletter: {}
+  latest: {}
 };
 
 Publications.propTypes = {
@@ -126,7 +150,7 @@ Publications.propTypes = {
   contentType: PropTypes.string,
   closeSearch: PropTypes.func,
   cardMode: PropTypes.string,
-  lastNewsletter: PropTypes.object
+  latest: PropTypes.object
 };
 
 export default memo(Publications);

@@ -2,10 +2,10 @@ import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import React, { memo, useState } from 'react';
 
-const Tweet = dynamic(() => import('../twitter/tweet'));
+const LatestChangelog = dynamic(() => import('./latestChangelog'));
 const LatestNewsletter = dynamic(() => import('./latestNewsletter'));
 
-function Sidebar({ tweets, latestNewsletter }) {
+function Sidebar({ latestChangelog, latestNewsletter }) {
   const [loadMore, setLoadMore] = useState(false);
 
   // This helper function allow me to have infinity loading without having
@@ -47,41 +47,13 @@ function Sidebar({ tweets, latestNewsletter }) {
       {/*</div>*/}
 
       <LatestNewsletter data={latestNewsletter} />
-
-      {/* Announcements */}
-      <div className="rounded border-2 border-gray-400 bg-white shadow dark:border-gray-600 dark:bg-gray-800">
-        <div className="p-6">
-          <div className="flex justify-between">
-            <h2
-              id="trending-heading"
-              className="text-base font-medium text-gray-900 dark:text-gray-200"
-            >
-              Announcements
-            </h2>
-          </div>
-          <div className="mt-6 flow-root">
-            <div role="list" className="-my-4 divide-y divide-gray-200 dark:divide-gray-600">
-              {Array.isArray(tweets) && loadTweets(tweets)}
-            </div>
-          </div>
-          {!loadMore && (
-            <div className="mt-6">
-              <button
-                onClick={() => setLoadMore(true)}
-                className="block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-center text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
-              >
-                View all
-              </button>
-            </div>
-          )}
-        </div>
-      </div>
+      <LatestChangelog data={latestChangelog} />
     </div>
   );
 }
 
 Sidebar.propTypes = {
-  tweets: PropTypes.array.isRequired,
+  latestChangelog: PropTypes.object.isRequired,
   latestNewsletter: PropTypes.object.isRequired
 };
 
