@@ -72,7 +72,7 @@ function Publications({
       </div>
 
       {tags && (
-        <div className="flex justify-center">
+        <div className="mt-5 flex justify-center">
           <TagsSelector tagsList={tagsList} contentType={contentType} badges={badges} tags={tags} />
         </div>
       )}
