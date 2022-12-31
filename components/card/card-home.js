@@ -6,7 +6,7 @@ import { memo } from 'react';
 
 const CopyLink = dynamic(() => import('./copy-link.js'));
 
-function CardHome({ title, url, contentType, author, tags, description }) {
+function CardHome({ title, url, author, tags, description }) {
   function actionButton() {
     if (!url.includes('https://') || url.includes('soldev')) {
       return (
@@ -34,8 +34,12 @@ function CardHome({ title, url, contentType, author, tags, description }) {
   }
 
   return (
-    <div className="mb-10 flex flex-col rounded-lg border border-gray-300 bg-white shadow-lg hover:opacity-95 hover:shadow-sky-500/30 dark:border-gray-700 dark:bg-gray-800 dark:hover:shadow-sky-400/20">
-      <div className="px-5 pt-5">
+    <div
+      className="mb-10 flex flex-col rounded border-2 border-gray-400 bg-white
+     shadow-lg transition ease-in-out hover:-translate-y-0.5 hover:scale-105 hover:opacity-95
+      hover:shadow-sky-500/30 dark:border-gray-600 dark:bg-gray-800 dark:hover:shadow-sky-400/20"
+    >
+      <div className=" px-5 pt-5">
         <div className="overflow-hidden">
           <div className="border-b-2 border-dashed border-gray-700 dark:border-gray-500">
             <div className="flex justify-between">
@@ -77,7 +81,7 @@ function CardHome({ title, url, contentType, author, tags, description }) {
         </div>
 
         {/*  Actions */}
-        <div className="relative mt-32">
+        <div className="relative mt-20">
           <div className="absolute bottom-5 flex w-full flex-row justify-between">
             <div className="">{actionButton()}</div>
 
@@ -97,7 +101,6 @@ function CardHome({ title, url, contentType, author, tags, description }) {
 CardHome.propTypes = {
   title: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
-  contentType: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   tags: PropTypes.array
 };

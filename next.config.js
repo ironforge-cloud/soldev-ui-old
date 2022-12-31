@@ -1,8 +1,10 @@
-const { withSentryConfig } = require('@sentry/nextjs');
-
+/** @type {import('next').NextConfig} */
 const moduleExports = {
   swcMinify: true,
   reactStrictMode: true,
+  experimental: {
+    legacyBrowsers: false
+  },
   images: {
     domains: [
       'cdn.hashnode.com',

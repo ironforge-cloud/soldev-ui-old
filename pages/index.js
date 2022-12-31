@@ -108,9 +108,9 @@ export default function Home({ tweets, latestNewsletter }) {
   return (
     <Container metaTags={metaTags}>
       <div className="flex justify-center gap-6 px-2 md:pl-0">
-        <main className="max-w-4xl">
+        <main className="max-w-5xl">
           {/* Main Card */}
-          <div className="flex h-80 flex-col justify-center rounded-lg bg-white shadow-lg hover:shadow-sky-500/30 dark:bg-gray-800 dark:hover:shadow-sky-400/20">
+          <div className="flex h-80 flex-col justify-center rounded border-2 border-gray-400 bg-white shadow-lg hover:shadow-sky-500/30 dark:border-gray-600 dark:bg-gray-800 dark:hover:shadow-sky-400/20">
             <div className="px-6 text-center text-gray-900 dark:text-gray-100 md:px-10 ">
               <div className="flex flex-col items-center">
                 <Link href="/course">

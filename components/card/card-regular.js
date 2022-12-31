@@ -34,18 +34,12 @@ function CardRegular({ content, mode, editContent, closeSearch }) {
     if (content.Url.includes('youtube')) {
       return (
         <div>
-          <Link
-href={`/library/${content.ContentType}/video/${content.SK}`}
-passHref
-          >
+          <Link href={`/library/${content.ContentType}/video/${content.SK}`} passHref>
             <button
               onClick={() => closeSearch()}
               className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
             >
-              <FilmIcon
-className="h-5 w-5"
-aria-hidden="true"
-              />
+              <FilmIcon className="h-5 w-5" aria-hidden="true" />
               <span className="font-medium">Watch</span>
             </button>
           </Link>
@@ -60,18 +54,12 @@ aria-hidden="true"
           >
             {isS3Audio ? (
               <>
-                <EyeOffIcon
-className="h-5 w-5"
-aria-hidden="true"
-                />
+                <EyeOffIcon className="h-5 w-5" aria-hidden="true" />
                 <span className="font-medium">Hidde Player</span>
               </>
             ) : (
               <>
-                <PlayIcon
-className="h-5 w-5"
-aria-hidden="true"
-                />
+                <PlayIcon className="h-5 w-5" aria-hidden="true" />
                 <span className="font-medium">Show Player</span>
               </>
             )}
@@ -87,10 +75,7 @@ aria-hidden="true"
               rel="noreferrer"
               className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
             >
-              <InboxInIcon
-className="h-5 w-5"
-aria-hidden="true"
-              />
+              <InboxInIcon className="h-5 w-5" aria-hidden="true" />
               <span className="font-medium">Read</span>
             </Link>
           ) : (
@@ -100,10 +85,7 @@ aria-hidden="true"
               target="_blank"
               className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
             >
-              <ExternalLinkIcon
-className="h-5 w-5"
-aria-hidden="true"
-              />
+              <ExternalLinkIcon className="h-5 w-5" aria-hidden="true" />
               <span className="font-medium">Open</span>
             </a>
           )}
@@ -113,14 +95,15 @@ aria-hidden="true"
   }
 
   return (
-    <div className="flex max-h-[540px] min-w-[360px] max-w-[400px] flex-col rounded-lg border border-gray-300 bg-white shadow-lg hover:opacity-95 hover:shadow-sky-500/30 dark:border-gray-700 dark:bg-gray-800 dark:hover:shadow-sky-400/20">
+    <div
+      className="flex max-h-[540px] min-w-[360px] max-w-[400px] flex-col rounded border-2
+    border-gray-400 bg-white shadow-lg hover:opacity-95 hover:shadow-sky-500/30 dark:border-gray-700
+    dark:bg-gray-800 dark:hover:shadow-sky-400/20"
+    >
       {content.ContentType === 'newsletters' ? (
-        <Link
-href={`/newsletters/${content.SK}`}
-rel="noreferrer"
-passHref>
+        <Link href={`/newsletters/${content.SK}`} rel="noreferrer" passHref>
           <Image
-            className="cursor-pointer h-48 rounded-t-lg object-cover hover:opacity-90"
+            className="h-48 cursor-pointer object-cover hover:opacity-90"
             src={imageUrl}
             alt=""
             height="200"
@@ -130,13 +113,9 @@ passHref>
           />
         </Link>
       ) : (
-        <a
-href={content.Url}
-target="_blank"
-rel="noreferrer"
-        >
+        <a href={content.Url} target="_blank" rel="noreferrer">
           <Image
-            className="cursor-pointer h-48 rounded-t-lg object-cover hover:opacity-90"
+            className="h-48 cursor-pointer object-cover hover:opacity-90"
             src={imageUrl}
             alt=""
             height="200"
@@ -159,20 +138,13 @@ rel="noreferrer"
             <div className="flex justify-between">
               {/*  Title */}
               {content.ContentType === 'newsletters' ? (
-                <Link
-href={`/newsletters/${content.SK}`}
-rel="noreferrer"
-className="mr-2">
+                <Link href={`/newsletters/${content.SK}`} rel="noreferrer" className="mr-2">
                   <p className="text-lg font-semibold text-gray-900 hover:text-sky-500 dark:text-gray-200 dark:hover:text-sky-600">
                     {content.Title}
                   </p>
                 </Link>
               ) : (
-                <a
-href={content.Url}
-className="mr-2"
-target="_blank"
-rel="noreferrer">
+                <a href={content.Url} className="mr-2" target="_blank" rel="noreferrer">
                   <p className="text-lg font-semibold text-gray-900 hover:text-sky-500 dark:text-gray-200 dark:hover:text-sky-600">
                     {content.Title}
                   </p>
@@ -180,14 +152,8 @@ rel="noreferrer">
               )}
               {/*  Badge */}
               {content.ContentType !== 'newsletters' && (
-                <Link
-href={badgeUrl}
-passHref
-                >
-                  <div
-className="cursor-pointer hover:opacity-80"
-onClick={() => closeSearch()}
-                  >
+                <Link href={badgeUrl} passHref>
+                  <div className="cursor-pointer hover:opacity-80" onClick={() => closeSearch()}>
                     {mode === 'search' ? (
                       <Badge text={content.ContentType} />
                     ) : (
@@ -201,12 +167,7 @@ onClick={() => closeSearch()}
             {/*  Author */}
             <div className="mb-2">
               {content.Author && (
-                <a
-href={content.Url}
-className=""
-rel="noreferrer"
-target="_blank"
-                >
+                <a href={content.Url} className="" rel="noreferrer" target="_blank">
                   <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-500">
                     by {content.Author}
                   </p>
@@ -262,10 +223,7 @@ target="_blank"
                   editContent(content);
                 }}
               >
-                <DocumentTextIcon
-className="h-5 w-5"
-aria-hidden="true"
-                />
+                <DocumentTextIcon className="h-5 w-5" aria-hidden="true" />
                 <span className="font-medium">Edit Data</span>
               </button>
             ) : (

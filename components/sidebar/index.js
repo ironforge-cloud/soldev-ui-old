@@ -49,7 +49,7 @@ function Sidebar({ tweets, latestNewsletter }) {
       <LatestNewsletter data={latestNewsletter} />
 
       {/* Announcements */}
-      <div className="rounded-lg bg-white shadow dark:bg-gray-800">
+      <div className="rounded border-2 border-gray-400 bg-white shadow dark:border-gray-600 dark:bg-gray-800">
         <div className="p-6">
           <div className="flex justify-between">
             <h2
