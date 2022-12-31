@@ -40,7 +40,7 @@ const blocks = [
         description: 'A 6-week course on building on Solana'
       },
       {
-        title: 'Solana Bootmcap',
+        title: 'Solana Bootcamp',
         url: 'https://soldev.app/library/PLilwLeBwGuK7Z2dXft_pmLZ675fuPgkA0',
         tags: ['advance', 'rust'],
         author: 'Solana Foundation',
