@@ -1,5 +1,7 @@
+const { withPlausibleProxy } = require('next-plausible');
+
 /** @type {import('next').NextConfig} */
-const moduleExports = {
+const moduleExports = withPlausibleProxy({
   swcMinify: true,
   reactStrictMode: true,
   experimental: {
@@ -43,6 +45,6 @@ const moduleExports = {
     ],
     formats: ['image/avif', 'image/webp']
   }
-};
+});
 
 module.exports = moduleExports;

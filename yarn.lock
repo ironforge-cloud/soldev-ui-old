@@ -5471,6 +5471,11 @@ natural-compare@^1.4.0:
   resolved "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
+next-plausible@^3.6.5:
+  version "3.6.5"
+  resolved "https://registry.yarnpkg.com/next-plausible/-/next-plausible-3.6.5.tgz#9a4a221d26382c0ea5d25c14a597df90901a0c1e"
+  integrity sha512-eGsyie68xIyX+If1PSIJsgv7pkiMUm66Yt9gELl3kUvljaxoJOCwUEALGk5JHvhByGsBiRswkrGioDMthL3gfQ==
+
 next-transpile-modules@^10.0.0:
   version "10.0.0"
   resolved "https://registry.yarnpkg.com/next-transpile-modules/-/next-transpile-modules-10.0.0.tgz#7152880048835acb64d05fc7aa34910cbe7994da"
