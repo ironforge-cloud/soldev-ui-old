@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import React, { memo } from 'react';
 
+const Hackathon = dynamic(() => import('./hackathon'));
 const LatestChangelog = dynamic(() => import('./latestChangelog'));
 const LatestNewsletter = dynamic(() => import('./latestNewsletter'));
 

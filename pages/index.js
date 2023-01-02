@@ -45,7 +45,7 @@ const blocks = [
       },
       {
         title: 'Changelog',
-        url: 'https://soldev.app/library/PLilwLeBwGuK5-Qri7Pg9zd-Vvhz9kX2-R',
+        url: 'https://soldev.app/changelog',
         author: 'Solana Foundation',
         description: 'Weekly updates on the Solana ecosystem'
       },

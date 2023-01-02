@@ -51,9 +51,9 @@ function CardWide({ content, mode }) {
 
   return (
     <div
-      className="flex max-w-xl flex-col rounded border-2 border-gray-400
+      className="flex max-w-2xl flex-col rounded border-2 border-gray-400
     bg-white shadow-lg shadow-sky-500/30 hover:opacity-95
-    dark:border-gray-700/60 dark:bg-gray-800 dark:shadow-sky-400/20"
+    dark:border-gray-600 dark:bg-gray-800 dark:shadow-sky-400/20"
     >
       <Link href={url} rel="noreferrer" passHref className="focus:outline-none">
         <Image

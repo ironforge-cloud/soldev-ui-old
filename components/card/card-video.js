@@ -17,22 +17,20 @@ function CardVideo({ content, closeSearch, mode }) {
       className={classNames(
         'relative flex max-w-sm flex-col overflow-visible rounded ' +
           'border-2 border-gray-400 bg-white shadow-lg shadow-sky-500/30 hover:bg-opacity-80 ' +
-          'dark:border-gray-700/60 dark:bg-gray-800 dark:shadow-sky-400/20',
+          'dark:border-gray-600 dark:bg-gray-800 dark:shadow-sky-400/20',
         mode !== 'sidebar' && 'transition ease-in-out hover:-translate-y-0.5 hover:scale-105'
       )}
     >
       <Link href={`/library/${content.PlaylistID}/video/${content.SK}`} passHref>
-        <div>
-          <Image
-            className="h-52 cursor-pointer object-cover hover:opacity-90"
-            src={content.Img}
-            alt=""
-            height="150"
-            width="400"
-            placeholder="blur"
-            blurDataURL={content.Img}
-          />
-        </div>
+        <Image
+          className="h-52 cursor-pointer object-cover hover:opacity-90"
+          src={content.Img}
+          alt=""
+          height="240"
+          width="426"
+          placeholder="blur"
+          blurDataURL={content.Img}
+        />
       </Link>
 
       <div className="flex flex-col justify-between px-4 py-2 ">

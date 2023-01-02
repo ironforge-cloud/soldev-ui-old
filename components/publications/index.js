@@ -48,7 +48,7 @@ function Publications({
   };
 
   return (
-    <div className="mx-auto mt-2 flex flex-col">
+    <div className="mx-auto mt-2 flex flex-col px-2">
       <div className=" flex flex-col items-center justify-center">
         <h1 className=" w-max text-2xl font-bold capitalize tracking-tight text-gray-900 dark:text-gray-200 md:text-3xl 2xl:text-4xl">
           {title}
@@ -78,13 +78,13 @@ function Publications({
       )}
 
       {title === 'Newsletter' && (
-        <div className="mx-auto mb-20 mt-10 flex max-w-3xl">
+        <div className="mx-auto mb-20 mt-5 flex max-w-3xl">
           <CardWide mode="dashboard" content={latest} />
         </div>
       )}
 
       {title === 'Changelog' && (
-        <div className="mx-auto mb-20 mt-10 flex max-w-3xl">
+        <div className="mx-auto mb-20 mt-5 flex max-w-3xl">
           <CardWidev2 mode="changelog" content={latest} />
         </div>
       )}

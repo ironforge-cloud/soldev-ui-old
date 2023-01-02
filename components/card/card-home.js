@@ -6,15 +6,16 @@ import { memo } from 'react';
 
 const CopyLink = dynamic(() => import('./copy-link.js'));
 
-function CardHome({ title, url, author, tags, description }) {
+function CardHome({title, url, author, tags, description}) {
   function actionButton() {
     if (!url.includes('https://') || url.includes('soldev')) {
       return (
         <Link
           href={url}
-          className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
+          className="inline-flex items-center space-x-2 text-gray-600
+          hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
         >
-          <ExternalLinkIcon className="h-5 w-5" aria-hidden="true" />
+          <ExternalLinkIcon className="h-5 w-5" aria-hidden="true"/>
           <span className="font-medium">Open</span>
         </Link>
       );
@@ -24,9 +25,10 @@ function CardHome({ title, url, author, tags, description }) {
           href={url}
           rel="noreferrer"
           target="_blank"
-          className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
+          className="inline-flex items-center space-x-2 text-gray-600
+          hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
         >
-          <ExternalLinkIcon className="h-5 w-5" aria-hidden="true" />
+          <ExternalLinkIcon className="h-5 w-5" aria-hidden="true"/>
           <span className="font-medium">Open</span>
         </Link>
       );
@@ -45,7 +47,9 @@ function CardHome({ title, url, author, tags, description }) {
             <div className="flex justify-between">
               {/*  Title */}
               <a href={url} className="mr-2" target="_blank" rel="noreferrer">
-                <p className="text-lg font-semibold text-gray-900 hover:text-sky-500 dark:text-gray-200 dark:hover:text-sky-600">
+                <p
+                  className="text-lg font-semibold text-gray-900 hover:text-sky-500 dark:text-gray-200 dark:hover:text-sky-600"
+                >
                   {title}
                 </p>
               </a>
@@ -55,7 +59,9 @@ function CardHome({ title, url, author, tags, description }) {
             <div className="mb-2">
               {author && (
                 <a href={url} className="" rel="noreferrer" target="_blank">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-500">
+                  <p
+                    className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-500"
+                  >
                     by {author}
                   </p>
                 </a>
@@ -88,7 +94,7 @@ function CardHome({ title, url, author, tags, description }) {
             {/* Copy Link Btn */}
             <div>
               <div className="flex flex-row items-end">
-                <CopyLink content={{ title, url }} />
+                <CopyLink content={{title, url}}/>
               </div>
             </div>
           </div>

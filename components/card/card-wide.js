@@ -95,7 +95,7 @@ function CardWide({ content, mode }) {
         'flex min-h-full flex-col rounded bg-white dark:bg-gray-800',
         mode === 'dashboard' &&
           'border-2 border-gray-400 shadow-lg hover:opacity-95 ' +
-            'shadow-sky-500/30 dark:border-gray-700/60 dark:shadow-sky-400/20'
+            'shadow-sky-500/30 dark:border-gray-600 dark:shadow-sky-400/20'
       )}
     >
       {imageUrl && content.ContentType === 'newsletter' ? (
