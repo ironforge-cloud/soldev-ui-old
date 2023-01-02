@@ -1,20 +1,38 @@
 # SolDev UI
 
-> Public Roadmap: https://github.com/orgs/ic-solution/projects/3/views/1
+Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations!
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## :hammer_and_wrench: Installation Steps
 
+1. Install the dependencies:
+```bash
+npm install
+# or
+yarn install
+```
 
+2. create a file called `.env.local` to setup the environment and paste following into that:
+```bash
+NEXT_PUBLIC_API_ENDPOINT="https://api.dev.soldev.app"
+NODE_ENV="development"
+```
 
-## Getting Started
-
-First, run the development server:
+3. Finally, run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
 ```
+## 👨‍💻 Contributing
+
+- Any contributions are **greatly appreciated**.
+
+### Bug / Feature Request
+
+If you find a bug in the website, kindly open an issue [here](https://github.com/https://github.com/ironforge-cloud/soldev-ui/issues/new) by
+including a proper description about the bug and the expected result. Similarly, we would be glad to hear about new features to add in the project, kindly follow same procedure for it too.
+Additionally, feel free to look at the [current milestone](https://github.com/ironforge-cloud/soldev-ui/milestone/) to get a better sense of the project's future.
 
 ## Learn More
 
