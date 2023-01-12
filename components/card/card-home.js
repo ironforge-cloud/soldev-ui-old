@@ -6,15 +6,16 @@ import { memo } from 'react';
 
 const CopyLink = dynamic(() => import('./copy-link.js'));
 
-function CardHome({ title, url, contentType, author, tags, description }) {
+function CardHome({title, url, author, tags, description}) {
   function actionButton() {
     if (!url.includes('https://') || url.includes('soldev')) {
       return (
         <Link
           href={url}
-          className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
+          className="inline-flex items-center space-x-2 text-gray-600
+          hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
         >
-          <ExternalLinkIcon className="h-5 w-5" aria-hidden="true" />
+          <ExternalLinkIcon className="h-5 w-5" aria-hidden="true"/>
           <span className="font-medium">Open</span>
         </Link>
       );
@@ -24,9 +25,10 @@ function CardHome({ title, url, contentType, author, tags, description }) {
           href={url}
           rel="noreferrer"
           target="_blank"
-          className="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
+          className="inline-flex items-center space-x-2 text-gray-600
+          hover:text-gray-400 dark:text-gray-300 dark:hover:text-gray-500"
         >
-          <ExternalLinkIcon className="h-5 w-5" aria-hidden="true" />
+          <ExternalLinkIcon className="h-5 w-5" aria-hidden="true"/>
           <span className="font-medium">Open</span>
         </Link>
       );
@@ -34,14 +36,20 @@ function CardHome({ title, url, contentType, author, tags, description }) {
   }
 
   return (
-    <div className="mb-10 flex flex-col rounded-lg border border-gray-300 bg-white shadow-lg hover:opacity-95 hover:shadow-sky-500/30 dark:border-gray-700 dark:bg-gray-800 dark:hover:shadow-sky-400/20">
-      <div className="px-5 pt-5">
+    <div
+      className="mb-10 flex flex-col rounded border-2 border-gray-400 bg-white
+     shadow-lg shadow-sky-500/30 transition ease-in-out hover:-translate-y-0.5 hover:scale-105
+      hover:opacity-95 dark:border-gray-600 dark:bg-gray-800 dark:shadow-sky-400/20"
+    >
+      <div className=" px-5 pt-5">
         <div className="overflow-hidden">
           <div className="border-b-2 border-dashed border-gray-700 dark:border-gray-500">
             <div className="flex justify-between">
               {/*  Title */}
               <a href={url} className="mr-2" target="_blank" rel="noreferrer">
-                <p className="text-lg font-semibold text-gray-900 hover:text-sky-500 dark:text-gray-200 dark:hover:text-sky-600">
+                <p
+                  className="text-lg font-semibold text-gray-900 hover:text-sky-500 dark:text-gray-200 dark:hover:text-sky-600"
+                >
                   {title}
                 </p>
               </a>
@@ -51,7 +59,9 @@ function CardHome({ title, url, contentType, author, tags, description }) {
             <div className="mb-2">
               {author && (
                 <a href={url} className="" rel="noreferrer" target="_blank">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-500">
+                  <p
+                    className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-500"
+                  >
                     by {author}
                   </p>
                 </a>
@@ -77,14 +87,14 @@ function CardHome({ title, url, contentType, author, tags, description }) {
         </div>
 
         {/*  Actions */}
-        <div className="relative mt-32">
+        <div className="relative mt-20">
           <div className="absolute bottom-5 flex w-full flex-row justify-between">
             <div className="">{actionButton()}</div>
 
             {/* Copy Link Btn */}
             <div>
               <div className="flex flex-row items-end">
-                <CopyLink title={title} url={url} />
+                <CopyLink content={{title, url}}/>
               </div>
             </div>
           </div>
@@ -97,7 +107,6 @@ function CardHome({ title, url, contentType, author, tags, description }) {
 CardHome.propTypes = {
   title: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
-  contentType: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   tags: PropTypes.array
 };

@@ -7,20 +7,6 @@ import fetch from '../utils/fetcher';
 const Sidebar = dynamic(() => import('../components/sidebar'));
 const CardHome = dynamic(() => import('../components/card/card-home'));
 
-export async function getStaticProps() {
-  const newContent = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/specialtag/New`);
-  const tweets = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/tweets/pinned`);
-
-  const latestNewsletter = await fetch(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/newsletters`
-  );
-
-  return {
-    props: { newContent, tweets, latestNewsletter: latestNewsletter[1] },
-    revalidate: 60
-  };
-}
-
 const blocks = [
   {
     heading: 'Learn',
@@ -40,7 +26,7 @@ const blocks = [
         description: 'A 6-week course on building on Solana'
       },
       {
-        title: 'Solana Bootmcap',
+        title: 'Solana Bootcamp',
         url: 'https://soldev.app/library/PLilwLeBwGuK7Z2dXft_pmLZ675fuPgkA0',
         tags: ['advance', 'rust'],
         author: 'Solana Foundation',
@@ -59,7 +45,7 @@ const blocks = [
       },
       {
         title: 'Changelog',
-        url: 'https://soldev.app/library/PLilwLeBwGuK5-Qri7Pg9zd-Vvhz9kX2-R',
+        url: 'https://soldev.app/changelog',
         author: 'Solana Foundation',
         description: 'Weekly updates on the Solana ecosystem'
       },
@@ -96,9 +82,30 @@ const blocks = [
   }
 ];
 
-export default function Home({ tweets, latestNewsletter }) {
+export async function getStaticProps() {
+  const newContent = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/specialtag/New`);
+
+  const latestNewsletter = await fetch(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/newsletters`
+  );
+
+  const latestChangelog = await fetch(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/content/Solana/PLilwLeBwGuK5-Qri7Pg9zd-Vvhz9kX2-R`
+  );
+
+  return {
+    props: {
+      newContent,
+      latestNewsletter: latestNewsletter[1],
+      latestChangelog: latestChangelog[0]
+    },
+    revalidate: 60
+  };
+}
+
+export default function Home({ latestNewsletter, latestChangelog }) {
   const metaTags = {
-    title: 'SolDev - Home',
+    title: 'SolDev',
     description:
       'Learn to Develop using Solana. Tutorials, SDK\'s, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations',
     url: 'https://soldev.app/',
@@ -108,14 +115,17 @@ export default function Home({ tweets, latestNewsletter }) {
   return (
     <Container metaTags={metaTags}>
       <div className="flex justify-center gap-6 px-2 md:pl-0">
-        <main className="max-w-4xl">
+        <main className="max-w-5xl">
           {/* Main Card */}
-          <div className="flex h-80 flex-col justify-center rounded-lg bg-white shadow-lg hover:shadow-sky-500/30 dark:bg-gray-800 dark:hover:shadow-sky-400/20">
+          <div
+            className="flex h-80 flex-col justify-center rounded border-2 border-gray-400 bg-white shadow-lg
+          shadow-sky-500/30 dark:border-gray-600 dark:bg-gray-800 dark:shadow-sky-400/20"
+          >
             <div className="px-6 text-center text-gray-900 dark:text-gray-100 md:px-10 ">
               <div className="flex flex-col items-center">
                 <Link href="/course">
                   <h2 className="text-2xl font-bold capitalize text-gray-900 dark:text-gray-200 md:text-3xl 2xl:text-4xl">
-                    Solana Development Course
+                    Introduction to Solana
                   </h2>
                 </Link>
                 <Banner />
@@ -130,13 +140,16 @@ export default function Home({ tweets, latestNewsletter }) {
           </div>
           <div className="relative">
             <Link href="/course">
-              <p className="absolute bottom-0 right-0 mb-4 mr-4 cursor-pointer text-sky-600 decoration-rose-500 hover:underline">
+              <p
+                className="absolute bottom-0 right-0 mb-4 mr-4 cursor-pointer text-sky-600
+              decoration-rose-500 hover:underline dark:text-sky-500"
+              >
                 <>Start learning &rarr;</>
               </p>
             </Link>
           </div>
 
-          <div className="mx-auto mt-12 lg:max-w-none">
+          <div className="mx-auto ml-2 mt-12 lg:max-w-none">
             {blocks.map(card => (
               // Smaller cards
               <div key={card.heading}>
@@ -161,7 +174,7 @@ export default function Home({ tweets, latestNewsletter }) {
         </main>
 
         <aside className="hidden max-w-sm 2xl:block">
-          <Sidebar tweets={tweets} latestNewsletter={latestNewsletter} />
+          <Sidebar latestChangelog={latestChangelog} latestNewsletter={latestNewsletter} />
         </aside>
       </div>
     </Container>

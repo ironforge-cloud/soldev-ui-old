@@ -1,10 +1,18 @@
-const { withSentryConfig } = require('@sentry/nextjs');
+const { withPlausibleProxy } = require('next-plausible');
 
-const moduleExports = {
+/** @type {import('next').NextConfig} */
+const moduleExports = withPlausibleProxy()({
   swcMinify: true,
   reactStrictMode: true,
+  experimental: {
+    legacyBrowsers: false
+  },
   images: {
     domains: [
+      'rotatingcanvas.com',
+      'arweave.net',
+      'nick.af',
+      'hashnode.com',
       'cdn.hashnode.com',
       'abs.twimg.com',
       'pbs.twimg.com',
@@ -37,6 +45,6 @@ const moduleExports = {
     ],
     formats: ['image/avif', 'image/webp']
   }
-};
+});
 
 module.exports = moduleExports;

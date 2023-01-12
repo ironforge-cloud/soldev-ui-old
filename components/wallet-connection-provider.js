@@ -2,7 +2,7 @@ import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
 import { clusterApiUrl } from '@solana/web3.js';
-import { memo, useMemo } from 'react';
+import { useMemo } from 'react';
 
 function WalletConnectionProvider({ children }) {
   const network = WalletAdapterNetwork.Mainnet;
@@ -16,14 +16,11 @@ function WalletConnectionProvider({ children }) {
 
   return (
     <ConnectionProvider endpoint={endpoint}>
-      <WalletProvider
-wallets={wallets}
-autoConnect
-      >
+      <WalletProvider wallets={wallets} autoConnect>
         {children}
       </WalletProvider>
     </ConnectionProvider>
   );
 }
 
-export default memo(WalletConnectionProvider);
+export default WalletConnectionProvider;
