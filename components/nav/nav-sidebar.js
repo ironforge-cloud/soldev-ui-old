@@ -1,6 +1,7 @@
 import {
   AcademicCapIcon,
   ChatAlt2Icon,
+  DocumentDuplicateIcon,
   ExternalLinkIcon,
   FolderAddIcon,
   HomeIcon,
@@ -33,11 +34,16 @@ const navigation = [
     icon: ChatAlt2Icon,
     disabled: false
   },
-
   {
     name: 'Newsletters',
     href: '/newsletters',
     icon: NewspaperIcon,
+    disabled: false
+  },
+  {
+    name: 'IDL Registry',
+    href: '/registry',
+    icon: DocumentDuplicateIcon,
     disabled: false
   }
 ];
