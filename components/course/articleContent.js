@@ -1,10 +1,10 @@
-import { memo, useState } from 'react';
 import { ClipboardIcon } from '@heroicons/react/solid';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { memo, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import ReactMarkdown from 'react-markdown';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import remarkGfm from 'remark-gfm';
 
 /*
   Define a component to render the react friendly markdown parser
@@ -12,10 +12,7 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 function ArticleContent({ markdown = null, className = '' }) {
   return (
     <article className={className}>
-      <ReactMarkdown
-rehypePlugins={[remarkGfm]}
-components={{ code: CodeBlock }}
-      >
+      <ReactMarkdown rehypePlugins={[remarkGfm]} components={{ code: CodeBlock }}>
         {markdown}
       </ReactMarkdown>
     </article>
@@ -62,10 +59,7 @@ const CodeBlock = ({ className = 'not-prose ', inline = false, children }) => {
                 changeText('Copied!');
               }}
             >
-              <ClipboardIcon
-className="-ml-0.5 mr-2 h-4 w-4"
-aria-hidden="true"
-              />
+              <ClipboardIcon className="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
               {copyButtonText}
             </button>
           </CopyToClipboard>

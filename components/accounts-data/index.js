@@ -1,11 +1,11 @@
-import { memo, useCallback, useEffect, useState } from 'react';
+import { CollectionIcon } from '@heroicons/react/solid';
 import { AnchorProvider, Program } from '@project-serum/anchor';
 import { Connection, PublicKey } from '@solana/web3.js';
+import { memo, useCallback, useEffect, useState } from 'react';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import AccountSelector from './account-selector';
 import AccountsDataFilter from './filter';
-import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { CollectionIcon } from '@heroicons/react/solid';
-import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 function AccountsData({ idl, programID }) {
   const [selectedAccount, setSelectedAccount] = useState();
@@ -114,6 +114,7 @@ function AccountsData({ idl, programID }) {
         console.log('Error:', e);
       }
     }
+
     if (selectedAccount) fetchData();
   }, [getData, selectedAccount, filter]);
 
@@ -141,19 +142,19 @@ function AccountsData({ idl, programID }) {
         </div>
       </div>
 
-      <div className="rounded-t-md border border-slate-300 dark:border-slate-500">
-        <div className="flex justify-between bg-slate-100 py-2 px-4 dark:bg-gray-700">
+      <div className="rounded-t-md border border-gray-300 dark:border-gray-500">
+        <div className="flex justify-between bg-gray-100 py-2 px-4 dark:bg-gray-700">
           {/* Account name */}
-          <div className="flex items-center gap-2 text-gray-500 dark:text-gray-200">
+          <div className="flex items-center gap-2 text-gray-500 dark:text-gray-300">
             <CollectionIcon className="h-6 w-6" />
-            <h5 className=" tracking-wide">
+            <h5 className="tracking-wide">
               {selectedAccount ? selectedAccount : 'Select an Account'}
             </h5>
           </div>
 
           {/* Pagination state */}
           {selectedAccount && (
-            <div className="flex items-center text-gray-500 dark:text-gray-200">
+            <div className="flex items-center text-gray-500 dark:text-gray-400">
               Showing {currentPage * pageSize} to{' '}
               {accountsLength >= pageSize ? pageSize * currentPage + pageSize : accountsLength} of{' '}
               {accountsLength} results
@@ -167,9 +168,9 @@ function AccountsData({ idl, programID }) {
               onClick={() => {
                 setCurrentPage(currentPage - 1);
               }}
-              className="relative inline-flex items-center rounded-md border border-gray-300
-               bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50
-               disabled:cursor-not-allowed disabled:opacity-50"
+              className="relative inline-flex items-center rounded-md border border-gray-300 bg-white
+               px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:cursor-not-allowed
+               disabled:opacity-50 dark:border-gray-500"
             >
               Previous
             </button>
@@ -189,8 +190,8 @@ function AccountsData({ idl, programID }) {
         </div>
 
         <div
-          className="prose min-w-full border-t bg-white prose-img:mx-auto prose-img:mt-0 prose-img:mb-0 prose-img:max-h-[150px]
-        prose-img:max-w-[150px] dark:bg-gray-800"
+          className="prose min-w-full border-t font-mono prose-img:mx-auto prose-img:mt-0
+           prose-img:mb-0 prose-img:max-h-[150px] prose-img:max-w-[150px] dark:border-gray-500"
         >
           <SyntaxHighlighter
             showLineNumbers

@@ -11,12 +11,18 @@ function renderAccounts(accounts) {
         <span>{accounts[i].name}</span>
         <div className="flex gap-1">
           {accounts[i].isSigner && (
-            <span className="inline-flex items-center rounded bg-orange-100 px-2 py-0.5 text-xs font-medium text-orange-800">
+            <span
+              className="inline-flex items-center rounded bg-orange-100 px-2 py-0.5
+             text-xs font-medium text-orange-800 dark:bg-orange-700 dark:text-orange-50"
+            >
               isSigner
             </span>
           )}
           {accounts[i].isMut && (
-            <span className="inline-flex items-center rounded bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800">
+            <span
+              className="inline-flex items-center rounded bg-green-100
+             px-2 py-0.5 text-xs font-medium text-green-800 dark:bg-green-800 dark:text-green-50"
+            >
               isMut
             </span>
           )}
@@ -34,9 +40,9 @@ function Instructions({ data }) {
       <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
           <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
-            <table className="min-w-full divide-y divide-gray-300">
+            <table className="min-w-full divide-y divide-gray-300 dark:divide-gray-500">
               <thead className="bg-gray-50 dark:bg-gray-700">
-                <tr className="text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-200">
+                <tr className="text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-300">
                   <th scope="col" className="py-3 pl-4 pr-3 sm:pl-6">
                     Name
                   </th>
@@ -48,11 +54,11 @@ function Instructions({ data }) {
                   </th>
                 </tr>
               </thead>
-              <tbody className="prose divide-y divide-gray-200 bg-white dark:bg-gray-800">
+              <tbody className="prose divide-y divide-gray-200 bg-white dark:divide-gray-500 dark:bg-gray-800">
                 {data.map(item => (
                   <tr
                     key={item.name}
-                    className="whitespace-nowrap font-mono text-sm text-gray-500 dark:text-gray-300"
+                    className="whitespace-nowrap font-mono text-sm text-gray-500 dark:text-gray-400"
                   >
                     <td className=" py-4 pl-4 pr-3 sm:pl-6">{item.name}</td>
                     <td className="px-3 py-4">{renderArguments(item.args)}</td>

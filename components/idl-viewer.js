@@ -1,13 +1,13 @@
-import { memo } from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
+import { memo } from 'react';
 
 const Instructions = dynamic(() => import('./idl/instructions'));
 const Accounts = dynamic(() => import('./idl/accounts'));
-const Errors = dynamic(() => import('./idl/errors'));
-const Events = dynamic(() => import('./idl/events'));
 const Types = dynamic(() => import('./idl/types'));
+const Errors = dynamic(() => import('./idl/errors'));
 const Constants = dynamic(() => import('./idl/constants'));
+const Events = dynamic(() => import('./idl/events'));
 
 const tabs = [
   { name: 'Instructions' },
@@ -37,7 +37,7 @@ function IdlViewer({ data }) {
         <select
           id="tabs"
           name="tabs"
-          className="block w-full rounded-md border-gray-300 focus:border-amber-500 focus:ring-amber-500"
+          className="block w-full rounded-md border-gray-300 focus:border-amber-500 focus:ring-amber-500 dark:border-gray-700"
           defaultValue={tabs.find(tab => tab.name === selectedTab).name}
           value={selectedTab}
           onChange={e =>
@@ -61,7 +61,7 @@ function IdlViewer({ data }) {
                   disabled={!(tab.name.toLowerCase() in data)}
                   className={classNames(
                     tab.name === selectedTab
-                      ? 'bg-sky-400 text-gray-500 dark:bg-sky-500 dark:text-gray-900'
+                      ? 'bg-gray-300 text-gray-700 dark:bg-sky-500 dark:text-gray-900'
                       : 'text-gray-500 hover:text-gray-700 dark:text-gray-300',
                     'rounded-md px-3 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:text-gray-300 disabled:dark:text-gray-700'
                   )}
@@ -83,4 +83,5 @@ function IdlViewer({ data }) {
     </div>
   );
 }
+
 export default memo(IdlViewer);
