@@ -22,7 +22,7 @@ function IDLErrors({ data }) {
               </thead>
               <tbody className="prose divide-y divide-gray-200 bg-white dark:bg-gray-800">
                 {data.map(item => (
-                  <tr key={item.code} className="font-mono text-sm text-gray-500">
+                  <tr key={item.code} className="font-mono text-sm text-gray-500 dark:text-gray-300">
                     <td className="py-4 pl-4 pr-3 sm:pl-6">{item.code}</td>
                     <td className="px-3 py-4">{item.name}</td>
                     <td className="px-3 py-4">{item.msg}</td>

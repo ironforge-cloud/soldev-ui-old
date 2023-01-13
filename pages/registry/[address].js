@@ -1,7 +1,7 @@
 import { DatabaseIcon, TerminalIcon } from '@heroicons/react/solid';
 
 import { Container } from '../../components/layout';
-import { useMemo, useState } from 'react';
+import {useEffect, useState} from 'react';
 import fetch from '../../utils/fetcher';
 import IdlViewer from '../../components/idl-viewer';
 import { useRouter } from 'next/router';
@@ -39,7 +39,7 @@ export default function IDLViewerPage({ data }) {
   const [selectedTab, setSelectedTab] = useState('IDL');
   const router = useRouter();
 
-  useMemo(() => {
+  useEffect(() => {
     if (router.pathname.includes('/registry')) {
       switch (router.query.tab) {
         case 'Accounts Data':
@@ -50,7 +50,7 @@ export default function IDLViewerPage({ data }) {
           break;
       }
     }
-  }, []);
+  }, [router.pathname, router.query.tab]);
 
   const metaTags = {
     title: data.name ? `SolDev - ${data.name}` : 'SolDev - IDL Registry',
