@@ -7,6 +7,7 @@ import IdlViewer from '../../components/idl-viewer';
 import { useRouter } from 'next/router';
 import AccountsData from '../../components/accounts-data';
 import Custom404 from '../404';
+import { getBaseUrl } from '../../utils/get-base-url';
 
 const tabs = [
   { name: 'IDL', icon: TerminalIcon, disabled: false },
@@ -25,9 +26,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/idl?address=${params.address}`
-  );
+  const res = await fetch(`${getBaseUrl()}/api/idl?address=${params.address}`);
 
   return {
     props: {
