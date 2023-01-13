@@ -16,7 +16,7 @@ export default function Registry() {
       <div className="-mt-[74px] flex h-screen flex-col items-center justify-center">
         <div className="flex w-full items-center justify-center">
           <div className="w:full sm:w-4/5 lg:w-3/5">
-            <Searchbar searchButton={true} keyboardShortcut={true} />
+            <Searchbar searchButton={true} keyboardShortcut={false} />
           </div>
         </div>
         {/*<p className="sm:text:sm text-center text-xs text-gray-600 dark:text-gray-400 md:text-base">*/}

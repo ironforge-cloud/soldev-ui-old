@@ -1,14 +1,16 @@
 import { SearchIcon } from '@heroicons/react/outline';
 import PropTypes from 'prop-types';
-import { memo, useCallback, useEffect, useState } from 'react';
+import {memo, useCallback, useEffect, useRef, useState} from 'react';
 import router from 'next/router';
 import Spinner from './spinner';
 
 function Searchbar({ searchButton, keyboardShortcut }) {
+
+  const searchInput = useRef(null);
   // handle what happens on key press
   const handleKeyPress = useCallback(event => {
     if (keyboardShortcut && event.metaKey && event.which === 75) {
-      document.getElementById('search_input').focus();
+      searchInput.current.focus();
     }
   }, []);
 
@@ -28,7 +30,7 @@ function Searchbar({ searchButton, keyboardShortcut }) {
     if (query) {
       router.push(`/registry/${query}`).then();
     } else {
-      document.getElementById('search_input').focus();
+      searchInput.current.focus();
     }
   };
 
@@ -36,13 +38,11 @@ function Searchbar({ searchButton, keyboardShortcut }) {
     // show the spinner
     const startSpinner = () => {
       setShowSpinner(true);
-      document.getElementById('keyboard_shortcut').style.display = 'none';
     };
 
     // hide the spinner
     const hideSpinner = () => {
       setShowSpinner(false);
-      document.getElementById('keyboard_shortcut').style.display = 'block';
     };
 
     router.events.on('routeChangeStart', startSpinner);
@@ -73,14 +73,13 @@ function Searchbar({ searchButton, keyboardShortcut }) {
             <input
               className="text-md block w-full rounded-md border border-gray-300 bg-white py-3 pl-10 pr-3 text-center text-gray-900 placeholder-gray-500 focus:border-rose-500 focus:outline-none focus:ring-1 focus:ring-rose-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:placeholder-gray-300"
               placeholder="Search programs"
-              id="search_input"
+              ref={searchInput}
               onChange={e => setQuery(e.target.value)}
             />
             {/* TODO: handle address and shortcut key colliding in small screens */}
-            {keyboardShortcut && (
+            {keyboardShortcut && !showSpinner && (
               <div className="absolute right-0 flex hidden py-1.5 pr-1.5 sm:block">
                 <kbd
-                  id="keyboard_shortcut"
                   className="inline-flex items-center rounded border border-gray-200 px-2 font-sans text-sm font-medium text-gray-400 dark:border-gray-600 dark:text-gray-500"
                 >
                   ⌘K
