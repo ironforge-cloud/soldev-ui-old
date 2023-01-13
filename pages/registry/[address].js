@@ -1,4 +1,4 @@
-import { DatabaseIcon, TerminalIcon, ExternalLinkIcon } from '@heroicons/react/solid';
+import { DatabaseIcon, TerminalIcon } from '@heroicons/react/solid';
 
 import { Container } from '../../components/layout';
 import { useMemo, useState } from 'react';
@@ -53,7 +53,7 @@ export default function IDLViewerPage({ data }) {
   }, []);
 
   const metaTags = {
-    title: 'SolDev - IDL Registry',
+    title: data.name ? `SolDev - ${data.name}` : 'SolDev - IDL Registry',
     description: 'Solana deployed IDLs',
     url: 'https://soldev.app/registry/',
     shouldIndex: true
@@ -66,16 +66,40 @@ export default function IDLViewerPage({ data }) {
   return (
     <Container metaTags={metaTags}>
       <div className="xs:text-xs mx-auto flex max-w-screen-xl flex-col px-5 text-base">
-        {/* explorer link */}
-        <a
-          href={`https://explorer.solana.com/address/${data.address}`}
-          target="_blank"
-          rel="noreferrer"
-          className="flex text-sky-600 hover:text-sky-700 hover:underline"
-        >
-          <p className="text-md cursor-pointer truncate pb-4 sm:text-xl">{data.address}</p>
-          <ExternalLinkIcon className="ml-2 h-6 w-6 md:h-8 md:w-8" aria-hidden="true" />
-        </a>
+        <div className="justify-between gap-2 lg:flex">
+
+          {/* IDL name */}
+          <h1 className="text-xl font-bold capitalize tracking-tight md:text-3xl 2xl:text-4xl text-sky-500 hover:text-sky-600 dark:text-sky-600 dark:hover:text-sky-700">
+            {data.name}
+          </h1>
+
+          {/* explorer link */}
+          <h2 className="mt-2 flex gap-1 pr-10 text-sky-500 hover:text-sky-600 dark:text-sky-600 dark:hover:text-sky-700">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+              stroke="currentColor"
+              aria-hidden="true"
+              className="h-6 w-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              ></path>
+            </svg>
+            <a
+              target="_blank"
+              href={`https://explorer.solana.com/address/${data.address}`}
+              className="cursor-pointer truncate font-medium tracking-wide hover:underline"
+              rel="noreferrer"
+            >
+              {data.address}
+            </a>
+          </h2>
+        </div>
 
         {/* tabs */}
         <div className="mt-5 sm:hidden">
