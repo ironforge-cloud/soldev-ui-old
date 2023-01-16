@@ -6,7 +6,6 @@ import AccountsData from '../../components/accounts-data';
 import IdlViewer from '../../components/idl-viewer';
 import { Container } from '../../components/layout';
 import fetch from '../../utils/fetcher';
-import Custom404 from '../404';
 
 const tabs = [
   { name: 'IDL', icon: TerminalIcon, disabled: false },
@@ -68,10 +67,6 @@ export default function IDLViewerPage({ data }) {
     url: 'https://soldev.app/registry/',
     shouldIndex: true
   };
-
-  if (!(data && data.idl && data.address && data.address.length === 43)) {
-    return <Custom404 idl={true} />;
-  }
 
   return (
     <Container metaTags={metaTags}>
