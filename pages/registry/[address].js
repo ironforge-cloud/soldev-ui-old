@@ -75,7 +75,7 @@ export default function IDLViewerPage({ data }) {
 
   return (
     <Container metaTags={metaTags}>
-      <div className="xs:text-xs mx-auto mt-2 flex max-w-screen-xl flex-col px-5 text-base">
+      <div className="xs:text-xs mx-auto mt-5 flex max-w-screen-xl flex-col px-5 text-base">
         <div className="mx-2 mb-10 flex-col gap-3 text-center lg:flex">
           {/* Program name */}
 
