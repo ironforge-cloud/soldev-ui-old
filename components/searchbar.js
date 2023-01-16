@@ -28,16 +28,6 @@ function Searchbar({ searchValue, setSearchValue }) {
           </div>
         </div>
       </div>
-
-      {/*<button*/}
-      {/*  type="button"*/}
-      {/*  className="mx-2 mt-1 inline-flex w-40 items-center rounded-md border border-transparent bg-indigo-600 py-2.5 px-3*/}
-      {/*      text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500*/}
-      {/*      focus:ring-offset-2 dark:text-gray-200 dark:focus:ring-blue-800"*/}
-      {/*  onClick={setSearch}*/}
-      {/*>*/}
-      {/*  Search*/}
-      {/*</button>*/}
     </div>
   );
 }

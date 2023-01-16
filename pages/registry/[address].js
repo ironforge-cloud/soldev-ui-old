@@ -18,8 +18,18 @@ function classNames(...classes) {
 }
 
 export async function getStaticPaths() {
+  const programs = await fetch(`${process.env.NEXT_PUBLIC_IRONFORGE_API}/idl/all`);
+
+  const paths = programs.map(program => {
+    return {
+      params: {
+        address: program.address
+      }
+    };
+  });
+
   return {
-    paths: [],
+    paths: paths,
     fallback: 'blocking'
   };
 }
