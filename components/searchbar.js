@@ -17,10 +17,10 @@ function Searchbar({ searchValue, setSearchValue }) {
           </div>
           <div className="mt-1 flex items-center">
             <input
-              className="text-md block w-full rounded-md border border-gray-300 bg-white py-3
-              pl-10 pr-3 text-center text-gray-900 placeholder-gray-500 focus:border-sky-500
-              focus:outline-none focus:ring-1 focus:ring-sky-500 dark:border-gray-700
-              dark:bg-gray-900 dark:text-gray-300 dark:placeholder-gray-300"
+              className="text-md block w-full rounded-md border border-gray-200 bg-white py-3
+              pl-10 pr-3 text-center text-gray-900 placeholder-gray-500 shadow-lg
+              focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500
+              dark:border-gray-700 dark:bg-gray-700 dark:text-gray-300 dark:placeholder-gray-300"
               placeholder="Search programs by name or address"
               onChange={e => setSearchValue(e.target.value)}
               value={searchValue}

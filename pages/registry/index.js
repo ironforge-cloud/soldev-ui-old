@@ -1,7 +1,8 @@
 import { ClipboardListIcon, DownloadIcon } from '@heroicons/react/outline';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Container } from '../../components/layout';
 import fetch from '../../utils/fetcher';
 
@@ -53,13 +54,15 @@ export default function Registry({ data }) {
 
   return (
     <Container metaTags={metaTags}>
-      <div className=" flex flex-col items-center justify-center">
-        <h1 className="mt-5 w-max text-2xl font-bold capitalize tracking-tight text-gray-900 dark:text-gray-200 md:text-3xl 2xl:text-4xl">
-          IDL Registry
-        </h1>
-      </div>
-
       <div className="container mx-auto flex min-h-screen flex-col items-center">
+        <Image
+          className="max-w-sm"
+          alt="hero"
+          src="/banner-idl.svg"
+          width="400"
+          height="300"
+          priority
+        />
         <div className="mt-10 flex w-full items-center justify-center">
           <div className="w-full sm:w-8/12">
             <Searchbar searchValue={searchValue} setSearchValue={setSearchValue} />
@@ -73,39 +76,48 @@ export default function Registry({ data }) {
           {data.map((program, index) => (
             <li
               key={index}
-              className="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow transition
-              ease-in-out hover:-translate-y-0.5 hover:scale-105 hover:opacity-95"
+              className="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow transition ease-in-out
+              hover:-translate-y-0.5 hover:scale-105 hover:opacity-95 dark:bg-gray-700"
             >
               <div className="flex w-full items-center justify-between space-x-6 p-6">
                 <div className="flex-1 truncate">
                   <div className="flex items-center space-x-3">
-                    <h3 className="truncate text-lg font-medium text-gray-900">
+                    <h3 className="truncate text-lg font-medium text-gray-900 dark:text-gray-100">
                       {program.programName}
                     </h3>
-                    <span className="inline-block flex-shrink-0 rounded-full bg-green-200 px-2 py-0.5 text-xs font-medium tracking-wider text-gray-900">
+                    <span
+                      className="inline-block flex-shrink-0 rounded-full bg-green-200 px-2 py-0.5 text-xs
+                    font-medium tracking-wider text-gray-900 dark:bg-red-500 dark:text-red-50"
+                    >
                       mainnet
                     </span>
                   </div>
-                  <p className="mt-2 truncate text-sm text-gray-500">{program.address}</p>
+                  <p className="mt-2 truncate text-sm text-gray-500 dark:text-gray-300">
+                    {program.address}
+                  </p>
                 </div>
               </div>
               <div>
-                <div className="-mt-px flex divide-x divide-gray-200">
+                <div className="-mt-px flex divide-x divide-gray-200 dark:divide-gray-500">
                   <div className="flex w-0 flex-1">
                     <button
                       onClick={() => downloadIDL(program)}
-                      className="relative -mr-px inline-flex w-0 flex-1 items-center justify-center rounded-bl-lg border border-transparent py-4 text-sm font-medium text-gray-700 hover:text-gray-500"
+                      className="relative -mr-px inline-flex w-0 flex-1 items-center
+                      justify-center rounded-bl-lg border border-transparent py-4 text-sm
+                      font-medium text-gray-700 hover:text-gray-500 dark:border-gray-500 dark:text-gray-300"
                     >
-                      <DownloadIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                      <DownloadIcon className="h-5 w-5 text-gray-300" aria-hidden="true" />
                       <span className="ml-3">Download</span>
                     </button>
                   </div>
                   <div className="-ml-px flex w-0 flex-1">
                     <Link
                       href={`/registry/${program.address}`}
-                      className="relative inline-flex w-0 flex-1 items-center justify-center rounded-br-lg border border-transparent py-4 text-sm font-medium text-gray-700 hover:text-gray-500"
+                      className="relative inline-flex w-0 flex-1 items-center justify-center
+                       rounded-br-lg border border-transparent py-4 text-sm font-medium
+                        text-gray-700 hover:text-gray-500 dark:border-gray-500 dark:text-gray-300"
                     >
-                      <ClipboardListIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                      <ClipboardListIcon className="h-5 w-5 text-gray-300" aria-hidden="true" />
                       <span className="ml-3">Details</span>
                     </Link>
                   </div>
