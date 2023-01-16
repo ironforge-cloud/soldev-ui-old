@@ -76,8 +76,8 @@ export default function Registry({ data }) {
           {data.map((program, index) => (
             <li
               key={index}
-              className="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow transition ease-in-out
-              hover:-translate-y-0.5 hover:scale-105 hover:opacity-95 dark:bg-gray-700"
+              className="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow transition ease-in-out hover:-translate-y-0.5
+              hover:scale-105 hover:opacity-95 dark:divide-gray-600 dark:bg-gray-700"
             >
               <div className="flex w-full items-center justify-between space-x-6 p-6">
                 <div className="flex-1 truncate">
@@ -102,12 +102,13 @@ export default function Registry({ data }) {
                   <div className="flex w-0 flex-1">
                     <button
                       onClick={() => downloadIDL(program)}
-                      className="relative -mr-px inline-flex w-0 flex-1 items-center
-                      justify-center rounded-bl-lg border border-transparent py-4 text-sm
-                      font-medium text-gray-700 hover:text-gray-500 dark:border-gray-600 dark:text-gray-300 hover:dark:text-gray-100"
+                      className="relative -mr-px inline-flex w-0 flex-1
+                      items-center justify-center rounded-bl-lg border border-transparent py-4
+                      text-sm font-medium text-gray-700 hover:text-gray-500
+                       dark:border-gray-600 dark:text-gray-300 hover:dark:text-gray-100"
                     >
-                      <DownloadIcon className="h-5 w-5 text-gray-300 " aria-hidden="true" />
-                      <span className="ml-3">Download</span>
+                      <DownloadIcon className="h-5 w-5" aria-hidden="true" />
+                      <span className="ml-3 ">Download</span>
                     </button>
                   </div>
                   <div className="-ml-px flex w-0 flex-1">
@@ -117,7 +118,7 @@ export default function Registry({ data }) {
                        rounded-br-lg border border-transparent py-4 text-sm font-medium
                         text-gray-700 hover:text-gray-500 dark:border-gray-600 dark:text-gray-300 hover:dark:text-gray-100"
                     >
-                      <ClipboardListIcon className="h-5 w-5 text-gray-300" aria-hidden="true" />
+                      <ClipboardListIcon className="h-5 w-5" aria-hidden="true" />
                       <span className="ml-3">Details</span>
                     </Link>
                   </div>
