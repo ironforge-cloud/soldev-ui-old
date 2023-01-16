@@ -33,7 +33,7 @@ function AccountSelector({ accounts, selectedAccount, setSelectedAccount, setCur
         <Combobox.Input
           placeholder="Select an account"
           className="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-sky-500 focus:outline-none
-          focus:ring-1 focus:ring-sky-500 dark:border-gray-500 dark:bg-gray-700 dark:text-gray-300 dark:placeholder-gray-300 sm:text-sm"
+          focus:ring-1 focus:ring-sky-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:placeholder-gray-300 sm:text-sm"
           onChange={event => setQuery(event.target.value)}
           displayValue={account => account}
         />

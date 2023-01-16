@@ -142,7 +142,7 @@ function AccountsData({ idl, programID }) {
         </div>
       </div>
 
-      <div className="rounded-t-md border border-gray-300 dark:border-gray-500">
+      <div className="rounded-t-md border border-gray-300 dark:border-gray-600">
         <div className="flex justify-between bg-gray-100 py-2 px-4 dark:bg-gray-700">
           {/* Account name */}
           <div className="flex items-center gap-2 text-gray-500 dark:text-gray-300">
@@ -170,7 +170,7 @@ function AccountsData({ idl, programID }) {
               }}
               className="relative inline-flex items-center rounded-md border border-gray-300 bg-white
                px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:cursor-not-allowed
-               disabled:opacity-50 dark:border-gray-500"
+               disabled:opacity-50 dark:border-gray-600"
             >
               Previous
             </button>
@@ -191,7 +191,7 @@ function AccountsData({ idl, programID }) {
 
         <div
           className="prose min-w-full border-t font-mono prose-img:mx-auto prose-img:mt-0
-           prose-img:mb-0 prose-img:max-h-[150px] prose-img:max-w-[150px] dark:border-gray-500"
+           prose-img:mb-0 prose-img:max-h-[150px] prose-img:max-w-[150px] dark:border-gray-600"
         >
           <SyntaxHighlighter
             showLineNumbers

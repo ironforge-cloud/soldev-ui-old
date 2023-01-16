@@ -1,13 +1,11 @@
-import { DatabaseIcon, ExternalLinkIcon, TerminalIcon } from '@heroicons/react/solid';
+import { DatabaseIcon, ExternalLinkIcon, TerminalIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import AccountsData from '../../components/accounts-data';
 import IdlViewer from '../../components/idl-viewer';
-
 import { Container } from '../../components/layout';
 import fetch from '../../utils/fetcher';
-import { getBaseUrl } from '../../utils/get-base-url';
 import Custom404 from '../404';
 
 const tabs = [
@@ -27,7 +25,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const res = await fetch(`${getBaseUrl()}/api/idl?address=${params.address}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_IRONFORGE_API}/idl/${params.address}`);
 
   return {
     props: {
@@ -55,7 +53,7 @@ export default function IDLViewerPage({ data }) {
   }, [router.pathname, router.query.tab]);
 
   const metaTags = {
-    title: data.name ? `SolDev - ${data.name}` : 'SolDev - IDL Registry',
+    title: data.programName ? `SolDev - ${data.programName}` : 'SolDev - IDL Registry',
     description: 'Solana deployed IDLs',
     url: 'https://soldev.app/registry/',
     shouldIndex: true
@@ -67,19 +65,21 @@ export default function IDLViewerPage({ data }) {
 
   return (
     <Container metaTags={metaTags}>
-      <div className="xs:text-xs mx-auto flex max-w-screen-xl flex-col px-5 text-base">
-        <div className="mx-2 mb-10 items-center justify-between gap-2 lg:flex">
+      <div className="xs:text-xs mx-auto mt-2 flex max-w-screen-xl flex-col px-5 text-base">
+        <div className="mx-2 mb-10 flex-col gap-3 text-center lg:flex">
           {/* Program name */}
-          <h1 className="text-3xl font-semibold text-gray-700 dark:text-gray-300">{data.name}</h1>
+
+          <h1 className="text-3xl font-semibold text-gray-700 dark:text-gray-300">
+            {data.programName}
+          </h1>
 
           {/* Explorer link */}
-          <h2 className="mt-2 flex gap-1 pr-10 text-sky-500 hover:text-sky-600 dark:text-sky-400 dark:hover:text-sky-500">
+          <h2 className="mx-auto flex items-center gap-1 pr-10 text-lg text-sky-500 hover:text-sky-600">
             <ExternalLinkIcon className="h-6 w-6" />
             <Link
               target="_blank"
               href={`https://explorer.solana.com/address/${data.address}`}
-              className="truncate tracking-wide "
-              rel="noreferrer"
+              className="truncate tracking-wide"
             >
               {data.address}
             </Link>
@@ -95,14 +95,13 @@ export default function IDLViewerPage({ data }) {
             <select
               id="tabs"
               name="tabs"
-              className="block w-full rounded-md border-gray-300 focus:border-amber-500 focus:ring-amber-500 dark:border-gray-500"
+              className="block w-full rounded-md border-gray-300 focus:border-sky-500 focus:ring-sky-500 dark:border-gray-500"
               value={selectedTab}
               onChange={e => {
                 setSelectedTab(e.target.value);
 
                 router.push(`/registry/${router.query.address}?tab=${e.target.value}`);
               }}
-              defaultValue={selectedTab}
             >
               {tabs.map(tab => (
                 <option key={tab.name}>{tab.name}</option>
@@ -123,7 +122,7 @@ export default function IDLViewerPage({ data }) {
                   }}
                   className={classNames(
                     tab.name === selectedTab
-                      ? 'border-amber-500 text-amber-600 dark:border-amber-400 dark:text-amber-400'
+                      ? 'border-sky-500 text-sky-600 dark:border-sky-400 dark:text-sky-400'
                       : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300',
                     'group inline-flex items-center border-b-2 py-4 px-1 text-sm font-medium'
                   )}
@@ -132,7 +131,7 @@ export default function IDLViewerPage({ data }) {
                   <tab.icon
                     className={classNames(
                       tab.name === selectedTab
-                        ? 'border-amber-500 text-amber-600 dark:border-amber-400 dark:text-amber-400'
+                        ? 'border-sky-500 text-sky-600 dark:border-sky-400 dark:text-sky-400'
                         : ' text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300',
                       '-ml-0.5 mr-2 h-5 w-5'
                     )}

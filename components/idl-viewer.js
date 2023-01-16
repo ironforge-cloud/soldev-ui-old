@@ -37,8 +37,7 @@ function IdlViewer({ data }) {
         <select
           id="tabs"
           name="tabs"
-          className="block w-full rounded-md border-gray-300 focus:border-amber-500 focus:ring-amber-500 dark:border-gray-700"
-          defaultValue={tabs.find(tab => tab.name === selectedTab).name}
+          className="block w-full rounded-md border-gray-300 focus:border-sky-500 focus:ring-sky-500 dark:border-gray-700"
           value={selectedTab}
           onChange={e =>
             router.push(`/registry/${router.query.address}?tab=IDL&idl=${e.target.value}`)
@@ -61,7 +60,7 @@ function IdlViewer({ data }) {
                   disabled={!(tab.name.toLowerCase() in data)}
                   className={classNames(
                     tab.name === selectedTab
-                      ? 'bg-gray-300 text-gray-700 dark:bg-sky-500 dark:text-gray-900'
+                      ? 'bg-red-300 text-gray-700 dark:bg-red-500 dark:text-red-50'
                       : 'text-gray-500 hover:text-gray-700 dark:text-gray-300',
                     'rounded-md px-3 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:text-gray-300 disabled:dark:text-gray-700'
                   )}
