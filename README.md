@@ -13,7 +13,7 @@ yarn install
 
 2. create a file called `.env.local` to setup the environment and paste following into that:
 ```bash
-NEXT_PUBLIC_API_ENDPOINT="https://api.dev.soldev.app"
+NEXT_PUBLIC_API_ENDPOINT="https://api.soldev.app"
 NODE_ENV="development"
 ```
 
