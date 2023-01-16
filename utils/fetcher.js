@@ -1,7 +1,11 @@
-import fetch from "isomorphic-unfetch";
+import fetch from 'isomorphic-unfetch';
 
 // eslint-disable-next-line
 export default async function Fetcher(...args) {
-  const res = await fetch(...args);
-  return res.json();
+  try {
+    const res = await fetch(...args);
+    return res.json();
+  } catch (error) {
+    console.error(error);
+  }
 }

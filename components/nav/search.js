@@ -6,6 +6,7 @@ import { SearchIcon } from '@heroicons/react/outline';
 import { Popover } from '@headlessui/react';
 import PublicationsComponent from '../publications';
 import PropTypes from 'prop-types';
+import router from 'next/router';
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -58,6 +59,16 @@ function Search({ setSearch }) {
       }),
     [setSearch]
   );
+
+  if (router.pathname.includes('/registry')) {
+    return (
+        <div className="min-w-0 max-w-xl flex-1">
+          <div className="flex items-center px-2 py-3 sm:px-6 xl:px-0">
+            <div className="h-11 w-full"></div>
+          </div>
+        </div>
+    );
+  }
 
   return (
     <Popover

@@ -6,7 +6,8 @@ import {
   HomeIcon,
   NewspaperIcon,
   PaperClipIcon,
-  VideoCameraIcon
+  VideoCameraIcon,
+  DocumentDuplicateIcon
 } from '@heroicons/react/outline';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
@@ -36,6 +37,12 @@ const navigation = [
     name: 'Community',
     href: '/community',
     icon: ChatAlt2Icon,
+    disabled: false
+  },
+  {
+    name: 'IDL Registry',
+    href: '/registry',
+    icon: DocumentDuplicateIcon,
     disabled: false
   }
 ];
