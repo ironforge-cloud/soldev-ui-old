@@ -28,7 +28,7 @@ export async function getStaticProps() {
   return {
     props: {
       newContent,
-      latestNewsletter: latestNewsletter[1],
+      latestNewsletter: latestNewsletter[0],
       latestChangelog: latestChangelog[0]
     },
     revalidate: 60

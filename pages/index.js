@@ -96,7 +96,7 @@ export async function getStaticProps() {
   return {
     props: {
       newContent,
-      latestNewsletter: latestNewsletter[1],
+      latestNewsletter: latestNewsletter[0],
       latestChangelog: latestChangelog[0]
     },
     revalidate: 60
@@ -107,7 +107,7 @@ export default function Home({ latestNewsletter, latestChangelog }) {
   const metaTags = {
     title: 'SolDev',
     description:
-      'Learn to Develop using Solana. Tutorials, SDK\'s, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations',
+      "Learn to Develop using Solana. Tutorials, SDK's, Frameworks, Developer Tools, Security, Scaffolds, and Projects implementations",
     url: 'https://soldev.app/',
     shouldIndex: true
   };
