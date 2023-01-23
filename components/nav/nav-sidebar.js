@@ -7,7 +7,8 @@ import {
   NewspaperIcon,
   PaperClipIcon,
   VideoCameraIcon,
-  DocumentDuplicateIcon
+  DocumentDuplicateIcon,
+  BookOpenIcon
 } from '@heroicons/react/outline';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
@@ -43,6 +44,12 @@ const navigation = [
     name: 'IDL Registry',
     href: '/registry',
     icon: DocumentDuplicateIcon,
+    disabled: false
+  },
+  {
+    name: 'Solana Specs',
+    href: '/specs',
+    icon: BookOpenIcon,
     disabled: false
   }
 ];

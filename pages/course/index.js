@@ -1,4 +1,4 @@
-import Banner from '../../components/course/banner';
+import Banner from '../../components/banner';
 import Table from '../../components/course/table';
 import { Container } from '../../components/layout';
 
@@ -19,7 +19,17 @@ export default function Course() {
             Solana Development Course
           </h1>
 
-          <Banner />
+          <Banner
+            creator={{
+              prefixText: 'Created by',
+              name: 'James Pacheco',
+              link: 'https://twitter.com/jamesrp13'
+            }}
+            others={{
+              name: 'others',
+              link: 'https://github.com/Unboxed-Software/solana-course/graphs/contributors?type=a'
+            }}
+          />
         </div>
 
         <div className="mx-auto mt-5 max-w-4xl">

@@ -1,23 +1,22 @@
-import fs from 'fs';
 import Link from 'next/link';
-import path from 'path';
-import ArticleContent from '../../../components/course/articleContent';
 import { Container } from '../../../components/layout';
-import { modules } from '../../../utils/course-map';
-
-const list = modules.flat();
-
-const directory = path.join(process.cwd(), 'course', 'content');
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import markdownToHtml from '../../../utils/markdown';
+import { fetchGitHubFile, fetchSpecsModules } from '../../../utils/fetch-specs';
 
 export async function getStaticPaths() {
-  const fileNames = fs.readdirSync(directory);
+  const modules = await fetchSpecsModules();
 
-  const paths = fileNames.map(fileName => {
-    return {
-      params: {
-        slug: fileName.replace(/\.md$/, '')
-      }
-    };
+  const paths = [];
+  modules.map(module => {
+    module.files.map(item => {
+      paths.push({
+        params: {
+          slug: item.title.replace(/\.md$/, '')
+        }
+      });
+    });
   });
 
   return {
@@ -27,28 +26,45 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const fullPath = path.join(directory, `${params.slug}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const modules = await fetchSpecsModules();
 
-  let title = '';
-  let description = '';
+  // getting the url for the markdown file to fetch later from GitHub
+  const props = {};
+  modules.map(module => {
+    module.files.map(item => {
+      if (item.title.replace(/\.md$/, '') === params.slug) {
+        props.title = item.title.replace(/\.md$/, '');
+        props.download_url = item.download_url;
+      }
+    });
+  });
 
-  for (let i = 0; i < list.length; i++) {
-    const slug = list[i].link.split('/')[2];
+  // TODO: This is a hack to get the language for syntax highlighting
+  switch (props.title.slice(-2)) {
+    case 'py':
+      props.language = 'python';
+      break;
+    default:
+      props.language = null;
+  }
 
-    if (params.slug !== slug) continue;
+  // fetching the markdown file from GitHub
+  const markdown = await fetchGitHubFile(props.download_url);
 
-    title = list[i].title;
-    description = list[i].title;
+  if (props.language) {
+    props.markdown = markdown;
+  } else {
+    props.markdown = await markdownToHtml(markdown);
   }
 
   return {
     props: {
       content: {
-        markdown: fileContents,
+        markdown: props.markdown,
         id: params.slug,
-        title,
-        description
+        title: props.title,
+        description: props.title,
+        language: props.language
       }
     }
   };
@@ -58,7 +74,7 @@ export default function CourseContent({ content }) {
   const metaTags = {
     title: `SolDev - ${content.title}`,
     description: content.description,
-    url: `https://soldev.app/course/${content.id}`,
+    url: `https://soldev.app/specs/${content.id}`,
     shouldIndex: true
   };
 
@@ -68,14 +84,14 @@ export default function CourseContent({ content }) {
         <div className="mx-auto max-w-6xl rounded-lg px-10 py-8 dark:border-none lg:border lg:bg-white dark:lg:bg-gray-800 xl:px-32">
           <div className="flex justify-between pb-4">
             <Link
-              href="/course"
+              href="/specs"
               className="cursor-pointer text-base text-sky-600 hover:text-sky-700 lg:text-lg"
             >
               <>&larr; Table of Contents</>
             </Link>
 
             <Link
-              href={`https://twitter.com/share?url=https://soldev.app/course/${content.id}&text=Check out this lesson "${content.title}" from the Solana Development Course on @soldevapp%0A%0A`}
+              href={`https://twitter.com/share?url=https://soldev.app/specs/${content.id}&text=Check out this documentation "${content.title}" from the Solana protocol Specifications on @soldevapp%0A%0A`}
               target="_blank"
               className="text-md flex cursor-pointer items-center gap-2 fill-sky-600 text-sky-600 hover:fill-sky-700 hover:text-sky-700 sm:text-base lg:text-lg"
             >
@@ -95,13 +111,28 @@ export default function CourseContent({ content }) {
             </Link>
           </div>
 
-          <ArticleContent
-            markdown={content.markdown}
-            className="prose mx-auto max-w-6xl py-5 dark:prose-invert"
-          />
+          {content.language ? (
+            <SyntaxHighlighter
+              className="prose mx-auto max-w-6xl py-5 dark:prose-invert"
+              style={tomorrow}
+              customStyle={{
+                marginTop: 0
+              }}
+              allowCopy={true}
+              language={content.language}
+              showLineNumbers={true}
+            >
+              {content.markdown}
+            </SyntaxHighlighter>
+          ) : (
+            <div
+              className="prose mx-auto max-w-6xl py-5 dark:prose-invert"
+              dangerouslySetInnerHTML={{ __html: content.markdown }}
+            />
+          )}
 
           <Link
-            href="/course"
+            href="/specs"
             className="text-md flex cursor-pointer items-center justify-center text-sky-600 hover:text-sky-700 lg:text-lg"
           >
             Table of Contents

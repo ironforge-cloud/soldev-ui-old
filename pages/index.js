@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import Banner from '../components/course/banner';
 import { Container } from '../components/layout';
 import fetch from '../utils/fetcher';
+import Banner from '../components/banner';
 
 const Sidebar = dynamic(() => import('../components/sidebar'));
 const CardHome = dynamic(() => import('../components/card/card-home'));
@@ -128,7 +128,17 @@ export default function Home({ latestNewsletter, latestChangelog }) {
                     Introduction to Solana
                   </h2>
                 </Link>
-                <Banner />
+                <Banner
+                  creator={{
+                    prefixText: 'Created by',
+                    name: 'James Pacheco',
+                    link: 'https://twitter.com/jamesrp13'
+                  }}
+                  others={{
+                    name: 'others',
+                    link: 'https://github.com/Unboxed-Software/solana-course/graphs/contributors?type=a'
+                  }}
+                />{' '}
               </div>
 
               <p className="mt-5 text-gray-600 dark:text-gray-200">
