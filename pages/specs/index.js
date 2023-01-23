@@ -1,4 +1,3 @@
-import Banner from '../../components/banner';
 import { Container } from '../../components/layout';
 import Table from '../../components/specs/table';
 
@@ -18,18 +17,6 @@ export default function Specs() {
           <h1 className="text-2xl font-bold capitalize text-gray-900 dark:text-gray-200 md:text-3xl 2xl:text-4xl">
             Solana Protocol Specs
           </h1>
-
-          <Banner
-            creator={{
-              prefixText: 'Maintained by',
-              name: 'Solana Foundation',
-              link: 'https://solana.org/'
-            }}
-            others={{
-              name: 'various protocol teams',
-              link: 'https://github.com/solana-foundation/specs/graphs/contributors?type=a'
-            }}
-          />
         </div>
 
         <div className="mx-auto mt-5 max-w-4xl">
