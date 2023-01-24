@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from 'react';
-import TableHeader from '../course/table-header';
 import TableRow from './table-row';
 import dynamic from 'next/dynamic';
+import TableHeader from './table-header';
 
 const Spinner = dynamic(() => import('../../components/spinner'));
 

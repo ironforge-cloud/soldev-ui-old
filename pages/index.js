@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { Container } from '../components/layout';
 import fetch from '../utils/fetcher';
-import Banner from '../components/banner';
+import Banner from '../components/course/banner';
 
 const Sidebar = dynamic(() => import('../components/sidebar'));
 const CardHome = dynamic(() => import('../components/card/card-home'));
@@ -128,7 +128,7 @@ export default function Home({ latestNewsletter, latestChangelog }) {
                     Introduction to Solana
                   </h2>
                 </Link>
-                <Banner/>
+                <Banner />
               </div>
 
               <p className="mt-5 text-gray-600 dark:text-gray-200">

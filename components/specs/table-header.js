@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { memo } from 'react';
 
-function TableHeader({ title, subTitle, ready }) {
+function TableHeader({ title, ready }) {
   return (
-    <div className="text-gray-9 flex items-center justify-between space-x-1 border border-gray-300 bg-gray-200 py-3 px-4 font-medium tracking-wide dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400">
+    <div className="text-gray-9 flex items-center justify-between space-x-1 border border-gray-300 bg-gray-200 py-3 px-4 font-medium capitalize tracking-wide dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400">
       <span>
         {title}
 
@@ -13,15 +13,12 @@ function TableHeader({ title, subTitle, ready }) {
           </span>
         )}
       </span>
-
-      <span className="whitespace-nowrap">{subTitle}</span>
     </div>
   );
 }
 
 TableHeader.propType = {
   title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired,
   ready: PropTypes.bool
 };
 

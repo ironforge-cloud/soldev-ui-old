@@ -1,4 +1,4 @@
-import Banner from '../../components/banner';
+import Banner from '../../components/course/banner';
 import Table from '../../components/course/table';
 import { Container } from '../../components/layout';
 
@@ -19,7 +19,7 @@ export default function Course() {
             Solana Development Course
           </h1>
 
-          <Banner/>
+          <Banner />
         </div>
 
         <div className="mx-auto mt-5 max-w-4xl">
