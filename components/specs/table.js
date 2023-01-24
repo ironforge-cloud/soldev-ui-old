@@ -32,7 +32,7 @@ function Table() {
         modules.map((module, index) => {
           return (
             <div key={index}>
-              <TableHeader ready title={module?.directory} subTitle={`Spec ${index + 1}`} />
+              <TableHeader ready title={module?.directory} />
 
               {module?.files.map((item, index) => {
                 return (

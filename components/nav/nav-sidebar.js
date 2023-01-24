@@ -7,8 +7,7 @@ import {
   NewspaperIcon,
   PaperClipIcon,
   VideoCameraIcon,
-  DocumentDuplicateIcon,
-  BookOpenIcon
+  DocumentDuplicateIcon
 } from '@heroicons/react/outline';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
@@ -46,15 +45,14 @@ const navigation = [
     icon: DocumentDuplicateIcon,
     disabled: false
   },
-  {
-    name: 'Solana Specs',
-    href: '/specs',
-    icon: BookOpenIcon,
-    disabled: false
-  }
 ];
 
 const special = [
+  {
+    name: 'Solana Specifications',
+    href: '/specs',
+    disabled: false
+  },
   {
     name: 'Solana Cookbook',
     href: 'https://solanacookbook.com?utm_source=soldev.app',
@@ -258,7 +256,7 @@ function NavSidebar({ closeMobileMenu }) {
                 <a
                   href={item.href}
                   key={item.name}
-                  target="_blank"
+                  target={item.href[0] === '/' ? '_self' : '_blank'}
                   rel="noreferrer"
                   onClick={() => closeMobileMenu()}
                 >

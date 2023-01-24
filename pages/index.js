@@ -128,17 +128,7 @@ export default function Home({ latestNewsletter, latestChangelog }) {
                     Introduction to Solana
                   </h2>
                 </Link>
-                <Banner
-                  creator={{
-                    prefixText: 'Created by',
-                    name: 'James Pacheco',
-                    link: 'https://twitter.com/jamesrp13'
-                  }}
-                  others={{
-                    name: 'others',
-                    link: 'https://github.com/Unboxed-Software/solana-course/graphs/contributors?type=a'
-                  }}
-                />{' '}
+                <Banner/>
               </div>
 
               <p className="mt-5 text-gray-600 dark:text-gray-200">

@@ -1,31 +1,31 @@
 import { memo } from 'react';
 import Link from 'next/link';
 
-function Banner({ creator, others }) {
+function CourseBanner() {
   return (
-    <p className="prose flex justify-center pt-1 pb-2 text-gray-700 dark:text-gray-300">
+      <p className="prose flex justify-center pt-1 pb-2 text-gray-700 dark:text-gray-300">
       <span className="">
-        {creator.prefixText}{' '}
+        created by{' '}
         <Link
-          href={creator.link}
-          target="_blank"
-          rel="noreferrer"
-          className="font-semibold no-underline hover:underline dark:text-gray-200"
+            href="https://twitter.com/jamesrp13"
+            target="_blank"
+            rel="noreferrer"
+            className="font-semibold no-underline hover:underline dark:text-gray-200"
         >
-          {creator.name}
+          James Pacheco
         </Link>{' '}
         and{' '}
         <Link
-          href={others.link}
-          target="_blank"
-          rel="noreferrer"
-          className="font-semibold no-underline hover:underline dark:text-gray-200"
+            href="https://github.com/Unboxed-Software/solana-course/graphs/contributors?type=a"
+            target="_blank"
+            rel="noreferrer"
+            className="font-semibold no-underline hover:underline dark:text-gray-200"
         >
-          {others.name}
+          others
         </Link>
       </span>
-    </p>
+      </p>
   );
 }
 
-export default memo(Banner);
+export default memo(CourseBanner);

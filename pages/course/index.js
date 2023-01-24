@@ -19,17 +19,7 @@ export default function Course() {
             Solana Development Course
           </h1>
 
-          <Banner
-            creator={{
-              prefixText: 'Created by',
-              name: 'James Pacheco',
-              link: 'https://twitter.com/jamesrp13'
-            }}
-            others={{
-              name: 'others',
-              link: 'https://github.com/Unboxed-Software/solana-course/graphs/contributors?type=a'
-            }}
-          />
+          <Banner/>
         </div>
 
         <div className="mx-auto mt-5 max-w-4xl">
