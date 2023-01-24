@@ -32,10 +32,6 @@ export default function Specs() {
             </a>
             . The specification is ideal for understanding core concepts, verification, state
             transition rules, and more.
-            {/*This documentation is designed to host protocol specifications of the Solana network*/}
-            {/*being made in&nbsp;*/}
-            {/*&nbsp;These specifications are ideal for understanding core concepts, verification,*/}
-            {/*state transition rules and more.*/}
           </p>
         </div>
 

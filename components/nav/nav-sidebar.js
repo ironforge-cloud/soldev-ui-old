@@ -1,13 +1,13 @@
 import {
   AcademicCapIcon,
   ChatAlt2Icon,
+  DocumentDuplicateIcon,
   ExternalLinkIcon,
   FolderAddIcon,
   HomeIcon,
   NewspaperIcon,
   PaperClipIcon,
-  VideoCameraIcon,
-  DocumentDuplicateIcon
+  VideoCameraIcon
 } from '@heroicons/react/outline';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
@@ -44,28 +44,28 @@ const navigation = [
     href: '/registry',
     icon: DocumentDuplicateIcon,
     disabled: false
-  },
+  }
 ];
 
 const special = [
   {
-    name: 'Solana Specifications',
+    name: 'Cookbook',
+    href: 'https://solanacookbook.com?utm_source=soldev.app',
+    disabled: false
+  },
+  {
+    name: 'Specifications',
     href: '/specs',
     disabled: false
   },
   {
-    name: 'Solana Cookbook',
-    href: 'https://solanacookbook.com?utm_source=soldev.app',
+    name: 'Official Docs',
+    href: 'https://docs.solana.com/introduction?utm_source=soldev.app',
     disabled: false
   },
   {
     name: 'Anchor Docs',
     href: 'https://www.anchor-lang.com?utm_source=soldev.app',
-    disabled: false
-  },
-  {
-    name: 'Solana Docs',
-    href: 'https://docs.solana.com/introduction?utm_source=soldev.app',
     disabled: false
   },
   {

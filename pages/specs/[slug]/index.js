@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { Container } from '../../../components/layout';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import markdownToHtml from '../../../utils/markdown';
+import { Container } from '../../../components/layout';
 import { fetchGitHubFile, fetchSpecsModules } from '../../../utils/fetch-specs';
+import markdownToHtml from '../../../utils/markdown';
 
 export async function getStaticPaths() {
   const modules = await fetchSpecsModules();

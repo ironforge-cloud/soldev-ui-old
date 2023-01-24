@@ -1,7 +1,7 @@
-import { memo, useEffect, useState } from 'react';
-import TableRow from './table-row';
 import dynamic from 'next/dynamic';
+import { memo, useEffect, useState } from 'react';
 import TableHeader from './table-header';
+import TableRow from './table-row';
 
 const Spinner = dynamic(() => import('../../components/spinner'));
 
@@ -23,6 +23,7 @@ function Table() {
         console.error(err);
       }
     }
+
     fetchModules();
   }, []);
 
