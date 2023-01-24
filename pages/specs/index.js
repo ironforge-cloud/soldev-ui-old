@@ -21,8 +21,7 @@ export default function Specs() {
 
         <div className="mx-auto mt-5 max-w-4xl">
           <p className="prose mx-auto text-center text-lg dark:prose-invert">
-            This documentation is designed to host protocol specifications of the Solana network
-            being made in&nbsp;
+            This section hosts the Solana protocol specifications assembled in&nbsp;
             <a
               href="https://github.com/solana-foundation/specs"
               className="font-normal text-gray-700 dark:text-gray-300"
@@ -31,8 +30,12 @@ export default function Specs() {
             >
               this repository
             </a>
-            &nbsp;These specifications are ideal for understanding core concepts, verification,
-            state transition rules and more.
+            . The specification is ideal for understanding core concepts, verification, state
+            transition rules, and more.
+            {/*This documentation is designed to host protocol specifications of the Solana network*/}
+            {/*being made in&nbsp;*/}
+            {/*&nbsp;These specifications are ideal for understanding core concepts, verification,*/}
+            {/*state transition rules and more.*/}
           </p>
         </div>
 
