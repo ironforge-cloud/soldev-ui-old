@@ -17,10 +17,10 @@ export async function getStaticProps() {
   };
 }
 
-export default function Newsletter({ changelog, latestChangelog }) {
+export default function Changelog({ changelog, latestChangelog }) {
   const metaTags = {
-    title: 'SolDev - Newsletter',
-    description: 'Solana community newsletter',
+    title: 'SolDev - Changelog',
+    description: 'Solana Changelog',
     url: 'https://soldev.app/newsletters',
     shouldIndex: true
   };

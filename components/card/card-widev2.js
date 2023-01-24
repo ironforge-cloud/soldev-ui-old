@@ -12,7 +12,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-function CardWide({ content, mode }) {
+function CardWidev2({ content, mode }) {
   const imageUrl = defineImage(content);
 
   let url = '';
@@ -105,8 +105,8 @@ function CardWide({ content, mode }) {
         )}
 
         {/*  Description */}
-        <div className={classNames('prose h-[119px] flex-none overflow-hidden text-ellipsis')}>
-          <p className="text-gray-600 dark:text-gray-400">{content.Description}</p>
+        <div className="prose h-[119px] flex-none overflow-hidden text-ellipsis whitespace-pre-line break-all md:break-normal">
+          <p className="text-gray-600 dark:text-gray-400 ">{content.Description}</p>
         </div>
 
         {/*  Actions */}
@@ -125,9 +125,9 @@ function CardWide({ content, mode }) {
   );
 }
 
-CardWide.propTypes = {
+CardWidev2.propTypes = {
   content: PropTypes.object.isRequired,
   mode: PropTypes.string.isRequired
 };
 
-export default memo(CardWide);
+export default memo(CardWidev2);
