@@ -1,7 +1,19 @@
 import { Container } from '../../components/layout';
 import Table from '../../components/specs/table';
+import {fetchSpecsModules} from '../../utils/fetch-specs';
 
-export default function Specs() {
+export async function getStaticProps() {
+  const res = await fetchSpecsModules();
+
+  return {
+    props: {
+      content: res
+    },
+    revalidate: 3600
+  };
+}
+
+export default function Specs({content}) {
   const metaTags = {
     title: 'Solana protocol specifications',
     description:
@@ -14,13 +26,13 @@ export default function Specs() {
     <Container metaTags={metaTags}>
       <div className="mx-2">
         <div className="flex flex-col items-center">
-          <h1 className="text-2xl font-bold capitalize text-gray-900 dark:text-gray-200 md:text-3xl 2xl:text-4xl">
+          <h1 className="text-xl font-bold capitalize text-gray-900 dark:text-gray-200 md:text-2xl 2xl:text-3xl">
             Solana Protocol Specifications
           </h1>
         </div>
 
         <div className="mx-auto mt-5 max-w-4xl">
-          <p className="prose mx-auto text-center text-lg dark:prose-invert">
+          <p className="prose mx-auto text-center md:text-lg dark:prose-invert">
             This section hosts the Solana protocol specifications assembled in&nbsp;
             <a
               href="https://github.com/solana-foundation/specs"
@@ -35,7 +47,7 @@ export default function Specs() {
           </p>
         </div>
 
-        <Table />
+        <Table modules={content}/>
       </div>
     </Container>
   );

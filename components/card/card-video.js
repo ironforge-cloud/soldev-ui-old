@@ -23,7 +23,7 @@ function CardVideo({ content, closeSearch, mode }) {
     >
       <Link href={`/library/${content.PlaylistID}/video/${content.SK}`} passHref>
         <Image
-          className="h-52 cursor-pointer object-cover hover:opacity-90"
+          className="h-60 cursor-pointer object-cover hover:opacity-90"
           src={content.Img}
           alt=""
           height="240"
