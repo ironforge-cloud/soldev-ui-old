@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import Banner from '../components/course/banner';
 import { Container } from '../components/layout';
 import fetch from '../utils/fetcher';
+import Banner from '../components/course/banner';
 
 const Sidebar = dynamic(() => import('../components/sidebar'));
 const CardHome = dynamic(() => import('../components/card/card-home'));

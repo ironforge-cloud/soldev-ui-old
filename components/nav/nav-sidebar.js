@@ -1,13 +1,13 @@
 import {
   AcademicCapIcon,
   ChatAlt2Icon,
+  DocumentDuplicateIcon,
   ExternalLinkIcon,
   FolderAddIcon,
   HomeIcon,
   NewspaperIcon,
   PaperClipIcon,
-  VideoCameraIcon,
-  DocumentDuplicateIcon
+  VideoCameraIcon
 } from '@heroicons/react/outline';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
@@ -49,18 +49,23 @@ const navigation = [
 
 const special = [
   {
-    name: 'Solana Cookbook',
+    name: 'Cookbook',
     href: 'https://solanacookbook.com?utm_source=soldev.app',
+    disabled: false
+  },
+  {
+    name: 'Specifications',
+    href: '/specs',
+    disabled: false
+  },
+  {
+    name: 'Official Docs',
+    href: 'https://docs.solana.com/introduction?utm_source=soldev.app',
     disabled: false
   },
   {
     name: 'Anchor Docs',
     href: 'https://www.anchor-lang.com?utm_source=soldev.app',
-    disabled: false
-  },
-  {
-    name: 'Solana Docs',
-    href: 'https://docs.solana.com/introduction?utm_source=soldev.app',
     disabled: false
   },
   {
@@ -251,7 +256,7 @@ function NavSidebar({ closeMobileMenu }) {
                 <a
                   href={item.href}
                   key={item.name}
-                  target="_blank"
+                  target={item.href[0] === '/' ? '_self' : '_blank'}
                   rel="noreferrer"
                   onClick={() => closeMobileMenu()}
                 >
