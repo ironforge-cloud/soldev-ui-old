@@ -126,7 +126,7 @@ export default function CourseContent({ content }) {
             </SyntaxHighlighter>
           ) : (
             <div
-              className="prose mx-auto max-w-6xl py-5 prose-code:text-gray-800 dark:prose-invert"
+              className="prose mx-auto max-w-6xl py-5 prose-code:text-gray-800 dark:prose-invert dark:prose-code:text-gray-100"
               dangerouslySetInnerHTML={{ __html: content.markdown }}
             />
           )}
