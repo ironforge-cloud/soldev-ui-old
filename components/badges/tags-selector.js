@@ -1,7 +1,7 @@
-import router from 'next/router';
 import PropTypes from 'prop-types';
 import { memo } from 'react';
 import listOfTags from '../../utils/tags';
+import {useRouter} from 'next/router';
 
 // There are 4 variables with confusing names in this component. Amazing.
 // - listOfTags: all possible tags
@@ -15,6 +15,7 @@ function classNames(...classes) {
 
 // This component "state" is managed by the data stored in the URL
 function TagsSelector({ tagsList, contentType, tags, badges }) {
+  const router = useRouter();
   const selectedTags = tags.concat(badges);
 
   function onClick(tag) {

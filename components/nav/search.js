@@ -6,7 +6,7 @@ import { SearchIcon } from '@heroicons/react/outline';
 import { Popover } from '@headlessui/react';
 import PublicationsComponent from '../publications';
 import PropTypes from 'prop-types';
-import router from 'next/router';
+import {useRouter} from 'next/router';
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -14,6 +14,7 @@ const searchClient = algoliasearch(
 );
 
 function Search({ setSearch }) {
+  const router = useRouter();
   const [autocompleteState, setAutocompleteState] = useState({});
   const autocomplete = useMemo(
     () =>
