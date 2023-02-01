@@ -1,5 +1,6 @@
 import { truncateText } from '../../utils';
 import Link from 'next/link';
+import { useState } from 'react';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -7,8 +8,55 @@ function classNames(...classes) {
 
 // TODO - mandate content props
 export default function Table({ content }) {
-
   const headings = ['SIMD #', 'Title', 'Type', 'Status', 'Author', 'Created at', 'GitHub'];
+
+  // filter out SIMD PR files in incorrect format (missing title or simd number)
+  const filteredContent = content.filter(item => item.metadata.title && item.metadata.simd);
+
+  const [sortBy, setSortBy] = useState('');
+  const [sortOrder, setSortOrder] = useState('asc');
+
+  const handleSort = heading => {
+    if (sortBy === heading) {
+      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortBy(heading);
+      setSortOrder('asc');
+    }
+  };
+
+  const sortedContent = [...filteredContent].sort((a, b) => {
+    switch (sortBy) {
+      case 'SIMD #':
+        return sortOrder === 'desc'
+          ? a.metadata.simd - b.metadata.simd
+          : b.metadata.simd - a.metadata.simd;
+      case 'Title':
+        return sortOrder === 'asc'
+          ? a.metadata.title.localeCompare(b.metadata.title)
+          : b.metadata.title.localeCompare(a.metadata.title);
+      case 'Type':
+        return sortOrder === 'asc'
+          ? a.metadata.type.localeCompare(b.metadata.type)
+          : b.metadata.type.localeCompare(a.metadata.type);
+      case 'Status':
+        return sortOrder === 'asc'
+          ? a.metadata.status.localeCompare(b.metadata.status)
+          : b.metadata.status.localeCompare(a.metadata.status);
+      case 'Author':
+        return sortOrder === 'asc'
+          ? a.metadata.authors[0].name.localeCompare(b.metadata.authors[0].name)
+          : b.metadata.authors[0].name.localeCompare(a.metadata.authors[0].name);
+      case 'Created at':
+        return sortOrder === 'asc'
+          ? a.metadata.created.localeCompare(b.metadata.created)
+          : b.metadata.created.localeCompare(a.metadata.created);
+      default:
+        return sortOrder === 'asc'
+          ? a.metadata.simd - b.metadata.simd
+          : b.metadata.simd - a.metadata.simd;
+    }
+  });
 
   return (
     <div className="mx-auto mt-14 mb-20 max-w-7xl px-6 lg:px-8 ">
@@ -29,6 +77,7 @@ export default function Table({ content }) {
                           heading !== 'Title' && heading !== 'SIMD #' ? 'px-3 py-3.5' : '',
                           'bg-gray-50 text-sm font-bold uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-200'
                         )}
+                        onClick={() => handleSort(heading)}
                       >
                         {heading}
                       </th>
@@ -36,7 +85,7 @@ export default function Table({ content }) {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-500 dark:divide-gray-300">
-                  {content.map((item, idx) => (
+                  {sortedContent.map((item, idx) => (
                     <tr
                       key={idx}
                       className={classNames(
@@ -66,23 +115,6 @@ export default function Table({ content }) {
                           '-'
                         )}
                       </td>
-                      {/*<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">*/}
-                      {/*  /!*TODO - do this when fetching data from github and have 2 fields like heading and sub so you dont do 2 times the same thing*!/*/}
-                      {/*  {getAuthorHeadings("person.author").length === 1 ? (*/}
-                      {/*    getAuthorHeadings("person.author").map((author, idx) => (*/}
-                      {/*      <div key={idx}>*/}
-                      {/*        <div className="text-gray-900">*/}
-                      {/*          {truncateText("author.heading", 30)}*/}
-                      {/*        </div>*/}
-                      {/*        <div className="text-gray-500">*/}
-                      {/*          {truncateText(author.subheading, 30)}*/}
-                      {/*        </div>*/}
-                      {/*      </div>*/}
-                      {/*    ))*/}
-                      {/*  ) : (*/}
-                      {/*    <div className="text-gray-900">{truncateText(person.author, 30)}</div>*/}
-                      {/*  )}*/}
-                      {/*</td>*/}
 
                       <td className="px-3 py-4 text-sm">
                         {item.metadata.authors ? (
@@ -128,6 +160,23 @@ export default function Table({ content }) {
           </div>
         </div>
       </div>
+      {/*<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">*/}
+      {/*  /!*TODO - do this when fetching data from github and have 2 fields like heading and sub so you dont do 2 times the same thing*!/*/}
+      {/*  {getAuthorHeadings("person.author").length === 1 ? (*/}
+      {/*    getAuthorHeadings("person.author").map((author, idx) => (*/}
+      {/*      <div key={idx}>*/}
+      {/*        <div className="text-gray-900">*/}
+      {/*          {truncateText("author.heading", 30)}*/}
+      {/*        </div>*/}
+      {/*        <div className="text-gray-500">*/}
+      {/*          {truncateText(author.subheading, 30)}*/}
+      {/*        </div>*/}
+      {/*      </div>*/}
+      {/*    ))*/}
+      {/*  ) : (*/}
+      {/*    <div className="text-gray-900">{truncateText(person.author, 30)}</div>*/}
+      {/*  )}*/}
+      {/*</td>*/}
     </div>
   );
 }
