@@ -1,11 +1,9 @@
+import { fetchContent } from './fetch-github';
+
 export const fetchSpecsDir = async () => {
   const directories = [];
 
-  await fetch('https://api.github.com/repos/solana-foundation/specs/contents//', {
-    headers: {
-      authorization: `TOKEN ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`
-    }
-  })
+  await fetchContent('solana-foundation', 'specs', '/')
     .then(res => res.json())
     .then(response => {
       for (let item of response) {
@@ -25,11 +23,8 @@ export const fetchSpecsModules = async () => {
   const modules = [];
   const directories = await fetchSpecsDir();
   for (let directory of directories) {
-    await fetch(`https://api.github.com/repos/solana-foundation/specs/contents/${directory.path}`, {
-      headers: {
-        authorization: `TOKEN ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`
-      }
-    })
+    await fetchContent('solana-foundation', 'specs', directory.path);
+    await fetch(`https://api.github.com/repos/solana-foundation/specs/contents/${directory.path}`)
       .then(response => response.json())
       .then(response => {
         const files = [];

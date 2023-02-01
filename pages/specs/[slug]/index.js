@@ -70,7 +70,7 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default function CourseContent({ content }) {
+export default function SpecsContent({ content }) {
   const metaTags = {
     title: `SolDev - ${content.title}`,
     description: content.description,
