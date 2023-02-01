@@ -25,6 +25,7 @@ export default function Table({ content }) {
     }
   };
 
+  // sort content by selected column
   const sortedContent = [...filteredContent].sort((a, b) => {
     switch (sortBy) {
       case 'SIMD #':
@@ -75,7 +76,7 @@ export default function Table({ content }) {
                           heading === 'Title' ? 'px-2 py-3.5 md:px-3' : '',
                           heading === 'SIMD #' ? 'py-3.5 pl-4 pr-4 sm:pl-6' : '',
                           heading !== 'Title' && heading !== 'SIMD #' ? 'px-3 py-3.5' : '',
-                          'bg-gray-50 text-sm font-bold uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-200'
+                          'bg-gray-50 text-sm font-bold uppercase text-gray-700 hover:underline dark:bg-gray-700 dark:text-gray-200'
                         )}
                         onClick={() => handleSort(heading)}
                       >

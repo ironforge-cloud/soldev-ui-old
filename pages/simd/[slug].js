@@ -31,6 +31,10 @@ export default function SIMDContent({ content }) {
     shouldIndex: true
   };
 
+  // Get sections from markdown file
+  const sections = (content.markdown.match(/^## .*$/gm) || []).map(line => line.slice(3));
+
+  console.log(content.metadata);
   return (
     <Container metaTags={metaTags}>
       <div>
@@ -65,20 +69,9 @@ export default function SIMDContent({ content }) {
           {/*  Sidebar */}
           <div className="hidden h-screen w-3/12 flex-col px-4 lg:flex">
             <div className="inset-y-screen fixed mt-10 flex cursor-pointer flex-col gap-4">
-              <Dropdown
-                title="Summary"
-                content={
-                  '- Sample Data\n' +
-                  '\n' +
-                  '1. Item 1\n' +
-                  '1. Item 2\n' +
-                  '1. Item 3\n' +
-                  '  1. Item 3a\n' +
-                  '  1. Item 3b'
-                }
-              />
-              <Dropdown title={'Content'} />
-              <Dropdown title={'Recent Changes'} />
+              <Dropdown title="Content" content={sections} />
+              <Dropdown title="Details" content={content.metadata} />
+              {/* <Dropdown title={'Recent Changes'} /> */}
             </div>
           </div>
         </div>
