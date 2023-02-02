@@ -54,6 +54,11 @@ const special = [
     disabled: false
   },
   {
+    name: 'Improvement Documents(SIMD)',
+    href: '/simd',
+    disabled: false
+  },
+  {
     name: 'Specifications',
     href: '/specs',
     disabled: false
@@ -76,11 +81,6 @@ const special = [
   {
     name: 'Stack Exchange',
     href: 'https://solana.stackexchange.com/',
-    disabled: false
-  },
-  {
-    name: 'SIMD',
-    href: '/simd',
     disabled: false
   }
 ];
