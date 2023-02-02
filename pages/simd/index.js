@@ -18,7 +18,7 @@ export default function Specs({ content }) {
     title: 'Solana Improvement Documents',
     description:
       'This section hosts the Solana Improvement Documents(SIMD) assembled in this repository https://github.com/solana-foundation/solana-improvement-documents. The improvement documents describe proposed and accepted changes to the Solana protocol.',
-    url: 'https://soldev.app/specs',
+    url: 'https://soldev.app/simd',
     shouldIndex: true
   };
 
