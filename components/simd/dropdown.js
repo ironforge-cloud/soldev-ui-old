@@ -28,7 +28,7 @@ export default function Dropdown({ title, content }) {
                 className="prose inline-flex w-full text-sm font-medium text-gray-900 dark:text-gray-200"
                 key={i}
               >
-                <a className="no-underline" href={`#${lineItem.toLowerCase().replace(/ /g, '-')}`}>
+                <a className="no-underline" href={`#${lineItem.toLowerCase().replace(/\W/g, '-')}`}>
                   {lineItem}
                 </a>
               </p>

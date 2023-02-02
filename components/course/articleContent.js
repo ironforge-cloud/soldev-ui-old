@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import remarkGfm from 'remark-gfm';
+import { Children, createElement } from 'react';
 
 /*
   Define a component to render the react friendly markdown parser
@@ -12,13 +13,31 @@ import remarkGfm from 'remark-gfm';
 function ArticleContent({ markdown = null, className = '' }) {
   return (
     <article className={className}>
-      <ReactMarkdown rehypePlugins={[remarkGfm]} components={{ code: CodeBlock }}>
+      <ReactMarkdown
+        rehypePlugins={[remarkGfm]}
+        components={{
+          h2: HeadingRenderer,
+          code: CodeBlock
+        }}
+      >
         {markdown}
       </ReactMarkdown>
     </article>
   );
 }
 
+const flatten = (text, child) => {
+  return typeof child === 'string'
+    ? text + child
+    : Children.toArray(child.props.children).reduce(flatten, text);
+};
+
+const HeadingRenderer = props => {
+  const children = Children.toArray(props.children);
+  const text = children.reduce(flatten, '');
+  const slug = text.toLowerCase().replace(/\W/g, '-');
+  return createElement('h' + props.level, { id: slug }, props.children);
+};
 /*
   Define a custom reusable code block component
 */
