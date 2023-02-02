@@ -18,7 +18,7 @@ export default function Table({ content }) {
 
   const sortFunctions = {
     'SIMD #': (a, b) =>
-      sortOrder === 'desc' ? b.metadata.simd - a.metadata.simd : a.metadata.simd - b.metadata.simd,
+      sortOrder === 'asc' ? b.metadata.simd - a.metadata.simd : a.metadata.simd - b.metadata.simd,
     Title: (a, b) =>
       sortOrder === 'asc'
         ? a.metadata.title.localeCompare(b.metadata.title)
