@@ -61,7 +61,6 @@ export default function SIMDContent({ content }) {
             <div className="inset-y-screen fixed mt-10 flex cursor-pointer flex-col gap-4">
               <Dropdown title="Content" content={sections} />
               <Dropdown title="Details" content={content.metadata} />
-              {/* <Dropdown title={'Recent Changes'} /> */}
             </div>
           </div>
         </div>
@@ -74,14 +73,6 @@ export default function SIMDContent({ content }) {
           />
         </div>
       </div>
-      {/* Mobile View Sidebar
-          <div className="flex w-full flex-col justify-center pl-10 lg:hidden xl:pl-20">
-            <div className="flex flex-col">
-              <Dropdown title={'Summary'} />
-              <Dropdown title={'Content'} />
-              <Dropdown title={'Recent Changes'} />
-            </div>
-          </div> */}
     </Container>
   );
 }

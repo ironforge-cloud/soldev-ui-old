@@ -16,6 +16,36 @@ export default function Table({ content }) {
   const [sortBy, setSortBy] = useState('');
   const [sortOrder, setSortOrder] = useState('asc');
 
+  const sortFunctions = {
+    'SIMD #': (a, b) =>
+      sortOrder === 'desc' ? b.metadata.simd - a.metadata.simd : a.metadata.simd - b.metadata.simd,
+    Title: (a, b) =>
+      sortOrder === 'asc'
+        ? a.metadata.title.localeCompare(b.metadata.title)
+        : b.metadata.title.localeCompare(a.metadata.title),
+    Type: (a, b) =>
+      sortOrder === 'asc'
+        ? a.metadata.type.localeCompare(b.metadata.type)
+        : b.metadata.type.localeCompare(a.metadata.type),
+    Status: (a, b) =>
+      sortOrder === 'asc'
+        ? a.metadata.status.localeCompare(b.metadata.status)
+        : b.metadata.status.localeCompare(a.metadata.status),
+    Author: (a, b) =>
+      sortOrder === 'asc'
+        ? a.metadata.authors[0].name.localeCompare(b.metadata.authors[0].name)
+        : b.metadata.authors[0].name.localeCompare(a.metadata.authors[0].name),
+    'Created at': (a, b) =>
+      sortOrder === 'asc'
+        ? a.metadata.created.localeCompare(b.metadata.created)
+        : b.metadata.created.localeCompare(a.metadata.created),
+    default: (a, b) =>
+      sortOrder === 'asc' ? a.metadata.simd - b.metadata.simd : b.metadata.simd - a.metadata.simd
+  };
+
+  // sort content by selected column
+  const sortedContent = [...filteredContent].sort(sortFunctions[sortBy] || sortFunctions.default);
+
   const handleSort = heading => {
     if (sortBy === heading) {
       setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
@@ -24,40 +54,6 @@ export default function Table({ content }) {
       setSortOrder('asc');
     }
   };
-
-  // sort content by selected column
-  const sortedContent = [...filteredContent].sort((a, b) => {
-    switch (sortBy) {
-      case 'SIMD #':
-        return sortOrder === 'desc'
-          ? a.metadata.simd - b.metadata.simd
-          : b.metadata.simd - a.metadata.simd;
-      case 'Title':
-        return sortOrder === 'asc'
-          ? a.metadata.title.localeCompare(b.metadata.title)
-          : b.metadata.title.localeCompare(a.metadata.title);
-      case 'Type':
-        return sortOrder === 'asc'
-          ? a.metadata.type.localeCompare(b.metadata.type)
-          : b.metadata.type.localeCompare(a.metadata.type);
-      case 'Status':
-        return sortOrder === 'asc'
-          ? a.metadata.status.localeCompare(b.metadata.status)
-          : b.metadata.status.localeCompare(a.metadata.status);
-      case 'Author':
-        return sortOrder === 'asc'
-          ? a.metadata.authors[0].name.localeCompare(b.metadata.authors[0].name)
-          : b.metadata.authors[0].name.localeCompare(a.metadata.authors[0].name);
-      case 'Created at':
-        return sortOrder === 'asc'
-          ? a.metadata.created.localeCompare(b.metadata.created)
-          : b.metadata.created.localeCompare(a.metadata.created);
-      default:
-        return sortOrder === 'asc'
-          ? a.metadata.simd - b.metadata.simd
-          : b.metadata.simd - a.metadata.simd;
-    }
-  });
 
   return (
     <div className="mx-auto mt-14 mb-20 max-w-7xl px-6 lg:px-8 ">
@@ -76,9 +72,11 @@ export default function Table({ content }) {
                           heading === 'Title' ? 'px-2 py-3.5 md:px-3' : '',
                           heading === 'SIMD #' ? 'py-3.5 pl-4 pr-4 sm:pl-6' : '',
                           heading !== 'Title' && heading !== 'SIMD #' ? 'px-3 py-3.5' : '',
-                          'bg-gray-50 text-sm font-bold uppercase text-gray-700 hover:underline dark:bg-gray-700 dark:text-gray-200'
+                          heading === 'GitHub'
+                            ? 'bg-gray-50 text-sm font-bold uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-200'
+                            : 'bg-gray-50 text-sm font-bold uppercase text-gray-700 hover:underline dark:bg-gray-700 dark:text-gray-200'
                         )}
-                        onClick={() => handleSort(heading)}
+                        onClick={heading === 'GitHub' ? null : () => handleSort(heading)}
                       >
                         {heading}
                       </th>

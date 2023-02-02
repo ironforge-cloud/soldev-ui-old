@@ -1,12 +1,20 @@
 import { useState } from 'react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 
-// TODO: mandate props of this component
 export default function Dropdown({ title, content }) {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
 
   const handleShow = () => {
     setShow(!show);
+  };
+
+  // Scroll to the section on click
+  const handleClick = event => {
+    event.preventDefault();
+    const target = event.target;
+    const id = target.getAttribute('href').slice(1);
+    const element = document.getElementById(id);
+    element.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -21,19 +29,24 @@ export default function Dropdown({ title, content }) {
 
       {show && (
         <div className="max-w-5xl pl-2">
-          {/* Can't figure out how to render the markdown file with <a> tags that line to section on page */}
+          {/* Page Sections List */}
           {title === 'Content' &&
             content.map((lineItem, i) => (
               <p
-                className="prose inline-flex w-full text-sm font-medium text-gray-900 dark:text-gray-200"
+                className="prose inline-flex w-full text-sm font-medium text-gray-900 hover:underline dark:text-gray-200"
                 key={i}
               >
-                <a className="no-underline" href={`#${lineItem.toLowerCase().replace(/\W/g, '-')}`}>
+                <a
+                  className="no-underline"
+                  href={`#${lineItem.toLowerCase().replace(/\W/g, '-')}`}
+                  onClick={handleClick}
+                >
                   {lineItem}
                 </a>
               </p>
             ))}
 
+          {/* SIMD Details */}
           {title === 'Details' && (
             <table className="w-full p-4 text-sm font-medium text-gray-900 dark:text-gray-200">
               <tbody>
@@ -51,7 +64,8 @@ export default function Dropdown({ title, content }) {
                     {content.authors
                       ? content.authors.map((author, index) => (
                           <div key={index}>
-                            {author.name} {author.org && `(${author.org})`}
+                            {author.name}
+                            {/* {author.org && `(${author.org})`} */}
                           </div>
                         ))
                       : '-'}
@@ -69,14 +83,6 @@ export default function Dropdown({ title, content }) {
                   <td className="px-1 font-medium">Created</td>
                   <td className="px-1">{content.created}</td>
                 </tr>
-                {/* <tr>
-                  <td className="px-1 font-medium">Github</td>
-                  <td className="px-1">
-                    <a href={item.html_url} className="text-blue-500 hover:text-blue-600">
-                      Add Link
-                    </a>
-                  </td>
-                </tr> */}
               </tbody>
             </table>
           )}
