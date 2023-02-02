@@ -1,5 +1,6 @@
 import { truncateText } from '../../utils';
 import Link from 'next/link';
+import { useState } from 'react';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -7,8 +8,52 @@ function classNames(...classes) {
 
 // TODO - mandate content props
 export default function Table({ content }) {
-
   const headings = ['SIMD #', 'Title', 'Type', 'Status', 'Author', 'Created at', 'GitHub'];
+
+  // filter out SIMD PR files in incorrect format (missing title or simd number)
+  const filteredContent = content.filter(item => item.metadata.title && item.metadata.simd);
+
+  const [sortBy, setSortBy] = useState('');
+  const [sortOrder, setSortOrder] = useState('asc');
+
+  const sortFunctions = {
+    'SIMD #': (a, b) =>
+      sortOrder === 'desc' ? b.metadata.simd - a.metadata.simd : a.metadata.simd - b.metadata.simd,
+    Title: (a, b) =>
+      sortOrder === 'asc'
+        ? a.metadata.title.localeCompare(b.metadata.title)
+        : b.metadata.title.localeCompare(a.metadata.title),
+    Type: (a, b) =>
+      sortOrder === 'asc'
+        ? a.metadata.type.localeCompare(b.metadata.type)
+        : b.metadata.type.localeCompare(a.metadata.type),
+    Status: (a, b) =>
+      sortOrder === 'asc'
+        ? a.metadata.status.localeCompare(b.metadata.status)
+        : b.metadata.status.localeCompare(a.metadata.status),
+    Author: (a, b) =>
+      sortOrder === 'asc'
+        ? a.metadata.authors[0].name.localeCompare(b.metadata.authors[0].name)
+        : b.metadata.authors[0].name.localeCompare(a.metadata.authors[0].name),
+    'Created at': (a, b) =>
+      sortOrder === 'asc'
+        ? a.metadata.created.localeCompare(b.metadata.created)
+        : b.metadata.created.localeCompare(a.metadata.created),
+    default: (a, b) =>
+      sortOrder === 'asc' ? a.metadata.simd - b.metadata.simd : b.metadata.simd - a.metadata.simd
+  };
+
+  // sort content by selected column
+  const sortedContent = [...filteredContent].sort(sortFunctions[sortBy] || sortFunctions.default);
+
+  const handleSort = heading => {
+    if (sortBy === heading) {
+      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortBy(heading);
+      setSortOrder('asc');
+    }
+  };
 
   return (
     <div className="mx-auto mt-14 mb-20 max-w-7xl px-6 lg:px-8 ">
@@ -27,8 +72,11 @@ export default function Table({ content }) {
                           heading === 'Title' ? 'px-2 py-3.5 md:px-3' : '',
                           heading === 'SIMD #' ? 'py-3.5 pl-4 pr-4 sm:pl-6' : '',
                           heading !== 'Title' && heading !== 'SIMD #' ? 'px-3 py-3.5' : '',
-                          'bg-gray-50 text-sm font-bold uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-200'
+                          heading === 'GitHub'
+                            ? 'bg-gray-50 text-sm font-bold uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-200'
+                            : 'cursor-pointer bg-gray-50 text-sm font-bold uppercase text-gray-700 hover:underline dark:bg-gray-700 dark:text-gray-200'
                         )}
+                        onClick={heading === 'GitHub' ? null : () => handleSort(heading)}
                       >
                         {heading}
                       </th>
@@ -36,7 +84,7 @@ export default function Table({ content }) {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-500 dark:divide-gray-300">
-                  {content.map((item, idx) => (
+                  {sortedContent.map((item, idx) => (
                     <tr
                       key={idx}
                       className={classNames(
@@ -66,23 +114,6 @@ export default function Table({ content }) {
                           '-'
                         )}
                       </td>
-                      {/*<td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">*/}
-                      {/*  /!*TODO - do this when fetching data from github and have 2 fields like heading and sub so you dont do 2 times the same thing*!/*/}
-                      {/*  {getAuthorHeadings("person.author").length === 1 ? (*/}
-                      {/*    getAuthorHeadings("person.author").map((author, idx) => (*/}
-                      {/*      <div key={idx}>*/}
-                      {/*        <div className="text-gray-900">*/}
-                      {/*          {truncateText("author.heading", 30)}*/}
-                      {/*        </div>*/}
-                      {/*        <div className="text-gray-500">*/}
-                      {/*          {truncateText(author.subheading, 30)}*/}
-                      {/*        </div>*/}
-                      {/*      </div>*/}
-                      {/*    ))*/}
-                      {/*  ) : (*/}
-                      {/*    <div className="text-gray-900">{truncateText(person.author, 30)}</div>*/}
-                      {/*  )}*/}
-                      {/*</td>*/}
 
                       <td className="px-3 py-4 text-sm">
                         {item.metadata.authors ? (
@@ -104,7 +135,7 @@ export default function Table({ content }) {
                           href={item?.html_url}
                           target="_blank"
                           rel="noreferrer"
-                          className="flex items-center justify-center fill-gray-500 hover:fill-[#161614] dark:fill-gray-400"
+                          className="flex items-center justify-center fill-gray-500 hover:fill-[#161614] dark:fill-gray-400 dark:hover:fill-gray-200"
                         >
                           {/*<!-- Made by https://github.com/gilbarbara/logos -->*/}
                           <svg

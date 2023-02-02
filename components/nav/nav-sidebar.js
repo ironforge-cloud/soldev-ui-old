@@ -54,6 +54,11 @@ const special = [
     disabled: false
   },
   {
+    name: 'Improvement Documents(SIMD)',
+    href: '/simd',
+    disabled: false
+  },
+  {
     name: 'Specifications',
     href: '/specs',
     disabled: false
