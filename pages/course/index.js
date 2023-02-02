@@ -14,7 +14,7 @@ export default function Course() {
   return (
     <Container metaTags={metaTags}>
       <div className="mx-2">
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col text-center">
           <h1 className="text-2xl font-bold capitalize text-gray-900 dark:text-gray-200 md:text-3xl 2xl:text-4xl">
             Solana Development Course
           </h1>
