@@ -20,15 +20,17 @@ export default function Dropdown({ title, content }) {
       </button>
 
       {show && (
-        <div className="max-w-5xl pl-10">
+        <div className="max-w-5xl pl-2">
+          {/* Can't figure out how to render the markdown file with <a> tags that line to section on page */}
           {title === 'Content' &&
             content.map((lineItem, i) => (
               <p
                 className="prose inline-flex w-full text-sm font-medium text-gray-900 dark:text-gray-200"
                 key={i}
               >
-                <a name={`section${i}`}></a>
-                {lineItem}
+                <a className="no-underline" href={`#${lineItem.toLowerCase().replace(/ /g, '-')}`}>
+                  {lineItem}
+                </a>
               </p>
             ))}
 

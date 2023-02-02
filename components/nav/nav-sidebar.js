@@ -77,6 +77,11 @@ const special = [
     name: 'Stack Exchange',
     href: 'https://solana.stackexchange.com/',
     disabled: false
+  },
+  {
+    name: 'SIMD',
+    href: '/simd',
+    disabled: false
   }
 ];
 

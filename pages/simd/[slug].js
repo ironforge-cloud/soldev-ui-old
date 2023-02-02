@@ -39,15 +39,6 @@ export default function SIMDContent({ content }) {
     <Container metaTags={metaTags}>
       <div>
         <div className="flex flex-col rounded-lg dark:border-none lg:flex-row lg:border lg:bg-white dark:lg:bg-gray-800">
-          {/*  Mobile View Sidebar */}
-          <div className="flex w-full flex-col justify-center pl-10 lg:hidden xl:pl-20">
-            <div className="flex flex-col">
-              <Dropdown title={'Summary'} />
-              <Dropdown title={'Content'} />
-              <Dropdown title={'Recent Changes'} />
-            </div>
-          </div>
-
           {/*  Document view */}
           <div className="border-bg-gray-100 w-full py-8 pl-10 lg:w-11/12 lg:border-r xl:pl-20">
             <h1 className="mt-2 text-4xl font-bold capitalize tracking-tight text-gray-900 dark:text-gray-200">
@@ -59,7 +50,6 @@ export default function SIMDContent({ content }) {
                 <div className="w-full border-t border-gray-300" />
               </div>
             </div>
-
             <ArticleContent
               markdown={content.markdown}
               className="prose max-w-6xl py-5 pr-20 dark:prose-invert"
@@ -84,6 +74,14 @@ export default function SIMDContent({ content }) {
           />
         </div>
       </div>
+      {/* Mobile View Sidebar
+          <div className="flex w-full flex-col justify-center pl-10 lg:hidden xl:pl-20">
+            <div className="flex flex-col">
+              <Dropdown title={'Summary'} />
+              <Dropdown title={'Content'} />
+              <Dropdown title={'Recent Changes'} />
+            </div>
+          </div> */}
     </Container>
   );
 }
