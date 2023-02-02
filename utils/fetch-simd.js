@@ -1,6 +1,9 @@
 import { fetchContent, fetchPulls, fetchRaw } from './fetch-github';
 
-// fetch all SIMDs from the repository
+/**
+ * fetch all SIMDs from the repository
+ * @returns {Promise<Object>}
+ */
 export const fetchRepoSIMD = async () => {
   return await fetchContent('solana-foundation', 'solana-improvement-documents', 'proposals')
     .then(res => res.json())
@@ -16,7 +19,11 @@ export const fetchRepoSIMD = async () => {
     );
 };
 
-// parse SIMD md file header
+/**
+ * parse SIMD .md file header aka metadata
+ * @param data
+ * @returns {{}}
+ */
 export const parseMetadata = data => {
   const re = /---\n(.*)\n---/gs;
   const match = re.exec(data);
@@ -48,7 +55,10 @@ export const parseMetadata = data => {
   return result;
 };
 
-// fetch all SIMDs i.e. from repository and pull requests
+/**
+ * fetch all SIMDs i.e. from repository and pull requests
+ * @returns {Promise<Awaited<Response>[]>}
+ */
 export async function fetchAllSIMD() {
   const [pullRequests, repo] = await Promise.all([
     fetchPulls('solana-foundation', 'solana-improvement-documents'),
@@ -69,7 +79,7 @@ export async function fetchAllSIMD() {
       try {
         item.metadata = JSON.parse(JSON.stringify(parseMetadata(dataArray.join(''))));
       } catch (e) {
-        console.log('Failed to parse metadata');
+        console.error('Failed to parse metadata');
       }
       return item;
     })

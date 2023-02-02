@@ -2,8 +2,9 @@ import Link from 'next/link';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { Container } from '../../../components/layout';
-import { fetchGitHubFile, fetchSpecsModules } from '../../../utils/fetch-specs';
+import { fetchSpecsModules } from '../../../utils/fetch-specs';
 import markdownToHtml from '../../../utils/markdown';
+import { fetchRaw } from '../../../utils/fetch-github';
 
 export async function getStaticPaths() {
   const modules = await fetchSpecsModules();
@@ -49,7 +50,7 @@ export async function getStaticProps({ params }) {
   }
 
   // fetching the markdown file from GitHub
-  const markdown = await fetchGitHubFile(props.download_url);
+  const markdown = await fetchRaw(props.download_url);
 
   if (props.language) {
     props.markdown = markdown;

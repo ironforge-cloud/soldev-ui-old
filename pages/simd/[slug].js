@@ -1,9 +1,9 @@
 import { fetchAllSIMD } from '../../utils/fetch-simd';
 import { Container } from '../../components/layout';
 import ArticleContent from '../../components/course/articleContent';
-import { fetchGitHubFile } from '../../utils/fetch-specs';
 import Dropdown from '../../components/simd/dropdown';
 import BottomBar from '../../components/simd/bottomBar';
+import { fetchRaw } from '../../utils/fetch-github';
 
 export async function getStaticPaths() {
   const items = await fetchAllSIMD();
@@ -23,7 +23,7 @@ export async function getStaticProps({ params }) {
   const content = res.find(item => item.id.toString() === params.slug);
 
   // fetching markdown and getting rid of document metadata
-  content.markdown = await fetchGitHubFile(content.download_url[0]).then(res =>
+  content.markdown = await fetchRaw(content.download_url[0]).then(res =>
     res.replace(/^---[\s\S]*?---/m, '').trim()
   );
 

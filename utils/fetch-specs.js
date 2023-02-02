@@ -1,5 +1,9 @@
 import { fetchContent } from './fetch-github';
 
+/**
+ * fetch all specs directories
+ * @returns {Promise<Response[]>}
+ */
 export const fetchSpecsDir = async () => {
   const directories = [];
 
@@ -19,6 +23,10 @@ export const fetchSpecsDir = async () => {
   return directories;
 };
 
+/**
+ * fetch all specs modules
+ * @returns {Promise<Response[]>}
+ */
 export const fetchSpecsModules = async () => {
   const modules = [];
   const directories = await fetchSpecsDir();
@@ -45,12 +53,4 @@ export const fetchSpecsModules = async () => {
       });
   }
   return modules;
-};
-
-export const fetchGitHubFile = async url => {
-  return await fetch(url, {
-    headers: {
-      authorization: `TOKEN ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`
-    }
-  }).then(res => res.text());
 };
