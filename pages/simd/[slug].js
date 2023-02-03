@@ -11,8 +11,8 @@ export async function getStaticPaths() {
   // filter out SIMD files in incorrect format (missing title or simd number)
   const filteredContent = items.filter(item => item.metadata.title && item.metadata.simd);
 
-  const paths = filteredContent.map(({ id }) => ({
-    params: { slug: id.toString() }
+  const paths = filteredContent.map(item => ({
+    params: { slug: item.metadata.simd.toString() }
   }));
 
   return { paths, fallback: false };
@@ -20,7 +20,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const res = await fetchAllSIMD();
-  const content = res.find(item => item.id.toString() === params.slug);
+  const content = res.find(item => item.metadata.simd && item.metadata.simd.toString() === params.slug);
 
   // fetching markdown and getting rid of document metadata
   content.markdown = await fetchRaw(content.download_url[0]).then(res =>
