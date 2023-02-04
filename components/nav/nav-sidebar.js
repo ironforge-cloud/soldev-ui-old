@@ -7,6 +7,7 @@ import {
   HomeIcon,
   NewspaperIcon,
   PaperClipIcon,
+  PuzzleIcon,
   VideoCameraIcon
 } from '@heroicons/react/outline';
 import Link from 'next/link';
@@ -44,6 +45,12 @@ const navigation = [
     href: '/registry',
     icon: DocumentDuplicateIcon,
     disabled: false
+  },
+  {
+    name: 'SIMD',
+    href: '/simd',
+    icon: PuzzleIcon,
+    disabled: false
   }
 ];
 
@@ -51,11 +58,6 @@ const special = [
   {
     name: 'Cookbook',
     href: 'https://solanacookbook.com?utm_source=soldev.app',
-    disabled: false
-  },
-  {
-    name: 'Improvement Documents(SIMD)',
-    href: '/simd',
     disabled: false
   },
   {
