@@ -49,6 +49,8 @@ export default function SIMDContent({ content }) {
     shouldIndex: true
   };
 
+  console.log(content);
+
   // Get sections from markdown file
   const sections = (content.markdown.match(/^## .*$/gm) || []).map(line => line.slice(3));
 
@@ -85,7 +87,7 @@ export default function SIMDContent({ content }) {
       <div className="fixed inset-x-0 bottom-10 w-screen">
         <BottomBar
           github_url={content.html_url}
-          twitter_url={`https://twitter.com/share?url=https://soldev.app/simd/${content.id}&text=Check out this improvement proposal "${content.metadata.title}" from the Solana Improvement Documents(SIMD) on @soldevapp%0A%0A`}
+          twitter_url={`https://twitter.com/share?url=https://soldev.app/simd/${content.id}&text=Check out the SIMD-${content.metadata.simd} proposal "${content.metadata.title}" %0A%0A`}
         />
       </div>
     </Container>
