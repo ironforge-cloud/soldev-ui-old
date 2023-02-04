@@ -7,6 +7,7 @@ import {
   HomeIcon,
   NewspaperIcon,
   PaperClipIcon,
+  PuzzleIcon,
   VideoCameraIcon
 } from '@heroicons/react/outline';
 import Link from 'next/link';
@@ -43,6 +44,12 @@ const navigation = [
     name: 'IDL Registry',
     href: '/registry',
     icon: DocumentDuplicateIcon,
+    disabled: false
+  },
+  {
+    name: 'SIMD',
+    href: '/simd',
+    icon: PuzzleIcon,
     disabled: false
   }
 ];
