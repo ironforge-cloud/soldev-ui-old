@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import remarkGfm from 'remark-gfm';
-import remarkMermaid from 'remark-mermaid';
+import remarkMermaid from 'remark-mermaidjs';
 
 /*
   Define a component to render the react friendly markdown parser
@@ -14,7 +14,7 @@ function ArticleContent({ markdown = null, className = '' }) {
   return (
     <article className={className}>
       <ReactMarkdown
-        rehypePlugins={[remarkGfm, remarkMermaid]}
+        remarkPlugins={[remarkGfm, remarkMermaid]}
         components={{
           h2: HeadingRenderer,
           code: CodeBlock
