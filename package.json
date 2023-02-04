@@ -5,7 +5,8 @@
     "@sentry/nextjs": "^7.33.0",
     "next": "^13.1.5",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "rehype-mermaid": "^0.1.0"
   },
   "devDependencies": {
     "@algolia/autocomplete-core": "^1.7.4",

@@ -1,9 +1,12 @@
 import { fetchAllSIMD } from '../../utils/fetch-simd';
 import { Container } from '../../components/layout';
-import ArticleContent from '../../components/course/articleContent';
 import Dropdown from '../../components/simd/dropdown';
 import BottomBar from '../../components/simd/bottomBar';
 import { fetchRaw } from '../../utils/fetch-github';
+import dynamic from 'next/dynamic';
+const ArticleContent = dynamic(() => import('../../components/course/articleContent'), {
+  ssr: false,
+});
 
 export async function getStaticPaths() {
   const items = await fetchAllSIMD();
@@ -30,6 +33,7 @@ export async function getStaticProps({ params }) {
   if (!content) return { props: {} };
   return { props: { content, res }, revalidate: 300 };
 }
+
 export default function SIMDContent({ content }) {
   const metaTags = {
     title: `SolDev - ${content.metadata.title}`,
