@@ -1,9 +1,10 @@
-import { fetchAllSIMD } from '../../utils/fetch-simd';
-import { Container } from '../../components/layout';
-import Dropdown from '../../components/simd/dropdown';
-import BottomBar from '../../components/simd/bottomBar';
-import { fetchRaw } from '../../utils/fetch-github';
 import dynamic from 'next/dynamic';
+import { Container } from '../../components/layout';
+import BottomBar from '../../components/simd/bottomBar';
+import Dropdown from '../../components/simd/dropdown';
+import { fetchRaw } from '../../utils/fetch-github';
+import { fetchAllSIMD } from '../../utils/fetch-simd';
+
 const ArticleContent = dynamic(() => import('../../components/course/articleContent'), {
   ssr: false
 });
@@ -48,8 +49,6 @@ export default function SIMDContent({ content }) {
     url: `https://soldev.app/simd/${content.id.toString()}`,
     shouldIndex: true
   };
-
-  console.log(content);
 
   // Get sections from markdown file
   const sections = (content.markdown.match(/^## .*$/gm) || []).map(line => line.slice(3));
