@@ -5,7 +5,7 @@ import Dropdown from '../../components/simd/dropdown';
 import { fetchRaw } from '../../utils/fetch-github';
 import { fetchAllSIMD } from '../../utils/fetch-simd';
 
-const ArticleContent = dynamic(() => import('../../components/course/articleContent'), {
+const ArticleContent = dynamic(() => import('../../components/simd/articleContent'), {
   ssr: false
 });
 
