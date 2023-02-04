@@ -98,7 +98,7 @@ export default function Table({ content }) {
                         className="cursor-pointer px-3 py-4 text-sm no-underline hover:text-[#161614] hover:underline dark:hover:text-gray-200"
                         title={item?.metadata?.title}
                       >
-                        <Link href={`/simd/${item?.metadata?.simd +"-"+ item?.metadata?.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                        <Link href={`/simd/${item?.metadata?.simd +'-'+ item?.metadata?.title.toLowerCase().replace(/\s+/g, '-')}`}>
                           {truncateText(item?.metadata?.title, 60)}
                         </Link>
                       </td>
