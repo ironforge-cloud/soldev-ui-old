@@ -7,6 +7,17 @@ const moduleExports = withPlausibleProxy()({
   experimental: {
     legacyBrowsers: false
   },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      // don't resolve 'fs' module on the client to prevent this error on build --> Error: Can't resolve 'fs'
+      config.resolve.fallback = {
+        fs: false,
+        child_process: false
+      };
+    }
+
+    return config;
+  },
   images: {
     domains: [
       'rotatingcanvas.com',
