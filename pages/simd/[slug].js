@@ -75,7 +75,7 @@ export default function SIMDContent({ content }) {
 
         {/*  Sidebar */}
         <div className="hidden h-screen w-3/12 flex-col px-4 lg:flex">
-          <div className="inset-y-screen fixed mt-10 flex cursor-pointer flex-col gap-4">
+          <div className="inset-y-screen fixed mt-10 flex w-60 cursor-pointer flex-col gap-4">
             <Dropdown title="Content" content={sections} />
             <Dropdown title="Details" content={content.metadata} />
           </div>
