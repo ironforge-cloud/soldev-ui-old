@@ -15,9 +15,9 @@ export async function getStaticProps() {
 
 export default function Specs({ content }) {
   const metaTags = {
-    title: 'Solana Improvement Documents',
+    title: 'SolDev - SIMD',
     description:
-      'This section hosts the Solana Improvement Documents(SIMD) assembled in this repository https://github.com/solana-foundation/solana-improvement-documents. The improvement documents describe proposed and accepted changes to the Solana protocol.',
+      'The improvement documents describe proposed and accepted changes to the Solana protocol.',
     url: 'https://soldev.app/simd',
     shouldIndex: true
   };
