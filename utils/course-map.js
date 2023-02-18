@@ -96,12 +96,12 @@ export const modules = [
   ],
   [
     {
-      title: 'Lesson 1',
-      link: ''
+      title: 'Environment variables in Solana programs',
+      link: '/course/env-variables'
     },
     {
-      title: 'Lesson 2',
-      link: ''
+      title: 'Solana Pay',
+      link: '/course/solana-pay'
     },
     {
       title: 'Lesson 3',
