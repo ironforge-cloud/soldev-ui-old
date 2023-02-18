@@ -105,11 +105,13 @@ export const modules = [
     },
     {
       title: 'Lesson 3',
-      link: ''
+      link: '',
+      ready: false
     },
     {
       title: 'Lesson 4',
-      link: ''
+      link: '',
+      ready: false
     }
   ],
   [

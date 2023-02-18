@@ -54,7 +54,7 @@ function Table() {
         <TableHeader ready title="Beyond the Basics" subTitle="Module 6" />
 
         {modules[5].map((item, index) => {
-          return <TableRow ready={false} item={item} index={index} key={index} />;
+          return <TableRow ready={item.ready ?? true} item={item} index={index} key={index} />;
         })}
       </div>
 
