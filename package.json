@@ -31,7 +31,7 @@
     "isomorphic-unfetch": "^4.0.2",
     "next-plausible": "^3.7.1",
     "next-transpile-modules": "^10.0.0",
-    "postcss": "^8.4.21",
+    "postcss": "^8.4.31",
     "prettier": "^2.8.3",
     "prettier-plugin-tailwindcss": "^0.2.2",
     "prop-types": "^15.8.1",
